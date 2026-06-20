@@ -36,13 +36,12 @@
  .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; flex-wrap: wrap; }
  .footer-links a { font-size: 13px; color: #888; text-decoration: none; }
  .footer-copy { font-size: 13px; color: #aaa; }
- [data-lang="zh"] { display: none; }
-        span[data-lang], a[data-lang] { display: none; }
- body.zh [data-lang="en"] { display: none; }
-        span[data-lang], a[data-lang] { display: none; }
- body.zh [data-lang="zh"] { display: block; }
  @media (max-width: 640px) { .hero h1 { font-size: 28px; } .hero { padding: 48px 16px 32px; } .content { padding: 16px 16px 80px; } }
- </style>
+ 
+/* Language Switching */
+[data-lang="zh"] { display: none; }
+body.zh [data-lang="en"] { display: none; }
+body.zh [data-lang="zh"] { display: block; }
 
 /* ========================================
    AWWWARDS-LEVEL DYNAMIC EFFECTS
@@ -293,7 +292,7 @@ footer {
     }
 }
 
-</head>
+</style>
 <body>
 <nav><div class="nav-inner">
  <a href="https://www.li1234.com" class="nav-logo">Py<span>Academy</span></a>

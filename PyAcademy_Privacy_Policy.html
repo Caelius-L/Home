@@ -1,5 +1,4 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
  <meta charset="UTF-8">
@@ -244,22 +243,8 @@
  }
 
  /* Language toggle */
- [data-lang="zh"] {
- display: none;
- }
-
- body.zh [data-lang="en"] {
- display: none;
- }
-
- body.zh [data-lang="zh"] {
- display: block;
- }
 
  /* Inline lang toggle for elements that are not block */
- span[data-lang], a[data-lang] {
- /* handled via inline display */
- }
 
  body.zh span[data-lang="en"],
  body.zh a[data-lang="en"] {
@@ -311,7 +296,11 @@
  background: #fde68a;
  color: #1a1a1a;
  }
- </style>
+ 
+/* Language Switching */
+[data-lang="zh"] { display: none; }
+body.zh [data-lang="en"] { display: none; }
+body.zh [data-lang="zh"] { display: block; }
 
 /* ========================================
    AWWWARDS-LEVEL DYNAMIC EFFECTS
@@ -562,7 +551,7 @@ footer {
     }
 }
 
-</head>
+</style>
 <body>
 
  <!-- Navigation -->
@@ -1164,7 +1153,6 @@ footer {
     }
 })();
 </script>
-
 
 </body>
 </html>

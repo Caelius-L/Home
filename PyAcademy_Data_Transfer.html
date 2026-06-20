@@ -1,5 +1,4 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
  <meta charset="UTF-8">
@@ -44,22 +43,14 @@
  .footer-links a { font-size: 13px; color: #888; text-decoration: none; transition: color 0.2s; }
  .footer-links a:hover { color: #1a1a1a; }
  .footer-copy { font-size: 13px; color: #aaa; }
- [data-lang="zh"] { display: none; }
-        span[data-lang], a[data-lang] { display: none; }
- body.zh [data-lang="en"] { display: none; }
-        span[data-lang], a[data-lang] { display: none; }
- body.zh [data-lang="zh"] { display: block; }
- span[data-lang="zh"], a[data-lang="zh"] { display: none; }
-        span[data-lang], a[data-lang] { display: none; }
- body.zh span[data-lang="en"], body.zh a[data-lang="en"] { display: none; }
-body.zh [data-lang="zh"] { display: block; }
-        body.zh span[data-lang="zh"], body.zh a[data-lang="zh"] { display: inline; }
-                span[data-lang], a[data-lang] { display: none; }
- body.zh span[data-lang="zh"], body.zh a[data-lang="zh"] { display: inline; }
  @media (max-width: 640px) { .hero h1 { font-size: 28px; } .hero { padding: 48px 16px 32px; } .content { padding: 16px 16px 80px; } .nav-links { gap: 16px; } }
  html { scroll-behavior: smooth; }
  ::selection { background: #fde68a; color: #1a1a1a; }
- </style>
+ 
+/* Language Switching */
+[data-lang="zh"] { display: none; }
+body.zh [data-lang="en"] { display: none; }
+body.zh [data-lang="zh"] { display: block; }
 
 /* ========================================
    AWWWARDS-LEVEL DYNAMIC EFFECTS
@@ -310,7 +301,7 @@ footer {
     }
 }
 
-</head>
+</style>
 <body>
 
 <nav><div class="nav-inner">

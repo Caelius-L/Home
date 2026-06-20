@@ -186,16 +186,6 @@
  font-size: 13px;
  color: #aaa;
  }
-
- [data-lang="zh"] {
- display: none;
- }
- body.zh [data-lang="en"] {
- display: none;
- }
- body.zh [data-lang="zh"] {
- display: block;
- }
  span[data-lang="zh"],
  a[data-lang="zh"] {
  display: none;
@@ -230,7 +220,11 @@
  background: #fde68a;
  color: #1a1a1a;
  }
- </style>
+ 
+/* Language Switching */
+[data-lang="zh"] { display: none; }
+body.zh [data-lang="en"] { display: none; }
+body.zh [data-lang="zh"] { display: block; }
 
 /* ========================================
    AWWWARDS-LEVEL DYNAMIC EFFECTS
@@ -481,7 +475,7 @@ footer {
     }
 }
 
-</head>
+</style>
 <body>
  <nav>
  <div class="nav-inner">
@@ -768,7 +762,6 @@ function switchLang(lang) {
     }
 })();
 </script>
-
 
 </body>
 </html>
