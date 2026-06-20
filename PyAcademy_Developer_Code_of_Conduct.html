@@ -56,6 +56,256 @@ body.zh [data-lang="zh"] { display: block; }
  ::selection { background: #fde68a; color: #1a1a1a; }
  @media (max-width: 640px) { .hero h1 { font-size: 28px; } .hero { padding: 48px 16px 32px; } .content { padding: 16px 16px 80px; } }
  </style>
+
+/* ========================================
+   AWWWARDS-LEVEL DYNAMIC EFFECTS
+   基于 gpt-taste + high-end-visual-design 技能
+   ======================================== */
+
+/* 高级 cubic-bezier 曲线定义 */
+:root {
+    --ease-smooth: cubic-bezier(0.32, 0.72, 0, 1);
+    --ease-dramatic: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-magnetic: cubic-bezier(0.12, 0.92, 0.32, 1.1);
+    --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* 性能优化：GPU 加速 */
+nav, .nav-inner, .nav-logo, .lang-btn, .hero, .content, footer {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+}
+
+/* 入场动画关键帧 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+        filter: blur(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* 元素交错入场动画 */
+nav {
+    animation: slideInLeft 0.5s var(--ease-dramatic) forwards;
+}
+
+.hero {
+    animation: fadeInUp 0.6s var(--ease-dramatic) 0.1s both;
+}
+
+.hero h1 {
+    animation: fadeInUp 0.5s var(--ease-dramatic) 0.15s both;
+}
+
+.hero .date {
+    animation: fadeInUp 0.5s var(--ease-dramatic) 0.2s both;
+}
+
+.hero .intro {
+    animation: fadeInUp 0.5s var(--ease-dramatic) 0.25s both;
+}
+
+.content {
+    animation: fadeInUp 0.5s var(--ease-dramatic) 0.3s both;
+}
+
+.content h2 {
+    animation: fadeInUp 0.5s var(--ease-dramatic) 0.35s both;
+}
+
+.content p, .content li {
+    animation: fadeInUp 0.5s var(--ease-dramatic) 0.4s both;
+}
+
+footer {
+    animation: fadeInUp 0.5s var(--ease-dramatic) 0.45s both;
+}
+
+/* 语言按钮悬停物理效果 */
+.lang-btn {
+    transition: all 0.3s var(--ease-magnetic);
+    position: relative;
+    overflow: hidden;
+}
+
+.lang-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(0,0,0,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s var(--ease-smooth), height 0.4s var(--ease-smooth);
+    pointer-events: none;
+}
+
+.lang-btn:hover::before {
+    width: 200%;
+    height: 200%;
+}
+
+.lang-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.lang-btn:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+/* 导航链接悬停效果 */
+.nav-links a {
+    position: relative;
+    transition: color 0.3s var(--ease-smooth);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #d97706, #f59e0b);
+    border-radius: 1px;
+    transition: width 0.3s var(--ease-smooth);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* 内容链接悬停效果 */
+.content a {
+    position: relative;
+    transition: all 0.3s var(--ease-smooth);
+}
+
+.content a:hover {
+    text-decoration: none;
+}
+
+/* 高亮区块增强效果 */
+.content .highlight {
+    transition: all 0.4s var(--ease-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.content .highlight::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.6s var(--ease-smooth);
+}
+
+.content .highlight:hover::before {
+    left: 100%;
+}
+
+/* 条款区块悬停效果 */
+.content .clause {
+    transition: all 0.3s var(--ease-smooth);
+    border-radius: 8px;
+}
+
+.content .clause:hover {
+    background: rgba(0,0,0,0.02);
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-left: -12px;
+    margin-right: -12px;
+}
+
+/* 页脚链接悬停效果 */
+.footer-links a {
+    transition: all 0.3s var(--ease-smooth);
+    position: relative;
+}
+
+.footer-links a:hover {
+    color: #d97706;
+    transform: translateX(2px);
+}
+
+/* 滚动条美化 */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.05);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.15);
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0,0,0,0.25);
+}
+
+/* 选中文字样式 */
+::selection {
+    background: rgba(217, 119, 6, 0.2);
+    color: inherit;
+}
+
+/* 减少动画（无障碍支持） */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+    nav {
+        animation: none;
+    }
+
+    .hero, .hero h1, .hero .date, .hero .intro,
+    .content, .content h2, .content p, .content li,
+    footer {
+        animation: none;
+    }
+}
+
 </head>
 <body>
 <nav><div class="nav-inner">
