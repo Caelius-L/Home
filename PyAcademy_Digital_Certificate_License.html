@@ -1,0 +1,428 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>软件使用数字证书许可 – PyAcademy</title>
+ <style>
+ @font-face { font-family: 'AnthropicSerif'; src: url('AnthropicSerif-Romans-Variable-25x258.ttf') format('truetype'); font-weight: 100 900; font-style: normal; font-display: swap; }
+ *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'AnthropicSerif', 'Georgia', serif; color: #1a1a1a; background: #fff; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+ nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid #eaeaea; padding: 0 24px; }
+ .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+ .nav-logo { font-size: 18px; font-weight: 700; color: #1a1a1a; text-decoration: none; letter-spacing: -0.02em; }
+ .nav-logo span { color: #d97706; }
+ .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+ .nav-links a { font-size: 14px; font-weight: 500; color: #666; text-decoration: none; transition: color 0.2s; }
+ .nav-links a:hover { color: #1a1a1a; }
+ .lang-divider { width: 1px; height: 16px; background: #ddd; }
+ .lang-btn { font-size: 13px; font-weight: 500; color: #888; padding: 4px 10px; border: 1px solid #ddd; border-radius: 6px; transition: all 0.2s; cursor: pointer; background: none; }
+ .lang-btn:hover { color: #1a1a1a; border-color: #aaa; }
+ .lang-btn.active { color: #d97706; border-color: #d97706; background: #fffbeb; }
+ .hero { padding: 80px 24px 48px; max-width: 1200px; margin: 0 auto; }
+ .hero h1 { font-size: 42px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 16px; }
+ .hero .date { font-size: 15px; color: #888; margin-bottom: 24px; }
+ .hero .intro { font-size: 17px; color: #444; max-width: 720px; line-height: 1.8; }
+ .content { max-width: 760px; margin: 0 auto; padding: 24px 24px 120px; }
+ .content h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin-top: 48px; margin-bottom: 16px; color: #1a1a1a; border-bottom: 2px solid #f0f0f0; padding-bottom: 8px; }
+ .content h3 { font-size: 16px; font-weight: 600; margin-top: 28px; margin-bottom: 10px; color: #1a1a1a; }
+ .content p { font-size: 15px; line-height: 1.8; color: #333; margin-bottom: 14px; }
+ .content ul { margin-bottom: 14px; padding-left: 20px; }
+ .content li { font-size: 15px; line-height: 1.8; color: #333; margin-bottom: 8px; }
+ .content a { color: #d97706; text-decoration: underline; text-underline-offset: 2px; transition: color 0.2s; }
+ .content a:hover { color: #b45309; }
+ .note { font-size: 14px; color: #666; background: #f9f9f9; border-left: 3px solid #d97706; padding: 16px 20px; margin: 24px 0; border-radius: 0 6px 6px 0; }
+ .warn { font-size: 14px; color: #7c2d12; background: #fff7ed; border: 1px solid #fed7aa; padding: 16px 20px; margin: 24px 0; border-radius: 8px; }
+ .cert-type-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+ .cert-type-card { background: #f9f9f9; border: 1px solid #e5e5e5; border-radius: 10px; padding: 18px 20px; }
+ .cert-type-card h4 { font-size: 14px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; }
+ .cert-type-card p { font-size: 13px; color: #555; margin-bottom: 0; line-height: 1.6; }
+ .cert-type-card .badge { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 8px; background: #fde68a; color: #92400e; }
+ .def-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; }
+ .def-table th { text-align: left; padding: 10px 14px; background: #f5f5f5; font-weight: 600; color: #1a1a1a; border-bottom: 2px solid #e5e5e5; }
+ .def-table td { padding: 10px 14px; border-bottom: 1px solid #f0f0f0; color: #444; vertical-align: top; }
+ .def-table tr:last-child td { border-bottom: none; }
+ .def-table td:first-child { font-weight: 600; color: #1a1a1a; white-space: nowrap; }
+ footer { border-top: 1px solid #eaeaea; padding: 48px 24px; text-align: center; }
+ .footer-inner { max-width: 1200px; margin: 0 auto; }
+ .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; flex-wrap: wrap; }
+ .footer-links a { font-size: 13px; color: #888; text-decoration: none; }
+ .footer-links a:hover { color: #1a1a1a; }
+ .footer-copy { font-size: 13px; color: #aaa; }
+ [[data-lang="zh"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh [data-lang="en"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh [[data-lang="zh"] { display: block; }
+ span[[data-lang="zh"], a[[data-lang="zh"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh span[data-lang="en"], body.zh a[data-lang="en"] { display: none; }
+body.zh [data-lang="zh"] { display: block; }
+        body.zh span[data-lang="zh"], body.zh a[data-lang="zh"] { display: inline; }
+                span[data-lang], a[data-lang] { display: none; }
+ body.zh span[[data-lang="zh"], body.zh a[[data-lang="zh"] { display: inline; }
+ html { scroll-behavior: smooth; }
+ ::selection { background: #fde68a; color: #1a1a1a; }
+ @media (max-width: 640px) { .hero h1 { font-size: 28px; } .hero { padding: 48px 16px 32px; } .content { padding: 16px 16px 80px; } .cert-type-grid { grid-template-columns: 1fr; } }
+ </style>
+</head>
+<body>
+<nav><div class="nav-inner">
+ <a href="https://www.li1234.com" class="nav-logo">Py<span>Academy</span></a>
+ <ul class="nav-links">
+ <li><a href="https://www.li1234.com" data-lang="en">Home</a><a href="https://www.li1234.com" data-lang="zh">首页</a></li>
+ <li><div class="lang-divider"></div></li>
+ <li><button class="lang-btn active" id="btn-en" onclick="switchLang('en')">EN</button><button class="lang-btn" id="btn-zh" onclick="switchLang('zh')">中文</button></li>
+ </ul>
+</div></nav>
+
+<!-- 英文版 -->
+<div data-lang="en">
+<div class="hero">
+ <h1>Software Digital Certificate License</h1>
+ <p class="date">Effective Date: May 4, 2026</p>
+ <p class="intro">This Software Digital Certificate License ("License") governs the receipt, possession, display, sharing, and use of digital credentials issued by PyAcademy in connection with your learning activity on the platform. Please read it carefully before claiming any Certificate.</p>
+</div>
+<div class="content">
+ <p>By accessing, claiming, downloading, displaying, sharing, or otherwise using a Certificate, you enter into a binding agreement with PyAcademy Ltd. ("PyAcademy," "we," "us") on the terms set out below. If you do not agree to these terms, you must not claim or use any Certificate. PyAcademy reserves all rights not expressly granted to you under this License.</p>
+
+ <h2>1. Definitions</h2>
+ <table class="def-table">
+ <tr><th>Term</th><th>Meaning</th></tr>
+ <tr><td>"Certificate"</td><td>Any digital credential issued by PyAcademy, including Course Completion Certificates, Skill Badges, Proficiency Credentials, Learning Path Awards, Instructor Credentials, and any other digital artifact that attests to achievement or participation on the platform.</td></tr>
+ <tr><td>"Claimed Certificate"</td><td>A Certificate that has been associated with your PyAcademy account following successful fulfilment of the relevant requirements.</td></tr>
+ <tr><td>"Verification URL"</td><td>The unique, stable web address embedded in each Certificate that allows third parties to confirm its authenticity and current status.</td></tr>
+ <tr><td>"Certificate Metadata"</td><td>The structured data associated with a Certificate, including earner name, issue date, expiry date (if any), issuer information, cryptographic signature, and achievement criteria.</td></tr>
+ <tr><td>"PyAcademy Brand Assets"</td><td>All logos, wordmarks, colour schemes, badge designs, and other visual elements owned by or licensed to PyAcademy that appear on or in connection with any Certificate.</td></tr>
+ <tr><td>"You" / "Earner"</td><td>The individual who has been issued a Certificate in connection with their own learning activity on PyAcademy.</td></tr>
+ </table>
+
+ <h2>2. Certificate Types and Their Scope</h2>
+ <p>PyAcademy issues several categories of Certificates, each with specific requirements and significance. Understanding the scope of each type is your responsibility before claiming or sharing it.</p>
+ <div class="cert-type-grid">
+ <div class="cert-type-card">
+ <div class="badge">Completion</div>
+ <h4>Course Completion Certificate</h4>
+ <p>Issued upon completing all required modules and assessments of a single course. Attests to participation and completion, not a specific level of proficiency.</p>
+ </div>
+ <div class="cert-type-card">
+ <div class="badge">Skill</div>
+ <h4>Skill Badge</h4>
+ <p>Awarded for demonstrating competency in a defined skill area through assessments. Carries a specific proficiency level (Foundational, Practitioner, or Advanced).</p>
+ </div>
+ <div class="cert-type-card">
+ <div class="badge">Proficiency</div>
+ <h4>Proficiency Credential</h4>
+ <p>Issued after passing a proctored or platform-verified assessment. Represents a higher standard of validation and may carry an expiry date.</p>
+ </div>
+ <div class="cert-type-card">
+ <div class="badge">Path</div>
+ <h4>Learning Path Award</h4>
+ <p>Granted upon completing a curated sequence of courses and projects. Represents comprehensive knowledge across an area of study.</p>
+ </div>
+ </div>
+ <p>PyAcademy may introduce additional Certificate types from time to time. The specific requirements and validity periods for each type are described in the relevant course or programme page on the platform.</p>
+
+ <h2>3. Grant of License</h2>
+ <p>Subject to your continuous compliance with this License and all applicable PyAcademy policies (including our <a href="https://li1234.com/PyAcademy_Consumer_Terms.html">Terms of Service</a>, <a href="https://li1234.com/PyAcademy_Community_Guidelines.html">Community Guidelines</a>, and <a href="https://li1234.com/PyAcademy_Usage_Rules.html">Usage Rules</a>), PyAcademy grants you a personal, non-exclusive, non-transferable, non-sublicensable, revocable, worldwide license to:</p>
+ <ul>
+ <li><strong>Display:</strong> Show your Claimed Certificate on personal portfolios, websites, social media profiles, and professional networking platforms (such as LinkedIn) for the sole purpose of representing your own learning achievement. You must link to or display the Verification URL whenever technically feasible.</li>
+ <li><strong>Share:</strong> Transmit a copy or link to your Certificate to prospective employers, academic institutions, professional organisations, or other parties evaluating your qualifications.</li>
+ <li><strong>Download and Store:</strong> Retain a personal digital copy of the Certificate file for archival and offline reference purposes.</li>
+ <li><strong>Print:</strong> Produce a physical copy of your Certificate for personal display or submission to institutions that require a hard copy, provided the printed copy is clearly marked "Printed Copy – Verify at [Verification URL]".</li>
+ </ul>
+ <p>This license is limited to Certificates issued to you personally based on your own learning activity. No rights are granted in respect of Certificates issued to other persons.</p>
+
+ <h2>4. Ownership and Intellectual Property</h2>
+
+ <h3>4.1 PyAcademy's Ownership</h3>
+ <p>All Certificates, including their visual design, layout, typography, colour schemes, PyAcademy Brand Assets, cryptographic structures, Certificate Metadata, and Verification URLs, are the exclusive intellectual property of PyAcademy or its licensors, protected by copyright, trademark, and other applicable intellectual property laws. This License does not transfer any ownership interest, title, or intellectual property right to you.</p>
+
+ <h3>4.2 No Derivative Works</h3>
+ <p>You may not alter, edit, modify, crop, overlay, or create any derivative work based on a Certificate or any PyAcademy Brand Asset appearing on a Certificate. Minor resizing for display purposes (without altering proportions, content, or visible metadata) is permitted.</p>
+
+ <h3>4.3 No Unauthorised Reproduction</h3>
+ <p>You may not reproduce, publish, broadcast, or distribute any Certificate or PyAcademy Brand Asset beyond the scope expressly permitted in Section 3. Any commercial exploitation—including licensing your Certificate to third parties, incorporating it into paid products, or using it in advertising—is strictly prohibited.</p>
+
+ <h3>4.4 Open Badge Standards</h3>
+ <p>Where PyAcademy issues Certificates using the IMS Global Open Badges standard, the underlying metadata is structured according to that specification. PyAcademy's ownership of and rights in the Certificate are not affected by the use of open standards for interoperability.</p>
+
+ <h2>5. Restrictions and Prohibited Conduct</h2>
+ <p>You shall not, and shall not assist, encourage, or permit any third party to:</p>
+ <ul>
+ <li>Falsify, forge, tamper with, reverse-engineer, or alter any data, metadata, cryptographic signature, Verification URL, timestamp, or visual element of any Certificate.</li>
+ <li>Claim, represent, imply, or suggest that you have earned a Certificate you did not earn, or earned it under circumstances different from those that actually occurred (including through another person's effort or through the use of prohibited assistance).</li>
+ <li>Misrepresent the level, scope, or significance of a Certificate (e.g., describing a Completion Certificate as a Proficiency Credential, or claiming currency of an expired Credential).</li>
+ <li>Sell, resell, lease, rent, exchange, donate, or otherwise transfer or assign any Certificate, Verification URL, or associated rights to another person for any consideration, whether commercial or non-commercial.</li>
+ <li>Sublicense, distribute, publish, or make available any Certificate in bulk for promotional, marketing, or other commercial purposes without PyAcademy's prior written consent.</li>
+ <li>Use any Certificate to impersonate PyAcademy, its instructors, partners, or any affiliated entity, or to suggest endorsement of a third-party product or service by PyAcademy.</li>
+ <li>Circumvent, disable, or undermine any technical, cryptographic, watermarking, or digital rights management measure embedded in or associated with a Certificate.</li>
+ <li>Use automated means (scripts, bots, scraping tools, AI image generators) to generate, replicate, or fabricate Certificates or any visual elements thereof.</li>
+ <li>Use any Certificate in connection with content that is illegal, defamatory, obscene, discriminatory, or otherwise contrary to PyAcademy's policies.</li>
+ <li>Reproduce or display a Certificate in a manner that is technically inaccurate (e.g., showing a "verified" Certificate that has since been revoked).</li>
+ </ul>
+
+ <h2>6. Verification System</h2>
+
+ <h3>6.1 How Verification Works</h3>
+ <p>Each Certificate contains a unique identifier linked to a permanent Verification URL hosted by PyAcademy. Third parties (employers, institutions, licensing bodies) can access this URL to obtain real-time confirmation of: the Certificate's authenticity; the earner's name as registered on PyAcademy; the date of issue; the course or programme title; the proficiency level (where applicable); and the current status (Valid, Expired, or Revoked).</p>
+
+ <h3>6.2 Your Obligations in Verification</h3>
+ <p>You must provide accurate personal information when creating your PyAcademy account and when claiming a Certificate. If your legal name changes after a Certificate is issued, you may request an update by contacting <a href="mailto:certificates@li1234.top">certificates@li1234.top</a>. Inaccurate information that affects the validity of a verification constitutes a policy violation and may result in revocation.</p>
+
+ <h3>6.3 Third-Party Verification Integrations</h3>
+ <p>PyAcademy may integrate with third-party professional networks or credential verification services (such as LinkedIn, Credly, or Accredible) to facilitate sharing and verification. Your use of those third-party platforms is subject to their own terms and privacy policies. PyAcademy's obligations under this License are not affected by the availability or conduct of any third-party integration.</p>
+
+ <h3>6.4 No Guarantee of Perpetual Availability</h3>
+ <p>While PyAcademy intends to maintain Verification URLs for the duration of this License, PyAcademy does not guarantee perpetual availability of the verification service. In the event of a planned discontinuation, PyAcademy will provide at least 12 months' advance notice and facilitate migration to an alternative verification mechanism where reasonably practicable.</p>
+
+ <h2>7. Validity, Expiry, and Renewal</h2>
+
+ <h3>7.1 Perpetual Certificates</h3>
+ <p>Course Completion Certificates and Learning Path Awards do not carry an expiry date and remain valid indefinitely, subject to the terms of this License and provided the underlying course content has not been substantially revised or retired.</p>
+
+ <h3>7.2 Time-Limited Credentials</h3>
+ <p>Proficiency Credentials and certain Skill Badges may carry an expiry date, reflecting the time-sensitive nature of technical proficiency. The expiry date is stated on the Certificate and in the Certificate Metadata. An expired Credential is not revoked—it remains in your account history—but its Verification URL will show a status of "Expired." You may renew an expired Credential by retaking and passing the relevant assessment.</p>
+
+ <h3>7.3 Curriculum Retirement</h3>
+ <p>If PyAcademy substantially retires or replaces a course, the associated Certificates may be marked as "Legacy" in the verification system. Legacy Certificates remain valid evidence of historical completion but may not reflect current curriculum standards. PyAcademy will provide advance notice of any legacy designation on the relevant course page.</p>
+
+ <h2>8. Revocation</h2>
+
+ <h3>8.1 Grounds for Revocation</h3>
+ <p>PyAcademy may revoke any Certificate, with immediate effect, if it determines that:</p>
+ <ul>
+ <li>The Certificate was issued as a result of technical error, system fault, or administrative mistake.</li>
+ <li>You obtained the Certificate through academic dishonesty, including (without limitation) the submission of another person's work, the use of AI tools in a manner prohibited by the assessment rules, collusion, plagiarism, or bribery.</li>
+ <li>You violated any provision of this License, including the prohibited conduct in Section 5.</li>
+ <li>You violated PyAcademy's <a href="https://li1234.com/PyAcademy_Community_Guidelines.html">Community Guidelines</a>, <a href="https://li1234.com/PyAcademy_Usage_Rules.html">Usage Rules</a>, or <a href="https://li1234.com/PyAcademy_User_Agreement.html">User Agreement</a> in connection with the activities that led to the issuance of the Certificate.</li>
+ <li>A court, regulator, or competent authority has determined that the Certificate was improperly issued or that the associated activities were unlawful.</li>
+ </ul>
+
+ <h3>8.2 Revocation Process</h3>
+ <p>Before revoking a Certificate (except in cases of fraud or legal obligation), PyAcademy will notify you by email and give you a reasonable opportunity (typically 14 days) to respond. If you believe a revocation decision was made in error, you may appeal under Section 11. Upon revocation, the Verification URL will display a status of "Revoked," and you must cease all display and use of the Certificate.</p>
+
+ <h3>8.3 No Entitlement to Reissuance</h3>
+ <p>Revocation of a Certificate does not automatically entitle you to re-take the relevant course or assessment free of charge. Eligibility for re-assessment will be communicated separately at PyAcademy's discretion.</p>
+
+ <h2>9. Term and Termination</h2>
+ <p>This License is effective from the date you claim your first Certificate and remains in effect until terminated. PyAcademy may terminate this License immediately and without notice if you materially breach any provision. Upon termination: you must immediately cease all use, display, and distribution of any Certificate; you must delete all locally stored copies of Certificates; and PyAcademy may mark all your Certificates as "Revoked" in the verification system. Sections 4, 5, 10, 12, 13, and 14 survive any termination or expiry of this License.</p>
+
+ <h2>10. No Academic Degree or Professional Licence</h2>
+ <p>A Certificate issued by PyAcademy is a record of learning achievement on the PyAcademy platform. It does not constitute, and must not be represented as: an officially recognised academic degree, diploma, or qualification; a professional licence, certification, or registration required by any regulatory body; an endorsement by any government, academic institution, employer, or professional body; or a guarantee of employment, promotion, salary, or any other professional outcome. You are solely responsible for understanding the weight and recognition given to PyAcademy Certificates in your jurisdiction and industry.</p>
+
+ <h2>11. Appeals</h2>
+ <p>If you wish to appeal a revocation decision or dispute any other action taken under this License, you must submit a written appeal to <a href="mailto:certificates@li1234.top">certificates@li1234.top</a> within 30 calendar days of the relevant decision. Your appeal must include: your full name and registered email; the Certificate ID(s) in question; a clear statement of the grounds for appeal; and any supporting evidence. Appeals will be reviewed by a team independent of the original decision-maker. A written outcome will be provided within 20 business days.</p>
+
+ <h2>12. Disclaimer of Warranties</h2>
+ <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, CERTIFICATES ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTY OF ANY KIND. PYACADEMY EXPRESSLY DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO: WARRANTIES OF MERCHANTABILITY; FITNESS FOR A PARTICULAR PURPOSE; ACCURACY OR COMPLETENESS OF CERTIFICATE CONTENT OR METADATA; UNINTERRUPTED OR ERROR-FREE OPERATION OF THE VERIFICATION SERVICE; NON-INFRINGEMENT; AND ANY WARRANTIES ARISING FROM COURSE OF DEALING, USAGE OF TRADE, OR CUSTOM OR PRACTICE IN ANY PROFESSION OR INDUSTRY.</p>
+
+ <h2>13. Limitation of Liability</h2>
+ <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL PYACADEMY, ITS DIRECTORS, EMPLOYEES, LICENSORS, OR PARTNERS BE LIABLE FOR: ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, PUNITIVE, OR EXEMPLARY DAMAGES; ANY LOSS OF REPUTATION, EMPLOYMENT OPPORTUNITIES, PROFESSIONAL STATUS, OR BUSINESS; ANY LOSS OF DATA OR INABILITY TO ACCESS CERTIFICATES; OR ANY CLAIMS ARISING FROM THIRD-PARTY RELIANCE ON OR REJECTION OF A CERTIFICATE — EVEN IF PYACADEMY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. PYACADEMY'S TOTAL AGGREGATE LIABILITY TO YOU ARISING OUT OF OR IN CONNECTION WITH THIS LICENSE SHALL IN NO EVENT EXCEED FIFTY EUROS (€50) OR THE AMOUNT YOU PAID FOR THE RELEVANT COURSE, WHICHEVER IS HIGHER.</p>
+ <p>Nothing in this Section excludes liability for death or personal injury caused by negligence, fraud or fraudulent misrepresentation, or any other liability that cannot be excluded or limited by applicable law.</p>
+
+ <h2>14. Governing Law and Dispute Resolution</h2>
+
+ <h3>14.1 Governing Law</h3>
+ <p>For users residing in the European Economic Area, Switzerland, or the United Kingdom: this License is governed by the laws of France, without regard to its conflict of law provisions. For all other users: this License is governed by the laws of the State of California, USA, without regard to its conflict of law provisions.</p>
+
+ <h3>14.2 Dispute Resolution</h3>
+ <p>Any dispute arising out of or in connection with this License that cannot be resolved through the appeals process in Section 11 shall be submitted to the exclusive jurisdiction of: the courts of Paris, France (for EEA, Swiss, and UK users); or the state and federal courts of San Francisco County, California (for all other users).</p>
+
+ <h3>14.3 Consumer Rights</h3>
+ <p>Nothing in this License is intended to limit, waive, or otherwise affect any statutory consumer protection rights you have under the laws of your place of residence that cannot be excluded by agreement. In particular, if you are a consumer in the European Union, you retain all rights afforded to you under EU consumer protection legislation.</p>
+
+ <h2>15. Miscellaneous</h2>
+ <p><strong>Entire Agreement:</strong> This License, together with the PyAcademy <a href="https://li1234.com/PyAcademy_Consumer_Terms.html">Terms of Service</a> and <a href="https://li1234.com/PyAcademy_Privacy_Policy.html">Privacy Policy</a>, constitutes the entire agreement between you and PyAcademy with respect to Certificates.</p>
+ <p><strong>Severability:</strong> If any provision of this License is found to be invalid or unenforceable, that provision shall be modified to the minimum extent necessary to make it enforceable, and the remaining provisions shall continue in full force.</p>
+ <p><strong>No Waiver:</strong> PyAcademy's failure to enforce any provision of this License shall not constitute a waiver of its right to do so in the future.</p>
+ <p><strong>Assignment:</strong> You may not assign or transfer any rights or obligations under this License without PyAcademy's prior written consent. PyAcademy may freely assign this License in connection with a merger, acquisition, or sale of all or substantially all of its assets.</p>
+ <p><strong>Amendments:</strong> PyAcademy may update this License at any time. Material changes will be notified via the platform or by email at least 30 days before taking effect. Continued use of your Certificates following the effective date of an amendment constitutes acceptance.</p>
+
+ <h2>16. Contact</h2>
+ <p>For questions, verification enquiries, or appeals relating to this License and your Certificates, please contact:</p>
+ <p>Email: <a href="mailto:certificates@li1234.top">certificates@li1234.top</a><br>
+ Subject line: "Certificate License Enquiry – [your Certificate ID]"<br>
+ Response time: within 5 business days for general enquiries; within 20 business days for formal appeals.</p>
+</div>
+</div>
+
+<!-- 中文版 -->
+<div data-lang="zh">
+<div class="hero">
+ <h1>软件使用数字证书许可</h1>
+ <p class="date">生效日期：2026年5月4日</p>
+ <p class="intro">本软件使用数字证书许可（"许可"）规范您在使用 PyAcademy 平台学习活动中接收、持有、展示、分享和使用 PyAcademy 颁发的数字凭证的全部权利与义务。申领任何证书前请仔细阅读。</p>
+</div>
+<div class="content">
+ <p>访问、申领、下载、展示、分享或以其他方式使用证书，即表示您与 PyAcademy Ltd.（"PyAcademy"、"我们"）就以下条款订立具有约束力的协议。如不同意，您不得申领或使用任何证书。PyAcademy 保留本许可未明确授予您的所有权利。</p>
+
+ <h2>1. 定义</h2>
+ <table class="def-table">
+ <tr><th>术语</th><th>含义</th></tr>
+ <tr><td>"证书"</td><td>PyAcademy 颁发的任何数字凭证，包括课程结业证书、技能徽章、能力凭证、学习路径奖励、讲师凭证及其他证明平台上成就或参与情况的数字资产。</td></tr>
+ <tr><td>"已申领证书"</td><td>在您成功满足相关要求后与您的 PyAcademy 账户关联的证书。</td></tr>
+ <tr><td>"验证 URL"</td><td>嵌入每张证书的唯一、稳定网址，允许第三方确认其真实性及当前状态。</td></tr>
+ <tr><td>"证书元数据"</td><td>与证书关联的结构化数据，包括获得者姓名、颁发日期、到期日（如有）、颁发机构信息、密码签名和成就标准。</td></tr>
+ <tr><td>"PyAcademy 品牌资产"</td><td>出现在证书上或与证书相关联的 PyAcademy 拥有或获许可的所有标识、文字标识、配色方案、徽章设计及其他视觉元素。</td></tr>
+ <tr><td>"您"/"获得者"</td><td>因其在 PyAcademy 上的学习活动而获得证书的个人。</td></tr>
+ </table>
+
+ <h2>2. 证书类型及其适用范围</h2>
+ <p>PyAcademy 颁发多类证书，每类均有具体要求和对应意义。在申领或分享证书前，了解各类证书的适用范围是您的责任。</p>
+ <div class="cert-type-grid">
+ <div class="cert-type-card">
+ <div class="badge">结业</div>
+ <h4>课程结业证书</h4>
+ <p>完成单门课程的全部必修模块和评估后颁发。证明参与和完成情况，而非特定熟练程度。</p>
+ </div>
+ <div class="cert-type-card">
+ <div class="badge">技能</div>
+ <h4>技能徽章</h4>
+ <p>通过评估证明在特定技能领域具备能力后授予，含具体熟练程度（基础、从业者或高级）。</p>
+ </div>
+ <div class="cert-type-card">
+ <div class="badge">能力</div>
+ <h4>能力凭证</h4>
+ <p>通过监考或平台验证评估后颁发，代表更高标准的验证，可能附有到期日。</p>
+ </div>
+ <div class="cert-type-card">
+ <div class="badge">路径</div>
+ <h4>学习路径奖励</h4>
+ <p>完成一系列精心策划的课程和项目后授予，代表对某一学习领域的综合掌握。</p>
+ </div>
+ </div>
+ <p>PyAcademy 可能不时推出其他证书类型。每种类型的具体要求和有效期在平台相关课程或项目页面中说明。</p>
+
+ <h2>3. 许可授予</h2>
+ <p>在您持续遵守本许可及所有适用 PyAcademy 政策（包括<a href="https://li1234.com/PyAcademy_Consumer_Terms.html">《服务条款》</a>、<a href="https://li1234.com/PyAcademy_Community_Guidelines.html">《社区公约》</a>和<a href="https://li1234.com/PyAcademy_Usage_Rules.html">《使用规则》</a>）的前提下，PyAcademy 授予您一项个人、非排他性、不可转让、不可再许可、可撤销、全球范围内的许可，以便：</p>
+ <ul>
+ <li><strong>展示：</strong>在个人作品集、网站、社交媒体资料和职业社交平台（如领英）上展示您的已申领证书，仅用于代表您本人的学习成就。技术可行时必须链接至或显示验证 URL。</li>
+ <li><strong>分享：</strong>将证书副本或链接发送给潜在雇主、学术机构、专业组织或其他评估您资质的机构。</li>
+ <li><strong>下载和存储：</strong>为个人存档和离线参考目的保留证书文件的个人数字副本。</li>
+ <li><strong>打印：</strong>为个人展示或向要求纸质副本的机构提交，制作证书的实体副本，但打印件须清晰标注"打印件——请在 [验证 URL] 核实"。</li>
+ </ul>
+ <p>本许可仅限于基于您本人学习活动向您个人颁发的证书。对颁发给其他人的证书不授予任何权利。</p>
+
+ <h2>4. 所有权与知识产权</h2>
+
+ <h3>4.1 PyAcademy 的所有权</h3>
+ <p>所有证书，包括其视觉设计、布局、排版、配色、PyAcademy 品牌资产、密码结构、证书元数据和验证 URL，均为 PyAcademy 或其许可方的专属知识产权，受版权、商标及其他适用知识产权法律的保护。本许可不向您转让任何所有权权益、所有权或知识产权。</p>
+
+ <h3>4.2 禁止创作衍生作品</h3>
+ <p>您不得更改、编辑、修改、裁剪、叠加或基于证书或证书上的任何 PyAcademy 品牌资产创作任何衍生作品。为展示目的进行的微幅缩放（不改变比例、内容或可见元数据）是允许的。</p>
+
+ <h3>4.3 禁止未授权复制</h3>
+ <p>您不得在第 3 节明确允许的范围之外复制、出版、广播或分发任何证书或 PyAcademy 品牌资产。任何商业利用——包括向第三方许可您的证书、将其纳入付费产品或用于广告——均被严格禁止。</p>
+
+ <h3>4.4 开放徽章标准</h3>
+ <p>如 PyAcademy 使用 IMS Global 开放徽章标准颁发证书，其底层元数据按该规范结构化。使用开放标准实现互操作性不影响 PyAcademy 对证书的所有权和权利。</p>
+
+ <h2>5. 限制与禁止行为</h2>
+ <p>您不得且不得协助、鼓励或允许任何第三方：</p>
+ <ul>
+ <li>伪造、篡改、逆向工程或改动任何证书的数据、元数据、密码签名、验证 URL、时间戳或视觉元素。</li>
+ <li>声称、表示、暗示或暗示您获得了未曾获得的证书，或以与实际不同的情形获得（包括通过他人工作或使用禁止辅助手段）。</li>
+ <li>错误描述证书的等级、范围或重要性（例如将结业证书描述为能力凭证，或声称已过期凭证仍有效）。</li>
+ <li>出售、转售、租赁、出租、交换、捐赠或以任何有偿或无偿方式将任何证书、验证 URL 或相关权利转让给他人。</li>
+ <li>未经 PyAcademy 事先书面同意，为推广、营销或其他商业目的批量再许可、分发、出版或提供证书。</li>
+ <li>使用任何证书冒充 PyAcademy、其讲师、合作伙伴或任何关联实体，或暗示 PyAcademy 对第三方产品或服务的背书。</li>
+ <li>绕过、禁用或削弱证书中嵌入或相关联的任何技术、密码、水印或数字版权管理措施。</li>
+ <li>使用自动化手段（脚本、机器人、抓取工具、AI 图像生成器）生成、复制或伪造证书或其任何视觉元素。</li>
+ <li>将任何证书用于非法、诽谤、淫秽、歧视性或违反 PyAcademy 政策的内容。</li>
+ <li>以技术上不准确的方式（例如显示已被撤销的"已验证"证书）复制或展示证书。</li>
+ </ul>
+
+ <h2>6. 验证系统</h2>
+
+ <h3>6.1 验证工作原理</h3>
+ <p>每张证书包含一个与 PyAcademy 托管的永久验证 URL 关联的唯一标识符。第三方（雇主、机构、许可机构）可访问该 URL 实时确认：证书真实性；获得者在 PyAcademy 注册的姓名；颁发日期；课程或项目名称；熟练程度（如适用）；以及当前状态（有效、已过期或已撤销）。</p>
+
+ <h3>6.2 验证中的您的义务</h3>
+ <p>创建 PyAcademy 账户和申领证书时，您必须提供准确的个人信息。证书颁发后如法定姓名发生变更，可通过联系 <a href="mailto:certificates@li1234.top">certificates@li1234.top</a> 申请更新。影响验证有效性的不准确信息构成违规，可能导致证书被撤销。</p>
+
+ <h3>6.3 第三方验证集成</h3>
+ <p>PyAcademy 可能与第三方专业网络或凭证验证服务（如领英、Credly 或 Accredible）集成，以便于分享和验证。您使用这些第三方平台受其各自条款和隐私政策的约束。任何第三方集成的可用性或行为不影响 PyAcademy 在本许可下的义务。</p>
+
+ <h3>6.4 不保证永久可用性</h3>
+ <p>虽然 PyAcademy 打算在本许可有效期内维护验证 URL，但不保证验证服务的永久可用。如有计划停止服务，PyAcademy 将提供至少 12 个月的提前通知，并在合理可行的情况下协助迁移至替代验证机制。</p>
+
+ <h2>7. 有效性、到期与续期</h2>
+
+ <h3>7.1 永久有效证书</h3>
+ <p>课程结业证书和学习路径奖励无到期日，在本许可条款约束下永久有效，前提是相关课程内容未经重大修订或停用。</p>
+
+ <h3>7.2 限时有效凭证</h3>
+ <p>能力凭证和某些技能徽章可能附有到期日，反映技术能力的时效性。到期日在证书上和证书元数据中注明。已过期凭证不会被撤销——仍保留在您的账户历史中——但其验证 URL 将显示"已过期"状态。您可通过重新参加并通过相关评估来续期已过期凭证。</p>
+
+ <h3>7.3 课程停用</h3>
+ <p>如 PyAcademy 重大停用或替换某门课程，相关证书可能在验证系统中被标注为"历史版本"。历史版本证书仍是历史完成情况的有效证明，但可能不反映当前课程标准。PyAcademy 将在相关课程页面提前通知任何历史版本标注。</p>
+
+ <h2>8. 撤销</h2>
+
+ <h3>8.1 撤销理由</h3>
+ <p>如 PyAcademy 确定以下情形，可立即撤销任何证书：</p>
+ <ul>
+ <li>证书因技术错误、系统故障或行政失误而颁发。</li>
+ <li>您通过学术不诚信方式获得证书，包括（但不限于）提交他人作品、以评估规则禁止的方式使用 AI 工具、合谋、抄袭或行贿。</li>
+ <li>您违反了本许可的任何规定，包括第 5 节的禁止行为。</li>
+ <li>您违反了 PyAcademy 的<a href="https://li1234.com/PyAcademy_Community_Guidelines.html">《社区公约》</a>、<a href="https://li1234.com/PyAcademy_Usage_Rules.html">《使用规则》</a>或<a href="https://li1234.com/PyAcademy_User_Agreement.html">《用户协议》</a>，且违规与导致证书颁发的活动相关。</li>
+ <li>法院、监管机构或主管当局认定证书颁发不当或相关活动违法。</li>
+ </ul>
+
+ <h3>8.2 撤销程序</h3>
+ <p>在撤销证书之前（欺诈或法律义务情形除外），PyAcademy 将通过电子邮件通知您，并给予您合理的回应机会（通常为 14 天）。如您认为撤销决定有误，可依据第 11 节提出申诉。撤销后，验证 URL 将显示"已撤销"状态，您必须立即停止所有展示和使用。</p>
+
+ <h3>8.3 无权要求重新颁发</h3>
+ <p>证书撤销不自动赋予您免费重修相关课程或评估的权利。重新评估资格将由 PyAcademy 酌情另行通知。</p>
+
+ <h2>9. 期限与终止</h2>
+ <p>本许可自您申领第一张证书之日起生效，持续有效至终止。如您实质性违反任何规定，PyAcademy 可立即终止本许可，恕不另行通知。终止后：您必须立即停止所有证书的使用、展示和分发；删除所有本地存储的证书副本；PyAcademy 可在验证系统中将您的所有证书标注为"已撤销"。第 4、5、10、12、13 和 14 条在本许可的任何终止或到期后继续有效。</p>
+
+ <h2>10. 非学历学位或专业执照</h2>
+ <p>PyAcademy 颁发的证书是 PyAcademy 平台上学习成就的记录。它不构成且不得被表示为：官方认可的学术学位、文凭或资格；任何监管机构要求的专业执照、认证或注册；任何政府、学术机构、雇主或专业机构的背书；或就业、晋升、薪资或任何其他职业成果的保证。您全权负责了解 PyAcademy 证书在您所在司法管辖区和行业中的效力与认可程度。</p>
+
+ <h2>11. 申诉</h2>
+ <p>如您希望对撤销决定提出申诉或对本许可下采取的任何其他行动提出异议，必须在相关决定作出后 30 个日历日内向 <a href="mailto:certificates@li1234.top">certificates@li1234.top</a> 提交书面申诉。申诉须包含：您的全名和注册邮箱；相关证书 ID；申诉理由的清晰陈述；以及任何支持证据。申诉由独立于原始决策者的团队审查，并在 20 个工作日内出具书面结果。</p>
+
+ <h2>12. 免责声明</h2>
+ <p>在适用法律允许的最大范围内，证书按"原样"和"可用"提供，不附带任何形式的保证。PyAcademy 明确否认所有明示或默示的保证，包括但不限于：适销性保证；特定用途适用性保证；证书内容或元数据的准确性或完整性保证；验证服务不中断或无错误运行的保证；不侵权保证；以及因交易过程、贸易使用或任何职业或行业中的惯例或做法而产生的任何保证。</p>
+
+ <h2>13. 责任限制</h2>
+ <p>在适用法律允许的最大范围内，在任何情况下，PyAcademy 及其董事、员工、许可方或合作伙伴均不对以下情形负责：任何间接、附带、特殊、后果性、惩罚性或惩戒性损害；任何声誉、就业机会、专业地位或商业损失；任何数据损失或无法访问证书；或因第三方依赖或拒绝认可证书而引起的任何索赔——即使 PyAcademy 已被告知可能发生此类损害。PyAcademy 对您因本许可或与本许可相关而产生的全部累计责任，在任何情况下不超过五十欧元（€50）或您为相关课程支付的金额，以较高者为准。</p>
+ <p>本节内容不排除因过失导致的死亡或人身伤害责任、欺诈或欺诈性虚假陈述责任，或任何适用法律不可排除或限制的其他责任。</p>
+
+ <h2>14. 管辖法律与争议解决</h2>
+
+ <h3>14.1 管辖法律</h3>
+ <p>对于居住在欧洲经济区、瑞士或英国的用户：本许可受法国法律管辖，不适用法律冲突条款。对于所有其他用户：本许可受美国加利福尼亚州法律管辖，不适用法律冲突条款。</p>
+
+ <h3>14.2 争议解决</h3>
+ <p>因本许可引起或与本许可相关且无法通过第 11 节申诉程序解决的争议，应提交以下法院专属管辖：法国巴黎法院（适用于欧洲经济区、瑞士和英国用户）；或美国加利福尼亚州旧金山县州法院和联邦法院（适用于所有其他用户）。</p>
+
+ <h3>14.3 消费者权利</h3>
+ <p>本许可中的任何内容均不意图限制、放弃或以其他方式影响您依据居住地法律享有的、不可通过协议排除的法定消费者保护权利。特别是，如果您是欧盟消费者，您保留欧盟消费者保护立法赋予您的全部权利。</p>
+
+ <h2>15. 其他条款</h2>
+ <p><strong>完整协议：</strong>本许可与 PyAcademy <a href="https://li1234.com/PyAcademy_Consumer_Terms.html">《服务条款》</a>和<a href="https://li1234.com/PyAcademy_Privacy_Policy.html">《隐私政策》</a>共同构成您与 PyAcademy 就证书事宜的完整协议。</p>
+ <p><strong>可分割性：</strong>如本许可的任何条款被认定无效或不可执行，该条款应被修改至可执行的最低限度，其余条款继续完全有效。</p>
+ <p><strong>不弃权：</strong>PyAcademy 未能执行本许可任何规定，不构成对其日后执行该规定权利的放弃。</p>
+ <p><strong>转让：</strong>未经 PyAcademy 事先书面同意，您不得转让或转移本许可下的任何权利或义务。PyAcademy 可在合并、收购或出售全部或实质上全部资产时自由转让本许可。</p>
+ <p><strong>修订：</strong>PyAcademy 可随时更新本许可。重大变更将在生效前至少 30 天通过平台或电子邮件通知。修订生效后继续使用证书即视为接受。</p>
+
+ <h2>16. 联系方式</h2>
+ <p>如有关于本许可和您的证书的疑问、验证咨询或申诉，请联系：</p>
+ <p>电子邮件：<a href="mailto:certificates@li1234.top">certificates@li1234.top</a><br>
+ 邮件主题："证书许可咨询 – [您的证书 ID]"<br>
+ 响应时间：一般咨询 5 个工作日内；正式申诉 20 个工作日内。</p>
+</div>
+</div>
+
+<div class="highlight"><p><strong>Supplementary Legal Provisions / 附则A</strong></p><p><strong>A.1 DPO:</strong> <a href="mailto:dpo@li1234.top">dpo@li1234.top</a>. GDPR Art.37. PyAcademy SAS, 12 Rue de la Paix, 75002 Paris, France.</p><p><strong>A.2 Principles:</strong> GDPR Art.5 - lawfulness, purpose limitation, data minimisation, accuracy, storage limitation, integrity/confidentiality, accountability.</p><p><strong>A.3 Cross-border:</strong> GDPR Art.44-49 - SCCs, BCRs, adequacy decisions.</p><p><strong>A.4 CNIL Complaint:</strong> GDPR Art.77 - CNIL, 3 Place de Fontenoy, TSA 80715, 75334 Paris Cedex 07. +33 1 53 73 22 22. cnil.fr</p><p><strong>A.5 Automated Decisions:</strong> GDPR Art.22 - right not to be subject to solely automated decisions.</p><p><strong>A.6 Legal Bases:</strong> GDPR Art.6(1) - consent, contract, legal obligation, public interest, legitimate interests.</p><p><strong>A.7 CNIL Compliance:</strong> Loi n° 78-17 (Informatique et Libertés), CNIL Deliberation 2020-091, ePrivacy Directive 2002/58/EC.</p><p><strong>A.8 Consumer:</strong> Code de la consommation L111-1 to L111-7 (info obligations), L221-18 to L221-28 (withdrawal), L212-1 (unfair terms), L616-1 (mediation), L217-1 to L217-15 (digital content), L215-1 to L215-3 (renewal). EU Directive 2011/83/EU, 93/13/EEC, 2019/770.</p><p><strong>A.9 Contact:</strong> Legal: <a href="mailto:legal@li1234.top">legal@li1234.top</a>. DPO: <a href="mailto:dpo@li1234.top">dpo@li1234.top</a>. PyAcademy SAS, 12 Rue de la Paix, 75002 Paris, France.</p></div>
+    <footer><div class="footer-inner">
+ <div class="footer-links"><a href="https://www.li1234.com">Home</a><a href="https://www.li1234.com">首页</a></div>
+ <p class="footer-copy">&copy; 2026 PyAcademy. All rights reserved.</p>
+</div></footer>
+<script>function switchLang(lang){document.body.classList.toggle('zh',lang==='zh');document.getElementById('btn-en').classList.toggle('active',lang==='en');document.getElementById('btn-zh').classList.toggle('active',lang==='zh');document.documentElement.lang=lang==='zh'?'zh-CN':'en';document.title=lang==='zh'?'软件使用数字证书许可 – PyAcademy':'Software Digital Certificate License – PyAcademy';}</script>
+</body>
+</html>

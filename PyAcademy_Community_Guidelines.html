@@ -1,0 +1,329 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Community Guidelines – PyAcademy</title>
+ <style>
+ @font-face { font-family: 'AnthropicSerif'; src: url('AnthropicSerif-Romans-Variable-25x258.ttf') format('truetype'); font-weight: 100 900; font-style: normal; font-display: swap; }
+ *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'AnthropicSerif', 'Georgia', serif; color: #1a1a1a; background: #fff; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+ nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid #eaeaea; padding: 0 24px; }
+ .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+ .nav-logo { font-size: 18px; font-weight: 700; color: #1a1a1a; text-decoration: none; letter-spacing: -0.02em; }
+ .nav-logo span { color: #d97706; }
+ .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+ .nav-links a { font-size: 14px; font-weight: 500; color: #666; text-decoration: none; transition: color 0.2s; }
+ .nav-links a:hover { color: #1a1a1a; }
+ .lang-divider { width: 1px; height: 16px; background: #ddd; }
+ .lang-btn { font-size: 13px; font-weight: 500; color: #888; padding: 4px 10px; border: 1px solid #ddd; border-radius: 6px; transition: all 0.2s; cursor: pointer; background: none; }
+ .lang-btn:hover { color: #1a1a1a; border-color: #aaa; }
+ .lang-btn.active { color: #d97706; border-color: #d97706; background: #fffbeb; }
+ .hero { padding: 80px 24px 48px; max-width: 1200px; margin: 0 auto; }
+ .hero h1 { font-size: 42px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 16px; }
+ .hero .date { font-size: 15px; color: #888; margin-bottom: 24px; }
+ .hero .intro { font-size: 17px; color: #444; max-width: 720px; line-height: 1.8; }
+ .content { max-width: 760px; margin: 0 auto; padding: 24px 24px 120px; }
+ .content h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin-top: 48px; margin-bottom: 16px; color: #1a1a1a; }
+ .content h3 { font-size: 16px; font-weight: 600; margin-top: 28px; margin-bottom: 10px; color: #1a1a1a; }
+ .content p { font-size: 15px; line-height: 1.8; color: #333; margin-bottom: 14px; }
+ .content ul { margin-bottom: 14px; padding-left: 20px; }
+ .content li { font-size: 15px; line-height: 1.8; color: #333; margin-bottom: 8px; }
+ .content a { color: #d97706; text-decoration: underline; text-underline-offset: 2px; transition: color 0.2s; }
+ .content a:hover { color: #b45309; }
+ .content .note { font-size: 14px; color: #666; background: #f9f9f9; border-left: 3px solid #d97706; padding: 16px 20px; margin: 24px 0; border-radius: 0 6px 6px 0; }
+ .content .card { background: #fafafa; border: 1px solid #eee; border-radius: 8px; padding: 20px 24px; margin: 20px 0; }
+ .content .card-title { font-size: 16px; font-weight: 700; color: #d97706; margin-bottom: 10px; }
+ .content .do { border-left: 3px solid #22c55e; }
+ .content .dont { border-left: 3px solid #ef4444; }
+ footer { border-top: 1px solid #eaeaea; padding: 48px 24px; text-align: center; }
+ .footer-inner { max-width: 1200px; margin: 0 auto; }
+ .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; flex-wrap: wrap; }
+ .footer-links a { font-size: 13px; color: #888; text-decoration: none; transition: color 0.2s; }
+ .footer-links a:hover { color: #1a1a1a; }
+ .footer-copy { font-size: 13px; color: #aaa; }
+ [[data-lang="zh"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh [data-lang="en"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh [[data-lang="zh"] { display: block; }
+ span[[data-lang="zh"], a[[data-lang="zh"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh span[data-lang="en"], body.zh a[data-lang="en"] { display: none; }
+body.zh [data-lang="zh"] { display: block; }
+        body.zh span[data-lang="zh"], body.zh a[data-lang="zh"] { display: inline; }
+                span[data-lang], a[data-lang] { display: none; }
+ body.zh span[[data-lang="zh"], body.zh a[[data-lang="zh"] { display: inline; }
+ @media (max-width: 640px) { .hero h1 { font-size: 28px; } .hero { padding: 48px 16px 32px; } .content { padding: 16px 16px 80px; } .nav-links { gap: 16px; } }
+ html { scroll-behavior: smooth; }
+ ::selection { background: #fde68a; color: #1a1a1a; }
+ </style>
+</head>
+<body>
+
+<nav><div class="nav-inner">
+ <a href="https://www.li1234.com" class="nav-logo">Py<span>Academy</span></a>
+ <ul class="nav-links">
+ <li><a href="https://www.li1234.com" data-lang="en">Home</a><a href="https://www.li1234.com" data-lang="zh">首页</a></li>
+ <li><div class="lang-divider"></div></li>
+ <li><button class="lang-btn active" id="btn-en" onclick="switchLang('en')">EN</button><button class="lang-btn" id="btn-zh" onclick="switchLang('zh')">中文</button></li>
+ </ul>
+</div></nav>
+
+<!-- ==================== ENGLISH ==================== -->
+<div data-lang="en">
+<div class="hero">
+ <h1>Community Guidelines</h1>
+ <p class="date">Effective Date: May 4, 2026</p>
+ <p class="intro">PyAcademy is a community of Python learners, educators, and enthusiasts. These guidelines help us maintain a welcoming, respectful, and productive environment for everyone.</p>
+ <p class="intro">These Community Guidelines are adopted pursuant to, and shall be interpreted in accordance with, the following legal instruments: the Charter of Fundamental Rights of the European Union (Articles 2 (Right to Life), 3 (Integrity of the Person), 11 (Freedom of Expression and Association), and 21 (Non-Discrimination)); Council Directive 2000/78/EC of 27 November 2000 establishing a general framework for equal treatment in employment and occupation ("Employment Equality Directive"); the non-discrimination provisions of the French Labour Code (<em>Code du travail</em>, in particular Articles L1132-1 through L1132-6); Regulation (EU) 2022/2065 of the European Parliament and of the Council of 13 October 2022 on a Single Market for Digital Services ("EU Digital Services Act" or "DSA"); and Loi n° 2004-575 of 21 June 2004 for Confidence in the Digital Economy (<em>Loi pour la Confiance dans l'Économie Numérique</em>, "LCEN"). All community participants are bound by these Guidelines as a condition of platform access, and violations may give rise to enforcement measures as described herein.</p>
+</div>
+<div class="content">
+
+<h2>1. Our Values</h2>
+<p>PyAcademy is built on three core principles:</p>
+<ul>
+ <li><strong>Respect:</strong> Treat every community member with dignity and empathy, regardless of skill level, background, or identity.</li>
+ <li><strong>Learning:</strong> Our platform exists to help people learn Python. All interactions should support this goal.</li>
+ <li><strong>Integrity:</strong> Be honest in your contributions. Represent your work accurately and give credit where it is due.</li>
+</ul>
+
+<h2>2. Expected Behavior</h2>
+<p>We expect all community members to:</p>
+<ul>
+ <li>Use welcoming and inclusive language</li>
+ <li>Be respectful of differing viewpoints and experiences</li>
+ <li>Provide and accept constructive feedback gracefully</li>
+ <li>Focus on what is best for the community and the learning experience</li>
+ <li>Show empathy and kindness toward other community members</li>
+ <li>Credit original authors when sharing code, solutions, or resources</li>
+ <li>Use appropriate content ratings when sharing learning materials</li>
+</ul>
+
+<h2>3. Prohibited Behavior</h2>
+<p>The following behaviors are not tolerated on PyAcademy:</p>
+
+<div class="card dont">
+<div class="card-title">Harassment and Discrimination</div>
+<p style="font-size:14px; color:#555; margin-bottom:10px; font-style:italic;">This category of prohibited conduct is grounded in Articles 222-33 through 222-33-2 of the French Penal Code (<em>Code pénal</em>), which criminalize moral and sexual harassment, and in Council Directive 2000/78/EC (Employment Equality Directive), which prohibits discrimination on grounds of religion or belief, disability, age, or sexual orientation. Additional non-discrimination obligations arise under Articles L1132-1 through L1132-6 of the French Labour Code (<em>Code du travail</em>). Violations of these provisions may result in both platform enforcement action and referral to the competent judicial or administrative authorities.</p>
+<ul>
+ <li>Harassment, bullying, intimidation, or personal attacks of any kind</li>
+ <li>Discriminatory language or behavior based on race, ethnicity, nationality, gender, gender identity, sexual orientation, disability, religion, age, or any other protected characteristic</li>
+ <li>Unwelcome sexual attention, advances, or propositions</li>
+ <li>Stalking, following, or otherwise persistent unwanted contact</li>
+ <li>Doxxing or publishing private information about others without consent</li>
+</ul>
+</div>
+
+<div class="card dont">
+<div class="card-title">Disruptive Conduct</div>
+<ul>
+ <li>Trolling, spamming, or deliberately derailing conversations</li>
+ <li>Posting off-topic content in learning forums or course discussions</li>
+ <li>Excessive self-promotion or unsolicited advertising</li>
+ <li>Impersonating other community members, instructors, or PyAcademy staff</li>
+ <li>Attempting to disrupt platform operations or security</li>
+</ul>
+</div>
+
+<div class="card dont">
+<div class="card-title">Academic Dishonesty</div>
+<p style="font-size:14px; color:#555; margin-bottom:10px; font-style:italic;">Academic dishonesty provisions are informed by the French Education Code (<em>Code de l'éducation</em>), in particular Articles L811-1 et seq. concerning the fundamental principles of the national education system, and Articles L613-1 through L613-5, which govern the integrity of educational assessments and certifications. Dishonest academic conduct undermines the pedagogical mission of the Platform and may constitute a breach of contract under the French Civil Code (<em>Code civil</em>, Article 1103).</p>
+<ul>
+ <li>Submitting work that is not your own as if it were, without proper attribution</li>
+ <li>Sharing complete assignment solutions to circumvent the learning process for others</li>
+ <li>Using automated tools to complete assessments designed to measure your personal understanding</li>
+ <li>Manipulating grades, certificates, or course completion records</li>
+</ul>
+</div>
+
+<div class="card dont">
+<div class="card-title">Illegal and Harmful Content</div>
+<p style="font-size:14px; color:#555; margin-bottom:10px; font-style:italic;">Content prohibitions derive from the French Penal Code (<em>Code pénal</em>), in particular provisions criminalizing incitement to violence, terrorist propaganda, and the distribution of material depicting child sexual abuse, and from Regulation (EU) 2021/784 of the European Parliament and of the Council of 20 May 2021 on addressing the dissemination of terrorist content online ("EU Terrorist Content Regulation"), which imposes obligations on hosting service providers to expeditiously remove or disable access to terrorist content. Obligations under the EU Digital Services Act (Regulation (EU) 2022/2065), Articles 14 through 17, regarding illegal content notices, are also applicable.</p>
+<ul>
+ <li>Content that violates applicable laws or regulations</li>
+ <li>Malicious code, phishing links, or security exploits targeting other users</li>
+ <li>Content that promotes violence, self-harm, or illegal activities</li>
+ <li>Content that sexualizes or exploits minors in any way</li>
+ <li>Misinformation presented as factual technical guidance</li>
+</ul>
+</div>
+
+<h2>4. Forum and Discussion Standards</h2>
+<p>When participating in forums, discussions, and Q&A sections:</p>
+<ul>
+ <li>Search for existing threads before posting a new question</li>
+ <li>Use descriptive titles that help others understand your question</li>
+ <li>Include relevant code snippets, error messages, and context when asking for help</li>
+ <li>Mark accepted answers to help future learners</li>
+ <li>Avoid "necroposting" on very old threads unless you have genuinely new information</li>
+ <li>Be patient with beginners — everyone starts somewhere</li>
+</ul>
+
+<h2>5. Code Sharing Standards</h2>
+<p>When sharing code in the community:</p>
+<ul>
+ <li>Use code blocks for proper formatting</li>
+ <li>Include comments explaining non-obvious logic</li>
+ <li>Credit the original author if you are sharing someone else's work</li>
+ <li>Do not share code designed to exploit or harm systems</li>
+ <li>Consider adding a brief explanation of what the code does and how to use it</li>
+</ul>
+
+<h2>6. Reporting and Enforcement</h2>
+<p style="font-size:14px; color:#555; margin-bottom:10px; font-style:italic;">PyAcademy's reporting, investigation, and enforcement mechanisms are de<div class="highlight"><p><strong>Supplementary Legal Provisions / 附则A</strong></p><p><strong>A.1 DPO:</strong> <a href="mailto:dpo@li1234.top">dpo@li1234.top</a>. GDPR Art.37. PyAcademy SAS, 12 Rue de la Paix, 75002 Paris, France.</p><p><strong>A.2 Principles:</strong> GDPR Art.5 - lawfulness, purpose limitation, data minimisation, accuracy, storage limitation, integrity/confidentiality, accountability.</p><p><strong>A.3 Cross-border:</strong> GDPR Art.44-49 - SCCs, BCRs, adequacy decisions.</p><p><strong>A.4 CNIL Complaint:</strong> GDPR Art.77 - CNIL, 3 Place de Fontenoy, TSA 80715, 75334 Paris Cedex 07. +33 1 53 73 22 22. cnil.fr</p><p><strong>A.5 Automated Decisions:</strong> GDPR Art.22 - right not to be subject to solely automated decisions.</p><p><strong>A.6 Legal Bases:</strong> GDPR Art.6(1) - consent, contract, legal obligation, public interest, legitimate interests.</p><p><strong>A.7 CNIL Compliance:</strong> Loi n° 78-17 (Informatique et Libertés), CNIL Deliberation 2020-091, ePrivacy Directive 2002/58/EC.</p><p><strong>A.8 Consumer:</strong> Code de la consommation L111-1 to L111-7, L221-18 to L221-28, L212-1, L616-1, L217-1 to L217-15, L215-1 to L215-3. EU Directive 2011/83/EU, 93/13/EEC, 2019/770.</p><p><strong>A.9 Contact:</strong> Legal: <a href="mailto:legal@li1234.top">legal@li1234.top</a>. DPO: <a href="mailto:dpo@li1234.top">dpo@li1234.top</a>. PyAcademy SAS, 12 Rue de la Paix, 75002 Paris, France.</p></div>
+    signed to comply with the due diligence obligations imposed on hosting service providers under the EU Digital Services Act (Regulation (EU) 2022/2065), in particular Articles 16 through 22, which require the provision of internal complaint-handling mechanisms, out-of-court dispute settlement, and transparency reporting. All moderation activities involving the processing of personal data are carried out in accordance with Regulation (EU) 2016/679 (GDPR) and under the supervision of the Commission Nationale de l'Informatique et des Libertés (CNIL), in compliance with the French Data Protection Act (<em>Loi n° 78-17</em>, as amended).</p>
+
+<h3>6.1. How to Report</h3>
+<p>If you encounter behavior that violates these guidelines, please report it by:</p>
+<ul>
+ <li>Using the "Report" button on the relevant post, comment, or profile</li>
+ <li>Emailing <a href="mailto:contact@li1234.top">contact@li1234.top</a> f additional information is needed</li>
+ <li>Reach a determination within 7 business days</li>
+ <li>Communicate the outcome to the reporter (and, if applicable, the accused party)</li>
+</ol>
+
+<h3>6.3. Consequences</h3>
+<p>Violations may result in the following actions, depending on severity and frequency:</p>
+<ul>
+ <li><strong>Warning:</strong> A formal notice that the behavior must stop</li>
+ <li><strong>Content removal:</strong> The offending content is removed from the platform</li>
+ <li><strong>Temporary suspension:</strong> Restricted access to community features for a defined period</li>
+ <li><strong>Permanent ban:</strong> Complete removal from the platform (reserved for severe or repeated violations)</li>
+</ul>
+<p>For details on penalties and the appeals process, see our <a href="https://li1234.com/PyAcademy_Account_Penalties.html">Account Penalties and Appeals Guide</a>.</p>
+
+<h2>7. Appeals</h2>
+<p>If you believe a moderation action was taken in error, you may appeal within 30 days of the action by emailing <a href="mailto:contact@li1234.top">contact@li1234.top</a> ency obligations set forth in Article 14 of the EU Digital Services Act (Regulation (EU) 2022/2065), any material modification to these Guidelines shall be notified to registered users at least thirty (30) calendar days in advance of the effective date of such changes, except where urgent changes are required by law or to address an imminent risk to public safety. The notification shall include a summary of the changes and the date on which they will take effect. Continued use of the Platform after the effective date of any amendment constitutes acceptance of the updated Guidelines. Users who do not agree with the amended Guidelines may terminate their account in accordance with our Terms of Service prior to the effective date of the changes.</p>
+
+<div class="note">
+<strong>Consumer Protection Notice:</strong> To the extent that community members access the Platform in their capacity as consumers within the meaning of the French Consumer Code (<em>Code de la consommation</em>), in particular Articles L111-1 et seq. (information obligations relating to the essential characteristics of digital services) and Articles L215-1 through L215-3 (conditions for the renewal and termination of subscription-based digital services), such members retain all rights conferred upon them under applicable consumer protection legislation, including the right to clear, pre-contractual information regarding the nature, purpose, and conditions of the services provided, and the right to withdraw from distance contracts within the fourteen (14) calendar-day cooling-off period prescribed by Articles L221-18 through L221-28 of the <em>Code de la consommation</em>. Nothing in these Guidelines shall be construed as limiting or excluding any mandatory consumer rights that cannot be waived by contract under applicable law.
+</div>
+
+<h2>9. Contact</h2>
+<p>For questions about these Community Guidelines, contact us at <a 业和职业平等待遇一般框架指令）（"就业平等指令"）；法国《劳动法典》（<em>Code du travail</em>，特别是第L1132-1条至第L1132-6条）中的非歧视条款；欧洲议会和理事会2022年10月13日第（EU）2022/2065号条例（《数字服务单一市场条例》，"欧盟数字服务法"或"DSA"）；以及2004年6月21日第2004-575号法律（《数字经济信任法》，<em>Loi pour la Confiance dans l'Économie Numérique</em>，"LCEN"）。所有社区参与者均以遵守本公约为使用平台的条件，违反本公约可能导致本文所述的执行措施。</p>
+</div>
+<div class="content">
+
+<h2>1. 我们的价值观</h2>
+<p>PyAcademy 建立在三个核心原则之上：</p>
+<ul>
+ <li><strong>尊重：</strong>以尊严和同理心对待每一位社区成员，无论其技能水平、背景或身份。</li>
+ <li><strong>学习：</strong>我们的平台旨在帮助人们学习 Python。所有互动都应支持这一目标。</li>
+ <li><strong>诚信：</strong>在您的贡献中保持诚实。准确地呈现您的工作，并在适当的地方给予署名。</li>
+</ul>
+
+<h2>2. 期望行为</h2>
+<p>我们期望所有社区成员：</p>
+<ul>
+ <li>使用友好和包容的语言</li>
+ <li>尊重不同的观点和经验</li>
+ <li>优雅地提供和接受建设性反馈</li>
+ <li>关注对社区和学习体验最有利的事情</li>
+ <li>对其他社区成员表现出同理心和善意</li>
+ <li>在分享代码、解决方案或资源时注明原作者</li>
+ <li>在分享学习材料时使用适当的内容评级</li>
+</ul>
+
+<h2>3. 禁止行为</h2>
+<p>以下行为在 PyAcademy 上不被容忍：</p>
+
+<div class="card dont">
+<div class="card-title">骚扰和歧视</div>
+<p style="font-size:14px; color:#555; margin-bottom:10px; font-style:italic;">本类禁止行为以法国《刑法典》（<em>Code pénal</em>）第222-33条至第222-33-2条为依据，该等条款将精神骚扰和性骚扰定为刑事犯罪；同时以第2000/78/EC号理事会指令（就业平等指令）为依据，该指令禁止基于宗教或信仰、残疾、年龄或性取向的歧视。法国《劳动法典》（<em>Code du travail</em>）第L1132-1条至第L1132-6条亦规定了额外的非歧视义务。违反上述规定可能导致平台执行措施以及向有管辖权的司法或行政机构的移交。</p>
+<ul>
+ <li>任何形式的骚扰、欺凌、恐吓或人身攻击</li>
+ <li>基于种族、民族、国籍、性别、性别认同、性取向、残疾、宗教、年龄或任何其他受保护特征的歧视性语言或行为</li>
+ <li>不受欢迎的性关注、挑逗或建议</li>
+ <li>跟踪、跟随或其他持续的不必要接触</li>
+ <li>未经同意公开他人的私人信息（人肉搜索）</li>
+</ul>
+</div>
+
+<div class="card dont">
+<div class="card-title">破坏性行为</div>
+<ul>
+ <li>故意引战、发送垃圾信息或故意破坏对话</li>
+ <li>在学习论坛或课程讨论中发布与主题无关的内容</li>
+ <li>过度自我推销或未经请求的广告</li>
+ <li>冒充其他社区成员、讲师或 PyAcademy 工作人员</li>
+ <li>试图破坏平台运营或安全性</li>
+</ul>
+</div>
+
+<div class="card dont">
+<div class="card-title">学术不端</div>
+<p style="font-size:14px; color:#555; margin-bottom:10px; font-style:italic;">学术不端条款以法国《教育法典》（<em>Code de l'éducation</em>）为依据，特别是第L811-1条及后续条款（关于国民教育体系的基本原则）以及第L613-1条至第L613-5条（关于教育评估和认证的完整性）。不端学术行为损害了平台的教学使命，并可能构成法国《民法典》（<em>Code civil</em>）第1103条项下的违约行为。</p>
+<ul>
+ <li>将非本人完成的作品冒充为自己的，且未进行适当署名</li>
+ <li>分享完整的作业解决方案以绕过他人的学习过程</li>
+ <li>使用自动化工具完成旨在衡量个人理解能力的评估</li>
+ <li>篡改成绩、证书或课程完成记录</li>
+</ul>
+</div>
+
+<div class="card dont">
+<div class="card-title">非法和有害内容</div>
+<p style="font-size:14px; color:#555; margin-bottom:10px; font-style:italic;">内容禁止条款源于法国《刑法典》（<em>Code pénal</em>），特别是将煽动暴力、恐怖宣传及传播儿童性虐待材料定为犯罪的相关条款；以及欧洲议会和理事会2021年5月20日第（EU）2021/784号条例（《打击在线恐怖内容传播条例》），该条例对托管服务提供者施加了迅速删除恐怖内容或禁止访问的义务。欧盟《数字服务法》（第（EU）2022/2065号条例）第14条至第17条关于非法内容通知的义务亦同样适用。</p>
+<ul>
+ <li>违反适用法律或法规的内容</li>
+ <li>针对其他用户的恶意代码、钓鱼链接或安全漏洞</li>
+ <li>宣扬暴力、自残或非法活动的内容</li>
+ <li>以任何方式将未成年人性化或剥削的内容</li>
+ <li>以事实技术指导形式呈现的虚假信息</li>
+</ul>
+</div>
+
+<h2>4. 论坛和讨论标准</h2>
+<p>参与论坛、讨论和问答部分时：</p>
+<ul>
+ <li>发布新问题之前先搜索现有帖子</li>
+ <li>使用描述性标题，帮助他人理解您的问题</li>
+ <li>寻求帮助时包含相关的代码片段、错误消息和上下文</li>
+ <li>标记已接受的答案以帮助未来的学习者</li>
+ <li>避免在很旧的帖子上"挖坟"，除非您确实有新的信息</li>
+ <li>对初学者要有耐心——每个人都从某个地方开始</li>
+</ul>
+
+<h2>5. 代码共享标准</h2>
+<p>在社区中分享代码时：</p>
+<ul>
+ <li>使用代码块进行正确格式化</li>
+ <li>包含注释解释不明显的逻辑</li>
+ <li>如果分享他人的作品，请注明原作者</li>
+ <li>不要分享旨在利用或危害系统的代码</li>
+ <li>考虑添加代码功能的简要说明和使用方法</li>
+</ul>
+
+<h2>6. 举报和执行</h2>
+<p style="font-size:14px; color:#555; margin-bottom:10px; font-style:italic;">PyAcademy 的举报、调查和执行机制旨在符合欧盟《数字服务法》（第（EU）2022/2065号条例）第16条至第22条对托管服务提供者施加的尽职调查义务，该等条款要求提供内部投诉处理机制、庭外争议解决机制和透明度报告。所有涉及个人数据处理的管理活动均按照欧盟《通用数据保护条例》（第（EU）2016/679号条例，GDPR）执行，并在法国国家信息与自由委员会（CNIL）的监督下进行，同时遵守法国《数据保护法》（<em>Loi n° 78-17</em>，经修订）的规定。</p>
+
+<h3>6.1. 如何举报</h3>
+<p>如果您遇到违反这些准则的行为，请通过以下方式举报：</p>
+<ul>
+ <li>使用相关帖子、评论或个人资料上的"举报"按钮</li>
+ <li>发送电子邮件至 <a href="mailto:contact@li1234.top">contact@li1234.top</a> li><strong>临时暂停：</strong>在规定期限内限制访问社区功能</li>
+ <li><strong>永久封禁：</strong>完全从平台移除（保留用于严重或重复违规）</li>
+</ul>
+<p>有关处罚和申诉流程的详细信息，请参阅我们的<a href="https://li1234.com/PyAcademy_Account_Penalties.html">账户处罚与申诉指南</a>。</p>
+
+<h2>7. 申诉</h2>
+<p>如果您认为管理操作有误，可以在操作后 30 天内通过发送电子邮件至 <a href="mailto:contact@li1234.top">contact@li1234.top</a> m>）所定义的消费者身份使用平台的范围内，特别是第L111-1条及后续条款（关于数字服务基本特征的信息义务）和第L215-1条至第L215-3条（关于基于订阅的数字服务续约和终止条件）的规定，该等成员保留适用消费者保护立法赋予的所有权利，包括获得关于所提供的服务的性质、目的和条件的明确的、合同前信息的权利，以及在《消费者法典》第L221-18条至第L221-28条规定的十四（14）个日历日冷静期内撤回远程合同的权利。本公约中的任何内容均不得被解释为限制或排除适用法律下不得通过合同放弃的强制性消费者权利。
+</div>
+
+<h2>9. 联系方式</h2>
+<p>有关这些社区准则的问题，请联系 <a href="mailto:contact@li1234.top">contact@li1234.top</a> rights reserved.</p>
+</div></footer>
+
+<script type="5d079b33329b73dc9eab11e8-text/javascript">
+function switchLang(lang) {
+    document.body.classList.toggle('zh', lang === 'zh');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+}
+</script>
+
+</body>
+</html>

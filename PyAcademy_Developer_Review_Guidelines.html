@@ -1,0 +1,323 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>开发者审核规范 – PyAcademy</title>
+ <style>
+ @font-face { font-family: 'AnthropicSerif'; src: url('AnthropicSerif-Romans-Variable-25x258.ttf') format('truetype'); font-weight: 100 900; font-style: normal; font-display: swap; }
+ *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'AnthropicSerif', 'Georgia', serif; color: #1a1a1a; background: #fff; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+ nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid #eaeaea; padding: 0 24px; }
+ .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+ .nav-logo { font-size: 18px; font-weight: 700; color: #1a1a1a; text-decoration: none; letter-spacing: -0.02em; }
+ .nav-logo span { color: #d97706; }
+ .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+ .nav-links a { font-size: 14px; font-weight: 500; color: #666; text-decoration: none; transition: color 0.2s; }
+ .nav-links a:hover { color: #1a1a1a; }
+ .lang-divider { width: 1px; height: 16px; background: #ddd; }
+ .lang-btn { font-size: 13px; font-weight: 500; color: #888; padding: 4px 10px; border: 1px solid #ddd; border-radius: 6px; transition: all 0.2s; cursor: pointer; background: none; }
+ .lang-btn:hover { color: #1a1a1a; border-color: #aaa; }
+ .lang-btn.active { color: #d97706; border-color: #d97706; background: #fffbeb; }
+ .hero { padding: 80px 24px 48px; max-width: 1200px; margin: 0 auto; }
+ .hero h1 { font-size: 42px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 16px; }
+ .hero .date { font-size: 15px; color: #888; margin-bottom: 24px; }
+ .hero .intro { font-size: 17px; color: #444; max-width: 720px; line-height: 1.8; }
+ .content { max-width: 760px; margin: 0 auto; padding: 24px 24px 120px; }
+ .content h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin-top: 48px; margin-bottom: 16px; color: #1a1a1a; border-bottom: 2px solid #f0f0f0; padding-bottom: 8px; }
+ .content h3 { font-size: 16px; font-weight: 600; margin-top: 28px; margin-bottom: 10px; color: #1a1a1a; }
+ .content p { font-size: 15px; line-height: 1.8; color: #333; margin-bottom: 14px; }
+ .content ul { margin-bottom: 14px; padding-left: 20px; }
+ .content li { font-size: 15px; line-height: 1.8; color: #333; margin-bottom: 8px; }
+ .content a { color: #d97706; text-decoration: underline; text-underline-offset: 2px; }
+ .content a:hover { color: #b45309; }
+ .note { background: #f9f9f9; border-left: 3px solid #d97706; padding: 16px 20px; margin: 24px 0; border-radius: 0 6px 6px 0; font-size: 14px; color: #666; }
+ .timeline { margin: 24px 0; }
+ .timeline-item { display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid #f0f0f0; }
+ .timeline-item:last-child { border-bottom: none; }
+ .timeline-step { flex-shrink: 0; width: 28px; height: 28px; background: #d97706; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; margin-top: 2px; }
+ .timeline-content h4 { font-size: 15px; font-weight: 600; color: #1a1a1a; margin-bottom: 4px; }
+ .timeline-content p { font-size: 14px; color: #555; margin-bottom: 0; line-height: 1.6; }
+ .related-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; padding: 10px 18px; background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; font-size: 14px; font-weight: 500; color: #d97706; text-decoration: none; transition: all 0.2s; }
+ .related-link:hover { background: #fef3c7; border-color: #d97706; color: #b45309; }
+ footer { border-top: 1px solid #eaeaea; padding: 48px 24px; text-align: center; }
+ .footer-inner { max-width: 1200px; margin: 0 auto; }
+ .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; flex-wrap: wrap; }
+ .footer-links a { font-size: 13px; color: #888; text-decoration: none; }
+ .footer-links a:hover { color: #1a1a1a; }
+ .footer-copy { font-size: 13px; color: #aaa; }
+ [[data-lang="zh"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh [data-lang="en"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh [[data-lang="zh"] { display: block; }
+ span[[data-lang="zh"], a[[data-lang="zh"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh span[data-lang="en"], body.zh a[data-lang="en"] { display: none; }
+body.zh [data-lang="zh"] { display: block; }
+        body.zh span[data-lang="zh"], body.zh a[data-lang="zh"] { display: inline; }
+                span[data-lang], a[data-lang] { display: none; }
+ body.zh span[[data-lang="zh"], body.zh a[[data-lang="zh"] { display: inline; }
+ html { scroll-behavior: smooth; }
+ ::selection { background: #fde68a; color: #1a1a1a; }
+ @media (max-width: 640px) { .hero h1 { font-size: 28px; } .hero { padding: 48px 16px 32px; } .content { padding: 16px 16px 80px; } }
+ </style>
+</head>
+<body>
+<nav><div class="nav-inner">
+ <a href="https://www.li1234.com" class="nav-logo">Py<span>Academy</span></a>
+ <ul class="nav-links">
+ <li><a href="https://www.li1234.com" data-lang="en">Home</a><a href="https://www.li1234.com" data-lang="zh">首页</a></li>
+ <li><div class="lang-divider"></div></li>
+ <li><button class="lang-btn active" id="btn-en" onclick="switchLang('en')">EN</button><button class="lang-btn" id="btn-zh" onclick="switchLang('zh')">中文</button></li>
+ </ul>
+</div></nav>
+
+<!-- 英文版 -->
+<div data-lang="en">
+<div class="hero">
+ <h1>Developer Review Guidelines</h1>
+ <p class="date">Effective Date: May 4, 2026</p>
+ <p class="intro">These guidelines govern the submission, evaluation, approval, monitoring, and removal of Developer Products distributed through PyAcademy's official directory, marketplace, or integration channels. They are a companion to the <a href="https://li1234.com/PyAcademy_Developer_Code_of_Conduct.html">Developer Code of Conduct</a>.</p>
+</div>
+<div class="content">
+ <div class="note">These Review Guidelines apply specifically to products seeking official listing or distribution through PyAcademy channels. Developers using the API for private or internal purposes must still comply with the <a href="https://li1234.com/PyAcademy_Developer_Code_of_Conduct.html">Developer Code of Conduct</a>, but do not need to undergo this review process unless seeking official listing.</div>
+
+ <h2>1. Scope of Review</h2>
+ <p>Any Developer Product that is published, listed, featured, or distributed through PyAcademy's official developer directory, partner marketplace, integrated course experience, or any other PyAcademy-curated channel must undergo and pass a review process before being made available. The review encompasses technical, content, privacy, security, legal, and design dimensions.</p>
+ <p>The following categories of products are subject to enhanced review and may face longer assessment timelines:</p>
+ <ul>
+ <li>Products that process sensitive learner data (e.g., assessment results, progress records, payment information)</li>
+ <li>Products that incorporate AI-generated content, automated grading, or adaptive learning features</li>
+ <li>Products targeted at users under 16 years of age</li>
+ <li>Products that operate across multiple PyAcademy tenant organisations</li>
+ <li>Products that integrate with third-party payment processors</li>
+ </ul>
+
+ <h2>2. Review Criteria</h2>
+
+ <h3>2.1 Functionality and Stability</h3>
+ <p>The product must perform all stated functions reliably and accurately. Specifically, it must not crash, freeze, or produce unhandled errors during normal use; not degrade the performance or availability of PyAcademy services; handle edge cases gracefully (e.g., empty inputs, network interruptions, large datasets); and pass all applicable API contract tests provided in the developer documentation.</p>
+
+ <h3>2.2 Privacy and Data Handling</h3>
+ <p>Submissions must include a clear, accurate, and user-facing privacy policy that specifies: what data is collected, the legal basis for processing under GDPR, how long data is retained, whether data is shared with third parties, and how users can exercise their rights (access, correction, deletion, portability). The product must not request permissions beyond what is documented in the privacy policy, and must not engage in behavioural advertising using learner data.</p>
+
+ <h3>2.3 Security Posture</h3>
+ <p>PyAcademy's technical reviewers will assess the product's security posture, including: absence of known critical or high-severity CVEs in production dependencies; no hard-coded credentials or API keys in submitted code; secure handling of authentication tokens; absence of known malicious code patterns, obfuscated scripts, or suspicious network calls; and for products handling payment data, evidence of current PCI-DSS compliance where applicable.</p>
+
+ <h3>2.4 Content Moderation Capability</h3>
+ <p>If the product allows user-generated text, image, audio, or video inputs, the submission must demonstrate that appropriate automated or human moderation is in place to prevent the generation or distribution of content that violates PyAcademy's <a href="https://li1234.com/PyAcademy_Community_Guidelines.html">Community Guidelines</a> and <a href="https://li1234.com/PyAcademy_Usage_Rules.html">Usage Rules</a>. Reviewers will test moderation robustness by submitting a standardised set of adversarial inputs.</p>
+
+ <h3>2.5 Branding and Attribution</h3>
+ <p>The product must display the required "Powered by PyAcademy" attribution in the locations and at the minimum size specified in the <a href="#">PyAcademy Brand Guidelines</a>. It must not use PyAcademy trademarks in the product name, domain name, or marketing materials in a way that suggests an official partnership or endorsement that does not exist. Screenshots or mockups submitted for marketplace listing must accurately reflect the product's current appearance.</p>
+
+ <h3>2.6 Accessibility</h3>
+ <p>Products must meet WCAG 2.1 Level AA standards for web-based interfaces, or the equivalent accessibility requirements for mobile platforms (iOS Human Interface Guidelines / Android Accessibility Guidelines). An accessibility statement and, where applicable, a Voluntary Product Accessibility Template (VPAT) must be submitted with the application.</p>
+
+ <h3>2.7 Localisation and Language</h3>
+ <p>Products listing in PyAcademy's international marketplace must support both English and the primary language of each target market. User-facing error messages and help documentation must be translated. Machine-translated content is permissible but must be reviewed for accuracy by a fluent speaker before submission.</p>
+
+ <h3>2.8 No Malicious Code</h3>
+ <p>The product must not contain malware, ransomware, spyware, backdoors, cryptominers, excessive trackers, or any code that: exfiltrates data to unauthorised endpoints; modifies or reads data outside the product's declared scope; interferes with the user's operating system, browser, or other applications; or is designed to circumvent PyAcademy's security controls.</p>
+
+ <h2>3. Submission Process</h2>
+ <div class="timeline">
+ <div class="timeline-item">
+ <div class="timeline-step">1</div>
+ <div class="timeline-content">
+ <h4>Pre-Submission Checklist</h4>
+ <p>Complete the self-assessment checklist in the developer portal. Ensure all criteria in Section 2 are addressed before submitting. Incomplete submissions will be returned without review.</p>
+ </div>
+ </div>
+ <div class="timeline-item">
+ <div class="timeline-step">2</div>
+ <div class="timeline-content">
+ <h4>Formal Submission</h4>
+ <p>Submit via the developer portal, including: product description, technical documentation, privacy policy URL, accessibility statement, branding compliance evidence, and a live demo environment or test credentials.</p>
+ </div>
+ </div>
+ <div class="timeline-item">
+ <div class="timeline-step">3</div>
+ <div class="timeline-content">
+ <h4>Initial Triage (2 Business Days)</h4>
+ <p>PyAcademy will acknowledge receipt and verify the submission is complete. Incomplete submissions will be returned with a description of missing items.</p>
+ </div>
+ </div>
+ <div class="timeline-item">
+ <div class="timeline-step">4</div>
+ <div class="timeline-content">
+ <h4>Technical and Content Review (up to 10 Business Days)</h4>
+ <p>A multi-disciplinary team reviews all dimensions in Section 2. For enhanced review categories, this may extend to 20 business days. We may request a live demonstration or additional documentation during this period.</p>
+ </div>
+ </div>
+ <div class="timeline-item">
+ <div class="timeline-step">5</div>
+ <div class="timeline-content">
+ <h4>Decision and Feedback</h4>
+ <p>Outcomes: <strong>Approved</strong> (product may be listed), <strong>Conditionally Approved</strong> (minor remediation required within 14 days), or <strong>Rejected</strong> (substantive issues requiring re-submission). All decisions are provided with written reasoning.</p>
+ </div>
+ </div>
+ <div class="timeline-item">
+ <div class="timeline-step">6</div>
+ <div class="timeline-content">
+ <h4>Listing and Onboarding</h4>
+ <p>Approved products are onboarded to the marketplace. Developers receive access to analytics, user feedback channels, and a dedicated integration support contact.</p>
+ </div>
+ </div>
+ </div>
+
+ <h2>4. Ongoing Monitoring and Audits</h2>
+ <p>Approval is not permanent. PyAcademy reserves the right to conduct periodic technical audits, automated API usage scans, and user complaint reviews of all listed Developer Products. Ongoing monitoring criteria mirror the initial review criteria in Section 2. If monitoring reveals non-compliance, the following process applies:</p>
+ <ul>
+ <li><strong>Minor issues:</strong> Written notice with a 14-day cure period.</li>
+ <li><strong>Moderate issues:</strong> Written notice with a 7-day cure period; product may be temporarily unlisted during remediation.</li>
+ <li><strong>Severe issues</strong> (e.g., active data breach, distribution of prohibited content, malicious code discovered): Immediate suspension without prior notice. Developer will be notified as soon as practicable.</li>
+ </ul>
+ <p>Developers are expected to proactively notify PyAcademy of material changes to their product (architecture, data flows, third-party dependencies, ownership changes) within 5 business days of the change. Material changes may trigger a re-review.</p>
+
+ <h2>5. Appeals and Disputes</h2>
+ <p>If your Developer Product is rejected, conditionally approved with conditions you dispute, suspended, or de-listed, you may submit a formal appeal within 30 calendar days of the decision. Appeals must be submitted to <a href="mailto:developer-appeals@li1234.top">developer-appeals@li1234.top</a> and must include: the original decision reference number, a clear statement of the grounds for appeal, supporting evidence addressing each stated reason for rejection or suspension, and (if applicable) a remediation plan.</p>
+ <p>Appeals are reviewed by a panel separate from the original review team. A written decision will be issued within 15 business days. The appeal decision is final for the relevant submission; developers may re-submit a materially changed product at any time.</p>
+
+ <h2>6. Fees and Commercial Terms</h2>
+ <p>Standard review for products listed in the free tier of the developer marketplace is provided at no charge. Expedited review (target 3 business days) is available for a fee; current pricing is published in the developer portal. Revenue sharing and commercial listing terms are governed by the separate <a href="https://li1234.com/PyAcademy_Commercial_Terms.html">Commercial Terms</a> and do not form part of these Review Guidelines.</p>
+
+ <h2>7. Contact</h2>
+ <p>For review enquiries: <a href="mailto:developer-review@li1234.top">developer-review@li1234.top</a><br>
+ For appeals: <a href="mailto:developer-appeals@li1234.top">developer-appeals@li1234.top</a><br>
+ For general developer support: <a href="mailto:developers@li1234.top">developers@li1234.top</a></p>
+
+ <p style="margin-top: 40px;">
+ <a href="https://li1234.com/PyAcademy_Developer_Code_of_Conduct.html" class="related-link">← Read the Developer Code of Conduct</a>
+ </p>
+</div>
+</div>
+
+<!-- 中文版 -->
+<div data-lang="zh">
+<div class="hero">
+ <h1>开发者审核规范</h1>
+ <p class="date">生效日期：2026年5月4日</p>
+ <p class="intro">本规范规定通过 PyAcademy 官方目录、市场或集成渠道分发的开发者产品的提交、评估、批准、监控和下架流程，与<a href="https://li1234.com/PyAcademy_Developer_Code_of_Conduct.html">《开发者行为准则》</a>配套使用。</p>
+</div>
+<div class="content">
+ <div class="note">本审核规范专适用于寻求通过 PyAcademy 渠道官方列名或分发的产品。使用 API 进行私人或内部用途的开发者仍须遵守<a href="https://li1234.com/PyAcademy_Developer_Code_of_Conduct.html">《开发者行为准则》</a>，但无需通过本审核流程（除非寻求官方列名）。</div>
+
+ <h2>1. 审核范围</h2>
+ <p>任何通过 PyAcademy 官方开发者目录、合作伙伴市场、集成课程体验或其他 PyAcademy 策划渠道发布、列名、推荐或分发的开发者产品，在上线前必须通过审核流程。审核涵盖技术、内容、隐私、安全、法律和设计等多个维度。</p>
+ <p>以下类别的产品须接受加强审核，评估周期可能更长：</p>
+ <ul>
+ <li>处理敏感学习者数据的产品（如评估结果、学习记录、支付信息）</li>
+ <li>包含 AI 生成内容、自动评分或自适应学习功能的产品</li>
+ <li>面向 16 岁以下用户的产品</li>
+ <li>跨多个 PyAcademy 租户组织运营的产品</li>
+ <li>与第三方支付处理器集成的产品</li>
+ </ul>
+
+ <h2>2. 审核标准</h2>
+
+ <h3>2.1 功能与稳定性</h3>
+ <p>产品必须可靠、准确地执行所有声明功能，具体包括：正常使用中不崩溃、不冻结、不出现未处理错误；不降低 PyAcademy 服务的性能或可用性；妥善处理边界情况（如空输入、网络中断、大型数据集）；通过开发者文档提供的所有适用 API 合约测试。</p>
+
+ <h3>2.2 隐私与数据处理</h3>
+ <p>提交材料必须包含清晰、准确、面向用户的隐私政策，说明：收集哪些数据、GDPR 下处理的法律依据、数据保留时限、是否与第三方共享数据，以及用户如何行使其权利（访问、更正、删除、携带）。产品不得申请超出隐私政策所述权限的内容，不得利用学习者数据进行行为广告投放。</p>
+
+ <h3>2.3 安全态势</h3>
+ <p>PyAcademy 技术审核员将评估产品的安全态势，包括：生产依赖项中不存在已知严重或高危 CVE；提交代码中无硬编码凭证或 API 密钥；认证令牌安全处理；无已知恶意代码模式、混淆脚本或可疑网络调用；对于处理支付数据的产品，须提供适用的当前 PCI-DSS 合规证明。</p>
+
+ <h3>2.4 内容审核能力</h3>
+ <p>如果产品允许用户生成文本、图片、音频或视频输入，提交材料必须证明已实施适当的自动或人工审核机制，以防止生成或传播违反 PyAcademy <a href="https://li1234.com/PyAcademy_Community_Guidelines.html">《社区公约》</a>和<a href="https://li1234.com/PyAcademy_Usage_Rules.html">《使用规则》</a>的内容。审核员将通过提交一套标准化对抗性输入来测试审核机制的稳健性。</p>
+
+ <h3>2.5 品牌与归属</h3>
+ <p>产品必须在<a href="#">PyAcademy 品牌指南</a>规定的位置以最小尺寸要求显示"由 PyAcademy 提供支持"的归属说明。不得在产品名称、域名或营销材料中以暗示不存在的官方合作关系或背书的方式使用 PyAcademy 商标。提交至市场列名的截图或原型必须准确反映产品当前外观。</p>
+
+ <h3>2.6 无障碍访问</h3>
+ <p>基于 Web 的界面必须满足 WCAG 2.1 AA 级标准，或移动平台的等效无障碍要求（iOS 人机界面指南 / Android 无障碍指南）。申请时须提交无障碍声明，以及适用情况下的自愿产品无障碍模板（VPAT）。</p>
+
+ <h3>2.7 本地化与语言</h3>
+ <p>在 PyAcademy 国际市场列名的产品必须支持英语和每个目标市场的主要语言。面向用户的错误消息和帮助文档必须经过翻译。机器翻译内容可接受，但提交前须经母语者审阅准确性。</p>
+
+ <h3>2.8 无恶意代码</h3>
+ <p>产品不得包含恶意软件、勒索软件、间谍软件、后门、加密矿工、过度追踪器或任何以下代码：向未授权端点窃取数据；修改或读取超出产品声明范围的数据；干扰用户操作系统、浏览器或其他应用程序；或旨在绕过 PyAcademy 安全控制的代码。</p>
+
+ <h2>3. 提交流程</h2>
+ <div class="timeline">
+ <div class="timeline-item">
+ <div class="timeline-step">1</div>
+ <div class="timeline-content">
+ <h4>提交前自查</h4>
+ <p>完成开发者门户中的自查清单。提交前确保第 2 节的所有标准均已满足。不完整的提交将被退回而不予审核。</p>
+ </div>
+ </div>
+ <div class="timeline-item">
+ <div class="timeline-step">2</div>
+ <div class="timeline-content">
+ <h4>正式提交</h4>
+ <p>通过开发者门户提交，包含：产品描述、技术文档、隐私政策 URL、无障碍声明、品牌合规证明，以及实时演示环境或测试凭证。</p>
+ </div>
+ </div>
+ <div class="timeline-item">
+ <div class="timeline-step">3</div>
+ <div class="timeline-content">
+ <h4>初步分拣（2 个工作日）</h4>
+ <p>PyAcademy 将确认收到并验证提交材料是否完整。不完整的提交将附说明退回。</p>
+ </div>
+ </div>
+ <div class="timeline-item">
+ <div class="timeline-step">4</div>
+ <div class="timeline-content">
+ <h4>技术与内容审核（最多 10 个工作日）</h4>
+ <p>多学科团队审核第 2 节的所有维度。加强审核类别可能延长至 20 个工作日。审核期间我们可能要求进行现场演示或提供补充文档。</p>
+ </div>
+ </div>
+ <div class="timeline-item">
+ <div class="timeline-step">5</div>
+ <div class="timeline-content">
+ <h4>决定与反馈</h4>
+ <p>结果分为：<strong>批准</strong>（可上架）、<strong>有条件批准</strong>（须在 14 天内完成小幅整改）或<strong>拒绝</strong>（存在需重新提交的实质性问题）。所有决定均附书面说明。</p>
+ </div>
+ </div>
+ <div class="timeline-item">
+ <div class="timeline-step">6</div>
+ <div class="timeline-content">
+ <h4>上架与入驻</h4>
+ <p>获批产品在市场上架。开发者将获得数据分析访问权限、用户反馈渠道和专属集成支持联系人。</p>
+ </div>
+ </div>
+ </div>
+
+ <h2>4. 持续监控与审计</h2>
+ <p>批准不是永久性的。PyAcademy 保留对所有已列名开发者产品定期进行技术审计、API 使用自动扫描和用户投诉审查的权利。持续监控标准与第 2 节的初始审核标准一致。监控发现不合规时，适用以下流程：</p>
+ <ul>
+ <li><strong>轻微问题：</strong>书面通知，14 天整改期。</li>
+ <li><strong>中度问题：</strong>书面通知，7 天整改期；整改期间产品可能临时下架。</li>
+ <li><strong>严重问题</strong>（如数据泄露、传播禁止内容、发现恶意代码）：无需提前通知，立即暂停。将尽快通知开发者。</li>
+ </ul>
+ <p>开发者须在产品发生重大变更（架构、数据流、第三方依赖、所有权变更）后 5 个工作日内主动通知 PyAcademy。重大变更可能触发重新审核。</p>
+
+ <h2>5. 申诉与争议</h2>
+ <p>如果您的开发者产品被拒绝、附有争议条件的有条件批准、被暂停或下架，您可在决定作出后 30 个日历日内提交正式申诉。申诉须发送至 <a href="mailto:developer-appeals@li1234.top">developer-appeals@li1234.top</a>，并须包含：原始决定参考编号、申诉理由的清晰陈述、针对每项拒绝或暂停理由的支持证据，以及（如适用）整改计划。</p>
+ <p>申诉由独立于原始审核团队的小组审查，将在 15 个工作日内出具书面决定。申诉决定对相关提交为终局；开发者可随时重新提交经实质性修改的产品。</p>
+
+ <h2>6. 费用与商业条款</h2>
+ <p>开发者市场免费层产品的标准审核免费。加急审核（目标 3 个工作日）须收取费用，当前定价在开发者门户公布。收入分成和商业列名条款受单独的<a href="https://li1234.com/PyAcademy_Commercial_Terms.html">《商业条款》</a>约束，不属于本审核规范的一部分。</p>
+
+ <h2>7. 联系方式</h2>
+ <p>审核咨询：<a href="mailto:developer-review@li1234.top">developer-review@li1234.top</a><br>
+ 申诉：<a href="mailto:developer-appeals@li1234.top">developer-appeals@li1234.top</a><br>
+ 通用开发者支持：<a href="mailto:developers@li1234.top">developers@li1234.top</a></p>
+
+ <p style="margin-top: 40px;">
+ <a href="https://li1234.com/PyAcademy_Developer_Code_of_Conduct.html" class="related-link">← 阅读《开发者行为准则》</a>
+ </p>
+</div>
+</div>
+
+<div class="highlight"><p><strong>Supplementary Legal Provisions / 附则A</strong></p><p><strong>A.1 DPO:</strong> <a href="mailto:dpo@li1234.top">dpo@li1234.top</a>. GDPR Art.37. PyAcademy SAS, 12 Rue de la Paix, 75002 Paris, France.</p><p><strong>A.2 Principles:</strong> GDPR Art.5 - lawfulness, purpose limitation, data minimisation, accuracy, storage limitation, integrity/confidentiality, accountability.</p><p><strong>A.3 Cross-border:</strong> GDPR Art.44-49 - SCCs, BCRs, adequacy decisions.</p><p><strong>A.4 CNIL Complaint:</strong> GDPR Art.77 - CNIL, 3 Place de Fontenoy, TSA 80715, 75334 Paris Cedex 07. +33 1 53 73 22 22. cnil.fr</p><p><strong>A.5 Automated Decisions:</strong> GDPR Art.22 - right not to be subject to solely automated decisions.</p><p><strong>A.6 Legal Bases:</strong> GDPR Art.6(1) - consent, contract, legal obligation, public interest, legitimate interests.</p><p><strong>A.7 CNIL Compliance:</strong> Loi n° 78-17 (Informatique et Libertés), CNIL Deliberation 2020-091, ePrivacy Directive 2002/58/EC.</p><p><strong>A.8 Consumer:</strong> Code de la consommation L111-1 to L111-7 (info obligations), L221-18 to L221-28 (withdrawal), L212-1 (unfair terms), L616-1 (mediation), L217-1 to L217-15 (digital content), L215-1 to L215-3 (renewal). EU Directive 2011/83/EU, 93/13/EEC, 2019/770.</p><p><strong>A.9 Contact:</strong> Legal: <a href="mailto:legal@li1234.top">legal@li1234.top</a>. DPO: <a href="mailto:dpo@li1234.top">dpo@li1234.top</a>. PyAcademy SAS, 12 Rue de la Paix, 75002 Paris, France.</p></div>
+    <footer><div class="footer-inner">
+ <div class="footer-links"><a href="https://www.li1234.com">Home</a><a href="https://www.li1234.com">首页</a></div>
+ <p class="footer-copy">&copy; 2026 PyAcademy. All rights reserved.</p>
+</div></footer>
+<script>function switchLang(lang){document.body.classList.toggle('zh',lang==='zh');document.getElementById('btn-en').classList.toggle('active',lang==='en');document.getElementById('btn-zh').classList.toggle('active',lang==='zh');document.documentElement.lang=lang==='zh'?'zh-CN':'en';document.title=lang==='zh'?'开发者审核规范 – PyAcademy':'Developer Review Guidelines – PyAcademy';}</script>
+</body>
+</html>

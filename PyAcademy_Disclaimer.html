@@ -1,0 +1,216 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Disclaimer – PyAcademy</title>
+ <style>
+ @font-face { font-family: 'AnthropicSerif'; src: url('AnthropicSerif-Romans-Variable-25x258.ttf') format('truetype'); font-weight: 100 900; font-style: normal; font-display: swap; }
+ *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'AnthropicSerif', 'Georgia', serif; color: #1a1a1a; background: #fff; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+ nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid #eaeaea; padding: 0 24px; }
+ .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+ .nav-logo { font-size: 18px; font-weight: 700; color: #1a1a1a; text-decoration: none; letter-spacing: -0.02em; }
+ .nav-logo span { color: #d97706; }
+ .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+ .nav-links a { font-size: 14px; font-weight: 500; color: #666; text-decoration: none; transition: color 0.2s; }
+ .nav-links a:hover { color: #1a1a1a; }
+ .lang-divider { width: 1px; height: 16px; background: #ddd; }
+ .lang-btn { font-size: 13px; font-weight: 500; color: #888; padding: 4px 10px; border: 1px solid #ddd; border-radius: 6px; transition: all 0.2s; cursor: pointer; background: none; }
+ .lang-btn:hover { color: #1a1a1a; border-color: #aaa; }
+ .lang-btn.active { color: #d97706; border-color: #d97706; background: #fffbeb; }
+ .hero { padding: 80px 24px 48px; max-width: 1200px; margin: 0 auto; }
+ .hero h1 { font-size: 42px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 16px; }
+ .hero .date { font-size: 15px; color: #888; margin-bottom: 24px; }
+ .hero .intro { font-size: 17px; color: #444; max-width: 720px; line-height: 1.8; }
+ .content { max-width: 760px; margin: 0 auto; padding: 24px 24px 120px; }
+ .content h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin-top: 48px; margin-bottom: 16px; color: #1a1a1a; }
+ .content h3 { font-size: 16px; font-weight: 600; margin-top: 28px; margin-bottom: 10px; color: #1a1a1a; }
+ .content p { font-size: 15px; line-height: 1.8; color: #333; margin-bottom: 14px; }
+ .content ul { margin-bottom: 14px; padding-left: 20px; }
+ .content li { font-size: 15px; line-height: 1.8; color: #333; margin-bottom: 8px; }
+ .content a { color: #d97706; text-decoration: underline; text-underline-offset: 2px; transition: color 0.2s; }
+ .content a:hover { color: #b45309; }
+ .content .note { font-size: 14px; color: #666; background: #f9f9f9; border-left: 3px solid #d97706; padding: 16px 20px; margin: 24px 0; border-radius: 0 6px 6px 0; }
+ .content .highlight { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 20px 24px; margin: 24px 0; }
+ footer { border-top: 1px solid #eaeaea; padding: 48px 24px; text-align: center; }
+ .footer-inner { max-width: 1200px; margin: 0 auto; }
+ .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; flex-wrap: wrap; }
+ .footer-links a { font-size: 13px; color: #888; text-decoration: none; transition: color 0.2s; }
+ .footer-links a:hover { color: #1a1a1a; }
+ .footer-copy { font-size: 13px; color: #aaa; }
+ [[data-lang="zh"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh [data-lang="en"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh [[data-lang="zh"] { display: block; }
+ span[[data-lang="zh"], a[[data-lang="zh"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh span[data-lang="en"], body.zh a[data-lang="en"] { display: none; }
+body.zh [data-lang="zh"] { display: block; }
+        body.zh span[data-lang="zh"], body.zh a[data-lang="zh"] { display: inline; }
+                span[data-lang], a[data-lang] { display: none; }
+ body.zh span[[data-lang="zh"], body.zh a[[data-lang="zh"] { display: inline; }
+ @media (max-width: 640px) { .hero h1 { font-size: 28px; } .hero { padding: 48px 16px 32px; } .content { padding: 16px 16px 80px; } .nav-links { gap: 16px; } }
+ html { scroll-behavior: smooth; }
+ ::selection { background: #fde68a; color: #1a1a1a; }
+ </style>
+</head>
+<body>
+
+<nav><div class="nav-inner">
+ <a href="https://www.li1234.com" class="nav-logo">Py<span>Academy</span></a>
+ <ul class="nav-links">
+ <li><a href="https://www.li1234.com" data-lang="en">Home</a><a href="https://www.li1234.com" data-lang="zh">首页</a></li>
+ <li><div class="lang-divider"></div></li>
+ <li><button class="lang-btn active" id="btn-en" onclick="switchLang('en')">EN</button><button class="lang-btn" id="btn-zh" onclick="switchLang('zh')">中文</button></li>
+ </ul>
+</div></nav>
+
+<!-- ==================== ENGLISH ==================== -->
+<div data-lang="en">
+<div class="hero">
+ <h1>Disclaimer</h1>
+ <p class="date">Effective Date: May 4, 2026</p>
+ <p class="intro">PyAcademy is an online Python learning platform dedicated to helping learners of all levels master Python programming through courses, tutorials, and interactive exercises. This Disclaimer explains the limitations of liability that apply to your use of our platform and services. This document is drafted in compliance with, and should be read in conjunction with, the following applicable legal instruments: Directive (EU) 2011/83 of the European Parliament and of the Council of 25 October 2011 on consumer rights ("Consumer Rights Directive"), the French Civil Code (Code civil, hereinafter "CC"), the French Consumer Code (Code de la consommation, hereinafter "CCo"), and Directive 93/13/EEC of the Council of 5 April 1993 on unfair terms in consumer contracts ("Unfair Contract Terms Directive"). The provisions of these instruments, particularly those relating to the protection of consumers and the limitation of contractual liability, shall govern the interpretation and enforceability of the limitations set forth herein.</p>
+</div>
+<div class="content">
+
+<div class="highlight">
+ <strong>Important Notice:</strong> By using PyAcademy's website, courses, tutorials, and services, you acknowledge and agree to the limitations and disclaimers set forth in this document.
+</div>
+
+<h2>1. Educational Purpose Only</h2>
+<p>PyAcademy provides educational content, courses, tutorials, and interactive exercises for the purpose of teaching Python programming. All content on our platform is designed for informational and educational purposes only, in accordance with the general principles governing educational services as set forth in the French Education Code (Code de l'éducation, in particular Articles L121-1 et seq. governing the organisation of the national education system, and Articles L6311-1 et seq. governing continuing professional education). Nothing on PyAcademy should be construed as professional advice of any kind, including but not limited to financial, legal, tax, or career advice.</p>
+<p>While we strive to ensure that our educational materials are accurate, comprehensive, and up to date, we make no representations or warranties regarding the completeness, reliability, or suitability of the information, courses, exercises, or other content available on or through our platform for any particular purpose. The qualifications, certificates, or badges issued by PyAcademy are not formally accredited within the meaning of the European Qualifications Framework (EQF) as established by Recommendation 2008/C 111/01 of the European Parliament and of the Council, nor are they registered within the French National Register of Professional Certifications (Répertoire National des Certifications Professionnelles, RNCP). They serve solely as evidence of course completion and platform engagement.</p>
+
+<h2>2. No Warranty of Accuracy</h2>
+<p>PyAcademy makes reasonable efforts to ensure that the content on our platform is accurate and current. However:</p>
+<ul>
+ <li>Technical information, programming practices, and Python ecosystem tools evolve rapidly, and some content may become outdated over time</li>
+ <li>Code examples and exercises are provided for educational purposes and may not represent production-ready implementations</li>
+ <li>External links, references, and third-party resources cited on our platform may contain information that is inaccurate or has changed since publication</li>
+ <li>Interactive exercises and automated code evaluation tools may not cover all edge cases or produce results that are consistent with every possible development environment</li>
+</ul>
+
+<h2>3. Third-Party Content and Links</h2>
+<p>PyAcademy may contain links to third-party websites, tools, libraries, or services that are not owned or controlled by us. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party sites or services. The inclusion of any link does not imply endorsement or recommendation by PyAcademy.</p>
+<p>You acknowledge and agree that PyAcademy shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with the use of or reliance on any content, goods, or services available on or through any such third-party sites or services.</p>
+
+<h2>4. Limitation of Liability</h2>
+<p>To the maximum extent permitted by applicable law, including but not limited to Article 1231-1 of the French Civil Code (Civ. C.), which provides that contractual liability arises only where a debtor fails to fulfil his obligations, PyAcademy, its directors, employees, partners, agents, suppliers, and affiliates (collectively, the "PyAcademy Parties") shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to:</p>
+<ul>
+ <li>Loss of profits, data, use, goodwill, or other intangible losses</li>
+ <li>Damages resulting from your access to, use of, or inability to access or use the platform</li>
+ <li>Any conduct or content of any third party on the platform</li>
+ <li>Any content obtained from the platform</li>
+ <li>Unauthorized access, use, or alteration of your transmissions or content</li>
+</ul>
+<p>In accordance with Article 1231-1 of the French Civil Code and to the extent permitted by mandatory provisions of law, the limitations and exclusions of liability set forth in this Disclaimer shall apply only to the extent that PyAcademy's liability is established for fault or breach of a contractual obligation. In compliance with Article 1231-6 of the French Civil Code, which provides that liability limitation or exclusion clauses are valid provided that they do not relate to intentional fault or gross negligence (faute lourde), the parties agree that these limitations shall not apply to liability arising from willful misconduct or gross negligence on the part of PyAcademy.</p>
+<p>In no event shall the aggregate liability of the PyAcademy Parties exceed the greater of: (a) the amount you paid to PyAcademy, if any, in the twelve (12) months preceding the claim, or (b) one hundred euros (€100). Nothing in this Disclaimer shall exclude or limit liability that cannot be excluded or limited under applicable consumer protection laws, in particular the provisions of the French Consumer Code (Code de la consommation) and the French Civil Code.</p>
+
+<h2>5. No Guarantee of Outcomes</h2>
+<p>PyAcademy does not guarantee any specific learning outcomes, career results, or professional achievements as a result of using our platform. Your progress and success depend on many factors, including but not limited to your dedication, prior experience, study habits, and the time you invest in learning.</p>
+<p>Completion certificates, course progress, and assessment results provided by PyAcademy are indicators of participation and effort on our platform. They do not constitute professional certifications, academic degrees, or guarantees of competency recognized by any third party.</p>
+
+<h2>6. User-Generated Content</h2>
+<p>PyAcademy may allow users to submit, post, or share content including but not limited to code snippets, forum posts, comments, reviews, and project submissions. Such user-generated content represents the views and opinions of the individual authors and does not necessarily reflect the views of PyAcademy.</p>
+<p>We do not endorse, guarantee, or assume responsibility for any user-generated content. You are solely responsible for evaluating the accuracy, completeness, and usefulness of any content you encounter on our platform.</p>
+
+<h2>7. Service Availability</h2>
+<p>PyAcademy strives to maintain high availability of our platform, but we do not guarantee uninterrupted or error-free service. We reserve the right to modify, suspend, or discontinue any part of our services at any time without prior notice. We shall not be liable for any interruption, delay, or unavailability of our services, regardless of the cause.</p>
+
+<h2>8. Automated Tools and Assessments</h2>
+<p>PyAcademy may provide automated code evaluation, testing, and assessment tools. These tools are provided as learning aids and have inherent limitations. Results from automated evaluations should be used as guidance rather than definitive judgments of code quality or correctness. Manual review by qualified instructors may differ from automated results.</p>
+
+<h2>9. Jurisdictional Limitations</h2>
+<p>Some jurisdictions do not allow the exclusion of certain warranties or the limitation of liability for certain types of damages. To the extent that applicable law prohibits any of the above disclaimers or limitations, those provisions shall not apply to you, and you may have additional rights under local law.</p>
+<p>Without prejudice to the generality of the foregoing, in accordance with Article 1(1) of Directive 93/13/EEC on unfair terms in consumer contracts, any term of a contract which has not been individually negotiated shall be regarded as unfair if, contrary to the requirement of good faith, it causes a <div class="highlight"><p><strong>Supplementary Legal Provisions / 附则A</strong></p><p><strong>A.1 DPO:</strong> <a href="mailto:dpo@li1234.top">dpo@li1234.top</a>. GDPR Art.37. PyAcademy SAS, 12 Rue de la Paix, 75002 Paris, France.</p><p><strong>A.2 Principles:</strong> GDPR Art.5 - lawfulness, purpose limitation, data minimisation, accuracy, storage limitation, integrity/confidentiality, accountability.</p><p><strong>A.3 Cross-border:</strong> GDPR Art.44-49 - SCCs, BCRs, adequacy decisions.</p><p><strong>A.4 CNIL Complaint:</strong> GDPR Art.77 - CNIL, 3 Place de Fontenoy, TSA 80715, 75334 Paris Cedex 07. +33 1 53 73 22 22. cnil.fr</p><p><strong>A.5 Automated Decisions:</strong> GDPR Art.22 - right not to be subject to solely automated decisions.</p><p><strong>A.6 Legal Bases:</strong> GDPR Art.6(1) - consent, contract, legal obligation, public interest, legitimate interests.</p><p><strong>A.7 CNIL Compliance:</strong> Loi n° 78-17 (Informatique et Libertés), CNIL Deliberation 2020-091, ePrivacy Directive 2002/58/EC.</p><p><strong>A.8 Consumer:</strong> Code de la consommation L111-1 to L111-7, L221-18 to L221-28, L212-1, L616-1, L217-1 to L217-15, L215-1 to L215-3. EU Directive 2011/83/EU, 93/13/EEC, 2019/770.</p><p><strong>A.9 Contact:</strong> Legal: <a href="mailto:legal@li1234.top">legal@li1234.top</a>. DPO: <a href="mailto:dpo@li1234.top">dpo@li1234.top</a>. PyAcademy SAS, 12 Rue de la Paix, 75002 Paris, France.</p></div>
+    significant imbalance in the parties' rights and obligations arising under the contract, to the detriment of the consumer. The limitations and disclaimers contained in this Disclaimer are subject to the mandatory provisions of the French Consumer Code (Code de la consommation), in particular Articles L212-1 et seq., which provide that the main characteristics of the contract and the rights of the consumer shall be communicated in a clear and comprehensible manner. Where such limitations are found to contravene mandatory consumer protection provisions, the applicable provisions of the French Consumer Code shall prevail.</p>
+<p>Nothing in this Disclaimer is intended to exclude or limit any rights that you may have under the consumer protection laws of your jurisdiction that cannot be excluded or limited by contract. In particular, nothing herein shall affect the rights of consumers under Directive 2011/83/EU (Consumer Rights Directive) or the corresponding provisions of the French Consumer Code, including the right of withdrawal as provided in Articles L221-18 et seq. of the French Consumer Code.</p>
+<div class="note">
+ <strong>Note on Consumer Rights:</strong> In accordance with Directive (EU) 2013/11/EU on alternative dispute resolution for consumer disputes ("ADR Directive") and Regulation (EU) 524/2013 on online dispute resolution for consumer disputes, you are entitled to submit any dispute arising out of this Disclaimer to an alternative dispute resolution entity. The European Commission provides an online dispute resolution platform <a  <a href="mailto:odr@li1234.top">odr@li1234.top</a>ref="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr</a>. Furthermore, under Articles L616-1 and R616-1 of the French Consumer Code, PyAcademy is required to inform you of the existence of this platform and your right to use it. This notice does not affect your right to bring proceedings before a competent court in accordance with the applicable rules of jurisdiction.
+</div>
+
+<h2>10. Changes to This Disclaimer</h2>
+<p>PyAcademy reserves the right to update this Disclaimer at any time. Significant changes will be communicated via email or through a prominent notice on our platform. Your continued use of the platform after any changes constitutes acceptance of the updated Disclaimer.</p>
+
+<h2>11. Contact</h2>
+<p>If you have questions about this Disclaimer, please contact us <a  <a href="mailto:contact@li1234.top">contact@li1234.top</a> de la consommation，以下简称"CCo"），以及理事会1993年4月5日第93/13/EEC号指令《消费者合同中的不公平条款》（"不公平合同条款指令"）。这些法律文件中关于消费者保护和合同责任限制的规定应管辖本文件中所设限制的解释和可执行性。</p>
+</div>
+<div class="content">
+
+<div class="highlight">
+ <strong>重要提示：</strong>使用 PyAcademy 的网站、课程、教程和服务即表示您知悉并同意本文中规定的限制和免责声明。
+</div>
+
+<h2>1. 仅用于教育目的</h2>
+<p>PyAcademy 提供教育内容、课程、教程和互动练习，旨在教授 Python 编程。我们平台上的所有内容仅供信息和教育目的，符合法国《教育法典》（Code de l'éducation，特别是规制国民教育体系组织的第L121-1条及其后续条款和规制继续职业教育的第L6311-1条及其后续条款）所确立的管理教育服务的一般原则。PyAcademy 上的任何内容均不应被解释为任何形式的专业建议，包括但不限于财务、法律、税务或职业建议。</p>
+<p>虽然我们努力确保教育材料的准确性、全面性和时效性，但我们不就我们平台上可用的信息、课程、练习或其他内容的完整性、可靠性或适用于任何特定目的的适当性作出任何陈述或保证。PyAcademy 颁发的资格证书、徽章或学习证明不在欧洲议会和理事会第2008/C 111/01号建议所确立的欧洲资格框架（EQF）意义上获得正式认证，亦未在法国国家职业证书名录（Répertoire National des Certifications Professionnelles，RNCP）中注册。该等证书仅作为完成课程和平台参与的证据。</p>
+
+<h2>2. 不保证准确性</h2>
+<p>PyAcademy 合理地努力确保平台上内容的准确性和时效性。但是：</p>
+<ul>
+ <li>技术信息、编程实践和 Python 生态系统工具发展迅速，部分随着时间的推移可能已过时</li>
+ <li>代码示例和练习仅供参考和教育目的，可能不代表可用于生产环境的实现</li>
+ <li>我们平台上引用的外部链接、参考资料和第三方资源可能包含不准确或自发布以来已发生变化的信息</li>
+ <li>互动练习和自动代码评估工具可能无法涵盖所有边缘情况，或在每种可能的开发环境中产生一致的结果</li>
+</ul>
+
+<h2>2. 第三方内容和链接</h2>
+<p>PyAcademy 可能包含指向非我们拥有或控制的第三方网站、工具、库或服务的链接。我们对任何第三方站点或服务的内容、隐私政策或实践没有控制权，也不承担任何责任。包含任何链接并不意味着 PyAcademy 的认可或推荐。</p>
+<p>您知悉并同意，PyAcademy 不应对因使用或依赖任何此类第三方站点或服务上的任何内容、商品或服务而直接或间接造成的任何损害或损失负责或承担责任。</p>
+
+<h2>4. 责任限制</h2>
+<p>在适用法律允许的最大范围内，包括但不限于法国《民法典》（CC）第1231-1条（该条规定债务人未履行义务时方产生合同责任），PyAcademy、其董事、员工、合作伙伴、代理、供应商和附属公司（统称"PyAcademy 各方"）不对任何间接的、附带的、特殊的、后果性的或惩罚性的损害赔偿负责，包括但不限于：</p>
+<ul>
+ <li>利润损失、数据丢失、使用丧失、商誉损失或其他无形资产损失</li>
+ <li>因您访问、使用或无法访问或使用平台而导致的损害</li>
+ <li>平台上任何第三方的任何行为或内容</li>
+ <li>从平台获取的任何内容</li>
+ <li>未经授权访问、使用或更改您的传输或内容</li>
+</ul>
+<p>根据法国《民法典》第1231-1条的规定，且在法律强制性条款允许的范围内，本免责声明中载明的责任限制和排除仅适用于 PyAcademy 的责任因过错或违反合同义务而成立的情形。根据法国《民法典》第1231-6条的规定，该条提供责任限制或排除条款在不涉及故意过错或重大过失（faute lourde）的情况下有效，双方同意这些限制不适用于因 PyAcademy 的故意不当行为或重大过失而产生的责任。</p>
+<p>在任何情况下，PyAcademy 各方的总责任不得超过以下两者中的较大值：(a) 您在索赔前十二 (12) 个月内向 PyAcademy 支付的金额（如有），或 (b) 一百欧元 (€100)。本免责声明中的任何内容均不排除或限制在适用消费者保护法律下不能被排除或限制的责任，特别是法国《消费法典》（Code de la consommation）和法国《民法典》的相关规定。</p>
+
+<h2>5. 不保证学习成果</h2>
+<p>PyAcademy 不保证使用我们的平台能带来任何特定的学习成果、职业结果或专业成就。您的进度和成功取决于许多因素，包括但不限于您的投入程度、先验经验、学习习惯以及您投入学习的时间。</p>
+<p>PyAcademy 提供的完成证书、课程进度和评估结果是参与度和努力程度的指标。它们不构成专业认证、学位，或任何第三方认可的能力保证。</p>
+
+<h2>6. 用户生成内容</h2>
+<p>PyAcademy 可能允许用户提交、发布或分享内容，包括但不限于代码片段、论坛帖子、评论、评价和项目提交。此类用户生成内容代表个别作者的观点和意见，并不一定反映 PyAcademy 的观点。</p>
+<p>我们不认可、保证或对任何用户生成内容承担责任。您有责任自行评估您在平台上遇到的任何内容的准确性、完整性和实用性。</p>
+
+<h2>7. 服务可用性</h2>
+<p>PyAcademy 努力保持平台的高可用性，但我们不保证无中断或无错误的服务。我们保留随时修改、暂停或终止部分服务的权利，恕不另行通知。无论原因如何，我们不对服务的任何中断、延迟或不可用承担责任。</p>
+
+<h2>8. 自动化工具和评估</h2>
+<p>PyAcademy 可能提供自动代码评估、测试和评估工具。这些工具作为学习辅助工具提供，具有固有的局限性。自动评估结果应作为指导，而非对代码质量或正确性的最终判断。合格讲师的人工审查可能与自动结果有所不同。</p>
+
+<h2>9. 管辖权限制</h2>
+<p>某些司法管辖区不允许排除某些保证或限制某些类型损害赔偿的责任。如果适用法律禁止上述任何免责声明或限制，则这些规定不适用于您，您可能根据当地法律享有额外权利。</p>
+<p>在不影响前述一般性的前提下，根据第93/13/EEC号指令《消费者合同中的不公平条款》第1(1)条的规定，未经个别协商的合同条款如违反诚信原则导致合同所产生权利和义务的显著失衡而损害消费者利益，则被视为不公平条款。本免责声明中包含的责任限制和免责声明须遵守法国《消费法典》（Code de la consommation）的强制性规定，特别是第L212-1条及其后续条款，该等条款规定合同主要特征和消费者权利须以清晰易懂的方式传达。如发现此类限制违反消费者保护强制性规定，法国《消费法典》的适用规定应优先适用。</p>
+<p>本免责声明中的任何内容均不旨在排除或限制您根据消费者保护法律所享有的任何不能通过合同排除或限制的权利。特别是，本文件中的任何内容均不影响消费者根据第(EU) 2011/83号指令（消费者权利指令）或法国《消费法典》相应规定所享有的权利，包括法国《消费法典》第L221-18条及其后续条款规定的撤回权。</p>
+<div class="note">
+ <strong>消费者权利提示：</strong>根据第(EU) 2013/11/EU号指令《消费者争议替代性解决》（"替代性解决指令"）和第(EU) 524/2013号条例《消费者争议在线解决》，您有权将因本免责声明产生的任何争议提交至替代性解决实体。欧洲委员会提供在线争议解决平台：<a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr</a>。此外，根据法国《消费法典》第L616-1条和第R616-1条，PyAcademy 有义务告知您该平台的存在及您使用该平台的权利。本通知不影响您根据适用的管辖规则在有管辖权的法院提起诉讼的权利。
+</div>
+
+<h2>10. 本免责声明的变更</h2>
+<p>PyAcademy 保留随时更新本免责声明的权利。重大变更将通过电子邮件或平台上的显著通知进行沟通。任何变更后继续使用平台即表示接受更新后的免责声明。</p>
+
+<h2>11. 联系方式</h2>
+<p>如果您对本免责声明有任何疑问，请通过 <a href="mailto:contact@li1234.top">contact@li1234.top</a> ts reserved.</p>
+</div></footer>
+
+<script type="d03d92977de8437f3c1f0d03-text/javascript">
+function switchLang(lang) {
+    document.body.classList.toggle('zh', lang === 'zh');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+}
+</script>
+
+</body>
+</html>

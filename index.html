@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录 - PyAcademy</title>
+
+    <!-- 此处保留原有全部样式，与你原文件完全一致（为节省篇幅省略，实际使用时请保留原样式） -->
+    <style type="text/css">@font-face {font-family:Inter;font-style:normal;font-weight:300;src:url(/cf-fonts/v/inter/5.0.16/cyrillic/wght/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:300;src:url(/cf-fonts/v/inter/5.0.16/latin/wght/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:300;src:url(/cf-fonts/v/inter/5.0.16/greek-ext/wght/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:300;src:url(/cf-fonts/v/inter/5.0.16/greek/wght/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:300;src:url(/cf-fonts/v/inter/5.0.16/latin-ext/wght/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:300;src:url(/cf-fonts/v/inter/5.0.16/cyrillic-ext/wght/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:300;src:url(/cf-fonts/v/inter/5.0.16/vietnamese/wght/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.0.16/greek/wght/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.0.16/greek-ext/wght/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.0.16/cyrillic-ext/wght/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.0.16/latin/wght/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.0.16/latin-ext/wght/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.0.16/vietnamese/wght/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.0.16/latin-ext/wght/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.0.16/cyrillic/wght/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.0.16/greek-ext/wght/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.0.16/latin/wght/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.0.16/vietnamese/wght/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.0.16/cyrillic-ext/wght/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.0.16/greek/wght/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:600;src:url(/cf-fonts/v/inter/5.0.16/cyrillic-ext/wght/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:600;src:url(/cf-fonts/v/inter/5.0.16/greek-ext/wght/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:600;src:url(/cf-fonts/v/inter/5.0.16/latin-ext/wght/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:600;src:url(/cf-fonts/v/inter/5.0.16/latin/wght/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:600;src:url(/cf-fonts/v/inter/5.0.16/vietnamese/wght/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:600;src:url(/cf-fonts/v/inter/5.0.16/greek/wght/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:600;src:url(/cf-fonts/v/inter/5.0.16/cyrillic/wght/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:700;src:url(/cf-fonts/v/inter/5.0.16/greek/wght/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:700;src:url(/cf-fonts/v/inter/5.0.16/cyrillic/wght/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:700;src:url(/cf-fonts/v/inter/5.0.16/latin/wght/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:700;src:url(/cf-fonts/v/inter/5.0.16/latin-ext/wght/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:700;src:url(/cf-fonts/v/inter/5.0.16/vietnamese/wght/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:700;src:url(/cf-fonts/v/inter/5.0.16/greek-ext/wght/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:700;src:url(/cf-fonts/v/inter/5.0.16/cyrillic-ext/wght/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:800;src:url(/cf-fonts/v/inter/5.0.16/cyrillic-ext/wght/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:800;src:url(/cf-fonts/v/inter/5.0.16/latin/wght/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:800;src:url(/cf-fonts/v/inter/5.0.16/greek/wght/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:800;src:url(/cf-fonts/v/inter/5.0.16/latin-ext/wght/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:800;src:url(/cf-fonts/v/inter/5.0.16/vietnamese/wght/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:800;src:url(/cf-fonts/v/inter/5.0.16/greek-ext/wght/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:800;src:url(/cf-fonts/v/inter/5.0.16/cyrillic/wght/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}</style>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #f5f5f7; -webkit-font-smoothing: antialiased; }
+        .bg { position: fixed; inset: 0; z-index: 0; overflow: hidden; }
+        .bg-circle { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.5; animation: float 20s ease-in-out infinite; }
+        .bg-circle:nth-child(1) { width: 600px; height: 600px; top: -200px; left: -100px; background: linear-gradient(135deg, #306998, #4B8BBE); animation-delay: 0s; }
+        .bg-circle:nth-child(2) { width: 500px; height: 500px; bottom: -150px; right: -100px; background: linear-gradient(135deg, #FFD43B, #FFB800); animation-delay: -7s; }
+        .bg-circle:nth-child(3) { width: 400px; height: 400px; top: 50%; left: 50%; transform: translate(-50%, -50%); background: linear-gradient(135deg, #0071e3, #5856D6); animation-delay: -14s; }
+        @keyframes float { 0%,100%{transform:translate(0,0) scale(1);} 25%{transform:translate(30px,-40px) scale(1.05);} 50%{transform:translate(-20px,20px) scale(0.95);} 75%{transform:translate(15px,30px) scale(1.02);} }
+        .login-card { position: relative; z-index: 1; width: 100%; max-width: 420px; margin: 20px; background: rgba(255,255,255,0.85); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 24px; padding: 48px 40px; box-shadow: 0 4px 6px rgba(0,0,0,0.02),0 12px 24px rgba(0,0,0,0.04),0 24px 48px rgba(0,0,0,0.06); border: 1px solid rgba(255,255,255,0.6); }
+        .logo { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 8px; }
+        .logo-icon { width: 40px; height: 40px; background: linear-gradient(135deg, #306998 50%, #FFD43B 50%); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; font-weight: 800; box-shadow: 0 4px 12px rgba(48,105,152,0.3); }
+        .logo-text { font-size: 22px; font-weight: 700; color: #1d1d1f; letter-spacing: -0.03em; }
+        .login-title { text-align: center; font-size: 28px; font-weight: 700; color: #1d1d1f; margin-bottom: 6px; letter-spacing: -0.03em; }
+        .login-subtitle { text-align: center; font-size: 15px; color: #86868b; margin-bottom: 36px; line-height: 1.4; }
+        .auth-options { display: flex; flex-direction: column; gap: 12px; align-items: center; }
+        .auth-btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 14px 20px; border-radius: 14px; border: 1px solid rgba(0,0,0,0.08); background: white; font-size: 15px; font-weight: 500; color: #1d1d1f; cursor: pointer; transition: all 0.2s ease; font-family: inherit; text-decoration: none; }
+        .auth-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-color: rgba(0,0,0,0.12); }
+        .auth-btn:active { transform: translateY(0); box-shadow: none; }
+        .auth-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
+        .auth-btn.auth0 { background: #1d1d1f; color: white; border-color: #1d1d1f; }
+        .auth-btn.auth0:hover { background: #333; border-color: #333; box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
+        .auth-btn:disabled { background: #d1d1d6 !important; border-color: #d1d1d6 !important; color: rgba(255,255,255,0.6) !important; cursor: not-allowed !important; box-shadow: none !important; transform: none !important; }
+        .auth-btn.email-btn { background: #0071e3; color: white; border-color: #0071e3; }
+        .auth-btn.email-btn:hover { background: #0077ED; border-color: #0077ED; box-shadow: 0 4px 16px rgba(0,113,227,0.3); }
+        .auth-btn.guest-btn { background: transparent; color: #86868b; border-color: rgba(0,0,0,0.06); }
+        .auth-btn.guest-btn:hover { background: rgba(0,0,0,0.02); color: #1d1d1f; }
+        .divider { display: flex; align-items: center; gap: 16px; margin: 24px 0; }
+        .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: rgba(0,0,0,0.08); }
+        .divider span { font-size: 13px; color: #86868b; font-weight: 500; }
+        .email-form { display: none; flex-direction: column; gap: 16px; }
+        .email-form.active { display: flex; }
+        .form-group { position: relative; }
+        .form-group label { display: block; font-size: 13px; font-weight: 600; color: #1d1d1f; margin-bottom: 6px; }
+        .form-group input { width: 100%; padding: 12px 16px; border: 1px solid rgba(0,0,0,0.1); border-radius: 12px; font-size: 15px; font-family: inherit; color: #1d1d1f; background: rgba(0,0,0,0.02); transition: all 0.2s; outline: none; }
+        .form-group input:focus { border-color: #0071e3; box-shadow: 0 0 0 3px rgba(0,113,227,0.12); background: white; }
+        .form-group input::placeholder { color: #aeaeb2; }
+        .code-row { display: flex; gap: 10px; }
+        .code-row input { flex: 1; }
+        .send-code-btn { padding: 12px 18px; border-radius: 12px; border: 1px solid #0071e3; background: transparent; color: #0071e3; font-size: 13px; font-weight: 600; cursor: pointer; white-space: nowrap; font-family: inherit; transition: all 0.2s; }
+        .send-code-btn:hover { background: rgba(0,113,227,0.06); }
+        .send-code-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .submit-btn { width: 100%; padding: 14px; border-radius: 14px; border: none; background: #0071e3; color: white; font-size: 16px; font-weight: 600; cursor: pointer; font-family: inherit; transition: all 0.2s; position: relative; overflow: hidden; }
+        .submit-btn:hover { background: #0077ED; }
+        .submit-btn:active { transform: scale(0.98); }
+        .submit-btn.loading { pointer-events: none; opacity: 0.8; }
+        .submit-btn .spinner { display: none; width: 20px; height: 20px; border: 2px solid rgba(255,255,255,0.3); border-top-color: white; border-radius: 50%; animation: spin 0.6s linear infinite; margin: 0 auto; }
+        .submit-btn.loading .spinner { display: block; }
+        .submit-btn.loading .btn-text { display: none; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .back-btn { background: none; border: none; color: #0071e3; font-size: 14px; font-weight: 500; cursor: pointer; font-family: inherit; padding: 0; margin-top: -4px; }
+        .back-btn:hover { text-decoration: underline; }
+        .success-state { display: none; text-align: center; padding: 20px 0; }
+        .success-state.active { display: block; }
+        .success-icon { width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, #34C759, #30D158); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 36px; box-shadow: 0 8px 24px rgba(52,199,89,0.3); animation: popIn 0.4s cubic-bezier(0.16,1,0.3,1); }
+        @keyframes popIn { 0% { transform: scale(0); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+        .success-state h3 { font-size: 22px; font-weight: 700; color: #1d1d1f; margin-bottom: 6px; }
+        .success-state p { font-size: 15px; color: #86868b; line-height: 1.5; }
+        .redirect-text { font-size: 13px; color: #aeaeb2; margin-top: 20px; }
+        .login-footer { text-align: center; margin-top: 24px; font-size: 13px; color: #aeaeb2; }
+        .login-footer a { color: #86868b; text-decoration: none; }
+        .login-footer a:hover { text-decoration: underline; }
+        .toast { position: fixed; top: 24px; left: 50%; transform: translateX(-50%) translateY(-100px); background: #1d1d1f; color: white; padding: 12px 24px; border-radius: 12px; font-size: 14px; font-weight: 500; box-shadow: 0 8px 32px rgba(0,0,0,0.2); z-index: 9999; transition: transform 0.4s cubic-bezier(0.16,1,0.3,1); }
+        .toast.show { transform: translateX(-50%) translateY(0); }
+        @media (max-width: 480px) { .login-card { padding: 36px 28px; margin: 16px; } .login-title { font-size: 24px; } }
+        .policy-mask { position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: flex; align-items: flex-start; justify-content: center; z-index: 99999; overflow-y: auto; padding: 20px 0; }
+        .policy-popup { width: 90%; max-width: 460px; max-height: 90vh; overflow-y: auto; background: #fff; border-radius: 20px; padding: 30px; }
+        .policy-popup h3 { font-size: 20px; text-align: center; margin-bottom: 10px; color: #1d1d1f; }
+        .policy-desc { font-size: 14px; color: #86868b; text-align: center; margin-bottom: 20px; line-height: 1.5; }
+        .policy-list { max-height: 220px; overflow-y: auto; border: 1px solid #eee; border-radius: 12px; padding: 16px; margin-bottom: 20px; }
+        .policy-list a { display: block; color: #0071e3; font-size: 14px; line-height: 2; text-decoration: none; }
+        .policy-list a:hover { text-decoration: underline; }
+        .policy-check { display: flex; align-items: center; gap: 8px; margin-bottom: 24px; }
+        .policy-check input[type="checkbox"] { width: 18px; height: 18px; cursor: pointer; accent-color: #0071e3; }
+        .policy-check label { font-size: 14px; color: #1d1d1f; }
+        .policy-confirm { width: 100%; padding: 14px; background: #0071e3; color: #fff; border: none; border-radius: 14px; font-size: 15px; font-weight: 600; cursor: pointer; }
+        .policy-confirm:disabled { background: #94b8e0; cursor: not-allowed; pointer-events: none; }
+        .login-card { display: none; }
+        .data-statement-mask { position: fixed; inset: 0; background: rgba(0,0,0,0.65); display: none; align-items: flex-start; justify-content: center; z-index: 999999; overflow-y: auto; padding: 20px 0; }
+        .data-statement-popup { width: 90%; max-width: 450px; background: #fff; border-radius: 20px; padding: 30px; }
+        .data-statement-popup h3 { text-align: center; font-size: 19px; color: #1d1d1f; margin-bottom: 18px; }
+        .data-statement-text { font-size: 14px; line-height: 1.8; color: #333; max-height: 260px; overflow-y: auto; margin-bottom: 24px; }
+        .data-statement-btn { width: 100%; padding: 13px; background: #0071e3; color: #fff; border: none; border-radius: 14px; font-size: 15px; font-weight: 600; cursor: pointer; }
+        .choose-card { position: relative; z-index: 1; width: 100%; max-width: 420px; margin: 20px; background: rgba(255,255,255,0.85); backdrop-filter: saturate(180%) blur(20px); border-radius: 24px; padding: 48px 40px; box-shadow: 0 4px 6px rgba(0,0,0,0.02),0 12px 24px rgba(0,0,0,0.04),0 24px 48px rgba(0,0,0,0.06); border: 1px solid rgba(255,255,255,0.6); }
+        .choose-title { text-align: center; font-size: 28px; font-weight: 700; color: #1d1d1f; margin-bottom: 6px; letter-spacing: -0.03em; }
+        .choose-subtitle { text-align: center; font-size: 15px; color: #86868b; margin-bottom: 36px; line-height: 1.4; }
+        .choose-options { display: flex; flex-direction: column; gap: 14px; }
+        .choose-btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 16px 20px; border-radius: 16px; border: 1px solid rgba(0,0,0,0.08); background: white; font-size: 15px; font-weight: 600; color: #1d1d1f; cursor: pointer; transition: all 0.25s cubic-bezier(0.16,1,0.3,1); font-family: inherit; text-decoration: none; }
+        .choose-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); border-color: rgba(0,0,0,0.12); }
+        .choose-btn:active { transform: translateY(0); box-shadow: none; }
+        .choose-btn svg { width: 22px; height: 22px; flex-shrink: 0; }
+        .choose-btn.btn-1 { background: linear-gradient(135deg, #0071e3, #5856D6); color: white; border-color: transparent; }
+        .choose-btn.btn-1:hover { box-shadow: 0 8px 24px rgba(0,113,227,0.35); filter: brightness(1.08); }
+        .choose-btn.btn-2 { background: #1d1d1f; color: white; border-color: #1d1d1f; }
+        .choose-btn.btn-2:hover { background: #333; border-color: #333; box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+        .choose-btn.btn-3 { background: transparent; color: #1d1d1f; border: 1.5px solid rgba(0,0,0,0.1); }
+        .choose-btn.btn-3:hover { background: rgba(0,0,0,0.03); border-color: rgba(0,0,0,0.18); }
+        .choose-footer { text-align: center; margin-top: 28px; font-size: 13px; color: #aeaeb2; }
+        @media (max-width: 480px) { .choose-card { padding: 36px 28px; margin: 16px; } .choose-title { font-size: 24px; } }
+    </style>
+    <script>
+    window.loadSDK = function(src) {
+        return new Promise(function(resolve, reject) {
+            if (document.querySelector('script[data-sdk="' + src + '"]')) { resolve(); return; }
+            var s = document.createElement('script');
+            s.src = src;
+            s.dataset.sdk = src;
+            s.onload = resolve;
+            s.onerror = function() { reject(new Error('Failed to load ' + src)); };
+            document.head.appendChild(s);
+        });
+    };
+    </script>
+</head>
+<body>
+<div class="bg">
+    <div class="bg-circle"></div>
+    <div class="bg-circle"></div>
+    <div class="bg-circle"></div>
+</div>
+
+<!-- 登录卡片 -->
+<div class="login-card" id="loginCard">
+    <div class="logo"><div class="logo-icon">P</div><span class="logo-text">PyAcademy</span></div>
+    <h1 class="login-title">欢迎回来</h1>
+    <p class="login-subtitle">请先登录。</p>
+    <p class="captcha-hint" style="text-align:center;color:#86868b;font-size:14px;margin-bottom:16px;">开始之前：让我们知道你是人类</p>
+    <p class="captcha-hint" style="text-align:center;color:#86868b;font-size:14px;margin-bottom:16px;">我们怀疑你不是真人，请点击“I'm not a robot”复选框（如需要），告诉我们你是真实访客。</p>
+    <p class="captcha-hint" style="text-align:center;color:#86868b;font-size:14px;margin-bottom:16px;">你需要证明自己不是恶意自动程序（漫游器）后，才能继续，由 Cloudflare Turnstile 验证。</p>
+    <div id="captcha" style="display:flex;justify-content:center;margin-bottom:20px;"></div>
+    <div class="auth-options">
+        <button class="auth-btn auth0" id="loginBtn" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+            </svg>
+            登录 / 注册
+        </button>
+    </div>
+
+    <div class="login-footer">登录即表示您同意我们的<a href="https://li1234.com/PyAcademy_User_Agreement.html" target="_blank">用户协议</a></div>
+</div>
+
+<!-- 选择入口卡片 -->
+<div class="choose-card" id="chooseCard">
+    <div class="logo"><div class="logo-icon">P</div><span class="logo-text">PyAcademy</span></div>
+    <h1 class="choose-title">选择入口</h1>
+    <p class="choose-subtitle">请选择您要进入的模块。</p>
+    <div class="choose-options">
+        <a class="choose-btn btn-1" href="https://www.li1234.com" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>课程中心</a>
+        <a class="choose-btn btn-2" href="https://oj.li1234.com" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>在线判题系统</a>
+        <a class="choose-btn btn-3" href="https://game.li1234.com" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>小游戏</a>
+    </div>
+    <div class="choose-footer">点击按钮将跳转至对应页面</div>
+</div>
+
+<!-- 协议弹窗蒙层 -->
+<div class="policy-mask" id="policyMask">
+    <div class="policy-popup">
+        <h3>用户须知</h3>
+        <p class="policy-desc">请仔细阅读以下全部条款，勾选即表示您已阅读并同意全部不可分割、不可让之条例</p>
+        <div class="policy-list">
+            <a href="https://li1234.com/PyAcademy_User_Agreement.html" target="_blank">《用户协议》</a>
+            <a href="https://li1234.com/PyAcademy_Consumer_Terms.html" target="_blank">《服务条款：消费者》</a>
+            <a href="https://li1234.com/PyAcademy_Commercial_Terms.html" target="_blank">《服务条款：商业》</a>
+            <a href="https://li1234.com/PyAcademy_Privacy_Policy.html" target="_blank">《隐私权政策》</a>
+            <a href="https://li1234.com/PyAcademy_Community_Guidelines.html" target="_blank">《社区公约》</a>
+            <a href="https://li1234.com/PyAcademy_Usage_Rules.html" target="_blank">《使用规则》</a>
+            <a href="https://li1234.com/PyAcademy_Account_Charter.html" target="_blank">《账户章程》</a>
+            <a href="https://li1234.com/PyAcademy_Account_Penalties.html" target="_blank">《账户处罚与申诉标准》</a>
+            <a href="https://li1234.com/PyAcademy_Data_Transfer.html" target="_blank">《跨国数据传输和处理指南》</a>
+            <a href="https://li1234.com/PyAcademy_Copyright_IP.html" target="_blank">《知识产权、版权保护摘要》</a>
+            <a href="https://li1234.com/PyAcademy_Disclaimer.html" target="_blank">《免责声明》</a>
+            <a href="https://li1234.com/PyAcademy_Responsible_Disclosure.html" target="_blank">《负责任地数据披露指引》</a>
+            <a href="https://li1234.com/PyAcademy_Developer_Code_of_Conduct.html" target="_blank">《开发者行为准则》</a>
+            <a href="https://li1234.com/PyAcademy_Developer_Review_Guidelines.html" target="_blank">《开发者审核规范》</a>
+            <a href="https://li1234.com/PyAcademy_Digital_Certificate_License.html" target="_blank">《软件使用数字证书许可》</a>
+            <a href="https://li1234.com/PyAcademy_Cookie_Policy.html" target="_blank">《Cookie 使用政策》</a>
+            <a href="https://li1234.com/PyAcademy_Acceptable_Use_Policy.html" target="_blank">《可接受使用政策》</a>
+            <a href="https://li1234.com/PyAcademy_Governing_Law_Dispute_Resolution.html" target="_blank">《适用法律与争议解决条款》</a>
+            <a href="https://li1234.com/PyAcademy_Force_Majeure.html" target="_blank">《不可抗力条款》</a>
+        </div>
+        <div class="policy-check"><input type="checkbox" id="agreeCheck"><label for="agreeCheck">我已阅读并同意以上全部不可分割、不可让之条例</label></div>
+        <button class="policy-confirm" id="policyConfirmBtn">确认并进入登录</button>
+    </div>
+</div>
+
+<!-- 数据合规声明弹窗 -->
+<div class="data-statement-mask" id="dataStatementMask">
+    <div class="data-statement-popup">
+        <h3>数据的传输、处理和描述的地域合规申明</h3>
+        <div class="data-statement-text">
+            &nbsp;&nbsp;&nbsp;&nbsp;本平台告知用户：所有个人信息及衍生数据的处理行为，均全程在<b>欧洲联盟（Europe Union，以下简称"欧盟"或"EU"）</b>管辖区域内实施；数据运算、逻辑处理、业务调度等绝大多数服务节点，部署于<b>法国（France）</b>管辖区域内实施；数据运算、逻辑处理、业务调度等绝大多数服务节点，部署于<b>法国（France）</b>境内。<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;用户个人数据的持久化存储、备份留存、容灾归档等全部存储行为，同样落地于<b>欧盟（EU）</b>及<b>法国（France）</b>境内合规数据中心。<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;依据<b>欧盟《通用数据保护条例》（GDPR）</b>及<b>法国本土数据保护相关法规</b>，本数据地域安排具备合法合规效力，你点击确认即视为已充分知情并认可该数据处理与存储地域安排。<br><br><br><br>
+        </div>
+        <button class="data-statement-btn" id="dataStatementConfirm">确认并继续</button>
+    </div>
+</div>
+
+<script>
+// 协议与卡片显示逻辑（未修改）
+document.addEventListener('DOMContentLoaded', function() {
+    const policyMask = document.getElementById('policyMask');
+    const agreeCheck = document.getElementById('agreeCheck');
+    const policyConfirmBtn = document.getElementById('policyConfirmBtn');
+    const dataStatementMask = document.getElementById('dataStatementMask');
+    const dataStatementConfirm = document.getElementById('dataStatementConfirm');
+    const chooseCard = document.getElementById('chooseCard');
+    const loginCard  = document.getElementById('loginCard');
+
+    chooseCard.style.display = "none";
+    loginCard.style.display  = "none";
+    policyMask.style.display = "flex";
+    dataStatementMask.style.display = "none";
+    policyConfirmBtn.disabled = true;
+
+    agreeCheck.addEventListener('change', function() {
+        policyConfirmBtn.disabled = !this.checked;
+    });
+    policyConfirmBtn.addEventListener('click', function() {
+        policyMask.style.display = "none";
+        dataStatementMask.style.display = "flex";
+        dataStatementConfirm.disabled = false;
+    });
+    dataStatementConfirm.addEventListener('click', function() {
+        dataStatementMask.style.display = "none";
+        loginCard.style.display = "block";
+        if (typeof window.tryInitTurnstile === 'function') window.tryInitTurnstile();
+    });
+});
+</script>
+
+<!-- Cloudflare Turnstile + Auth0 登录逻辑 -->
+<script>
+(async function() {
+    const AUTH0_DOMAIN   = 'dev-ipau6rke7ayzc0kt.us.auth0.com';
+    const AUTH0_CLIENT_ID = 'cza7SbgB0XHe9fZGt7rUvtmBeQD7vqIS';
+    const REDIRECT_URI = window.location.origin + window.location.pathname;
+
+    let auth0Client = null;
+    let turnstileToken = null;
+    let turnstileVerified = false;
+
+    // ========== Cloudflare Turnstile 配置 ==========
+    const TURNSTILE_SITEKEY = '0x4AAAAAADkmU7ehrNwg2V1d';
+    // TODO: 部署 Worker 后替换为您的 siteverify Worker URL
+    // 例如: const TURNSTILE_WORKER_URL = 'https://turnstile-siteverify.your-worker.workers.dev';
+    const TURNSTILE_WORKER_URL = 'https://captcha.orgin.li1234.top';
+
+    const loginBtn = document.getElementById('loginBtn');
+
+    function showToast(msg) {
+        let t = document.querySelector('.toast');
+        if (!t) {
+            t = document.createElement('div');
+            t.className = 'toast';
+            document.body.appendChild(t);
+        }
+        t.textContent = msg;
+        t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 3000);
+    }
+
+    // 初始化 Auth0
+    try {
+        await window.loadSDK('https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.min.js');
+        if (typeof createAuth0Client !== 'undefined') {
+            auth0Client = await createAuth0Client({
+                domain: AUTH0_DOMAIN,
+                clientId: AUTH0_CLIENT_ID,
+                authorizationParams: { redirect_uri: REDIRECT_URI }
+            });
+            if (window.location.search.includes('code=') && window.location.search.includes('state=')) {
+                await auth0Client.handleRedirectCallback();
+                window.history.replaceState({}, document.title, REDIRECT_URI);
+                showToast('✅ 登录成功！');
+                document.getElementById('loginCard').style.display = 'none';
+                document.getElementById('chooseCard').style.display = 'block';
+            }
+        }
+    } catch (e) {
+        console.warn('Auth0 初始化失败（不影响验证码）', e);
+    }
+
+    // 加载 Turnstile script 并渲染 widget
+    function renderTurnstile() {
+        // 如果 Turnstile 已加载，直接渲染
+        if (typeof turnstile !== 'undefined') {
+            try {
+                turnstile.render('#captcha', {
+                    sitekey: TURNSTILE_SITEKEY,
+                    theme: 'light',
+                    callback: function(token) {
+                        turnstileToken = token;
+                        turnstileVerified = true;
+                        loginBtn.disabled = false;
+                        loginBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>登录 / 注册';
+                        showToast('✅ 验证通过，请点击登录');
+                    },
+                    'error-callback': function() {
+                        turnstileToken = null;
+                        turnstileVerified = false;
+                        showToast('❌ 验证失败，请重试');
+                    },
+                    'expired-callback': function() {
+                        turnstileToken = null;
+                        turnstileVerified = false;
+                        showToast('⚠️ 验证已过期，请重新验证');
+                    }
+                });
+            } catch (e) {
+                console.error('Turnstile render error:', e);
+                showToast('⚠️ 验证码渲染失败，请刷新重试');
+            }
+            return;
+        }
+
+        // 如果 Turnstile 还未加载，先加载 script（使用 render=explicit 参数）
+        var script = document.createElement('script');
+        script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+        script.async = true;
+        script.defer = true;
+        script.onload = function() {
+            // 等待 Turnstile 全局对象可用
+            var checkCount = 0;
+            var checkInterval = setInterval(function() {
+                if (typeof turnstile !== 'undefined' && turnstile.render) {
+                    clearInterval(checkInterval);
+                    renderTurnstile();
+                } else if (checkCount++ > 50) {
+                    clearInterval(checkInterval);
+                    showToast('⚠️ Turnstile 加载失败，请刷新重试');
+                }
+            }, 100);
+        };
+        script.onerror = function() {
+            showToast('⚠️ Turnstile 加载失败，请刷新重试');
+        };
+        document.head.appendChild(script);
+    }
+
+    // 初始化 Turnstile
+    function initTurnstile() {
+        if (loginBtn) {
+            loginBtn.disabled = true;
+            loginBtn.textContent = '加载验证码...';
+        }
+        renderTurnstile();
+    }
+
+    window.tryInitTurnstile = initTurnstile;
+
+    // 根据页面显示状态决定初始化哪个
+    if (document.getElementById('loginCard').style.display === 'block') {
+        initTurnstile();
+    }
+
+    loginBtn.addEventListener('click', async function() {
+        if (!turnstileVerified || !turnstileToken) {
+            showToast('⚠️ 请先完成人机验证');
+            return;
+        }
+
+        if (TURNSTILE_WORKER_URL) {
+            try {
+                const verifyRes = await fetch(TURNSTILE_WORKER_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ token: turnstileToken })
+                });
+                const verifyData = await verifyRes.json();
+                if (!verifyData.success) {
+                    showToast('❌ 验证失败，请重试');
+                    turnstile.reset();
+                    return;
+                }
+            } catch (err) {
+                console.error('Turnstile 验证请求失败', err);
+            }
+        }
+
+        if (!auth0Client) {
+            showToast('⚠️ 登录服务未就绪，请稍后重试');
+            return;
+        }
+        const isAuthenticated = await auth0Client.isAuthenticated();
+        if (isAuthenticated) {
+            showToast('您已登录');
+            document.getElementById('loginCard').style.display = 'none';
+            document.getElementById('chooseCard').style.display = 'block';
+            return;
+        }
+        loginBtn.disabled = true;
+        loginBtn.textContent = '正在跳转...';
+        try {
+            await auth0Client.loginWithRedirect({ appState: { returnTo: REDIRECT_URI } });
+        } catch (e) {
+            console.error(e);
+            showToast('❌ 登录跳转失败，请重试');
+            loginBtn.disabled = false;
+            loginBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>登录 / 注册';
+        }
+    });
+})();
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"33dd6e4a9ef3457a9ce6357c1d3669aa","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>

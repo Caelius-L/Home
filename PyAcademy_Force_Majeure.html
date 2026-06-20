@@ -1,0 +1,608 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Force Majeure – PyAcademy</title>
+ <style>
+ @font-face {
+ font-family: 'AnthropicSerif';
+ src: url('AnthropicSerif-Romans-Variable-25x258.ttf') format('truetype');
+ font-weight: 100 900;
+ font-style: normal;
+ font-display: swap;
+ }
+ *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'AnthropicSerif', 'Georgia', 'Times New Roman', serif; color: #1a1a1a; background: #fff; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+ nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid #eaeaea; padding: 0 24px; }
+ .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+ .nav-logo { font-family: 'AnthropicSerif', 'Georgia', serif; font-size: 18px; font-weight: 700; color: #1a1a1a; text-decoration: none; letter-spacing: -0.02em; }
+ .nav-logo span { color: #d97706; }
+ .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+ .nav-links a { font-family: 'AnthropicSerif', 'Georgia', serif; font-size: 14px; font-weight: 500; color: #666; text-decoration: none; transition: color 0.2s; }
+ .nav-links a:hover { color: #1a1a1a; }
+ .nav-links .lang-divider { width: 1px; height: 16px; background: #ddd; }
+ .lang-btn { font-family: 'AnthropicSerif', 'Georgia', serif; font-size: 13px; font-weight: 500; color: #888; padding: 4px 10px; border: 1px solid #ddd; border-radius: 6px; transition: all 0.2s; cursor: pointer; background: none; }
+ .lang-btn:hover { color: #1a1a1a; border-color: #aaa; }
+ .lang-btn.active { color: #d97706; border-color: #d97706; background: #fffbeb; }
+ .hero { padding: 80px 24px 48px; max-width: 1200px; margin: 0 auto; }
+ .hero h1 { font-size: 48px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 16px; }
+ .hero .date { font-size: 15px; color: #888; margin-bottom: 32px; }
+ .hero .intro { font-size: 17px; color: #444; max-width: 720px; line-height: 1.8; }
+ .content { max-width: 760px; margin: 0 auto; padding: 24px 24px 120px; }
+ .content h2 { font-size: 24px; font-weight: 700; letter-spacing: -0.02em; margin-top: 56px; margin-bottom: 20px; color: #1a1a1a; }
+ .content h3 { font-size: 17px; font-weight: 600; margin-top: 32px; margin-bottom: 12px; color: #1a1a1a; }
+ .content p { font-size: 15px; line-height: 1.8; color: #333; margin-bottom: 16px; }
+ .content ul, .content ol { margin-bottom: 16px; padding-left: 20px; }
+ .content li { font-size: 15px; line-height: 1.8; color: #333; margin-bottom: 8px; }
+ .content a { color: #d97706; text-decoration: underline; text-underline-offset: 2px; transition: color 0.2s; }
+ .content a:hover { color: #b45309; }
+ .content .note { font-size: 14px; color: #666; background: #f9f9f9; border-left: 3px solid #d97706; padding: 16px 20px; margin: 24px 0; border-radius: 0 6px 6px 0; }
+ .content .section-ref { font-size: 13px; color: #888; font-style: italic; margin-bottom: 16px; }
+ .legal-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; }
+ .legal-table th { background: #f5f5f5; font-weight: 600; text-align: left; padding: 12px 16px; border-bottom: 2px solid #e0e0e0; }
+ .legal-table td { padding: 12px 16px; border-bottom: 1px solid #eee; vertical-align: top; line-height: 1.6; }
+ .legal-table tr:last-child td { border-bottom: none; }
+ footer { border-top: 1px solid #eaeaea; padding: 48px 24px; text-align: center; }
+ .footer-inner { max-width: 1200px; margin: 0 auto; }
+ .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; flex-wrap: wrap; }
+ .footer-links a { font-size: 13px; color: #888; text-decoration: none; transition: color 0.2s; }
+ .footer-links a:hover { color: #1a1a1a; }
+ .footer-copy { font-size: 13px; color: #aaa; }
+ [[data-lang="zh"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh [data-lang="en"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh [[data-lang="zh"] { display: block; }
+ body.zh span[data-lang="en"], body.zh a[data-lang="en"] { display: none; }
+body.zh [data-lang="zh"] { display: block; }
+        body.zh span[data-lang="zh"], body.zh a[data-lang="zh"] { display: inline; }
+                span[data-lang], a[data-lang] { display: none; }
+ body.zh span[[data-lang="zh"], body.zh a[[data-lang="zh"] { display: inline; }
+ span[[data-lang="zh"], a[[data-lang="zh"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ @media (max-width: 640px) {
+ .hero h1 { font-size: 32px; }
+ .hero { padding: 48px 16px 32px; }
+ .content { padding: 16px 16px 80px; }
+ .nav-links { gap: 16px; }
+ .legal-table { font-size: 12px; }
+ .legal-table th, .legal-table td { padding: 8px 10px; }
+ }
+ </style>
+</head>
+<body>
+ <nav>
+ <div class="nav-inner">
+ <a href="https://www.li1234.com" class="nav-logo">Py<span>Academy</span></a>
+ <div class="nav-links">
+ <a href="https://www.li1234.com" data-lang="en">Home</a>
+ <a href="https://www.li1234.com" data-lang="zh">首页</a>
+ <div class="lang-divider"></div>
+ <button class="lang-btn active" id="btn-en" onclick="switchLang('en')">EN</button>
+ <button class="lang-btn" id="btn-zh" onclick="switchLang('zh')">中文</button>
+ </div>
+ </div>
+ </nav>
+
+ <div class="hero">
+ <h1 data-lang="en">Force Majeure</h1>
+ <h1 data-lang="zh">不可抗力条款</h1>
+ <p class="date" data-lang="en">Effective Date: May 31, 2026</p>
+ <p class="date" data-lang="zh">生效日期：2026年5月31日</p>
+ <p class="intro" data-lang="en">This Force Majeure Policy ("Policy") sets forth the terms and conditions under which PyAcademy SAS ("we," "us," or "our"), a société par actions simplifiée incorporated under the laws of the French Republic, shall be excused from or shall have its obligations suspended in whole or in part due to the occurrence of events beyond its reasonable control. This Policy applies to all obligations arising under or in connection with the terms, conditions, policies, and agreements relating to the PyAcademy platform and all related services, websites, applications, APIs, content, and infrastructure (collectively, the "Platform"). This Policy is incorporated into and forms an integral part of the PyAcademy Terms of Service and all other applicable policies.</p>
+ <p class="intro" data-lang="zh">本不可抗力政策（"本政策"）规定了 PyAcademy SAS（"我们"、"我方"，一家依据法兰西共和国法律注册成立的简化股份公司）因超出其合理控制范围的事件而被免除或暂停履行全部或部分义务的条款和条件。本政策适用于因 PyAcademy 平台及相关所有服务、网站、应用程序、API、内容和基础设施（以下统称"平台"）相关的条款、条件、政策和协议而产生的或与之相关的所有义务。本政策被纳入并构成 PyAcademy 服务条款和所有其他适用政策的组成部分。</p>
+ </div>
+
+ <div class="content">
+
+ <div data-lang="en">
+
+ <h2>1. Acceptance and Scope</h2>
+ <p>By creating an account, accessing, browsing, or otherwise using the Platform, you acknowledge that you have read, understood, and agree to be bound by this Force Majeure Policy. This Policy applies to all obligations of PyAcademy and of Users arising under or in connection with the Applicable Agreements, including but not limited to the provision and access to educational content, course delivery, community features, payment processing, technical support, data hosting, and any other services provided through the Platform.</p>
+ <p>This Policy does not limit or exclude any mandatory rights or remedies available to you under applicable law, including mandatory consumer protection provisions of the Code de la consommation and the GDPR. Nothing in this Policy shall be construed to relieve PyAcademy of liability for damages caused by its own fault (faute), negligence (négligence), or willful misconduct (faute intentionnelle).</p>
+ <div class="note">
+ <strong>Note:</strong> This Force Majeure Policy is to be read in conjunction with our Terms of Service, Privacy Policy, Cookie Policy, Acceptable Use Policy, and Governing Law and Dispute Resolution Policy. In the event of a conflict between this Policy and any mandatory provision of applicable law, the mandatory provision of applicable law shall prevail.
+ </div>
+
+ <h2>2. Legal Basis — Force Majeure Under French Law</h2>
+
+ <h3>2.1 Statutory Definition</h3>
+ <p>This Policy is drafted in accordance with the French concept of force majeure as defined in Article 1218 of the French Code civil, as amended by Ordonnance n° 2016-131 of 10 February 2016 reforming contract law. Under Article 1218, there is force majeure where an event beyond the control of the debtor, which could not reasonably have been foreseen at the time of the conclusion of the contract and the effects of which cannot be avoided by appropriate measures, prevents the performance of the debtor's obligation.</p>
+ <p>Pursuant to Article 1218 of the Code civil, force majeure is characterized by the cumulative presence of three conditions:</p>
+ <ul>
+ <li><strong>Externalité (Externality):</strong> The event must be beyond the control of the party invoking force majeure. It must originate from an external cause and not from the internal operations, negligence, or fault of the party.</li>
+ <li><strong>Imprévisibilité (Unforeseeability):</strong> The event could not reasonably have been foreseen at the time of the conclusion of the contract, taking into account the nature of the obligation, the context of the contract, and the state of knowledge at the relevant time.</li>
+ <li><strong>Irrésistibilité (Irresistibility):</strong> The effects of the event cannot be avoided by appropriate measures. The party must demonstrate that no reasonable alternative means of performance was available.</li>
+ </ul>
+ <p>French case law further refines these criteria. The Cour de cassation has held that the unforeseeability must be assessed at the time of the conclusion of the contract (not at the time of the event), and that the irresistibility must be assessed with respect to the party's actual capabilities and resources at the time performance is due (Cass. civ. 1ère, 22 December 1959; Cass. com., 21 February 2012, No. 10-25.976).</p>
+
+ <h3>2.2 Effects of Force Majeure Under French Law</h3>
+ <p>Under Article 1218(2) of the Code civil, where force majeure is temporary, performance of the obligation is merely suspended, and the debtor's liability is not discharged. The suspension runs from the date on which the force majeure event prevents performance until the date on which the event ceases to have that effect.</p>
+ <p>Under Article 1218(3) of the Code civil, where the force majeure event is definitive (i.e., the event permanently and absolutely prevents the performance of the obligation), the contract is automatically terminated by operation of law (résolution de plein droit), and the parties are released from their reciprocal obligations. However, if the effects of the force majeure event are only partial, the contract may be partially terminated in accordance with Article 1224 of the Code civil.</p>
+
+ <h3>2.3 Relationship to Other Legal Provisions</h3>
+ <p>This Policy operates in conjunction with, and does not replace, other provisions of applicable law that may excuse or limit liability in extraordinary circumstances, including but not limited to:</p>
+ <ul>
+ <li><strong>Article 1223 of the Code civil:</strong> Permitting the judicial revision of contractual obligations where an unforeseeable change of circumstances makes performance excessively onerous (imprévision).</li>
+ <li><strong>Article 1224 of the Code civil:</strong> Permitting the partial termination of a contract where non-performance is sufficiently serious.</li>
+ <li><strong>Article 1229 of the Code civil:</strong> Governing the consequences of termination, including the obligation to restitution.</li>
+ <li><strong>EU Directive 93/13/EEC</strong> and Articles L212-1 et seq. of the Code de la consommation: Protecting consumers from unfair terms, including any term that would impose on the consumer an obligation that was not provided for in the contract.</li>
+ </ul>
+
+ <h2>3. Events Constituting Force Majeure</h2>
+ <p>The following is a non-exhaustive illustrative list of events that may constitute force majeure under this Policy, provided that each such event satisfies the three cumulative conditions of Article 1218 of the Code civil (externality, unforeseeability, and irresistibility) as applied to the specific circumstances:</p>
+
+ <h3>3.1 Natural Disasters and Environmental Events</h3>
+ <ul>
+ <li>Earthquakes, volcanic eruptions, tsunamis, landslides, mudslides, and subsidence.</li>
+ <li>Floods, hurricanes, cyclones, typhoons, tornadoes, and other severe meteorological events exceeding historical norms for the relevant region.</li>
+ <li>Severe storms, blizzards, ice storms, and extreme heat waves or cold snaps that render infrastructure unusable.</li>
+ <li>Droughts and water shortages affecting essential services or infrastructure.</li>
+ <li>Wildfires and forest fires, particularly where exacerbated by extreme weather conditions.</li>
+ <li>Epidemics, pandemics, and public health emergencies declared by the World Health Organization ("WHO"), the European Centre for Disease Prevention and Control ("ECDC"), or the French government, including but not limited to government-mandated quarantines, lockdowns, travel restrictions, and business closures that directly prevent or materially impair PyAcademy's ability to perform its obligations.</li>
+ </ul>
+
+ <h3>3.2 War, Terrorism, and Political Instability</h3>
+ <ul>
+ <li>Armed conflict, war (declared or undeclared), civil war, insurrection, rebellion, revolution, or invasion.</li>
+ <li>Terrorist attacks, bombing, sabotage, or other acts of politically or ideologically motivated violence.</li>
+ <li>Sanctions, embargoes, trade restrictions, or export controls imposed by the European Union, the United Nations, the United States, or any other governmental authority that directly affect PyAcademy's operations or the Platform's availability.</li>
+ <li>Military or political coups, regime changes, or widespread civil unrest that disrupts public order or essential services.</li>
+ </ul>
+
+ <h3>3.3 Government and Regulatory Actions</h3>
+ <ul>
+ <li>Acts, decrees, orders, laws, or regulations of any governmental, legislative, judicial, or regulatory authority (including EU institutions and French administrative authorities) that directly prohibit, restrict, or materially impede PyAcademy's ability to perform its obligations under the Applicable Agreements.</li>
+ <li>Government-mandated shutdowns of internet service providers, telecommunications networks, or cloud infrastructure providers upon which the Platform depends.</li>
+ <li>Revocation, suspension, or modification of licenses, permits, or authorizations essential to the operation of the Platform.</li>
+ <li>Imposition of mandatory data localization requirements or data transfer restrictions that prevent PyAcademy from lawfully processing or storing data necessary for the performance of its obligations.</li>
+ </ul>
+
+ <h3>3.4 Technological Failures and Cyberattacks</h3>
+ <ul>
+ <li>Widespread and prolonged failure of the public internet, domain name system ("DNS"), or core telecommunications infrastructure beyond PyAcademy's control and affecting the Platform's accessibility on a regional or global scale.</li>
+ <li>Catastrophic failure of cloud infrastructure providers (e.g., Amazon Web Services, Microsoft Azure, Google Cloud Platform) or data center operators upon which the Platform depends, where such failure is beyond PyAcademy's control and cannot be mitigated by alternative infrastructure within a reasonable time.</li>
+ <li>Large-scale cyberattacks (including distributed denial-of-service ("DDoS") attacks of unprecedented scale, state-sponsored cyber warfare, or supply-chain attacks) that render the Platform inaccessible or compromise its integrity, where PyAcademy has implemented industry-standard security measures.</li>
+ <li>Discovery of critical zero-day vulnerabilities in foundational software or hardware components used by the Platform, where immediate remediation is required and service interruption is unavoidable.</li>
+ </ul>
+
+ <h3>3.5 Industrial Action and Labor Disputes</h3>
+ <ul>
+ <li>National or sector-wide general strikes (grève générale) or widespread industrial action that disrupts essential public services (transportation, energy, telecommunications) on which PyAcademy's operations depend.</li>
+ <li>Strikes or work stoppages by employees of critical third-party service providers (cloud hosting, payment processors, content delivery networks) that directly and materially impair the Platform's functionality.</li>
+ </ul>
+
+ <h3>3.6 Other Extraordinary Events</h3>
+ <ul>
+ <li>Nuclear, chemical, or biological contamination or accidents (including nuclear fallout, chemical spills, or release of biological agents) that render PyAcademy's facilities or infrastructure unusable.</li>
+ <li>Severe energy crises or power grid failures lasting more than seventy-two (72) consecutive hours in the regions where PyAcademy's critical infrastructure is located.</li>
+ <li>Systemic failures of the global financial or banking system that prevent the processing of payments or financial transactions essential to the Platform's operations.</li>
+ </ul>
+
+ <h2>4. Events Excluded from Force Majeure</h2>
+ <p>The following events shall not constitute force majeure under this Policy, regardless of their severity or duration:</p>
+ <ul>
+ <li><strong>Foreseeable or expected events:</strong> Events that were reasonably foreseeable at the time of the conclusion of the relevant agreement, including seasonal disruptions, scheduled maintenance windows, and events covered by publicly available forecasts or warnings.</li>
+ <li><strong>Events within PyAcademy's control:</strong> Internal operational failures, staffing shortages, inadequate planning, poor management, or financial difficulties of PyAcademy, including insolvency or lack of liquidity.</li>
+ <li><strong>Events within the reasonable control of PyAcademy's subcontractors or suppliers:</strong> Failures of third-party service providers that PyAcademy could reasonably have mitigated through alternative providers, redundancy measures, or contingency planning, in accordance with industry best practices.</li>
+ <li><strong>Cybersecurity incidents attributable to negligence:</strong> Security breaches, data leaks, or system compromises resulting from PyAcademy's failure to implement and maintain industry-standard security measures (e.g., ISO 27001, SOC 2 Type II, or equivalent standards).</li>
+ <li><strong>Commercially motivated decisions:</strong> Business decisions, including decisions to discontinue or modify services for commercial, strategic, or financial reasons.</li>
+ <li><strong>Fluctuations in demand:</strong> Unusually high demand for the Platform's services, including spikes in user registrations, course enrollments, or concurrent users, provided that PyAcademy has implemented reasonable scaling and capacity management measures.</li>
+ <li><strong>Currency fluctuations, inflation, or changes in market conditions:</strong> Economic or financial conditions that make performance more onerous but do not render it impossible.</li>
+ </ul>
+ <div class="note">
+ <strong>Note:</strong> The burden of proof for establishing that an event qualifies as force majeure rests with the party invoking force majeure (PyAcademy). In accordance with French case law, the party must demonstrate the existence of each of the three cumulative conditions (externality, unforeseeability, and irresistibility) at the relevant time.
+ </div>
+
+ <h2>5. Notification Requirements</h2>
+
+ <h3>5.1 Immediate Notification</h3>
+ <p>Upon the occurrence or imminent occurrence of a force majeure event, PyAcademy shall use commercially reasonable efforts to notify affected Users as soon as practicable and in any event within seventy-two (72) hours of becoming aware of the event. Such notification shall be made by one or more of the following means:</p>
+ <ul>
+ <li>A prominent notice posted on the Platform's homepage or status page (status.li1234.top).</li>
+ <li>An email notification sent to the email address associated with each affected User's account.</li>
+ <li>In-app notifications, push notifications, or alerts through the Platform's communication systems.</li>
+ <li>Updates published on PyAcademy's official social media channels.</li>
+ </ul>
+
+ <h3>5.2 Content of Notification</h3>
+ <p>The notification shall include, to the extent reasonably practicable:</p>
+ <ul>
+ <li>A description of the force majeure event and its anticipated effects on the Platform and the affected services.</li>
+ <li>The anticipated duration of the disruption, or if not determinable, an estimate of the expected timeframe for resolution.</li>
+ <li>The specific obligations of PyAcademy that are affected or may be affected.</li>
+ <li>The measures PyAcademy is taking or intends to take to mitigate the effects of the force majeure event.</li>
+ <li>Instructions for Users regarding any temporary changes to the Platform's functionality, alternative access methods, or steps Users should take to protect their data or accounts.</li>
+ <li>Contact information for inquiries and support.</li>
+ </ul>
+
+ <h3>5.3 Updates</h3>
+ <p>PyAcademy shall provide regular updates (at least every forty-eight (48) hours) regarding the status of the force majeure event and the progress of mitigation efforts, until the event has ceased and normal operations have been restored.</p>
+
+ <h2>6. Obligations of PyAcademy During Force Majeure</h2>
+
+ <h3>6.1 Mitigation Duty</h3>
+ <p>Notwithstanding the occurrence of a force majeure event, PyAcademy shall use commercially reasonable efforts to:</p>
+ <ul>
+ <li>Minimize the impact of the force majeure event on the Platform and its Users.</li>
+ <li>Implement alternative means of performing its obligations where reasonably practicable, including but not limited to activating backup infrastructure, rerouting services, or deploying temporary solutions.</li>
+ <li>Resume full performance of its obligations as promptly as reasonably practicable after the cessation of the force majeure event.</li>
+ <li>Protect the integrity and security of User data throughout the duration of the force majeure event.</li>
+ </ul>
+ <p>Failure to implement reasonable mitigation measures may preclude PyAcademy from invoking the force majeure defense to the extent that the damages suffered by the User were caused or exacerbated by such failure, in accordance with Article 1218 of the Code civil and applicable case law.</p>
+
+ <h3>6.2 Suspension of Obligations</h3>
+ <p>During the duration of a force majeure event, PyAcademy's obligations under the Applicable Agreements that are directly and materially affected by the event shall be suspended to the extent and for the duration that performance is prevented by the force majeure event. The suspension shall commence on the date on which the force majeure event prevents performance and shall continue until the date on which the event ceases to have that effect.</p>
+ <p>During the suspension period:</p>
+ <ul>
+ <li>PyAcademy shall not be liable for any delay, non-performance, or defective performance of the affected obligations, provided that PyAcademy has complied with its notification and mitigation obligations under Sections 5 and 6.1.</li>
+ <li>The subscription period, access period, or service period of any affected User shall be extended by a period equal to the duration of the suspension, at no additional cost to the User.</li>
+ <li>Any recurring payment obligations of the User for the affected services shall be suspended for the duration of the suspension period, and PyAcademy shall not charge the User for services that were not available during the suspension period.</li>
+ </ul>
+
+ <h3>6.3 Data Protection During Force Majeure</h3>
+ <p>During any force majeure event, PyAcademy shall continue to comply with its obligations under the GDPR and the ePrivacy Directive with respect to any personal data that remains within its control, including but not limited to:</p>
+ <ul>
+ <li>Maintaining the confidentiality, integrity, and availability of personal data to the extent reasonably practicable.</li>
+ <li>Implementing appropriate technical and organizational security measures proportionate to the severity of the force majeure event.</li>
+ <li>Complying with data breach notification obligations under Articles 33 and 34 of the GDPR, notwithstanding the force majeure event.</li>
+ <li>Respecting data subject rights under Articles 12 through 22 of the GDPR to the extent reasonably practicable under the circumstances.</li>
+ </ul>
+
+ <h2>7. Duration and Termination</h2>
+
+ <h3>7.1 Duration of Suspension</h3>
+ <p>The suspension of obligations under Section 6.2 shall continue for as long as the force majeure event persists and prevents performance. If the force majeure event continues for a period exceeding one hundred and eighty (180) consecutive calendar days, either party may terminate the affected Applicable Agreement(s) by providing written notice to the other party, without prejudice to any rights or remedies that have accrued prior to termination.</p>
+
+ <h3>7.2 Termination for Prolonged Force Majeure</h3>
+ <p>In the event of termination under Section 7.1:</p>
+ <ul>
+ <li>PyAcademy shall provide affected Users with a pro rata refund of any prepaid subscription fees or service charges for the period during which the affected services were not available due to the force majeure event, calculated on a daily basis.</li>
+ <li>Users shall be entitled to export their data (including course progress, certificates, submissions, and account information) within sixty (60) calendar days of the effective date of termination, in accordance with Article 20 of the GDPR (right to data portability) and the Data Export provisions of the Privacy Policy.</li>
+ <li>The obligations of confidentiality, data protection, and intellectual property protection shall survive termination of the Applicable Agreements.</li>
+ </ul>
+
+ <h3>7.3 Partial Force Majeure</h3>
+ <p>Where the force majeure event affects only certain services or features of the Platform (partial force majeure), only the obligations directly and materially affected by the event shall be suspended. PyAcademy shall continue to perform all unaffected obligations and shall use reasonable efforts to provide alternative or substitute services to the extent practicable. The provisions of Sections 6 and 7 shall apply mutatis mutandis to partial force majeure.</p>
+
+ <h2>8. User Obligations During Force Majeure</h2>
+ <p>During a force majeure event, Users shall:</p>
+ <ul>
+ <li>Comply with any reasonable instructions or temporary measures communicated by PyAcademy pursuant to Section 5.</li>
+ <li>Take reasonable steps to protect their own data, accounts, and systems, including backing up any data stored on the Platform where such backup functionality is available.</li>
+ <li>Refrain from taking any action that would exacerbate the effects of the force majeure event or impede PyAcademy's mitigation or recovery efforts.</li>
+ <li>Continue to comply with all obligations under the Applicable Agreements that are not directly affected by the force majeure event, including payment obligations for services that remain available and accessible.</li>
+ </ul>
+
+ <h2>9. Liability and Exclusions</h2>
+
+ <h3>9.1 Limitation of Liability During Force Majeure</h3>
+ <p>Subject to the mandatory provisions of applicable law (including Articles L212-1 et seq. of the Code de la consommation for consumers, and Article 1231-6 of the Code civil regarding liability limitation clauses), PyAcademy's liability for any failure or delay in performing its obligations that is directly caused by a qualifying force majeure event shall be limited to the obligation to suspend performance in accordance with Section 6.2 and to provide the remedies described in Sections 7.1 and 7.2.</p>
+ <p>PyAcademy shall in no event be liable for indirect damages, consequential damages, loss of profits, loss of data (except to the extent that data loss is attributable to PyAcademy's failure to maintain reasonable backups or security measures), loss of business opportunities, or reputational harm arising from or in connection with a force majeure event.</p>
+
+ <h3>9.2 Exclusion for Own Fault</h3>
+ <p>Nothing in this Policy shall exclude or limit PyAcademy's liability for:</p>
+ <ul>
+ <li>Damage caused by PyAcademy's own intentional fault (faute intentionnelle) or gross negligence (faute lourde).</li>
+ <li>Damage resulting from PyAcademy's failure to comply with its mitigation obligations under Section 6.1.</li>
+ <li>Damage resulting from PyAcademy's failure to comply with its notification obligations under Section 5.</li>
+ <li>Damage resulting from PyAcademy's failure to implement and maintain reasonable security measures for the protection of User data.</li>
+ <li>Bodily injury (dommage corporel), which cannot be excluded or limited under French law (Article 1231-1 of the Code civil, and public policy considerations).</li>
+ </ul>
+
+ <h2>10. Consumer Protection</h2>
+
+ <h3>10.1 Mandatory Consumer Rights</h3>
+ <p>Nothing in this Policy shall be construed to deprive consumers of the mandatory protections afforded by the laws of their Member State of habitual residence. In particular:</p>
+ <ul>
+ <li>For consumers habitually resident in France, the provisions of Articles L212-1 and L212-2 of the Code de la consommation (unfair terms) remain fully applicable. Any term of this Policy that would impose on a consumer an obligation not provided for in the applicable law, or that would deprive a consumer of the right to bring proceedings in the courts of the consumer's Member State of habitual residence, shall be deemed not to have been agreed.</li>
+ <li>For consumers habitually resident in other EU Member States, the equivalent consumer protection provisions transposed from Directives 93/13/EEC and 2011/83/EU into the law of the relevant Member State shall apply.</li>
+ <li>The suspension of subscription periods and the refund provisions set forth in Sections 6.2 and 7.2 constitute minimum remedies, and consumers may be entitled to additional remedies under applicable consumer protection law.</li>
+ </ul>
+
+ <h3>10.2 Right to Withdrawal</h3>
+ <p>For consumers who have entered into a distance contract (contrat à distance) with PyAcademy, the right of withdrawal under Articles L221-18 et seq. of the Code de la consommation (implementing Directive 2011/83/EU) is not affected by this Policy. The occurrence of a force majeure event does not extend, modify, or waive the consumer's right of withdrawal.</p>
+
+ <h2>11. Record-Keeping and Evidence</h2>
+ <p>PyAcademy shall maintain reasonable records and documentation relating to each force majeure event, including but not limited to:</p>
+ <ul>
+ <li>The date and time of the event's occurrence and its discovery by PyAcademy.</li>
+ <li>A description of the event and its effects on the Platform.</li>
+ <li>The notification(s) sent to affected Users and the dates thereof.</li>
+ <li>The mitigation measures implemented and their outcomes.</li>
+ <li>The date on which the event ceased and normal operations were restored.</li>
+ <li>Any correspondence, government orders, regulatory notices, or technical reports relating to the event.</li>
+ </ul>
+ <p>Such records shall be retained for a minimum period of five (5) years from the date of cessation of the force majeure event, in accordance with the general prescription period under Article 2224 of the French Code civil.</p>
+
+ <h2>12. Relationship to Other Policies</h2>
+ <p>This Force Majeure Policy operates in conjunction with, and does not replace, the following PyAcademy policies:</p>
+ <ul>
+ <li><strong>Terms of Service:</strong> This Policy supplements the liability and indemnification provisions of the Terms of Service. In the event of a conflict, the more protective provision for the User shall prevail, to the extent required by applicable law.</li>
+ <li><strong>Governing Law and Dispute Resolution Policy:</strong> Disputes arising from or relating to this Policy shall be resolved in accordance with the Governing Law and Dispute Resolution Policy.</li>
+ <li><strong>Privacy Policy:</strong> PyAcademy's data processing obligations are governed by the Privacy Policy and the GDPR, and are not excused by this Policy except to the extent that performance of data protection obligations is directly and materially prevented by a force majeure event.</li>
+ <li><strong>Cookie Policy:</strong> This Policy does not affect PyAcademy's obligations regarding the use of cookies and tracking technologies under the Cookie Policy and the ePrivacy Directive.</li>
+ </ul>
+
+ <h2>13. Amendments to This Policy</h2>
+ <p>PyAcademy reserves the right to amend, modify, or update this Policy at any time, in its sole discretion. Material changes to this Policy shall be notified to Users by email and by prominent notice on the Platform at least thirty (30) calendar days before the effective date of such changes. Your continued use of the Platform after the effective date of any amendment to this Policy constitutes your acceptance of the amended terms.</p>
+ <p>For force majeure events that have already occurred prior to the effective date of any amendment, the version of this Policy in effect at the time of the event shall apply.</p>
+
+ <h2>14. Severability</h2>
+ <p>If any provision of this Policy is held by a court of competent jurisdiction to be invalid, illegal, unenforceable, or contrary to public policy (ordre public), such provision shall be modified to the minimum extent necessary to make it valid, legal, and enforceable, or if modification is not possible, such provision shall be severed from this Policy. The invalidity of any provision shall not affect the validity of the remaining provisions.</p>
+
+ <h2>15. Contact Information</h2>
+ <p>For any questions, inquiries, or notices relating to this Force Majeure Policy, or to report a force majeure event, please contact:</p>
+ <p><strong>PyAcademy SAS<br>Legal Department<br>Email: <a href="mailto:legal@li1234.top">legal@li1234.top</a><br>Data Protection Officer: <a href="mailto:dpo@li1234.top">dpo@li1234.top</a><br>Incident Reporting: <a href="mailto:incidents@li1234.top">incidents@li1234.top</a><br>Registered Office: 12 Rue de la Paix, 75002 Paris, France</strong></p>
+
+ </div>
+
+ <div data-lang="zh">
+
+ <h2>1. 接受与适用范围</h2>
+ <p>通过创建账户、访问、浏览或以其他方式使用平台，您确认已阅读、理解并同意受本不可抗力政策约束。本政策适用于因适用协议而产生的或与之相关的 PyAcademy 和用户的所有义务，包括但不限于教育内容的提供和访问、课程交付、社区功能、支付处理、技术支持、数据托管以及通过平台提供的任何其他服务。</p>
+ <p>本政策不限制或排除适用法律下您可用的任何强制性权利或救济，包括《消费法典》(Code de la consommation) 和 GDPR 的强制性消费者保护条款。本政策中的任何内容均不得被解释为免除 PyAcademy 因其自身过错(faute)、疏忽(négligence)或故意不当行为(faute intentionnelle)所造成的损害的责任。</p>
+ <div class="note">
+ <strong>注意：</strong>本不可抗力政策应与我们的服务条款、隐私政策、Cookie 使用政策、可接受使用政策和适用法律与争议解决政策一并阅读。如本政策与任何适用法律的强制性规定发生冲突，以适用法律的强制性规定为准。
+ </div>
+
+ <h2>2. 法律依据——法国法律下的不可抗力</h2>
+
+ <h3>2.1 法定定义</h3>
+ <p>本政策系依据2016年2月10日第Ordonnance n° 2016-131号法令改革合同法后修订的《法国民法典》第1218条所定义的不可抗力概念起草。根据第1218条，当债务人无法控制的、在合同签订时不能被合理预见的、且其效果不能通过适当措施避免的事件阻止了债务人义务的履行时，即构成不可抗力。</p>
+ <p>依据《民法典》第1218条，不可抗力的成立需同时具备三个条件：</p>
+ <ul>
+ <li><strong>外部性(Externalité)：</strong>该事件必须超出援引不可抗力一方的控制范围。它必须源于外部原因，而非该方内部运营、疏忽或过错。</li>
+ <li><strong>不可预见性(Imprévisibilité)：</strong>该事件在合同签订时不能被合理预见，需考虑义务的性质、合同的背景以及相关时点的知识状态。</li>
+ <li><strong>不可抗拒性(Irrésistibilité)：</strong>该事件的效果不能通过适当措施避免。该方必须证明没有可用的合理替代履行方式。</li>
+ </ul>
+ <p>法国判例法进一步完善了这些标准。法国最高法院(Cour de cassation)认为，不可预见性应在合同签订时评估（而非事件发生时），不可抗拒性应在履行到期时根据当事人的实际能力和资源评估。</p>
+
+ <h3>2.2 法国法律下不可抗力的效力</h3>
+ <p>依据《民法典》第1218(2)条，如不可抗力为暂时性的，义务的履行仅被暂停，债务人的责任不被免除。暂停期自不可抗力事件阻止履行之日起至该事件不再产生此效果之日止。</p>
+ <p>依据《民法典》第1218(3)条，如不可抗力事件为终局性的（即该事件永久且绝对地阻止义务的履行），合同自动因法律效力而解除(résolution de plein droit)，双方从相互义务中释放。但如不可抗力事件的效果仅为部分性的，合同可根据《民法典》第1224条被部分解除。</p>
+
+ <h3>2.3 与其他法律条款的关系</h3>
+ <p>本政策与以下适用法律的其他条款配合运作，不取代该等条款：</p>
+ <ul>
+ <li><strong>《民法典》第1223条：</strong>在不可预见的情势变更使履行变得过度繁重(imprévision)时，允许司法修订合同义务。</li>
+ <li><strong>《民法典》第1224条：</strong>在不履行达到足够严重程度时，允许部分解除合同。</li>
+ <li><strong>《民法典》第1229条：</strong>管辖解除的后果，包括恢复原状的义务。</li>
+ <li><strong>第93/13/EEC号指令</strong>和《消费法典》L212-1条及后续条款：保护消费者免受不公平条款的损害。</li>
+ </ul>
+
+ <h2>3. 构成不可抗力的事件</h2>
+ <p>以下为非穷尽的示例性事件清单，可能构成本政策下的不可抗力，前提是每个事件均满足《民法典》第1218条的三个累积条件（外部性、不可预见性和不可抗拒性）：</p>
+
+ <h3>3.1 自然灾害和环境事件</h3>
+ <ul>
+ <li>地震、火山喷发、海啸、山体滑坡、泥石流和地面沉降。</li>
+ <li>洪水、飓风、气旋、台风、龙卷风以及其他超过相关地区历史标准的严重气象事件。</li>
+ <li>严重风暴、暴风雪、冰暴以及极端高温或寒潮导致基础设施无法使用。</li>
+ <li>干旱和水资源短缺影响基本服务或基础设施。</li>
+ <li>野火和森林火灾，特别是在极端天气条件下加剧的火灾。</li>
+ <li>世界卫生组织("WHO")、欧洲疾病预防控制中心("ECDC")或法国政府宣布的流行病、大流行病和公共卫生紧急状态，包括但不限于政府强制的隔离、封锁、旅行限制和商业关闭，直接阻止或严重削弱 PyAcademy 履行其义务的能力。</li>
+ </ul>
+
+ <h3>3.2 战争、恐怖主义和政治动荡</h3>
+ <ul>
+ <li>武装冲突、战争（已宣战或未宣战）、内战、起义、叛乱、革命或入侵。</li>
+ <li>恐怖袭击、爆炸、破坏或其他出于政治或意识形态动机的暴力行为。</li>
+ <li>欧洲联盟、联合国、美国或任何其他政府机关实施的制裁、禁运、贸易限制或出口管制，直接影响 PyAcademy 的运营或平台的可用性。</li>
+ <li>军事或政治政变、政权更迭或大规模内乱扰乱公共秩序或基本服务。</li>
+ </ul>
+
+ <h3>3.3 政府和监管行为</h3>
+ <ul>
+ <li>任何政府、立法、司法或监管机构（包括欧盟机构和法国行政当局）的行为、法令、命令、法律或法规，直接禁止、限制或严重妨碍 PyAcademy 履行适用协议项下的义务。</li>
+ <li>政府强制关闭平台所依赖的互联网服务提供商、电信网络或云基础设施提供商。</li>
+ <li>吊销、暂停或修改平台运营所必需的许可证、许可或授权。</li>
+ <li>实施强制性数据本地化要求或数据传输限制，阻止 PyAcademy 合法处理或存储履行义务所必需的数据。</li>
+ </ul>
+
+ <h3>3.4 技术故障和网络攻击</h3>
+ <ul>
+ <li>超出 PyAcademy 控制范围且影响平台区域或全球可访问性的公共互联网、域名系统("DNS")或核心电信基础设施的大规模和长时间故障。</li>
+ <li>平台所依赖的云基础设施提供商（如 Amazon Web Services、Microsoft Azure、Google Cloud Platform）或数据中心运营商的灾难性故障，且该故障超出 PyAcademy 的控制范围且不能在合理时间内通过替代基础设施缓解。</li>
+ <li>大规模网络攻击（包括前所未有的分布式拒绝服务("DDoS")攻击、国家级网络战争或供应链攻击），使平台不可访问或损害其完整性，且 PyAcademy 已实施行业标准安全措施。</li>
+ <li>发现平台使用的基础软件或硬件组件中存在严重的零日漏洞，需要立即修复且服务中断不可避免。</li>
+ </ul>
+
+ <h3>3.5 劳资纠纷</h3>
+ <ul>
+ <li>全国性或行业性的总罢工(grève générale)或大规模劳工行动，扰乱 PyAcademy 运营所依赖的基本公共服务（交通、能源、电信）。</li>
+ <li>关键第三方服务提供商（云托管、支付处理商、内容分发网络）员工的罢工或停工，直接且严重地损害平台的功能。</li>
+ </ul>
+
+ <h3>3.6 其他特殊事件</h3>
+ <ul>
+ <li>核、化学或生物污染或事故（包括核辐射、化学泄漏或生物制剂释放），使 PyAcademy 的设施或基础设施无法使用。</li>
+ <li>在 PyAcademy 关键基础设施所在地区持续超过七十二（72）小时的严重能源危机或电网故障。</li>
+ <li>全球金融或银行系统系统性故障，阻止平台运营所必需的支付或金融交易处理。</li>
+ </ul>
+
+ <h2>4. 排除在不可抗力之外的事件</h2>
+ <p>以下事件无论其严重程度或持续时间如何，均不构成本政策下的不可抗力：</p>
+ <ul>
+ <li><strong>可预见或可预期的事件：</strong>在签订相关合同时合理可预见的事件，包括季节性中断、计划维护窗口以及公开可获取的预报或警告所涵盖的事件。</li>
+ <li><strong>PyAcademy 可控制的事件：</strong>内部运营故障、人员短缺、规划不当、管理不善或 PyAcademy 的财务困难，包括破产或流动性不足。</li>
+ <li><strong>PyAcademy 的分包商或供应商可合理控制的事件：</strong>第三方服务提供商的故障，PyAcademy 可通过替代提供商、冗余措施或应急计划合理缓解。</li>
+ <li><strong>可归因于疏忽的网络安全事件：</strong>因 PyAcademy 未实施和维护行业标准安全措施而导致的安全漏洞、数据泄露或系统受损。</li>
+ <li><strong>商业决策：</strong>包括因商业、战略或财务原因决定停止或修改服务。</li>
+ <li><strong>需求波动：</strong>平台服务的异常高需求，包括用户注册、课程购买或并发用户的激增。</li>
+ <li><strong>汇率波动、通胀或市场条件变化：</strong>使履行变得更加繁重但未使其变得不可能的经济或金融状况。</li>
+ </ul>
+ <div class="note">
+ <strong>注意：</strong>证明事件符合不可抗力条件的举证责任由援引不可抗力的一方（PyAcademy）承担。根据法国判例法，该方必须在相关时点证明三个累积条件（外部性、不可预见性和不可抗拒性）的存在。
+ </div>
+
+ <h2>5. 通知要求</h2>
+
+ <h3>5.1 及时通知</h3>
+ <p>在不可抗力事件发生或即将发生时，PyAcademy 应尽商业上合理的努力尽快通知受影响的用户，在任何情况下不得迟于知悉该事件后七十二（72）小时。通知应通过以下一种或多种方式进行：</p>
+ <ul>
+ <li>在平台主页或状态页面(status.li1234.top)上发布的显著通知。</li>
+ <li>向每个受影响用户账户关联的电子邮件地址发送的电子邮件通知。</li>
+ <li>通过平台通讯系统发送的应用内通知、推送通知或提醒。</li>
+ <li>在 PyAcademy 官方社交媒体渠道上发布的更新。</li>
+ </ul>
+
+ <h3>5.2 通知内容</h3>
+ <p>通知应包含（在合理可行的范围内）：</p>
+ <ul>
+ <li>不可抗力事件的描述及其对平台和受影响服务的预期影响。</li>
+ <li>中断的预计持续时间，如无法确定，则提供预计解决时间框架。</li>
+ <li>PyAcademy 受影响或可能受影响的具体义务。</li>
+ <li>PyAcademy 正在采取或打算采取的缓解不可抗力事件影响的措施。</li>
+ <li>关于平台功能临时变更、替代访问方法或用户应采取的保护数据或账户措施的用户指示。</li>
+ <li>查询和支持的联系信息。</li>
+ </ul>
+
+ <h3>5.3 更新</h3>
+ <p>PyAcademy 应定期（至少每四十八（48）小时）提供有关不可抗力事件状态和缓解工作进展的更新，直至事件停止且正常运营恢复。</p>
+
+ <h2>6. 不可抗力期间 PyAcademy 的义务</h2>
+
+ <h3>6.1 缓解义务</h3>
+ <p>尽管发生了不可抗力事件，PyAcademy 应尽商业上合理的努力：</p>
+ <ul>
+ <li>尽量减少不可抗力事件对平台及其用户的影响。</li>
+ <li>在合理可行的情况下，实施替代方式履行其义务，包括但不限于启用备用基础设施、重新路由服务或部署临时解决方案。</li>
+ <li>在不可抗力事件停止后尽快恢复全面履行其义务。</li>
+ <li>在不可抗力事件持续期间保护用户数据的完整性和安全性。</li>
+ </ul>
+ <p>未实施合理缓解措施可能阻止 PyAcademy 援引不可抗力抗辩，前提是用户遭受的损害是由该等未实施措施引起或加剧的。</p>
+
+ <h3>6.2 义务暂停</h3>
+ <p>在不可抗力事件持续期间，适用协议中直接受该事件严重影响的 PyAcademy 义务应在该事件阻止履行的范围内和持续时间内暂停。暂停期自不可抗力事件阻止履行之日起至该事件不再产生此效果之日止。</p>
+ <p>在暂停期内：</p>
+ <ul>
+ <li>如 PyAcademy 已遵守第5条和第6.1条项下的通知和缓解义务，PyAcademy 不对受影响义务的延迟、不履行或瑕疵履行承担责任。</li>
+ <li>任何受影响用户的服务订阅期、访问期或服务期应延长与暂停期相等的时间，不向用户收取额外费用。</li>
+ <li>用户对受影响服务的任何经常性付款义务应在暂停期内暂停，PyAcademy 不得就暂停期内不可用的服务向用户收费。</li>
+ </ul>
+
+ <h3>6.3 不可抗力期间的数据保护</h3>
+ <p>在任何不可抗力事件期间，PyAcademy 应继续遵守 GDPR 和电子隐私指令项下其对仍在其控制下的个人数据的义务，包括但不限于：</p>
+ <ul>
+ <li>在合理可行范围内维护个人数据的保密性、完整性和可用性。</li>
+ <li>实施与不可抗力事件严重程度相称的适当技术和组织安全措施。</li>
+ <li>遵守 GDPR 第33条和第34条项下的数据泄露通知义务，不受不可抗力事件的影响。</li>
+ <li>在合理可行范围内尊重 GDPR 第12至22条项下的数据主体权利。</li>
+ </ul>
+
+ <h2>7. 持续时间和终止</h2>
+
+ <h3>7.1 暂停持续时间</h3>
+ <p>第6.2条项下的义务暂停应持续至不可抗力事件持续且阻止履行。如不可抗力事件连续持续超过一百八十（180）个日历日，任何一方均可通过向另一方发出书面通知终止受影响的适用协议，不影响终止前已产生的任何权利或救济。</p>
+
+ <h3>7.2 因长期不可抗力而终止</h3>
+ <p>在依据第7.1条终止的情况下：</p>
+ <ul>
+ <li>PyAcademy 应按比例退还受影响用户在不可抗力事件导致受影响服务不可用期间已预付的订阅费或服务费，按日计算。</li>
+ <li>用户有权在终止生效日起六十（60）个日历日内导出其数据（包括课程进度、证书、提交内容和账户信息），此乃依据 GDPR 第20条（数据可携权）和隐私政策的数据导出条款之规定。</li>
+ <li>保密、数据保护和知识产权保护义务在适用协议终止后继续有效。</li>
+ </ul>
+
+ <h3>7.3 部分不可抗力</h3>
+ <p>如不可抗力事件仅影响平台的某些服务或功能（部分不可抗力），则仅直接受该事件影响的义务应被暂停。PyAcademy 应继续履行所有未受影响的义务，并在合理可行的情况下努力提供替代或替代服务。第6条和第7条的规定经必要修改后适用于部分不可抗力。</p>
+
+ <h2>8. 不可抗力期间的用户义务</h2>
+ <p>在不可抗力事件期间，用户应：</p>
+ <ul>
+ <li>遵守 PyAcademy 依据第5条发出的任何合理指示或临时措施。</li>
+ <li>采取合理措施保护自己的数据、账户和系统，包括在平台提供备份功能时备份存储在平台上的任何数据。</li>
+ <li>不得采取任何会加剧不可抗力事件影响或阻碍 PyAcademy 缓解或恢复工作的行动。</li>
+ <li>继续遵守适用协议中未直接受不可抗力事件影响的所有义务，包括对仍然可用和可访问的服务的付款义务。</li>
+ </ul>
+
+ <h2>9. 责任和排除</h2>
+
+ <h3>9.1 不可抗力期间的责任限制</h3>
+ <p>在遵守适用法律强制性规定的前提下（包括《消费法典》L212-1条及后续条款对消费者的保护，以及《民法典》第1231-6条关于责任限制条款的规定），PyAcademy 因直接由合格不可抗力事件引起的未能或延迟履行其义务的责任，应限于依据第6.2条暂停履行和提供第7.1条和第7.2条所述救济的义务。</p>
+ <p>PyAcademy 在任何情况下均不对因不可抗力事件引起的间接损害、后果性损害、利润损失、数据丢失（除非数据丢失可归因于 PyAcademy 未维持合理备份或安全措施）、商业机会损失或声誉损害承担责任。</p>
+
+ <h3>9.2 因自身过错的排除</h3>
+ <p>本政策中的任何内容均不排除或限制 PyAcademy 因以下原因造成的损害责任：</p>
+ <ul>
+ <li>PyAcademy 自身的故意过错(faute intentionnelle)或重大过失(faute lourde)。</li>
+ <li>因 PyAcademy 未能遵守第6.1条项下缓解义务而造成的损害。</li>
+ <li>因 PyAcademy 未能遵守第5条项下通知义务而造成的损害。</li>
+ <li>因 PyAcademy 未能实施和维护合理的用户数据安全措施而造成的损害。</li>
+ <li>人身伤害(dommage corporel)，依据法国法律不可排除或限制。</li>
+ </ul>
+
+ <h2>10. 消费者保护</h2>
+
+ <h3>10.1 强制性消费者权利</h3>
+ <p>本政策中的任何内容均不得被解释为剥夺消费者根据其惯常居住国法律获得的强制性保护。特别地：</p>
+ <ul>
+ <li>对于惯常居住在法国的消费者，《消费法典》(Code de la consommation) L212-1条和L212-2条（不公平条款）的规定完全适用。本政策中任何会对消费者施加适用法律未规定的义务或剥夺消费者在惯常居住地成员国法院提起诉讼权利的条款，应被视为未被同意。</li>
+ <li>对于惯常居住在其他欧盟成员国的消费者，转化自第93/13/EEC号和第2011/83/EU号指令的等效消费者保护规定应适用。</li>
+ <li>第6.2条和第7.2条规定的订阅期暂停和退款条款构成最低限度的救济，消费者可能有权获得适用消费者保护法下的额外救济。</li>
+ </ul>
+
+ <h3>10.2 撤回权</h3>
+ <p>对于与 PyAcademy 签订了远程合同(contrat à distance)的消费者，依据《消费法典》L221-18条及后续条款（转化自第2011/83/EU号指令）的撤回权不受本政策影响。不可抗力事件的发生不延长、修改或放弃消费者的撤回权。</p>
+
+ <h2>11. 记录保存和证据</h2>
+ <p>PyAcademy 应就每次不可抗力事件保存合理的记录和文件，包括但不限于：</p>
+ <ul>
+ <li>事件发生和 PyAcademy 知悉的日期和时间。</li>
+ <li>事件的描述及其对平台的影响。</li>
+ <li>向受影响用户发送的通知及其日期。</li>
+ <li>实施的缓解措施及其结果。</li>
+ <li>事件停止和正常运营恢复的日期。</li>
+ <li>与该事件相关的任何往来信函、政府命令、监管通知或技术报告。</li>
+ </ul>
+ <p>该等记录应自不可抗力事件停止之日起保留至少五（5）年，此乃依据《法国民法典》第2224条的一般诉讼时效之规定。</p>
+
+ <h2>12. 与其他政策的关系</h2>
+ <p>本不可抗力政策与以下 PyAcademy 政策配合运作，不取代该等政策：</p>
+ <ul>
+ <li><strong>服务条款：</strong>本政策补充服务条款中的责任和赔偿条款。如发生冲突，在适用法律要求的范围内，以对用户更有利的条款为准。</li>
+ <li><strong>适用法律与争议解决政策：</strong>因本政策引起的或与之相关的争议应按照适用法律与争议解决政策解决。</li>
+ <li><strong>隐私政策：</strong>PyAcademy 的数据处理义务受隐私政策和 GDPR 管辖，不受本政策的免除，除非不可抗力事件直接且严重地阻止了数据保护义务的履行。</li>
+ <li><strong>Cookie 使用政策：</strong>本政策不影响 PyAcademy 在 Cookie 使用政策和电子隐私指令项下关于使用 Cookie 和跟踪技术的义务。</li>
+ </ul>
+
+ <h2>13. 本政策的修改</h2>
+ <p>PyAcademy 保留随时自行决定修改、变更或更新本政策的权利。重大变更将通过电子邮件和平台上的显著通知在变更生效日前至少三十（30）个日历日通知用户。您在任何修改生效后继续使用平台即构成您对修改后条款的接受。</p>
+ <p>对于在任何修改生效日之前已经发生的不可抗力事件，应适用该事件发生时有效的本政策版本。</p>
+
+ <h2>14. 可分割性</h2>
+ <p>如本政策的任何条款被有管辖权的法院认定无效、违法、不可执行或违反公共政策，该条款应在保留其原始意图的前提下被修改至使其有效、合法和可执行所需的最低限度，如修改不可能，则该条款应从本政策中删除。任何条款的无效不影响其他条款的效力。</p>
+
+ <h2>15. 联系方式</h2>
+ <p>如有关于本不可抗力政策的任何问题、查询或通知，或要报告不可抗力事件，请联系：</p>
+ <p><strong>PyAcademy SAS<br>法务部<br>电子邮件：<a href="mailto:legal@li1234.top">legal@li1234.top</a><br>数据保护官：<a href="mailto:dpo@li1234.top">dpo@li1234.top</a><br>事件报告：<a href="mailto:incidents@li1234.top">incidents@li1234.top</a><br>注册地址：12 Rue de la Paix, 75002 Paris, France</strong></p>
+
+ </div>
+
+ </div>
+
+ <div class="highlight"><p><strong>Supplementary Legal Provisions / 附则A</strong></p><p><strong>A.1 DPO:</strong> <a href="mailto:dpo@li1234.top">dpo@li1234.top</a>. GDPR Art.37. PyAcademy SAS, 12 Rue de la Paix, 75002 Paris, France.</p><p><strong>A.2 Principles:</strong> GDPR Art.5 - lawfulness, purpose limitation, data minimisation, accuracy, storage limitation, integrity/confidentiality, accountability.</p><p><strong>A.3 Cross-border:</strong> GDPR Art.44-49 - SCCs, BCRs, adequacy decisions.</p><p><strong>A.4 CNIL Complaint:</strong> GDPR Art.77 - CNIL, 3 Place de Fontenoy, TSA 80715, 75334 Paris Cedex 07. +33 1 53 73 22 22. cnil.fr</p><p><strong>A.5 Automated Decisions:</strong> GDPR Art.22 - right not to be subject to solely automated decisions.</p><p><strong>A.6 Legal Bases:</strong> GDPR Art.6(1) - consent, contract, legal obligation, public interest, legitimate interests.</p><p><strong>A.7 CNIL Compliance:</strong> Loi n° 78-17 (Informatique et Libertés), CNIL Deliberation 2020-091, ePrivacy Directive 2002/58/EC.</p><p><strong>A.8 Consumer:</strong> Code de la consommation L111-1 to L111-7, L221-18 to L221-28, L212-1, L616-1, L217-1 to L217-15, L215-1 to L215-3. EU Directive 2011/83/EU, 93/13/EEC, 2019/770.</p><p><strong>A.9 Contact:</strong> Legal: <a href="mailto:legal@li1234.top">legal@li1234.top</a>. DPO: <a href="mailto:dpo@li1234.top">dpo@li1234.top</a>. PyAcademy SAS, 12 Rue de la Paix, 75002 Paris, France.</p></div>
+    <footer>
+ <div class="footer-inner">
+ <div class="footer-links">
+ <a href="https://www.li1234.com" data-lang="en">Home</a>
+ <a href="https://www.li1234.com" data-lang="zh">首页</a>
+ <a href="https://www.li1234.com" data-lang="en">Privacy Policy</a>
+ <a href="https://www.li1234.com" data-lang="zh">隐私政策</a>
+ </div>
+ <p class="footer-copy">&copy; 2026 PyAcademy. All rights reserved.</p>
+ </div>
+ </footer>
+
+ <script type="text/javascript">
+ function switchLang(lang) {
+    document.body.classList.toggle('zh', lang === 'zh');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+}
+ </script>
+</body>
+</html>

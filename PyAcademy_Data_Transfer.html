@@ -1,0 +1,226 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Cross-Border Data Transfer and Processing Regulation – PyAcademy</title>
+ <style>
+ @font-face { font-family: 'AnthropicSerif'; src: url('AnthropicSerif-Romans-Variable-25x258.ttf') format('truetype'); font-weight: 100 900; font-style: normal; font-display: swap; }
+ *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'AnthropicSerif', 'Georgia', serif; color: #1a1a1a; background: #fff; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+ nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid #eaeaea; padding: 0 24px; }
+ .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+ .nav-logo { font-size: 18px; font-weight: 700; color: #1a1a1a; text-decoration: none; letter-spacing: -0.02em; }
+ .nav-logo span { color: #d97706; }
+ .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+ .nav-links a { font-size: 14px; font-weight: 500; color: #666; text-decoration: none; transition: color 0.2s; }
+ .nav-links a:hover { color: #1a1a1a; }
+ .lang-divider { width: 1px; height: 16px; background: #ddd; }
+ .lang-btn { font-size: 13px; font-weight: 500; color: #888; padding: 4px 10px; border: 1px solid #ddd; border-radius: 6px; transition: all 0.2s; cursor: pointer; background: none; }
+ .lang-btn:hover { color: #1a1a1a; border-color: #aaa; }
+ .lang-btn.active { color: #d97706; border-color: #d97706; background: #fffbeb; }
+ .hero { padding: 80px 24px 48px; max-width: 1200px; margin: 0 auto; }
+ .hero h1 { font-size: 42px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 16px; }
+ .hero .date { font-size: 15px; color: #888; margin-bottom: 24px; }
+ .hero .intro { font-size: 17px; color: #444; max-width: 720px; line-height: 1.8; }
+ .content { max-width: 760px; margin: 0 auto; padding: 24px 24px 120px; }
+ .content h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin-top: 48px; margin-bottom: 16px; color: #1a1a1a; }
+ .content h3 { font-size: 16px; font-weight: 600; margin-top: 28px; margin-bottom: 10px; color: #1a1a1a; }
+ .content p { font-size: 15px; line-height: 1.8; color: #333; margin-bottom: 14px; }
+ .content ul, .content ol { margin-bottom: 14px; padding-left: 20px; }
+ .content li { font-size: 15px; line-height: 1.8; color: #333; margin-bottom: 8px; }
+ .content a { color: #d97706; text-decoration: underline; text-underline-offset: 2px; transition: color 0.2s; }
+ .content a:hover { color: #b45309; }
+ .content .note { font-size: 14px; color: #666; background: #f9f9f9; border-left: 3px solid #d97706; padding: 16px 20px; margin: 24px 0; border-radius: 0 6px 6px 0; }
+ .content .highlight { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 20px 24px; margin: 24px 0; }
+ .content table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; }
+ .content th { background: #f5f5f5; font-weight: 600; text-align: left; padding: 12px 16px; border-bottom: 2px solid #e0e0e0; }
+ .content td { padding: 12px 16px; border-bottom: 1px solid #eee; vertical-align: top; line-height: 1.6; }
+ .content tr:last-child td { border-bottom: none; }
+ footer { border-top: 1px solid #eaeaea; padding: 48px 24px; text-align: center; }
+ .footer-inner { max-width: 1200px; margin: 0 auto; }
+ .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; flex-wrap: wrap; }
+ .footer-links a { font-size: 13px; color: #888; text-decoration: none; transition: color 0.2s; }
+ .footer-links a:hover { color: #1a1a1a; }
+ .footer-copy { font-size: 13px; color: #aaa; }
+ [[data-lang="zh"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh [data-lang="en"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh [[data-lang="zh"] { display: block; }
+ span[[data-lang="zh"], a[[data-lang="zh"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh span[data-lang="en"], body.zh a[data-lang="en"] { display: none; }
+body.zh [data-lang="zh"] { display: block; }
+        body.zh span[data-lang="zh"], body.zh a[data-lang="zh"] { display: inline; }
+                span[data-lang], a[data-lang] { display: none; }
+ body.zh span[[data-lang="zh"], body.zh a[[data-lang="zh"] { display: inline; }
+ @media (max-width: 640px) { .hero h1 { font-size: 28px; } .hero { padding: 48px 16px 32px; } .content { padding: 16px 16px 80px; } .nav-links { gap: 16px; } }
+ html { scroll-behavior: smooth; }
+ ::selection { background: #fde68a; color: #1a1a1a; }
+ </style>
+</head>
+<body>
+
+<nav><div class="nav-inner">
+ <a href="https://www.li1234.com" class="nav-logo">Py<span>Academy</span></a>
+ <ul class="nav-links">
+ <li><a href="https://www.li1234.com" data-lang="en">Home</a><a href="https://www.li1234.com" data-lang="zh">首页</a></li>
+ <li><div class="lang-divider"></div></li>
+ <li><button class="lang-btn active" id="btn-en" onclick="switchLang('en')">EN</button><button class="lang-btn" id="btn-zh" onclick="switchLang('zh')">中文</button></li>
+ </ul>
+</div></nav>
+
+<!-- ==================== ENGLISH ==================== -->
+<div data-lang="en">
+<div class="hero">
+ <h1>Cross-Border Data Transfer and Processing Regulation</h1>
+ <p class="date">Effective Date: May 4, 2026</p>
+ <p class="intro">This regulation describes how PyAcademy handles the cross-border transfer and processing of personal data in compliance with the General Data Protection Regulation (GDPR), the UK Data Protection Act 2018, and other applicable international data protection laws.</p>
+</div>
+<div class="content">
+
+<div class="highlight">
+ <strong>Our Commitment:</strong> The vast majority of personal data processed by PyAcademy is stored within the European Union, with primary data centers located in France. We are committed to minimizing cross-border data transfers and ensuring the highest level of data protection for all users.
+</div>
+
+<h2>1. Scope</h2>
+<p>This regulation applies to all personal data processed by PyAcademy in connection with the provision of our online Python learning platform, including data submitted by users, generated through platform interactions, and collected automatically through the use of our services. It governs all transfers of personal data from the European Economic Area (EEA), the United Kingdom (UK), and Switzerland to countries outside these regions.</p>
+
+<h2>2. Data Storage Locations</h2>
+<p>PyAcademy maintains the following data infrastructure:</p>
+<ul>
+ <li><strong>Primary data center:</strong> France (hosted within EU borders) — stores the vast majority of user data, including account information, course progress, learning materials, and platform interactions</li>
+ <li><strong>Backup and disaster recovery:</strong> France and Germany — redundant backup systems within the EU</li>
+ <li><strong>Content delivery network (CDN):</strong> Distributed across EU nodes to ensure fast content delivery</li>
+ <li><strong>Limited processing in third countries:</strong> Only where strictly necessary and with appropriate safeguards (see Section 4)</li>
+</ul>
+
+<h2>3. Legal Basis for Transfers</h2>
+<p>Where personal data must be transferred outside the EEA, UK, or Switzerland, PyAcademy relies on the following legal mechanisms:</p>
+
+<h3>3.1. Adequacy Decisions</h3>
+<p>The European Commission has determined that certain countries provide an adequate level of data protection. We transfer data to these countries in accordance with Article 45 of the GDPR. Current adequacy decisions can be found on the European Commission's website.</p>
+
+<h3>3.2. Standard Contractual Clauses (SCCs)</h3>
+<p>For transfers to countries without an adequacy decision, we rely on the Standard Contractual Clauses approved by the European Commission under Article 46(2)(c) of the GDPR. These clauses are incorporated into our agreements with all third-party service providers who process data outside the EEA.</p>
+
+<h3>3.3. Binding Corporate Rules (BCRs)</h3>
+<p>Where applicable, PyAcademy may rely on Binding Corporate Rules approved by the relevant supervisory authority for intra-group transfers.</p>
+
+<h3>3.4. Derogations</h3>
+<p>In limited circumstances, we may rely on derogations under Article 49 of the GDPR, including:</p>
+<ul>
+ <li>Transfers necessary for the performance of a contract with the data subject</li>
+ <li>Transfers based on the explicit consent of the data subject</li>
+ <li>Transfers necessary for important reasons of public interest</li>
+</ul>
+
+<h2>4. Third-Party Service Providers</h2>
+<p>PyAcademy engages a limited number of third-party service providers who may process personal data. All such providers are subject to strict data processing agreements that include:</p>
+<ul>
+ <li>Standard Contractual Clauses for transfers outside the EEA</li>
+ <li>Obligations to implement appropriate technical and organizational security measures</li>
+ <li>Restrictions on sub-processing without prior written authorization</li>
+ <li>Obligations to assist PyAcademy in responding to data subject rights requests</li>
+ <li>Requirements to delete or return data upon termination of the relationship</li>
+</ul>
+
+<p>A complete list of our subprocessors is available upon request by contacting <a ><td>Data is collected for specified, explicit, and legitimate purposes and not further processed in a manner incompatible with those purposes</td></tr>
+ <tr><td>Data Minimization</td><td>Data collected is adequate, relevant, and limited to what is necessary</td></tr>
+ <tr><td>Accuracy</td><td>Data is kept accurate and up to date</td></tr>
+ <tr><td>Storage Limitation</td><td>Data is kept in a form that permits identification of data subjects for no longer than necessary</td></tr>
+ <tr><td>Integrity and Confidentiality</td><td>Data is processed in a manner that ensures appropriate security</td></tr>
+ <tr><td>Accountability</td><td>PyAcademy is responsible for, and can demonstrate compliance with, all of the above principles</td></tr>
+ </tbody>
+</table>
+
+<h2>6. International Transfers to Specific Regions</h2>
+
+<h3>6.1. United States</h3>
+<p>Where PyAcademy processes data in the United States (e.g., through specific service providers), such transfers are governed by Standard Contractual Clauses and supplementary technical measures including encryption in transit and at rest, access controls, and regular security audits.</p>
+
+<h3>6.2. Other Third Countries</h3>
+<p>Transfers to any other third country are subject to a Transfer Impact Assessment (TIA) to evaluate the legal framework of the receiving country and ensure an essentially equivalent level of protection.</p>
+
+<h2>7. Your Rights</h2>
+<p>Regardless of where your data is processed, you retain all rights under the GDPR and applicable data protection laws, including the right to access, rectify, erase, restrict processing, and object to processing. To exercise these rights, please contact <a <a 主要数据中心位于法国。我们致力于最大限度地减少跨境数据传输，并为所有用户提供最高级别的数据保护。
+</div>
+
+<h2>1. 适用范围</h2>
+<p>本条例适用于 PyAcademy 在提供在线 Python 学习平台过程中处理的所有个人数据，包括用户提交的数据、通过平台交互生成的数据以及通过使用我们的服务自动收集的数据。它管辖所有从欧洲经济区（EEA）、英国（UK）和瑞士向这些地区以外的国家传输个人数据的行为。</p>
+
+<h2>2. 数据存储位置</h2>
+<p>PyAcademy 维护以下数据基础设施：</p>
+<ul>
+ <li><strong>主要数据中心：</strong>法国（位于欧盟境内）——存储绝大多数用户数据，包括账户信息、课程进度、学习资料和平台交互</li>
+ <li><strong>备份和灾难恢复：</strong>法国和德国——欧盟内的冗余备份系统</li>
+ <li><strong>内容分发网络（CDN）：</strong>分布在欧盟各节点，确保快速内容交付</li>
+ <li><strong>有限的第三国处理：</strong>仅在严格必要的情况下，并有适当的保障措施（见第4节）</li>
+</ul>
+
+<h2>3. 传输的法律依据</h2>
+<p>当个人数据必须传输到 EEA、英国或瑞士以外的国家时，PyAcademy 依赖以下法律机制：</p>
+
+<h3>3.1. 充分性决定</h3>
+<p>欧盟委员会已认定某些国家提供适当水平的数据保护。我们根据 GDPR 第45条向这些国家传输数据。</p>
+
+<h3>3.2. 标准合同条款（SCC）</h3>
+<p>对于向没有充分性决定的国家传输数据，我们依赖欧盟委员会根据 GDPR 第46(2)(c)条批准的标准合同条款。</p>
+
+<h3>3.3. 约束性公司规则（BCR）</h3>
+<p>在适用的情况下，PyAcademy 可能依赖经相关监管机构批准的约束性公司规则进行集团内部传输。</p>
+
+<h3>3.4. 豁免</h3>
+<p>在有限的情况下，我们可能依赖 GDPR 第49条下的豁免，包括：</p>
+<ul>
+ <li>为履行与数据主体的合同所必需的传输</li>
+ <li>基于数据主体明确同意的传输</li>
+ <li>因重要的公共利益原因所必需的传输</li>
+</ul>
+
+<h2>4. 第三方服务提供商</h2>
+<p>PyAcademy 聘请了有限数量的第三方服务提供商，他们可能处理个人数据。所有此类提供商都受严格的数据处理协议约束，包括：</p>
+<ul>
+ <li>向 EEA 以外传输的标准合同条款</li>
+ <li>实施适当技术和组织安全措施的义务</li>
+ <li>未经事先书面授权不得进行子处理的限制</li>
+ <li>协助 PyAcademy 回应数据主体权利请求的义务</li>
+ <li>在关系终止时删除或返回数据的要求</li>
+</ul>
+
+<p>完整的子处理商列表可通过联系 <a /td></tr>
+ <tr><td>存储限制</td><td>数据以允许识别数据主体的形式保存的时间不超过必要的时间</td></tr>
+ <tr><td>完整性和保密性</td><td>数据以确保适当安全的方式进行处理</td></tr>
+ <tr><td>问责制</td><td>PyAcademy 对上述所有原则的合规性负责并可以证明</td></tr>
+ </tbody>
+</table>
+
+<h2>6. 向特定地区的国际传输</h2>
+
+<h3>6.1. 美国</h3>
+<p>当 PyAcademy 在美国处理数据时（例如通过特定服务提供商），此类传输受标准合同条款和补充技术措施的约束，包括传输中和静态加密、访问控制和定期安全审计。</p>
+
+<h3>6.2. 其他第三国</h3>
+<p>向任何其他第三国的传输都须经过传输影响评估（TIA），以评估接收国的法律框架并确保本质上等同的保护水平。</p>
+
+<h2>7. 您的权利</h2>
+<p>无论您的数据在哪里处理，您都保留 GDPR 和适用数据保护法律下的所有权利，包括访问、更正、删除、限制处理和反对处理的权利。要行使这些权利，请联系 <a href="mailto:contact@li1234.top">contact@li1234.top</a> https://www.li1234.com" data-lang="zh">首页</a>
+ <a href="https://www.li1234.com" data-lang="en">Data Transfer Regulation</a><a href="https://www.li1234.com" data-lang="zh">数据传输条例</a>
+ </div>
+ <p class="footer-copy">&copy; 2026 PyAcademy. All rights reserved.</p>
+<div class="highlight"><p><strong>Supplementary Legal Provisions</strong></p><p><strong>A.1 DPO:</strong> <a href="mailto:dpo@li1234.top">dpo@li1234.top</a>. GDPR Art.37. PyAcademy SAS, 12 Rue de la Paix, 75002 Paris, France.</p><p><strong>A.2 Principles:</strong> GDPR Art.5 - lawfulness, purpose limitation, data minimisation, accuracy, storage limitation, integrity/confidentiality, accountability.</p><p><strong>A.3 Cross-border:</strong> GDPR Art.44-49 - SCCs, BCRs, adequacy decisions.</p><p><strong>A.4 CNIL Complaint:</strong> GDPR Art.77 - CNIL, 3 Place de Fontenoy, TSA 80715, 75334 Paris Cedex 07. +33 1 53 73 22 22. cnil.fr</p><p><strong>A.5 Automated Decisions:</strong> GDPR Art.22.</p><p><strong>A.6 Legal Bases:</strong> GDPR Art.6(1).</p><p><strong>A.7 CNIL:</strong> Loi 78-17, CNIL Deliberation 2020-091, ePrivacy 2002/58/EC.</p><p><strong>A.8 Consumer:</strong> Code de la consommation L111-1 to L111-7, L221-18 to L221-28, L212-1, L616-1, L217-1 to L217-15, L215-1 to L215-3.</p><p><strong>A.9 Contact:</strong> <a href="mailto:legal@li1234.top">legal@li1234.top</a>. <a href="mailto:dpo@li1234.top">dpo@li1234.top</a>. PyAcademy SAS, 12 Rue de la Paix, 75002 Paris, France.</p></div>
+</div></footer>
+
+<script type="1181e4abf783e9cf927775bd-text/javascript">
+function switchLang(lang) {
+    document.body.classList.toggle('zh', lang === 'zh');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,932 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Privacy Policy – PyAcademy</title>
+ <style>
+ @font-face {
+ font-family: 'AnthropicSerif';
+ src: url('AnthropicSerif-Romans-Variable-25x258.ttf') format('truetype');
+ font-weight: 100 900;
+ font-style: normal;
+ font-display: swap;
+ }
+
+ *, *::before, *::after {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ }
+
+ body {
+ font-family: 'AnthropicSerif', 'Georgia', 'Times New Roman', serif;
+ color: #1a1a1a;
+ background: #ffffff;
+ line-height: 1.7;
+ -webkit-font-smoothing: antialiased;
+ -moz-osx-font-smoothing: grayscale;
+ }
+
+ /* Navigation */
+ nav {
+ position: sticky;
+ top: 0;
+ z-index: 100;
+ background: rgba(255, 255, 255, 0.92);
+ backdrop-filter: blur(12px);
+ -webkit-backdrop-filter: blur(12px);
+ border-bottom: 1px solid #eaeaea;
+ padding: 0 24px;
+ }
+
+ .nav-inner {
+ max-width: 1200px;
+ margin: 0 auto;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ height: 64px;
+ }
+
+ .nav-logo {
+ font-family: 'AnthropicSerif', 'Georgia', serif;
+ font-size: 18px;
+ font-weight: 700;
+ color: #1a1a1a;
+ text-decoration: none;
+ letter-spacing: -0.02em;
+ }
+
+ .nav-logo span {
+ color: #d97706;
+ }
+
+ .nav-links {
+ display: flex;
+ align-items: center;
+ gap: 24px;
+ list-style: none;
+ }
+
+ .nav-links a {
+ font-family: 'AnthropicSerif', 'Georgia', serif;
+ font-size: 14px;
+ font-weight: 500;
+ color: #666;
+ text-decoration: none;
+ transition: color 0.2s;
+ }
+
+ .nav-links a:hover {
+ color: #1a1a1a;
+ }
+
+ .nav-links .lang-divider {
+ width: 1px;
+ height: 16px;
+ background: #ddd;
+ }
+
+ .lang-btn {
+ font-family: 'AnthropicSerif', 'Georgia', serif;
+ font-size: 13px;
+ font-weight: 500;
+ color: #888;
+ text-decoration: none;
+ padding: 4px 10px;
+ border: 1px solid #ddd;
+ border-radius: 6px;
+ transition: all 0.2s;
+ cursor: pointer;
+ background: none;
+ }
+
+ .lang-btn:hover {
+ color: #1a1a1a;
+ border-color: #aaa;
+ }
+
+ .lang-btn.active {
+ color: #d97706;
+ border-color: #d97706;
+ background: #fffbeb;
+ }
+
+ /* Hero / Header */
+ .hero {
+ padding: 80px 24px 48px;
+ max-width: 1200px;
+ margin: 0 auto;
+ }
+
+ .hero h1 {
+ font-size: 48px;
+ font-weight: 700;
+ letter-spacing: -0.03em;
+ line-height: 1.1;
+ margin-bottom: 16px;
+ }
+
+ .hero .date {
+ font-family: 'AnthropicSerif', 'Georgia', serif;
+ font-size: 15px;
+ color: #888;
+ margin-bottom: 32px;
+ }
+
+ .hero .intro {
+ font-family: 'AnthropicSerif', 'Georgia', serif;
+ font-size: 17px;
+ color: #444;
+ max-width: 720px;
+ line-height: 1.8;
+ }
+
+ /* Main Content */
+ .content {
+ max-width: 760px;
+ margin: 0 auto;
+ padding: 24px 24px 120px;
+ }
+
+ .content h2 {
+ font-size: 24px;
+ font-weight: 700;
+ letter-spacing: -0.02em;
+ margin-top: 56px;
+ margin-bottom: 20px;
+ color: #1a1a1a;
+ }
+
+ .content h3 {
+ font-size: 17px;
+ font-weight: 600;
+ margin-top: 32px;
+ margin-bottom: 12px;
+ color: #1a1a1a;
+ }
+
+ .content p {
+ font-size: 15px;
+ line-height: 1.8;
+ color: #333;
+ margin-bottom: 16px;
+ }
+
+ .content ul {
+ font-family: 'AnthropicSerif', 'Georgia', serif;
+ margin-bottom: 16px;
+ padding-left: 20px;
+ }
+
+ .content li {
+ font-family: 'AnthropicSerif', 'Georgia', serif;
+ font-size: 15px;
+ line-height: 1.8;
+ color: #333;
+ margin-bottom: 8px;
+ }
+
+ .content a {
+ font-family: 'AnthropicSerif', 'Georgia', serif;
+ color: #d97706;
+ text-decoration: underline;
+ text-underline-offset: 2px;
+ transition: color 0.2s;
+ }
+
+ .content a:hover {
+ color: #b45309;
+ }
+
+ .content .note {
+ font-family: 'AnthropicSerif', 'Georgia', serif;
+ font-size: 14px;
+ color: #666;
+ background: #f9f9f9;
+ border-left: 3px solid #d97706;
+ padding: 16px 20px;
+ margin: 24px 0;
+ border-radius: 0 6px 6px 0;
+ }
+
+ .content .section-ref {
+ font-family: 'AnthropicSerif', 'Georgia', serif;
+ font-size: 13px;
+ color: #888;
+ font-style: italic;
+ margin-bottom: 16px;
+ }
+
+ /* Table styling for legal bases */
+ .legal-table {
+ width: 100%;
+ border-collapse: collapse;
+ margin: 24px 0;
+ font-family: 'AnthropicSerif', 'Georgia', serif;
+ font-size: 14px;
+ }
+
+ .legal-table th {
+ background: #f5f5f5;
+ font-family: 'AnthropicSerif', 'Georgia', serif;
+ font-weight: 600;
+ text-align: left;
+ padding: 12px 16px;
+ border-bottom: 2px solid #e0e0e0;
+ }
+
+ .legal-table td {
+ font-family: 'AnthropicSerif', 'Georgia', serif;
+ padding: 12px 16px;
+ border-bottom: 1px solid #eee;
+ vertical-align: top;
+ line-height: 1.6;
+ }
+
+ .legal-table tr:last-child td {
+ border-bottom: none;
+ }
+
+ /* Footer */
+ footer {
+ border-top: 1px solid #eaeaea;
+ padding: 48px 24px;
+ text-align: center;
+ }
+
+ .footer-inner {
+ max-width: 1200px;
+ margin: 0 auto;
+ }
+
+ .footer-links {
+ display: flex;
+ justify-content: center;
+ gap: 24px;
+ margin-bottom: 16px;
+ flex-wrap: wrap;
+ }
+
+ .footer-links a {
+ font-family: 'AnthropicSerif', 'Georgia', serif;
+ font-size: 13px;
+ color: #888;
+ text-decoration: none;
+ transition: color 0.2s;
+ }
+
+ .footer-links a:hover {
+ color: #1a1a1a;
+ }
+
+ .footer-copy {
+ font-family: 'AnthropicSerif', 'Georgia', serif;
+ font-size: 13px;
+ color: #aaa;
+ }
+
+ /* Language toggle */
+ [[data-lang="zh"] {
+ display: none;
+ }
+
+ body.zh [data-lang="en"] {
+ display: none;
+ }
+
+ body.zh [[data-lang="zh"] {
+ display: block;
+ }
+
+ /* Inline lang toggle for elements that are not block */
+ span[data-lang], a[data-lang] {
+ /* handled via inline display */
+ }
+
+ body.zh span[data-lang="en"],
+ body.zh a[data-lang="en"] {
+ display: none;
+ }
+
+ body.zh span[[data-lang="zh"],
+ body.zh a[[data-lang="zh"] {
+ display: inline;
+ }
+
+ span[[data-lang="zh"],
+ a[[data-lang="zh"] {
+ display: none;
+ }
+
+ /* Responsive */
+ @media (max-width: 640px) {
+ .hero h1 {
+ font-size: 32px;
+ }
+
+ .hero {
+ padding: 48px 16px 32px;
+ }
+
+ .content {
+ padding: 16px 16px 80px;
+ }
+
+ .nav-links {
+ gap: 16px;
+ }
+
+ .legal-table {
+ font-size: 12px;
+ }
+
+ .legal-table th, .legal-table td {
+ padding: 8px 10px;
+ }
+ }
+
+ html {
+ scroll-behavior: smooth;
+ }
+
+ ::selection {
+ background: #fde68a;
+ color: #1a1a1a;
+ }
+ </style>
+</head>
+<body>
+
+ <!-- Navigation -->
+ <nav>
+ <div class="nav-inner">
+ <a href="https://www.li1234.com" class="nav-logo">Py<span>Academy</span></a>
+ <ul class="nav-links">
+ <li><a href="https://www.li1234.com" data-lang="en">Home</a><a href="https://www.li1234.com" data-lang="zh">首页</a></li>
+ <li><div class="lang-divider"></div></li>
+ <li>
+ <button class="lang-btn active" id="btn-en" onclick="switchLang('en')">EN</button>
+ <button class="lang-btn" id="btn-zh" onclick="switchLang('zh')">中文</button>
+ </li>
+ </ul>
+ </div>
+ </nav>
+
+ <!-- ==================== ENGLISH VERSION ==================== -->
+ <div data-lang="en">
+ <div class="hero">
+ <h1>Privacy Policy</h1>
+ <p class="date">Effective Date: May 4, 2026</p>
+ <p class="intro">
+ PyAcademy is an online Python learning platform dedicated to helping learners of all levels master Python programming through courses, tutorials, and interactive exercises.
+ </p>
+ </div>
+
+ <div class="content">
+
+ <p>
+ This Privacy Policy explains how we collect, use, disclose, and process your personal data when you use our website and other places where PyAcademy acts as a data controller—for example, when you interact with our website or other products as a consumer for personal use ("Services") or when PyAcademy operates and provides our commercial customers and their end users with access to our commercial products, such as the PyAcademy Pro plan ("Commercial Services").
+ </p>
+
+ <p>
+ This Privacy Policy does not apply where PyAcademy acts as a data processor and processes personal data on behalf of commercial customers using PyAcademy's Commercial Services—for example, your employer has provisioned you a PyAcademy for Work account, or you're using an app that is powered on the back-end with PyAcademy. In those cases, the commercial customer is the controller, and you can review their policies for more information about how they handle your personal data.
+ </p>
+
+ <p>
+ This Privacy Policy also describes your privacy rights. More information about your rights, and how to exercise them, is set out in Section 4 ("Rights and Choices").
+ </p>
+
+ <p>
+ This Privacy Policy is drafted and shall be interpreted in compliance with the European Union General Data Protection Regulation (EU) 2016/679 ("GDPR"), the French Data Protection Act of January 6, 1978 (Loi n° 78-17, as amended by Loi n° 2004-801, Ordinance n° 2011-1012, and Loi n° 2016-1680), the ePrivacy Directive 2002/58/EC (as amended by Directive 2009/136/EC), and the relevant guidelines, recommendations, and deliberations issued by the Commission Nationale de l'Informatique et des Libertés ("CNIL"), including but not limited to CNIL Deliberation No. 2020-091 of September 17, 2020 (as amended) and the CNIL's guidelines on the processing of personal data in the context of online services. This Policy also takes into account the guidance and opinions of the European Data Protection Board ("EDPB") and the jurisprudence of the Court of Justice of the European Union ("CJEU"). Where this Privacy Policy references specific legal bases, rights, or obligations, such references are intended to encompass any successor legislation, delegated acts, or implementing measures applicable at the time of processing.
+ </p>
+
+ <div class="note">
+ If you are located in Canada, please read section 11 of the Privacy Policy which applies to you.<br>
+ If you are located in Brazil, please read section 12 of the Privacy Policy which applies to you.<br>
+ If you are located in the Republic of Korea, please read section 13 of the Privacy Policy which applies to you.
+ </div>
+
+ <h2>1. Collection of Personal Data</h2>
+
+ <p>We collect the following categories of personal data:</p>
+
+ <p class="section-ref">In accordance with Articles 13 and 14 of the GDPR, we are required to inform you of the identity of the data controller, the purposes and legal basis for processing, the categories of personal data concerned, the recipients or categories of recipients, and the retention periods applicable to each category of data. The information set out in this Section 1 fulfils those obligations.</p>
+
+ <h3>Personal data you provide to us directly</h3>
+
+ <p><strong>Identity and Contact Data:</strong> PyAcademy collects identifiers, including your name, email address, and phone number when you sign up for a PyAcademy account, or to receive information on our Services. We may also collect or generate indirect identifiers (e.g., "USER12345").</p>
+
+ <p><strong>Payment Information:</strong> We shall collect your payment information if you choose to purchase access to PyAcademy's products and services.</p>
+
+ <p><strong>Inputs and Outputs:</strong> You are able to interact with our Services in a variety of formats, including but not limited to chat, coding exercises, and learning sessions ("Prompts" or "Inputs"), which generate responses and actions ("Outputs") based on your Inputs. This includes third-party applications you choose to integrate with our Services. If you include personal data or reference external content in your Inputs, we will collect that information and this information may be reproduced in your Outputs.</p>
+
+ <p><strong>Feedback on your use of our Services:</strong> We appreciate feedback, including ideas and suggestions for improvement or rating an Output in response to an Input ("Feedback"). If you rate an Output in response to an Input—for example, by using the thumbs up/thumbs down icon—we will store the entire related conversation as part of your Feedback.</p>
+
+ <p><strong>Communication Information:</strong> If you communicate with us, including via our chatbot on our Help site, we collect your name, contact information, and the contents of any messages you send.</p>
+
+ <h3>Personal data we receive automatically from your use of the Services</h3>
+
+ <p>When you use the Services, we also receive certain technical data automatically (described below, collectively "Technical Information"). This includes:</p>
+
+ <p><strong>Device and Connection Information.</strong> Consistent with your device or browser permissions, your device or browser automatically sends us information about when and how you install, access, or use our Services. This includes information such as your device type, operating system information, browser information and web page referers, mobile network, connection information, mobile operator or internet service provider (ISP), time zone setting, IP address (including information about the location of the device derived from your IP address), identifiers (including device or advertising identifiers, probabilistic identifiers, and other unique personal or online identifiers), and device location.</p>
+
+ <p><strong>Usage Information.</strong> We collect information about your use of the Services, such as the dates and times of access, browsing history, search, information about the links you click, pages you view, and other information about how you use the Services, and technology on the devices you use to access the Services.</p>
+
+ <p><strong>Log and Troubleshooting Information.</strong> We collect information about how our Services are performing when you use them. This information includes log files. If you or your device experiences an error, we may collect information about the error, the time the error occurred, the feature being used, the state of the application when the error occurred, and any communications or content provided at the time the error occurred.</p>
+
+ <p><strong>Cookies &amp; Similar Technologies.</strong> We and our service providers use cookies, scripts, or similar technologies ("Cookies") to manage the Services and to collect information about you and your use of the Services. These technologies help us to recognize you, customize or personalize your experience, market additional products or services to you, and analyze the use of our Services to make them safer and more useful to you. For more details about how we use these technologies, and your opt-out controls and other options, please visit our <a href="#">Cookie Policy</a>.</p>
+
+ <h2>2. Uses of Personal Data Permitted Under Applicable Data Protection Laws</h2>
+
+ <p>We use your personal data for the following purposes:</p>
+
+ <ul>
+ <li>To provide, maintain and facilitate any products and services offered to you with respect to your PyAcademy account, which are governed by our Terms of Service;</li>
+ <li>To provide, maintain and facilitate optional services and features that enhance platform functionality and user experience;</li>
+ <li>To communicate with you, including to send you information about our Services and events;</li>
+ <li>To create and administer your PyAcademy account;</li>
+ <li>To facilitate payments for products and services provided by PyAcademy;</li>
+ <li>To prevent and investigate fraud, abuse, and violations of our Usage Policy, unlawful or criminal activity, unauthorized access to or use of personal data or PyAcademy systems and networks, to protect our rights and the rights of others, and to meet legal, governmental and institutional policy obligations;</li>
+ <li>To investigate and resolve disputes;</li>
+ <li>To investigate and resolve security issues;</li>
+ <li>To debug and to identify and repair errors that impair existing functionality;</li>
+ <li>To improve the Services and conduct research; and</li>
+ <li>To enforce our Terms of Service and similar terms and agreements, including our Usage Policy.</li>
+ </ul>
+
+ <p class="section-ref">Please see Section 10 below for details of our legal bases for processing your personal data.</p>
+
+ <h2>3. How We Disclose Personal Data</h2>
+
+ <p>PyAcademy will disclose personal data to the following categories of third parties for the purposes explained in this Policy:</p>
+
+ <p><strong>Affiliates &amp; corporate partners.</strong> PyAcademy discloses the categories of personal data described above between and among its affiliates and related entities.</p>
+
+ <p><strong>Service providers &amp; business partners.</strong> PyAcademy may disclose the categories of personal data described above with service providers and business partners for a variety of business purposes, including website and data hosting, ensuring compliance with industry standards, research, auditing, data processing, and providing you with the services.</p>
+
+ <p>PyAcademy may also disclose personal data in the following circumstances:</p>
+
+ <p><strong>As part of a significant corporate event.</strong> If PyAcademy is involved in a merger, corporate transaction, bankruptcy, or other situation involving the transfer of business assets, PyAcademy will disclose your personal data as part of these corporate transactions.</p>
+
+ <p><strong>Third-Party Websites and Services:</strong> Our Services may involve integrations with, or may direct you to, websites, apps, and services managed by third parties. By interacting with these third parties, you are providing information directly to the third party and not PyAcademy and subject to the third party's privacy policy. If you access third-party services, such as social media sites or other sites linked through the Services, these third-party services will be able to collect personal data about you, including information about your activity on the Services. If we link to a site or service via our Services, you should read their data usage policies or other documentation. Our linking to another site or service doesn't mean we endorse it or speak for that third party.</p>
+
+ <p><strong>Pursuant to regulatory or legal requirements, safety, rights of others, and to enforce our rights or our terms.</strong> We may disclose personal data to governmental regulatory authorities as required by law, including for legal, tax or accounting purposes, in response to their requests for such information or to assist in investigations. We may also disclose personal data to third parties in connection with claims, disputes or litigation, when otherwise permitted or required by law, or if we determine its disclosure is necessary to protect the health and safety of you or any other person, to protect against fraud or credit risk, to enforce our legal rights or the legal rights of others, to enforce contractual commitments that you have made, or as otherwise permitted or required by applicable law.</p>
+
+ <p><strong>With an individual's consent.</strong> PyAcademy will otherwise disclose personal data when an individual gives us permission or directs us to disclose this information, including as a part of our Services.</p>
+
+ <p>You can find information on our <a href="#">Subprocessor List</a> about the third parties PyAcademy engages to help us process personal data provided to us where PyAcademy acts as a data processor, such as with respect to personal data we receive, process, store, or host when you use PyAcademy's commercial services.</p>
+
+ <h2>4. Rights and Choices</h2>
+
+ <p>Depending on where you live and the laws that apply in your country of residence, you may enjoy certain rights regarding your personal data, as described further below. However, please be aware that these rights are limited, and that the process by which we may need to action your requests are complex. We may also decline a request if we have a lawful reason for doing so. That said, we strive to prioritize the protection of personal data, and comply with all applicable privacy laws.</p>
+
+ <p>To exercise your rights, you or an authorized agent may submit a request by emailing us <a  <a href="mailto:privacy@li1234.top">privacy@li1234.top</a>s which you may enjoy, depending on the laws that apply in your country of residence.</p>
+
+ <p><strong>Right to know:</strong> the right to know what personal data PyAcademy processes about you, including the categories of personal data, the categories of sources from which it is collected, the business or commercial purposes for collection, and the categories of third parties to whom we disclose it. <em class="section-ref">(Articles 13–14 GDPR; for California residents, see also Cal. Civ. Code § 1798.100)</em></p>
+
+ <p><strong>Access &amp; data portability:</strong> the right to request a copy of the personal data PyAcademy processes about you, subject to certain exceptions and conditions. In certain cases and subject to applicable law, you have the right to port your information. <em class="section-ref">(Article 15 GDPR for the right of access; Article 20 GDPR for data portability)</em></p>
+
+ <p><strong>Deletion:</strong> the right to request that we delete personal data collected from you when you use our Services, subject to certain exceptions. You also are able to delete individual conversations, which will be removed immediately from your conversation history and automatically deleted from our back-end within 30 days. <em class="section-ref">(Article 17 GDPR; exceptions pursuant to Article 17(3) GDPR, including where processing is necessary for compliance with a legal obligation, for the establishment, exercise or defense of legal claims, or for reasons of public interest)</em></p>
+
+ <p><strong>Correction:</strong> the right to request that we correct inaccurate personal data PyAcademy retains about you, subject to certain exceptions. <em class="section-ref">(Article 16 GDPR)</em></p>
+
+ <p><strong>Objection:</strong> the right to object to processing of your personal data, including profiling conducted on grounds of public or legitimate interest. In places where such a right applies, we will no longer process the personal data in case of such objection unless we demonstrate compelling legitimate grounds for the processing which override your interests, rights, and freedoms, or for the establishment, exercise or defense of legal claims. If we use your information for direct marketing, you can object and opt out of future direct marketing messages using the unsubscribe link in such communications. <em class="section-ref">(Article 21 GDPR; for direct marketing, the right to object is absolute and does not require the demonstration of compelling legitimate grounds per Article 21(2)–(3) GDPR)</em></p>
+
+ <p><strong>Restriction:</strong> the right to restrict our processing of your personal data in certain circumstances, including where you contest the accuracy of the data (for the period enabling us to verify accuracy), where processing is unlawful and you oppose erasure, where we no longer need the data but you require it for the establishment, exercise or defense of legal claims, or where you have objected to processing pending verification of our legitimate grounds. <em class="section-ref">(Article 18 GDPR)</em></p>
+
+ <p><strong>Withdrawal of consent.</strong> Where PyAcademy's processing of your personal data is based on consent, you have the right to withdraw your consent. The withdrawal of consent will not affect the lawfulness of processing based on consent before its withdrawal. <em class="section-ref">(Article 7(3) GDPR)</em></p>
+
+ <p><strong>Automated decision-making:</strong> PyAcademy does not engage in decision making based solely on automated processing or profiling in a manner which produces a legal effect (i.e., impacts your legal rights) or significantly affects you in a similar way. <em class="section-ref">(Article 22 GDPR; the data subject shall have the right not to be subject to a decision based solely on automated processing, including profiling, which produces legal effects or similarly significantly affects them)</em></p>
+
+ <p><strong>Sale &amp; targeted marketing.</strong> PyAcademy does not "sell" your personal data as that term is defined by applicable laws and regulations. You can opt-out of sharing your personal data for targeted advertising to promote our products and services, and we will honor global privacy controls. To learn more, click <a href="#">here</a>. <em class="section-ref">(Article 21(2)–(3) GDPR; for California residents, see Cal. Civ. Code § 1798.120)</em></p>
+
+ <p>PyAcademy gives you access to a variety of tools to help you manage your data. You can access these in your <a href="#">Privacy Settings</a>.</p>
+
+ <h2>5. Data Transfers</h2>
+
+ <p>When you access our website or Services, your personal data is stored on servers located within the European Union (EU). The vast majority of our data is stored in France, in compliance with the General Data Protection Regulation (GDPR) and other applicable data protection laws. We are committed to keeping your data within the EU/EEA.</p>
+
+ <p>In limited circumstances, your personal data may be transferred to or processed in countries outside the European Economic Area ("EEA") and the UK—for example, when you access our Services from outside the EU. This may be a direct provision of your personal data to us, or a transfer that we or a third party make.</p>
+
+ <p>Where information is transferred outside the EEA or the UK, we ensure it benefits from an adequate level of data protection by relying on:</p>
+
+ <p><strong>Adequacy decisions.</strong> These are decisions from the European Commission under Article 45 GDPR (or equivalent decisions under other laws) where they recognise that a country outside of the EEA offers an adequate level of data protection. We transfer your information as described in "Collection of Personal Data" to some countries with adequacy decisions; or</p>
+
+ <p><strong>Standard contractual clauses.</strong> The European Commission has approved contractual clauses under Article 46 GDPR that allows companies in the EEA to transfer data outside the EEA. These (and their approved equivalent for the UK and Switzerland) are called standard contractual clauses. We rely on standard contractual clauses to transfer information as described in "Collection of Personal Data" to certain affiliates and third parties in countries without an adequacy decision.</p>
+
+ <p>In certain situations, we rely on derogations provided for under applicable data protection law to transfer information to a third country.</p>
+
+ <h2>6. Data Retention, Data Lifecycle, and Security Controls</h2>
+
+ <p class="section-ref">In accordance with Article 5(1)(e) GDPR (the "storage limitation" principle), personal data shall be kept in a form which permits identification of data subjects for no longer than is necessary for the purposes for which the personal data are processed. PyAcademy implements the following data retention periods, which are determined on the basis of legal requirements, contractual necessity, and legitimate business interests.</p>
+
+ <p>PyAcademy retains your personal data for as long as reasonably necessary for the purposes and criteria outlined in this Privacy Policy and explained further in our <a href="#">privacy center</a>. The specific retention periods applicable to each category of personal data are as follows:</p>
+
+ <ul>
+ <li><strong>Account data</strong> (Identity and Contact Data): Retained for the duration of your active account and for a period of three (3) years following account closure or last recorded activity, in accordance with the CNIL's recommendations on data retention periods for online services. After this period, account data is automatically deleted or irrevocably anonymized.</li>
+ <li><strong>Payment information:</strong> Retained for the duration necessary to complete the applicable transaction and for a period of five (5) years from the end of the fiscal year in which the transaction occurred, in compliance with French commercial and tax law obligations (Article 102B of the French General Tax Code and Article L123-22 of the French Commercial Code). Payment card data is tokenized and not stored in full on our servers.</li>
+ <li><strong>Inputs and Outputs:</strong> Retained for the duration of your active account to provide and maintain the Services. Conversations may be retained for up to three (3) years from the date of last interaction for purposes of service improvement and model training, unless you delete them earlier. Deleted conversations are removed from your conversation history immediately and purged from our back-end systems within thirty (30) days.</li>
+ <li><strong>Feedback:</strong> Retained for the duration of your active account plus two (2) years for service improvement and quality assurance purposes.</li>
+ <li><strong>Communication information:</strong> Retained for three (3) years from the date of the last communication for customer service and dispute resolution purposes.</li>
+ <li><strong>Technical information and log data:</strong> Retained for a maximum of thirteen (13) months from the date of collection, in line with CNIL guidance on the retention of audience measurement and analytics data. Log files containing IP addresses are automatically deleted or anonymized after this period.</li>
+ <li><strong>Consent records:</strong> Records evidencing your consent to data processing (including cookie consent records) are retained for a maximum of three (3) years from the date consent was last given, in accordance with the CNIL's guidance on the retention of consent evidence (CNIL Deliberation No. 2020-091 of September 17, 2020, as amended). This retention is necessary to demonstrate compliance with the accountability principle under Article 5(2) GDPR.</li>
+ <li><strong>Aggregated or de-identified data:</strong> May be retained indefinitely, as such data no longer constitutes personal data within the meaning of the GDPR.</li>
+ </ul>
+
+ <p>When the personal data collected is no longer required by us, we and our service providers will perform the necessary procedures for destroying, deleting, erasing, or converting it into an anonymous form as permitted or required under applicable laws, including Regulation (EU) 2016/679 and the French Data Protection Act (Loi n° 78-17). Deletion procedures are designed to render data non-recoverable and non-reproducible.</p>
+
+ <h3>Aggregated or De-Identified Information</h3>
+
+ <p>We may process personal data in an aggregated or de-identified form to analyze the effectiveness of our Services, conduct research, and study user behavior as permitted under applicable laws. For instance:</p>
+
+ <ul>
+ <li>When you submit Feedback, we disassociate Inputs and Outputs from your user ID.</li>
+ <li>If our systems flag Inputs or Outputs for potentially violating our Usage Policy, we disassociate the content from your user ID. However, we may re-identify the Inputs or Outputs to enforce our Usage Policy with the responsible user if necessary.</li>
+ <li>To improve user experience, we may analyze and aggregate general user behavior and usage data. This information does not identify individual users.</li>
+ </ul>
+
+ <h3>Security Controls Relating to our Processing of Personal Data</h3>
+
+ <p>We implement appropriate technical and organizational security measures designed to protect personal data from loss, misuse, and unauthorized access, disclosure, alteration, or destruction. All personal data is primarily stored and processed within the European Union, with the vast majority hosted in France.</p>
+
+ <h2>7. Children</h2>
+
+ <p>Our Services are not directed towards, and we do not knowingly collect, use, disclose, sell, or share any information from children under the age of 18. If you become aware that a child under the age of 18 has provided any personal data to us while using our Services, please email us <a  <a href="mailto:privacy@li1234.top">privacy@li1234.top</a>revious versions in our <a href="#">Privacy Center</a>.</p>
+
+ <h2>9. Contact Information</h2>
+
+ <p>If you live in the European Economic Area (EEA), UK or Switzerland (the "European Region"), the data controller responsible for your personal data is PyAcademy Europe Limited. If you live outside the European Region, the data controller responsible for your personal data is PyAcademy.</p>
+
+ <p>If you have any questions about this Privacy Policy, or have any questions, complaints or requests regarding your personal data, you can contact us as described below:</p>
+
+ <p><strong>PyAcademy Europe Limited</strong><br>PyAcademy SAS, 12 Rue de la Paix, 75002 Paris, France</p>
+
+ <p>You can email us at <a >. If you live or work in the UK, you have the right to lodge a complaint with the UK Information Commissioner's Office. If you live in Brazil, you have the right to lodge a complaint with the Brazilian Data Protection Authority (ANPD). If you live in Australia, you have the right to lodge a complaint with the Office of the Australian Information Commissioner.</p>
+
+ <p>In particular, if you are located in France, you have the right to lodge a complaint with the Commission Nationale de l'Informatique et des Libertés (CNIL):</p>
+ <p>Commission Nationale de l'Informatique et des Libertés (CNIL)<br>
+ 3 Place de Fontenoy<br>
+ TSA 80715<br>
+ 75334 Paris Cedex 07, France<br>
+ Tel: +33 1 53 73 22 22<br>
+ Website: <a href="https://www.cnil.fr" target="_blank" rel="noopener">https://www.cnil.fr</a></p>
+
+ <h2>10. Legal Bases for Processing</h2>
+
+ <table class="legal-table">
+ <thead>
+ <tr>
+ <th style="width:40%">Purpose</th>
+ <th style="width:30%">Type of Data</th>
+ <th style="width:30%">Legal Basis</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>To provide, maintain and facilitate any products and services offered to you with respect to your PyAcademy account, which are governed by our Terms of Service</td>
+ <td>Identity and Contact Data, Payment Information, Feedback, Inputs and Outputs, Technical Information</td>
+ <td>Contract</td>
+ </tr>
+ <tr>
+ <td>To provide, maintain and facilitate optional services and features that enhance platform functionality and user experience</td>
+ <td>Identity and Contact Data, Feedback, Inputs and Outputs, Technical Information</td>
+ <td>Consent (for precise device location); Legitimate interests</td>
+ </tr>
+ <tr>
+ <td>To communicate with you and to promote our Services</td>
+ <td>Identity and Contact Data, Communication Information, Technical Information</td>
+ <td>Contract; Consent; Legitimate Interests</td>
+ </tr>
+ <tr>
+ <td>To create and administer your PyAcademy account</td>
+ <td>Identity and Contact Data, Payment Information, Feedback</td>
+ <td>Contract</td>
+ </tr>
+ <tr>
+ <td>To facilitate payments for products and services provided by PyAcademy</td>
+ <td>Identity and Contact Data, Payment Information</td>
+ <td>Contract</td>
+ </tr>
+ <tr>
+ <td>To prevent and investigate fraud, abuse, and violations of our Usage Policy, unlawful or criminal activity, unauthorized access to or use of personal data or PyAcademy systems and networks, to protect our rights and the rights of others, and to meet legal, governmental and institutional policy obligations</td>
+ <td>Identity and Contact Data, Payment Information, Inputs and Outputs, Technical Information</td>
+ <td>Legitimate interests; Legal obligation</td>
+ </tr>
+ <tr>
+ <td>To investigate and resolve disputes</td>
+ <td>Identity and Contact Data, Inputs and Outputs, Feedback</td>
+ <td>Legitimate interests; Legal obligation</td>
+ </tr>
+ <tr>
+ <td>To investigate and resolve security issues</td>
+ <td>Identity and Contact Data, Feedback, Technical Information, Inputs and Outputs</td>
+ <td>Legal obligation; Legitimate interests</td>
+ </tr>
+ <tr>
+ <td>To debug and to identify and repair errors that impair existing functionality</td>
+ <td>Identity and Contact Data, Feedback, Technical Information</td>
+ <td>Legitimate interests</td>
+ </tr>
+ <tr>
+ <td>To improve the Services and conduct research</td>
+ <td>Identity and Contact Data, Feedback, Technical Information, Inputs and Outputs</td>
+ <td>Legitimate interests</td>
+ </tr>
+ <tr>
+ <td>To enforce our Terms of Service and similar terms and agreements, including our Usage Policy</td>
+ <td>Identity and Contact Data, Inputs and Outputs, Technical Information</td>
+ <td>Contract; Legitimate interests</td>
+ </tr>
+ </tbody>
+ </table>
+
+ </div>
+ </div>
+
+ <!-- ==================== CHINESE VERSION ==================== -->
+ <div data-lang="zh">
+ <div class="hero">
+ <h1>隐私权政策</h1>
+ <p class="date">生效日期：2026年5月4日</p>
+ <p class="intro">
+ PyAcademy 是一个在线 Python 学习平台，致力于帮助各级学习者通过课程、教程和互动练习掌握 Python 编程。
+ </p>
+ </div>
+
+ <div class="content">
+
+ <p>
+ 本隐私政策说明了当您使用我们的网站以及 PyAcademy 作为数据控制者的其他场所时，我们如何收集、使用、披露和处理您的个人数据——例如，当您以个人用途消费者身份与我们的网站或其他产品互动时（"服务"），或当 PyAcademy 运营并向我们的商业客户及其最终用户提供对商业产品的访问权限时，例如 PyAcademy Pro 计划（"商业服务"）。
+ </p>
+
+ <p>
+ 本隐私政策不适用于 PyAcademy 作为数据处理者代表使用 PyAcademy 商业服务的商业客户处理个人数据的情况——例如，您的雇主为您开通了 PyAcademy for Work 账户，或者您正在使用由 PyAcademy 在后端提供支持的应用程序。在这些情况下，商业客户是控制者，您可以查阅其政策以了解他们如何处理您的个人数据。
+ </p>
+
+ <p>
+ 本隐私政策还描述了您的隐私权。有关您的权利以及如何行使这些权利的更多信息，请参见第4节（"权利与选择"）。
+ </p>
+
+ <p>
+ 本隐私政策的制定和解释均符合欧洲联盟《通用数据保护条例》（欧盟）2016/679号（"GDPR"）、法国1978年1月6日《数据保护法》（第78-17号法律，经第2004-801号法律、第2011-1012号法令及第2016-1680号法律修订）、《电子隐私指令》2002/58/EC（经2009/136/EC指令修订）以及法国国家信息与自由委员会（"CNIL"）发布的相关指南、建议和决议，包括但不限于CNIL 2020年9月17日第2020-091号决议（经修订）以及CNIL关于在线服务中个人数据处理的指南。本政策亦充分考虑了欧洲数据保护委员会（"EDPB"）的指导意见和欧洲法院（"CJEU"）的判例法。本隐私政策中对具体法律依据、权利或义务的引用，均旨在涵盖在数据处理时适用的任何后续立法、委托法案或实施措施。
+ </p>
+
+ <div class="note">
+ 如果您位于加拿大，请阅读适用于您的隐私政策第11节。<br>
+ 如果您位于巴西，请阅读适用于您的隐私政策第12节。<br>
+ 如果您位于大韩民国，请阅读适用于您的隐私政策第13节。
+ </div>
+
+ <h2>1. 个人数据的收集</h2>
+
+ <p>我们收集以下类别的个人数据：</p>
+
+ <p class="section-ref">根据 GDPR 第13条和第14条的规定，我们有义务告知您数据控制者的身份、处理的目的和法律依据、所涉个人数据的类别、接收者或接收者类别以及适用于每类数据的保留期限。本第1节中提供的信息即履行上述义务。</p>
+
+ <h3>您直接提供给我们的个人数据</h3>
+
+ <p><strong>身份和联系数据：</strong>当您注册 PyAcademy 账户或订阅我们的服务信息时，PyAcademy 会收集标识符，包括您的姓名、电子邮件地址和电话号码。我们还可能收集或生成间接标识符（例如"USER12345"）。</p>
+
+ <p><strong>支付信息：</strong>如果您选择购买 PyAcademy 的产品和服务的访问权限，我们将收集您的支付信息。</p>
+
+ <p><strong>输入和输出：</strong>您可以通过多种格式与我们的服务互动，包括但不限于聊天、编程练习和学习会话（"提示"或"输入"），这些会根据您的输入生成响应和操作（"输出"）。这包括您选择与我们的服务集成的第三方应用程序。如果您在输入中包含个人数据或引用外部内容，我们将收集该信息，并且该信息可能会在您的输出中重现。</p>
+
+ <p><strong>关于您使用服务的反馈：</strong>我们重视反馈，包括改进意见和建议，或对输入的输出进行评分（"反馈"）。如果您对输入的输出进行评分——例如使用点赞/点踩图标——我们将存储整个相关对话作为反馈的一部分。</p>
+
+ <p><strong>通信信息：</strong>如果您与我们沟通，包括通过我们帮助网站上的聊天机器人，我们将收集您的姓名、联系信息以及您发送的任何消息的内容。</p>
+
+ <p>当您使用我们的服务时，我们还会自动接收某些技术数据（如下所述，统称"技术信息"）。这包括：</p>
+
+ <p><strong>设备和连接信息。</strong>根据您的设备或浏览器权限，您的设备或浏览器会自动向我们发送有关何时以及如何安装、访问或使用我们服务的信息。这包括设备类型、操作系统信息、浏览器信息和网页来源、移动网络、连接信息、移动运营商或互联网服务提供商（ISP）、时区设置、IP 地址（包括从您的 IP 地址派生的设备位置信息）、标识符（包括设备或广告标识符、概率标识符和其他唯一的个人或在线标识符）以及设备位置。</p>
+
+ <p><strong>使用信息。</strong>我们收集有关您使用服务的信息，例如访问日期和时间、浏览历史、搜索、您点击的链接、查看的页面，以及有关您如何使用服务和技术的其他信息。</p>
+
+ <p><strong>日志和故障排除信息。</strong>我们收集有关服务在您使用时的性能信息。此信息包括日志文件。如果您或您的设备遇到错误，我们可能会收集有关错误的信息、错误发生的时间、正在使用的功能、错误发生时应用程序的状态以及错误发生时提供的任何通信或内容。</p>
+
+ <p><strong>Cookies 及类似技术。</strong>我们和服务提供商使用 cookies、脚本或类似技术（"Cookies"）来管理服务并收集有关您和您使用服务的信息。这些技术帮助我们识别您、定制或个性化您的体验、向您推销额外的产品或服务，以及分析服务的使用情况，使其对您更安全、更有用。有关我们如何使用这些技术的更多详细信息，以及您的退出控制和其他选项，请访问我们的 <a href="#">Cookie 政策</a>。</p>
+
+ <h2>2. 适用数据保护法律允许的个人数据使用</h2>
+
+ <p>我们为以下目的使用您的个人数据：</p>
+
+ <ul>
+ <li>为您提供、维护和促进与您的 PyAcademy 账户相关的任何产品和服务，这些产品和服务受我们的服务条款管辖；</li>
+ <li>提供、维护和促进增强平台功能和用户体验的可选服务和功能；</li>
+ <li>与您沟通，包括向您发送有关我们服务和活动的信息；</li>
+ <li>创建和管理您的 PyAcademy 账户；</li>
+ <li>为 PyAcademy 提供的产品和服务促进付款；</li>
+ <li>预防和调查欺诈、滥用和违反我们使用政策的行为、非法或刑事活动、未经授权访问或使用个人数据或 PyAcademy 系统和网络，保护我们的权利和他人的权利，以及履行法律、政府和机构政策义务；</li>
+ <li>调查和解决争议；</li>
+ <li>调查和解决安全问题；</li>
+ <li>调试并识别和修复损害现有功能的错误；</li>
+ <li>改进服务并进行研究；以及</li>
+ <li>执行我们的服务条款和类似条款和协议，包括我们的使用政策。</li>
+ </ul>
+
+ <p class="section-ref">请参见下面第10节了解我们处理个人数据的法律依据详情。</p>
+
+ <h2>3. 我们如何披露个人数据</h2>
+
+ <p>PyAcademy 将向以下类别的第三方披露个人数据，以实现本政策中解释的目的：</p>
+
+ <p><strong>关联公司和企业合作伙伴。</strong>PyAcademy 在其关联公司和相关实体之间披露上述类别的个人数据。</p>
+
+ <p><strong>服务提供商和商业合作伙伴。</strong>PyAcademy 可能出于各种商业目的与服务提供商和商业合作伙伴披露上述类别的个人数据，包括网站和数据托管、确保符合行业标准、研究、审计、数据处理以及为您提供服务。</p>
+
+ <p>PyAcademy 还可能在以下情况下披露个人数据：</p>
+
+ <p><strong>作为重大公司事件的一部分。</strong>如果 PyAcademy 涉及合并、公司交易、破产或其他涉及业务资产转让的情况，PyAcademy 将在这些公司交易中披露您的个人数据。</p>
+
+ <p><strong>第三方网站和服务：</strong>我们的服务可能涉及与第三方管理的网站、应用程序和服务的集成，或将您引导至这些网站。通过与这些第三方互动，您是在直接向第三方而非 PyAcademy 提供信息，并受第三方隐私政策的约束。如果您访问第三方服务，例如通过服务链接的社交媒体网站或其他网站，这些第三方服务将能够收集有关您的个人数据，包括有关您在服务上的活动信息。</p>
+
+ <p><strong>根据监管或法律要求、安全、他人权利以及执行我们的权利或条款。</strong>我们可能根据法律要求向政府监管机构披露个人数据，包括出于法律、税务或会计目的，响应其对此类信息的请求或协助调查。我们还可能在法律允许或要求的情况下，或如果我们确定披露对于保护您或任何其他人的健康和安全、防止欺诈或信用风险、执行我们的法律权利或他人的法律权利、执行您已做出的合同承诺是必要的情况下，向第三方披露个人数据。</p>
+
+ <p><strong>经个人同意。</strong>当个人给予我们许可或指示我们披露此信息时，PyAcademy 将另行披露个人数据，包括作为我们服务的一部分。</p>
+
+ <p>您可以在我们的 <a href="#">子处理商列表</a> 中找到有关 PyAcademy 聘请的帮助我们处理个人数据的第三方的信息。</p>
+
+ <h2>4. 权利与选择</h2>
+
+ <p>根据您的居住地和您所在国家/地区适用的法律，您可能享有有关您个人数据的某些权利，如下所述。但是，请注意这些权利是有限的，并且我们可能需要处理您的请求的过程可能很复杂。如果我们有合法理由，我们也可能拒绝请求。尽管如此，我们致力于优先保护个人数据，并遵守所有适用的隐私法律。</p>
+
+ <p>要行使您的权利，您或授权代理人可以通过发送电子邮件至 <a ></p>
+
+ <p><strong>访问和数据可携性：</strong>请求获取 PyAcademy 关于您处理的个人数据副本的权利，但需遵守某些例外和条件。在某些情况下并根据适用法律，您有权携带您的信息。 <em class="section-ref">（访问权见 GDPR 第15条；数据可携性见 GDPR 第20条）</em></p>
+
+ <p><strong>删除权：</strong>请求我们删除您使用我们服务时从您那里收集的个人数据的权利，但需遵守某些例外。您还可以删除单个对话，这些对话将立即从您的对话历史记录中移除，并在30天内从我们的后端自动删除。 <em class="section-ref">（GDPR 第17条；例外情形见 GDPR 第17(3)条，包括处理对于遵守法律义务、确立、行使或捍卫法律索赔所必需，或基于公共利益之情形）</em></p>
+
+ <p><strong>更正权：</strong>请求我们更正 PyAcademy 保留的关于您的不准确个人数据的权利，但需遵守某些例外。 <em class="section-ref">（GDPR 第16条）</em></p>
+
+ <p><strong>反对权：</strong>反对处理您的个人数据的权利，包括基于公共利益或合法利益进行的分析。在适用此类权利的地方，除非我们证明处理具有凌驾于您的利益、权利和自由之上的令人信服的合法理由，否则在收到此类反对后我们将不再处理个人数据。如果我们使用您的信息进行直接营销，您可以反对并通过取消订阅链接退出未来的直接营销消息。 <em class="section-ref">（GDPR 第21条；就直接营销而言，反对权是绝对的，无需证明令人信服的合法理由，见 GDPR 第21(2)-(3)条）</em></p>
+
+ <p><strong>限制权：</strong>在某些情况下限制我们处理您个人数据的权利，包括您质疑数据准确性期间（以便我们核实准确性）、处理不合法且您反对删除、我们不再需要该数据但您因确立、行使或捍卫法律索赔而需要该数据，或您反对处理并等待核实我们的合法理由期间。 <em class="section-ref">（GDPR 第18条）</em></p>
+
+ <p><strong>撤回同意。</strong>当 PyAcademy 对您个人数据的处理基于同意时，您有权撤回您的同意。撤回同意不影响撤回之前基于同意的处理的合法性。 <em class="section-ref">（GDPR 第7(3)条）</em></p>
+
+ <p><strong>自动化决策：</strong>PyAcademy 不会仅基于自动化处理或分析进行产生法律效果（即影响您的法律权利）或以类似方式显著影响您的决策。 <em class="section-ref">（GDPR 第22条；数据主体有权不受仅基于自动化处理（包括分析）的决定的约束，该等决定产生法律效果或类似地显著影响数据主体）</em></p>
+
+ <p><strong>出售和定向营销。</strong>PyAcademy 不会"出售"您的个人数据，该术语由适用法律法规定义。您可以选择退出分享您的个人数据用于定向广告以推广我们的产品和服务，我们将遵守全球隐私控制。要了解更多信息，请点击 <a href="#">此处</a>。 <em class="section-ref">（GDPR 第21(2)-(3)条；就加州居民而言，另见《加州民法典》第1798.120条）</em></p>
+
+ <p>PyAcademy 为您提供各种工具来帮助您管理数据。您可以在 <a href="#">隐私设置</a> 中访问这些工具。</p>
+
+ <h2>5. 数据传输</h2>
+
+ <p>当您访问我们的网站或服务时，您的个人数据存储在位于欧盟（EU）境内的服务器上。我们的绝大多数数据存储在法国，符合《通用数据保护条例》（GDPR）和其他适用的数据保护法律。我们致力于将您的数据保留在欧盟/欧洲经济区境内。</p>
+
+ <p>在有限的情况下，您的个人数据可能会被传输到或在欧洲经济区（"EEA"）和英国以外的国家进行处理——例如，当您从欧盟以外访问我们的服务时。这可能是您的个人数据直接提供给我们，或由我们或第三方进行的传输。</p>
+
+ <p>当信息被传输到 EEA 或英国以外时，我们通过以下方式确保其享有适当水平的数据保护：</p>
+
+ <p><strong>充分性决定。</strong>这些是欧盟委员会根据 GDPR 第45条（或其他法律下的等效决定）做出的决定，他们认定 EEA 以外的国家提供适当水平的数据保护。</p>
+
+ <p><strong>标准合同条款。</strong>欧盟委员会已根据 GDPR 第46条批准了允许 EEA 公司将数据传输到 EEA 以外的合同条款。我们依靠标准合同条款将信息传输到没有充分性决定的国家的某些关联公司和第三方。</p>
+
+ <p>在某些情况下，我们依赖适用数据保护法律规定的豁免将信息传输到第三国。</p>
+
+ <h2>6. 数据保留、数据生命周期和安全控制</h2>
+
+ <p class="section-ref">根据 GDPR 第5(1)(e)条（"存储限制"原则），个人数据的保存形式应允许在不超过为处理目的所必要的期限内识别数据主体。PyAcademy 实施以下数据保留期限，该等期限系基于法律要求、合同必要性和合法商业利益而确定。</p>
+
+ <p>PyAcademy 保留您的个人数据的时间不超过本隐私政策中所述目的和标准所需的合理时间，具体详见我们的 <a href="#">隐私中心</a>。适用于每类个人数据的具体保留期限如下：</p>
+
+ <ul>
+ <li><strong>账户数据</strong>（身份和联系数据）：在您的活跃账户期间保留，并在账户关闭或最后记录活动后保留三（3）年，符合 CNIL 关于在线服务数据保留期限的建议。此后，账户数据将被自动删除或不可逆转地匿名化。</li>
+ <li><strong>支付信息：</strong>在完成适用交易所需的期限内保留，并自交易发生之财年结束之日起保留五（5）年，以遵守法国商法和税法义务（法国《税收总法典》第102B条和法国《商法典》第L123-22条）。支付卡数据经过令牌化处理，不会以完整形式存储在我们的服务器上。</li>
+ <li><strong>输入和输出：</strong>在您的活跃账户期间保留，以提供和维护服务。为服务改进和模型训练目的，对话可能自最后交互之日起保留最多三（3）年，除非您更早删除。已删除的对话将立即从您的对话历史记录中移除，并在三十（30）天内从我们的后端系统中清除。</li>
+ <li><strong>反馈：</strong>在活跃账户期间加上两（2）年予以保留，用于服务改进和质量保证目的。</li>
+ <li><strong>通信信息：</strong>自最后一次通信之日起保留三（3）年，用于客户服务和争议解决目的。</li>
+ <li><strong>技术信息和日志数据：</strong>自收集之日起最多保留十三（13）个月，符合 CNIL 关于受众衡量和分析数据保留的指导。包含 IP 地址的日志文件在此期限后自动删除或匿名化。</li>
+ <li><strong>同意记录：</strong>证明您同意数据处理的记录（包括 Cookie 同意记录）自最后给予同意之日起最多保留三（3）年，符合 CNIL 关于同意证据保留的指导（CNIL 2020年9月17日第2020-091号决议，经修订）。此保留对于证明遵守 GDPR 第5(2)条规定的问责制原则是必要的。</li>
+ <li><strong>聚合或去标识化数据：</strong>可无限期保留，因为该等数据不再构成 GDPR 意义上的个人数据。</li>
+ </ul>
+
+ <p>当收集的个人数据不再需要时，我们将和服务提供商执行必要的程序，销毁、删除、擦除或将其转换为匿名形式，如适用法律所允许或要求的，包括（欧盟）2016/679号条例和法国《数据保护法》（第78-17号法律）。删除程序旨在使数据不可恢复和不可复制。</p>
+
+ <h3>聚合或去标识化信息</h3>
+
+ <p>我们可能会以聚合或去标识化的形式处理个人数据，以分析我们服务的有效性、进行研究以及研究用户行为，如适用法律所允许的。例如：</p>
+
+ <ul>
+ <li>当您提交反馈时，我们会将输入和输出与您的用户 ID 分离。</li>
+ <li>如果我们的系统标记输入或输出可能违反我们的使用政策，我们会将内容与您的用户 ID 分离。但是，如果有必要，我们可能会重新识别输入或输出以向相关用户执行我们的使用政策。</li>
+ <li>为了改善用户体验，我们可能会分析和汇总一般用户行为和使用数据。此信息不会识别个人用户。</li>
+ </ul>
+
+ <h3>与我们处理个人数据相关的安全控制</h3>
+
+ <p>我们实施适当的技术和组织安全措施，旨在保护个人数据免受丢失、滥用和未经授权的访问、披露、更改或销毁。所有个人数据主要存储和处理在欧盟境内，绝大部分托管在法国。</p>
+
+ <h2>7. 儿童</h2>
+
+ <p>我们的服务不针对儿童，我们不会故意收集、使用、披露、出售或分享18岁以下儿童的任何信息。如果您发现18岁以下的儿童在使用我们的服务时向我们提供了任何个人数据，请发送电子邮件至 <a 过以下方式联系我们：</p>
+
+ <p><strong>PyAcademy Europe Limited</strong><br>PyAcademy SAS, 12 Rue de la Paix, 75002 Paris, France</p>
+
+ <p>您可以发送电子邮件至 <a href="mailto:contact@li1234.top">contact@li1234.top</a> atique et des Libertés (CNIL)<br>
+ 3 Place de Fontenoy<br>
+ TSA 80715<br>
+ 75334 Paris Cedex 07, France<br>
+ 电话：+33 1 53 73 22 22<br>
+ 网站：<a href="https://www.cnil.fr" target="_blank" rel="noopener">https://www.cnil.fr</a></p>
+
+ <h2>10. 处理的法律依据</h2>
+
+ <table class="legal-table">
+ <thead>
+ <tr>
+ <th style="width:40%">目的</th>
+ <th style="width:30%">数据类型</th>
+ <th style="width:30%">法律依据</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>为您提供、维护和促进与您的 PyAcademy 账户相关的任何产品和服务，这些产品和服务受我们的服务条款管辖</td>
+ <td>身份和联系数据、支付信息、反馈、输入和输出、技术信息</td>
+ <td>合同</td>
+ </tr>
+ <tr>
+ <td>提供、维护和促进增强平台功能和用户体验的可选服务和功能</td>
+ <td>身份和联系数据、反馈、输入和输出、技术信息</td>
+ <td>同意（针对精确设备位置）；合法利益</td>
+ </tr>
+ <tr>
+ <td>与您沟通并推广我们的服务</td>
+ <td>身份和联系数据、通信信息、技术信息</td>
+ <td>合同；同意；合法利益</td>
+ </tr>
+ <tr>
+ <td>创建和管理您的 PyAcademy 账户</td>
+ <td>身份和联系数据、支付信息、反馈</td>
+ <td>合同</td>
+ </tr>
+ <tr>
+ <td>为 PyAcademy 提供的产品和服务促进付款</td>
+ <td>身份和联系数据、支付信息</td>
+ <td>合同</td>
+ </tr>
+ <tr>
+ <td>预防和调查欺诈、滥用和违反我们使用政策的行为、非法或刑事活动、未经授权访问或使用个人数据或 PyAcademy 系统和网络，保护我们的权利和他人的权利，以及履行法律、政府和机构政策义务</td>
+ <td>身份和联系数据、支付信息、输入和输出、技术信息</td>
+ <td>合法利益；法律义务</td>
+ </tr>
+ <tr>
+ <td>调查和解决争议</td>
+ <td>身份和联系数据、输入和输出、反馈</td>
+ <td>合法利益；法律义务</td>
+ </tr>
+ <tr>
+ <td>调查和解决安全问题</td>
+ <td>身份和联系数据、反馈、技术信息、输入和输出</td>
+ <td>法律义务；合法利益</td>
+ </tr>
+ <tr>
+ <td>调试并识别和修复损害现有功能的错误</td>
+ <td>身份和联系数据、反馈、技术信息</td>
+ <td>合法利益</td>
+ </tr>
+ <tr>
+ <td>改进服务并进行研究</td>
+ <td>身份和联系数据、反馈、技术信息、输入和输出</td>
+ <td>合法利益</td>
+ </tr>
+ <tr>
+ <td>执行我们的服务条款和类似条款和协议，包括我们的使用政策</td>
+ <td>身份和联系数据、输入和输出、技术信息</td>
+ <td>合同；合法利益</td>
+ </tr>
+ </tbody>
+ </table>
+
+ </div>
+ </div>
+
+ <!-- Footer -->
+ <div class="highlight"><p><strong>Supplementary Legal Provisions / 附则A</strong></p><p><strong>A.1 DPO:</strong> <a href="mailto:dpo@li1234.top">dpo@li1234.top</a>. GDPR Art.37. PyAcademy SAS, 12 Rue de la Paix, 75002 Paris, France.</p><p><strong>A.2 Principles:</strong> GDPR Art.5 - lawfulness, purpose limitation, data minimisation, accuracy, storage limitation, integrity/confidentiality, accountability.</p><p><strong>A.3 Cross-border:</strong> GDPR Art.44-49 - SCCs, BCRs, adequacy decisions.</p><p><strong>A.4 CNIL Complaint:</strong> GDPR Art.77 - CNIL, 3 Place de Fontenoy, TSA 80715, 75334 Paris Cedex 07. +33 1 53 73 22 22. cnil.fr</p><p><strong>A.5 Automated Decisions:</strong> GDPR Art.22 - right not to be subject to solely automated decisions.</p><p><strong>A.6 Legal Bases:</strong> GDPR Art.6(1) - consent, contract, legal obligation, public interest, legitimate interests.</p><p><strong>A.7 CNIL Compliance:</strong> Loi n° 78-17 (Informatique et Libertés), CNIL Deliberation 2020-091, ePrivacy Directive 2002/58/EC.</p><p><strong>A.8 Consumer:</strong> Code de la consommation L111-1 to L111-7 (info obligations), L221-18 to L221-28 (withdrawal), L212-1 (unfair terms), L616-1 (mediation), L217-1 to L217-15 (digital content), L215-1 to L215-3 (renewal). EU Directive 2011/83/EU, 93/13/EEC, 2019/770.</p><p><strong>A.9 Contact:</strong> Legal: <a href="mailto:legal@li1234.top">legal@li1234.top</a>. DPO: <a href="mailto:dpo@li1234.top">dpo@li1234.top</a>. PyAcademy SAS, 12 Rue de la Paix, 75002 Paris, France.</p></div>
+    <footer>
+ <div class="footer-inner">
+ <div class="footer-links">
+ <a href="https://www.li1234.com" data-lang="en">Home</a>
+ <a href="https://www.li1234.com" data-lang="zh">首页</a>
+ <a href="https://www.li1234.com" data-lang="en">Privacy Policy</a>
+ <a href="https://www.li1234.com" data-lang="zh">隐私政策</a>
+ </div>
+ <p class="footer-copy">&copy; 2026 PyAcademy. All rights reserved.</p>
+ </div>
+ </footer>
+
+ <script type="fa128e64eb207d7c542a2842-text/javascript">
+ function switchLang(lang) {
+    document.body.classList.toggle('zh', lang === 'zh');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+}
+ </script>
+
+
+</body>
+</html>

@@ -1,0 +1,616 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Commercial Terms of Service – PyAcademy</title>
+ <style>
+ @font-face {
+ font-family: 'AnthropicSerif';
+ src: url('AnthropicSerif-Romans-Variable-25x258.ttf') format('truetype');
+ font-weight: 100 900;
+ font-style: normal;
+ font-display: swap;
+ }
+ *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'AnthropicSerif', 'Georgia', serif; color: #1a1a1a; background: #fff; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+ nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid #eaeaea; padding: 0 24px; }
+ .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+ .nav-logo { font-size: 18px; font-weight: 700; color: #1a1a1a; text-decoration: none; letter-spacing: -0.02em; }
+ .nav-logo span { color: #d97706; }
+ .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+ .nav-links a { font-size: 14px; font-weight: 500; color: #666; text-decoration: none; transition: color 0.2s; }
+ .nav-links a:hover { color: #1a1a1a; }
+ .lang-divider { width: 1px; height: 16px; background: #ddd; }
+ .lang-btn { font-size: 13px; font-weight: 500; color: #888; padding: 4px 10px; border: 1px solid #ddd; border-radius: 6px; transition: all 0.2s; cursor: pointer; background: none; }
+ .lang-btn:hover { color: #1a1a1a; border-color: #aaa; }
+ .lang-btn.active { color: #d97706; border-color: #d97706; background: #fffbeb; }
+ .hero { padding: 80px 24px 48px; max-width: 1200px; margin: 0 auto; }
+ .hero h1 { font-size: 42px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 16px; }
+ .hero .date { font-size: 15px; color: #888; margin-bottom: 24px; }
+ .hero .intro { font-size: 17px; color: #444; max-width: 720px; line-height: 1.8; }
+ .content { max-width: 760px; margin: 0 auto; padding: 24px 24px 120px; }
+ .content h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin-top: 48px; margin-bottom: 16px; color: #1a1a1a; }
+ .content h3 { font-size: 16px; font-weight: 600; margin-top: 28px; margin-bottom: 10px; color: #1a1a1a; }
+ .content p { font-size: 15px; line-height: 1.8; color: #333; margin-bottom: 14px; }
+ .content ul, .content ol { margin-bottom: 14px; padding-left: 20px; }
+ .content li { font-size: 15px; line-height: 1.8; color: #333; margin-bottom: 8px; }
+ .content a { color: #d97706; text-decoration: underline; text-underline-offset: 2px; transition: color 0.2s; }
+ .content a:hover { color: #b45309; }
+ .content .note { font-size: 14px; color: #666; background: #f9f9f9; border-left: 3px solid #d97706; padding: 16px 20px; margin: 24px 0; border-radius: 0 6px 6px 0; }
+ .content .clause { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid #f0f0f0; }
+ .content .clause:last-child { border-bottom: none; }
+ .content .allcaps { font-size: 13px; line-height: 1.7; letter-spacing: 0.02em; }
+ footer { border-top: 1px solid #eaeaea; padding: 48px 24px; text-align: center; }
+ .footer-inner { max-width: 1200px; margin: 0 auto; }
+ .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; flex-wrap: wrap; }
+ .footer-links a { font-size: 13px; color: #888; text-decoration: none; transition: color 0.2s; }
+ .footer-links a:hover { color: #1a1a1a; }
+ .footer-copy { font-size: 13px; color: #aaa; }
+ [[data-lang="zh"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh [data-lang="en"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh [[data-lang="zh"] { display: block; }
+ span[[data-lang="zh"], a[[data-lang="zh"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh span[data-lang="en"], body.zh a[data-lang="en"] { display: none; }
+body.zh [data-lang="zh"] { display: block; }
+        body.zh span[data-lang="zh"], body.zh a[data-lang="zh"] { display: inline; }
+                span[data-lang], a[data-lang] { display: none; }
+ body.zh span[[data-lang="zh"], body.zh a[[data-lang="zh"] { display: inline; }
+ @media (max-width: 640px) {
+ .hero h1 { font-size: 28px; }
+ .hero { padding: 48px 16px 32px; }
+ .content { padding: 16px 16px 80px; }
+ .nav-links { gap: 16px; }
+ }
+ html { scroll-behavior: smooth; }
+ ::selection { background: #fde68a; color: #1a1a1a; }
+ </style>
+</head>
+<body>
+
+<nav>
+ <div class="nav-inner">
+ <a href="https://www.li1234.com" class="nav-logo">Py<span>Academy</span></a>
+ <ul class="nav-links">
+ <li><a href="https://www.li1234.com" data-lang="en">Home</a><a href="https://www.li1234.com" data-lang="zh">首页</a></li>
+ <li><div class="lang-divider"></div></li>
+ <li><button class="lang-btn active" id="btn-en" onclick="switchLang('en')">EN</button><button class="lang-btn" id="btn-zh" onclick="switchLang('zh')">中文</button></li>
+ </ul>
+ </div>
+</nav>
+
+<!-- ==================== ENGLISH ==================== -->
+<div data-lang="en">
+<div class="hero">
+ <h1>Commercial Terms of Service</h1>
+ <p class="date">Effective Date: May 4, 2026</p>
+ <p class="intro">Welcome to PyAcademy! Before accessing our Services, please read these Commercial Terms of Service.</p>
+</div>
+<div class="content">
+
+<p>These Commercial Terms of Service ("Terms") are an agreement between PyAcademy and you or the organization, company, or other entity that you represent ("Customer"). "PyAcademy" means PyAcademy Europe Limited if Customer resides in the European Economic Area ("EEA"), Switzerland or UK, and PyAcademy if Customer resides anywhere else. They govern Customer's use of PyAcademy API keys and any other PyAcademy offerings that references these Terms, as well as all related PyAcademy tools, documentation and services (the "Services"). These Terms are effective on the earlier of the date that Customer first electronically consents to a version of these Terms and the date that Customer first accesses the Services ("Effective Date").</p>
+
+<div class="note">Please note: You may not enter into these Terms on behalf of an organization, company, or other entity unless you have the legal authority to bind that entity. Services under these Terms are not for consumer use. Our consumer offerings (e.g., PyAcademy platform) are governed by our <a href="#">Consumer Terms of Service</a> instead.</div>
+
+<h2>A. Services</h2>
+
+<div class="clause">
+<h3>A.1. Overview.</h3>
+<p>Subject to these Terms, PyAcademy gives Customer permission to use the Services, including to power products and services Customer makes available to its own customers and end users ("Users").</p>
+</div>
+
+<div class="clause">
+<h3>A.2. Third Party Features.</h3>
+<p>Customer may elect (in its sole discretion) to use features, services or other content made available by third parties to Customer through the Services ("Third Party Features"). Customer acknowledges and agrees that Third Party Features are not Services and, accordingly, PyAcademy is not responsible for them.</p>
+</div>
+
+<div class="clause">
+<h3>A.3. Feedback.</h3>
+<p>If Customer provides (in its sole discretion) PyAcademy with feedback regarding the Services, PyAcademy may use that feedback at its own risk and without obligation to Customer.</p>
+</div>
+
+<h2>B. Customer Content</h2>
+<div class="clause">
+<p>As between the parties and to the extent permitted by applicable law, PyAcademy agrees that Customer (a) retains all rights to its Inputs, and (b) owns its Outputs. PyAcademy disclaims any rights it receives to the Customer Content under these Terms. Subject to Customer's compliance with these Terms, PyAcademy hereby assigns to Customer its right, title and interest (if any) in and to Outputs. "Inputs" means submissions to the Services by Customer or its Users and "Outputs" means responses generated by the Services to Inputs (Inputs and Outputs together are "Customer Content").</p>
+</div>
+
+<h2>C. Data Privacy</h2>
+<div class="clause">
+<p>Data submitted through the Services will be processed in accordance with the PyAcademy Data Processing Addendum ("DPA"), which is incorporated into these Terms by reference.</p>
+</div>
+
+<h2>D. Trust and Safety; Restrictions</h2>
+
+<div class="clause">
+<h3>D.1. Compliance.</h3>
+<p>Each party will comply with all laws applicable to the provision (for PyAcademy) and use (for Customer) of the Services, including any applicable data privacy laws.</p>
+</div>
+
+<div class="clause">
+<h3>D.2. Policies and Service Terms.</h3>
+<p>Customer and its Users may only use the Services in compliance with these Terms, including (a) the Usage Policy, (b) our policy on the countries and regions PyAcademy currently supports ("Supported Regions Policy") and (c) our Service Specific Terms, each of which is incorporated by reference into these Terms. Customer must cooperate with reasonable requests for information from PyAcademy to support compliance with its Usage Policy, including to verify Customer's identity and use of the Services.</p>
+</div>
+
+<div class="clause">
+<h3>D.3. Limitations of Outputs; Notice to Users.</h3>
+<p>It is Customer's responsibility to evaluate whether Outputs are appropriate for Customer's use case, including where human review is appropriate, before using or sharing Outputs. Customer acknowledges, and must notify its Users, that factual assertions in Outputs should not be relied upon without independently checking their accuracy, as they may be false, incomplete, misleading or not reflective of recent events or information. Customer further acknowledges that Outputs may contain content inconsistent with PyAcademy's views.</p>
+</div>
+
+<div class="clause">
+<h3>D.4. Use Restrictions.</h3>
+<p>Customer may not and must not attempt to (a) access the Services to build a competing product or service, including to reverse engineer or create competing learning platform features or resell the Services except as expressly approved by PyAcademy; (b) reverse engineer or duplicate the Services; or (c) support any third party's attempt at any of the conduct restricted in this sentence.</p>
+</div>
+
+<div class="clause">
+<h3>D.5. Service Account.</h3>
+<p>Customer is responsible for all activity under its account. Customer will promptly notify PyAcademy if Customer believes the account it uses to access the Services has been compromised, or is subject to a denial of service or similar malicious attack that may negatively impact the Services.</p>
+</div>
+
+<h2>E. Confidentiality</h2>
+
+<div class="clause">
+<h3>E.1. Confidential Information.</h3>
+<p>The parties may share information that is identified as confidential, proprietary, or similar, or that a party would reasonably understand to be confidential or proprietary ("Confidential Information"). Customer Content is Customer's Confidential Information.</p>
+</div>
+
+<div class="clause">
+<h3>E.2. Obligations of Parties.</h3>
+<p>The receiving party ("Recipient") may only use Confidential Information of the disclosing party ("Discloser") to exercise its rights and perform its obligations under these Terms. Recipient may only share Discloser's Confidential Information to Recipient's employees, agents, and advisors that have a need to know such Confidential Information and who are bound to obligations of confidentiality at least as protective as those provided in these Terms ("Representatives"). Recipient will protect Discloser's Confidential Information from unauthorized use, access, or disclosure in the same manner as Recipient protects its own Confidential Information, and with no less than reasonable care. Recipient is responsible for all acts and omissions of its Representatives.</p>
+</div>
+
+<div class="clause">
+<h3>E.3. Exclusions.</h3>
+<p>Confidential Information excludes information that: (a) becomes publicly available through no fault of Recipient; (b) is obtained by Recipient from a third party without a breach of the third party's obligations of confidentiality; or (c) is independently developed by Recipient without use of Confidential Information. Recipient may disclose Discloser's Confidential Information to the extent it is required by law, or court or administrative order, and will, except where expressly prohibited, notify Discloser of the required disclosure promptly and fully cooperate with Discloser's efforts to prevent or narrow the scope of disclosure.</p>
+</div>
+
+<div class="clause">
+<h3>E.4. Destruction Request.</h3>
+<p>Recipient will destroy Discloser's Confidential Information promptly upon request, except where retained to comply with law or copies in Recipient's automated back-up systems, which will remain subject to these obligations of confidentiality while maintained.</p>
+</div>
+
+<h2>F. Intellectual Property</h2>
+<div class="clause">
+<p>Except as expressly stated in these Terms, these Terms do not grant either party any rights to the other's content or intellectual property, by implication or otherwise.</p>
+</div>
+
+<h2>G. Publicity</h2>
+<div class="clause">
+<p>PyAcademy may use Customer's name and logo to publicly identify Customer as a customer of the Services; provided that Customer may opt-out via this request form. Customer will consider in good faith any request by PyAcademy to (1) provide a quote from a Customer executive regarding Customer's motivation for using the Services that PyAcademy may use publicly and (2) participate in a public co-marketing activity.</p>
+</div>
+
+<h2>H. Fees</h2>
+
+<div class="clause">
+<h3>H.1. Payment of Fees.</h3>
+<p>Customer is responsible for fees incurred by its account, at the rates specified on the Pricing Page, unless otherwise agreed by the parties. PyAcademy may require prepayment for the Services in the form of credits or offer other types of credits, all of which are subject to PyAcademy's Supplemental Credits Terms. PyAcademy may update the published rates, to be effective the earlier of 30 days after the updates are posted by PyAcademy or Customer otherwise receives Notice.</p>
+</div>
+
+<div class="clause">
+<h3>H.2. Taxes.</h3>
+<p>Fees do not include any taxes, duties, or assessments that may be owed by Customer for use of the Services ("Taxes"), unless otherwise specified in the applicable invoice. Customer is responsible for remitting any necessary withholding Taxes to the relevant authority on a timely basis and providing PyAcademy with evidence of the same upon request. Where law provides for the reduction or elimination of withholding taxes, including via tax treaty, the parties will collaborate in good faith to do so. For clarity, Customer must pay PyAcademy the amount ("Gross-up Payment") that will ensure that PyAcademy receives the same total amount that it would have received if no such withholding or reduction by Customer had been required.</p>
+</div>
+
+<div class="clause">
+<h3>H.3. Billing.</h3>
+<p>Failure to pay PyAcademy all amounts owed when due may result in suspension or termination of Customer's access to the Services. PyAcademy reserves any other rights of collection it may have.</p>
+</div>
+
+<h2>I. Termination and Suspension</h2>
+
+<div class="clause">
+<h3>I.1. Term.</h3>
+<p>These Terms start on the Effective Date and continue until terminated (the "Term").</p>
+</div>
+
+<div class="clause">
+<h3>I.2. Termination.</h3>
+<p>I.2.a. Each party may terminate these Terms at any time for convenience with Notice, except PyAcademy must provide 30 days prior Notice.</p>
+<p>I.2.b. Either party may terminate these Terms for the other party's material breach by providing 30 days prior Notice detailing the nature of the breach unless cured within that time.</p>
+<p>I.2.c. PyAcademy may terminate these Terms immediately with Notice if PyAcademy reasonably believes or determines that PyAcademy's provision of the Services to Customer is prohibited by applicable law.</p>
+</div>
+
+<div class="clause">
+<h3>I.3. Suspension.</h3>
+<p>I.3.a. PyAcademy may suspend Customer's access to any portion or all of the Services if: (a) PyAcademy reasonably believes or determines that (i) there is a risk to or attack on any of the Services; (ii) Customer or any User is using the Services in violation of Sections D.1, D.2 or D.4; or (iii) PyAcademy's provision of the Services to Customer is prohibited by applicable law or would result in a material increase in the cost of providing the Services; or (b) any vendor suspends or terminates PyAcademy's use of any third-party services or products required to enable Customer to access the Services (each, a "Service Suspension").</p>
+<p>I.3.b. PyAcademy will use reasonable efforts to provide written notice of any Service Suspension to Customer, and resume providing access to the Services, as soon as reasonably possible after the event giving rise to the Service Suspension is cured, where curable.</p>
+</div>
+
+<div class="clause">
+<h3>I.4. Effect of Termination.</h3>
+<p>Upon termination, Customer may no longer access the Services. The following provisions will survive termination or expiration of these Terms: (a) Sections E (Confidentiality), G (Publicity), H (Fees), I (Termination and Suspension), J (Disputes), K (Indemnification), L.2 (Disclaimer of Warranties), L.3 (Limits on Liability), and M (Miscellaneous); (b) any provision or condition that must survive to fulfill its essential purpose.</p>
+</div>
+
+<h2>J. Disputes</h2>
+
+<div class="clause">
+<h3>J.1. Disputes.</h3>
+<p>In the event of a dispute, claim or controversy relating to these Terms ("Dispute"), the parties will first attempt in good faith to informally resolve the matter. The party raising the Dispute must notify the other party ("Dispute Notice"). The other party will respond to the Dispute Notice in a timely manner. If the parties have not resolved the dispute within 45 days of delivery of the Dispute Notice, either party may seek to resolve the dispute through arbitration as stated in Section J.2.</p>
+</div>
+
+<div class="clause">
+<h3>J.2. Arbitration.</h3>
+<p>Any Dispute will be determined in English by final, binding arbitration according to the region-specific processes below. EACH PARTY AGREES THEY ARE WAIVING THE RIGHT TO A TRIAL BY JURY, AND THE RIGHT TO JOIN AND PARTICIPATE IN A CLASS ACTION, TO THE FULLEST EXTENT PERMITTED UNDER THE LAW.</p>
+<p>J.2.a. For Customers residing in the EEA, Switzerland or UK, Disputes will be determined by a sole arbitrator in Paris, France pursuant to the ICC Arbitration Rules as at present in force. The appointing authority shall be the President for the time being of the Paris Bar.</p>
+<p>J.2.b. For Customers residing anywhere else, Disputes will be determined by a sole arbitrator in San Francisco, CA pursuant to the Comprehensive Arbitration Rules and Procedures of Judicial Arbitration and Mediation Services, Inc.</p>
+</div>
+
+<div class="clause">
+<h3>J.3. Equitable Relief.</h3>
+<p>This Section J does not limit either party from seeking equitable relief.</p>
+</div>
+
+<h2>K. Indemnification</h2>
+
+<div class="clause">
+<h3>K.1. Claims Against Customer.</h3>
+<p>PyAcademy will defend Customer and its personnel, successors, and assigns from and against any Customer Claim and indemnify them for any judgment that a court of competent jurisdiction grants a third party on such Customer Claim or that an arbitrator awards a third party under any PyAcademy-approved settlement of such Customer Claim. "Customer Claim" means a third-party claim, suit, or proceeding alleging that Customer's paid use of the Services in accordance with these Terms or Outputs generated through such authorized use violates any third-party intellectual property right.</p>
+</div>
+
+<div class="clause">
+<h3>K.2. Claims Against PyAcademy.</h3>
+<p>Customer will defend PyAcademy and its personnel, successors, and assigns from and against any PyAcademy Claim and indemnify them for any judgment that a court of competent jurisdiction grants a third party on such PyAcademy Claim or that an arbitrator awards a third party under any Customer-approved settlement of such PyAcademy Claim. "PyAcademy Claim" means any third-party claim, suit, or proceeding related to Customer's or its Users' (a) Inputs or other data provided by Customer, or (b) use of the Services in violation of the Usage Policy, the Service Specific Terms, or Section D.4. PyAcademy Claims and Customer Claims are each a "Claim", as applicable.</p>
+</div>
+
+<div class="clause">
+<h3>K.3. Exclusions.</h3>
+<p>Neither party's defense or indemnification obligations will apply to the extent the underlying allegation arises from the indemnified party's fraud, willful misconduct, violations of law, or breach of the Agreement. Additionally, PyAcademy's defense and indemnification obligations will not apply to the extent the Customer Claim arises from: (a) modifications made by Customer to the Services or Outputs; (b) the combination of the Services or Outputs with technology or content not provided by PyAcademy; (c) Inputs or other data provided by Customer; (d) use of the Services or Outputs in a manner that Customer knows or reasonably should know violates or infringes the rights of others; (e) the practice of a patented invention contained in an Output; or (f) an alleged violation of trademark based on use of an Output in trade or commerce.</p>
+</div>
+
+<div class="clause">
+<h3>K.4. Process.</h3>
+<p>The indemnified party must promptly notify the indemnifying party of the relevant Claim, and will reasonably cooperate in the defense. The indemnifying party will retain the right to control the defense of any such Claim, including the selection of counsel, the strategy and course of any litigation or appeals, and any negotiations or settlement or compromise, except that the indemnified party will have the right, not to be exercised unreasonably, to reject any settlement or compromise that requires that it admit wrongdoing or liability or subjects it to an ongoing affirmative obligation.</p>
+</div>
+
+<div class="clause">
+<h3>K.5. Sole Remedy.</h3>
+<p>To the extent covered under this Section K, indemnification is each party's sole and exclusive remedy under these Terms for any third-party claims.</p>
+</div>
+
+<h2>L. Warranties and Limits on Liability</h2>
+
+<div class="clause">
+<h3>L.1. Warranties.</h3>
+<p>Each party represents and warrants that (a) it is authorized to enter into these Terms; and (b) entering into and performing these Terms will not violate any of its corporate rules, if applicable. Customer further represents and warrants that it has all rights and permissions required to submit Inputs to the Services.</p>
+</div>
+
+<div class="clause">
+<h3>L.2. Disclaimer of Warranties.</h3>
+<p class="allcaps">EXCEPT TO THE EXTENT EXPRESSLY PROVIDED FOR IN THESE TERMS, TO THE MAXIMUM EXTENT PERMITTED UNDER LAW (A) THE SERVICES AND OUTPUTS ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTY OF ANY KIND; AND (B) PYACADEMY MAKES NO WARRANTIES, EXPRESS OR IMPLIED, RELATING TO THIRD-PARTY PRODUCTS OR SERVICES, INCLUDING THIRD-PARTY INTERFACES. PYACADEMY EXPRESSLY DISCLAIMS ALL IMPLIED WARRANTIES, INCLUDING WARRANTIES OF MERCHANTABILITY, NON-INFRINGEMENT, AND FITNESS FOR A PARTICULAR PURPOSE, AS WELL AS ANY IMPLIED WARRANTY ARISING FROM STATUTE, COURSE OF DEALING OR PERFORMANCE, OR TRADE USE. PYACADEMY DOES NOT WARRANT, AND DISCLAIMS THAT, THE SERVICES OR OUTPUTS ARE ACCURATE, COMPLETE OR ERROR-FREE OR THAT THEIR USE WILL BE UNINTERRUPTED.</p>
+</div>
+
+<div class="clause">
+<h3>L.3. Limits on Liability.</h3>
+<p>L.3.a. Except as stated in Section L.3.b, the liability of each party, and its affiliates and licensors, for any damages arising out of or related to these Terms (i) excludes damages that are consequential, incidental, special, indirect, or exemplary damages, including lost profits, business, contracts, revenue, goodwill, production, anticipated savings, or data, and costs of procurement of substitute goods or services and (ii) is limited to Fees paid by Customer for the Services in the previous 12 months.</p>
+<p>L.3.b. The limitations of liability in this Section L.3 do not apply to either party's obligations under Section K.</p>
+<p class="allcaps">L.3.c. THE LIMITATIONS OF LIABILITY IN THIS SECTION L.3 APPLY: (I) TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW; (II) TO LIABILITY IN TORT, INCLUDING FOR NEGLIGENCE; (III) REGARDLESS OF THE FORM OF ACTION, WHETHER IN CONTRACT, TORT, STRICT PRODUCT LIABILITY, OR OTHERWISE; (IV) EVEN IF THE BREACHING PARTY IS ADVISED IN ADVANCE OF THE POSSIBILITY OF THE DAMAGES IN QUESTION AND EVEN IF SUCH DAMAGES WERE FORESEEABLE; AND (E) EVEN IF THE INJURED PARTY'S REMEDIES FAIL OF THEIR ESSENTIAL PURPOSE.</p>
+<p>L.3.d. The parties agree that they have entered into these Terms in reliance on the terms of this Section L.3 and those terms form an essential basis of the bargain between the parties.</p>
+</div>
+
+<h2>M. Miscellaneous</h2>
+
+<div class="clause">
+<h3>M.1. Notices.</h3>
+<p>All notices, demands, waivers, and other communications under these Terms (each, a "Notice") must be in writing. Except for notices related to demands to arbitrate or where equitable relief is sought, any Notices provided under these Terms may be delivered electronically to the address provided to PyAcademy if to Customer; and <a  <a href="mailto:contact@li1234.top">contact@li1234.top</a>ite.</p>
+</div>
+
+<div class="clause">
+<h3>M.3. Amendment and Modification.</h3>
+<p>PyAcademy may update these Terms at any time, to be effective 30 days after the updates are posted by PyAcademy or Customer otherwise receives Notice, except that updates made in response to changes to law or regulation take effect immediately upon posting or Notice. Changes will not apply retroactively.</p>
+</div>
+
+<div class="clause">
+<h3>M.4. Assignment and Delegation.</h3>
+<p>Neither party may assign its rights or delegate its obligations under these Terms without the other party's prior written consent, except that PyAcademy may assign its rights and delegate its obligations to an affiliate or as part of a sale of all or substantially all its business.</p>
+</div>
+
+<div class="clause">
+<h3>M.5. Severability.</h3>
+<p>If a provision of these Terms is invalid, illegal, or unenforceable in any jurisdiction, such invalidity, illegality, or unenforceability will neither affect any other term or provision of these Terms nor invalidate or render unenforceable such term or provision in any other jurisdiction.</p>
+</div>
+
+<div class="clause">
+<h3>M.6. Interpretation.</h3>
+<p>These Terms will be construed mutually, with neither party considered the drafter. Document and section titles are provided for convenience and will not be interpreted. The phrases "for example" or "including" or "or" are not limiting.</p>
+</div>
+
+<div class="clause">
+<h3>M.7. Governing Law; Venue.</h3>
+<p>M.7.a. These Terms are governed by and construed in accordance with the Governing Laws, without giving effect to any choice of law provision. "Governing Laws" means (i) for Customers in the EEA, Switzerland, or UK, the Laws of France; and (ii) for all other Customers, the laws of the State of California.</p>
+<p>M.7.b. Any suits, actions, or proceedings related to these Terms that are not required to be resolved via arbitration pursuant to Section J will be instituted exclusively in the Venue, and each party irrevocably submits to their exclusive jurisdiction. "Venue" means (i) for Customers in the EEA, Switzerland or UK, the courts of France; and (ii) for all other Customers, federal or state courts located in California.</p>
+</div>
+
+<div class="clause">
+<h3>M.8. Export and Sanctions.</h3>
+<p>Customer may not export or provide access to the Services to persons or entities or into countries or for uses where it is prohibited under U.S. or other applicable international law.</p>
+</div>
+
+<div class="clause">
+<h3>M.9. Integration.</h3>
+<p>These Terms (including the Usage Policy, Supported Regions Policy, Service Specific Terms, DPA, Pricing Page and other documents or terms that are incorporated by reference by these Terms) constitute the parties' entire understanding as to the Services' provision and use. These Terms supersede all other understandings or agreements between the parties regarding the Services.</p>
+</div>
+
+<div class="clause">
+<h3>M.10. Force Majeure.</h3>
+<p>Neither party will be liable for failure or delay in performance to the extent caused by circumstances beyond its reasonable control.</p>
+</div>
+
+</div>
+</div>
+
+<!-- ==================== CHINESE ==================== -->
+<div data-lang="zh">
+<div class="hero">
+ <h1>商业服务条款</h1>
+ <p class="date">生效日期：2026年5月4日</p>
+ <p class="intro">欢迎使用 PyAcademy！在访问我们的服务之前，请阅读这些商业服务条款。</p>
+</div>
+<div class="content">
+
+<p>这些商业服务条款（"条款"）是 PyAcademy 与您或您所代表的组织、公司或其他实体（"客户"）之间的协议。"PyAcademy" 指如果您居住在欧洲经济区（"EEA"）、瑞士或英国，则为 PyAcademy Europe Limited；如果您居住在其他任何地方，则为 PyAcademy。这些条款管辖客户对 PyAcademy API 密钥和任何其他引用这些条款的 PyAcademy 产品的使用，以及所有相关的 PyAcademy 工具、文档和服务（"服务"）。</p>
+
+<div class="note">请注意：除非您拥有约束该实体的法律授权，否则您不得代表组织、公司或其他实体签订这些条款。这些条款下的服务不供消费者使用。我们的消费者产品（例如 PyAcademy 平台）受我们的<a href="#">消费者服务条款</a>管辖。</div>
+
+<h2>A. 服务</h2>
+
+<div class="clause">
+<h3>A.1. 概述。</h3>
+<p>根据这些条款，PyAcademy 授权客户使用服务，包括为客户提供给其自身客户和最终用户（"用户"）的产品和服务提供支持。</p>
+</div>
+
+<div class="clause">
+<h3>A.2. 第三方功能。</h3>
+<p>客户可自行决定使用通过服务向客户提供的第三方功能、服务或其他内容（"第三方功能"）。客户确认并同意第三方功能不属于服务，因此 PyAcademy 不对其负责。</p>
+</div>
+
+<div class="clause">
+<h3>A.3. 反馈。</h3>
+<p>如果客户向 PyAcademy 提供有关服务的反馈，PyAcademy 可自行承担风险使用该反馈，且对客户无义务。</p>
+</div>
+
+<h2>B. 客户内容</h2>
+<div class="clause">
+<p>在双方之间且在适用法律允许的范围内，PyAcademy 同意客户 (a) 保留对其输入的所有权利，(b) 拥有其输出。PyAcademy 放弃根据这些条款获得的对客户内容的任何权利。根据客户对这些条款的遵守情况，PyAcademy 特此将其在输出中的任何权利、所有权和权益（如有）转让给客户。"输入"是指客户或其用户向服务提交的内容，"输出"是指服务根据输入生成的响应（输入和输出合称"客户内容"）。</p>
+</div>
+
+<h2>C. 数据隐私</h2>
+<div class="clause">
+<p>通过服务提交的数据将按照 PyAcademy 数据处理附录（"DPA"）进行处理，该附录通过引用纳入这些条款。</p>
+</div>
+
+<h2>D. 信任与安全；限制</h2>
+
+<div class="clause">
+<h3>D.1. 合规。</h3>
+<p>各方将遵守适用于提供（对于 PyAcademy）和使用（对于客户）服务的所有适用法律，包括任何适用的数据隐私法。</p>
+</div>
+
+<div class="clause">
+<h3>D.2. 政策和服务条款。</h3>
+<p>客户及其用户只能按照这些条款使用服务，包括 (a) 使用政策，(b) PyAcademy 当前支持的国家和地区政策（"支持地区政策"）以及 (c) 我们的服务特定条款。</p>
+</div>
+
+<div class="clause">
+<h3>D.3. 输出的限制；对用户的通知。</h3>
+<p>客户有责任在使用或共享输出之前评估输出是否适合其用例。客户确认并必须通知其用户，输出中的事实断言不应在未经独立核实其准确性的情况下被依赖。</p>
+</div>
+
+<div class="clause">
+<h3>D.4. 使用限制。</h3>
+<p>客户不得且不得试图 (a) 访问服务以构建竞争性产品或服务，包括逆向工程或创建竞争性学习平台功能，或未经 PyAcademy 明确批准转售服务；(b) 逆向工程或复制服务；或 (c) 支持任何第三方进行本句中限制的任何行为。</p>
+</div>
+
+<div class="clause">
+<h3>D.5. 服务账户。</h3>
+<p>客户对其账户下的所有活动负责。如果客户认为其用于访问服务的账户已被泄露，或受到拒绝服务或类似恶意攻击，客户将及时通知 PyAcademy。</p>
+</div>
+
+<h2>E. 保密</h2>
+
+<div class="clause">
+<h3>E.1. 保密信息。</h3>
+<p>双方可以共享被标识为保密、专有或类似的信息（"保密信息"）。客户内容是客户的保密信息。</p>
+</div>
+
+<div class="clause">
+<h3>E.2. 各方的义务。</h3>
+<p>接收方（"受密方"）仅可为行使本条款项下的权利和履行本条款项下的义务而使用披露方（"披露方"）的保密信息。受密方可仅向因需知悉该等保密信息而获知、且受不低于本条款所载保密义务保护程度的保密义务约束的受密方雇员、代理人和顾问（"代表方"）披露披露方的保密信息。受密方应以保护其自身保密信息之同等方式保护披露方的保密信息免受未经授权的使用、访问或披露，且保护标准不低于合理审慎程度。受密方应对其代表方的一切作为和不作为承担责任。</p>
+</div>
+
+<div class="clause">
+<h3>E.3. 排除。</h3>
+<p>保密信息不包括以下信息：(a) 非因受密方过错而成为公开可得的信息；(b) 受密方从第三方获得且未违反该第三方保密义务的信息；或 (c) 受密方在不使用保密信息的情况下独立开发的信息。受密方可在法律或法院或行政机关命令要求的范围内披露披露方的保密信息，且在法律未明确禁止的情况下，应及时通知披露方该等强制披露事项，并充分配合披露方阻止或缩小披露范围的努力。</p>
+</div>
+
+<div class="clause">
+<h3>E.4. 销毁请求。</h3>
+<p>接收方将在收到请求后立即销毁披露方的保密信息，除非为遵守法律而保留或接收方自动备份系统中的副本，这些副本在保留期间仍受保密义务约束。</p>
+</div>
+
+<h2>F. 知识产权</h2>
+<div class="clause">
+<p>除非这些条款中明确说明，否则这些条款不授予任何一方对另一方内容或知识产权的任何权利，无论是暗示的还是其他方式。</p>
+</div>
+
+<h2>G. 宣传</h2>
+<div class="clause">
+<p>PyAcademy 可以使用客户的名称和徽标公开标识客户为服务的客户；前提是客户可以通过此请求表单选择退出。</p>
+</div>
+
+<h2>H. 费用</h2>
+
+<div class="clause">
+<h3>H.1. 费用支付。</h3>
+<p>客户应对其账户产生的费用负责，费率按定价页面上规定的标准执行，除非双方另有约定。PyAcademy 可要求客户以预充值方式预付服务费用或提供其他类型的信用额度，该等预付款均须遵守 PyAcademy 的补充信用额度条款。PyAcademy 可更新已公布的费率，更新后的费率自 PyAcademy 发布更新之日起 30 天后生效，或以 PyAcademy 向客户发出通知之日生效（以较早者为准）。</p>
+</div>
+
+<div class="clause">
+<h3>H.2. 税费。</h3>
+<p>费用不包括客户因使用服务而可能欠缴的任何税款、关税或评估（"税费"），除非适用发票中另有说明。客户应负责及时向相关税务机关缴纳必要的预扣税款，并在 PyAcademy 要求时提供相应的完税证明。在法律允许减免或免除预扣税款（包括通过税收协定）的情况下，双方应本着善意协作予以落实。为明确起见，客户须向 PyAcademy 支付一笔金额（"补足税款"），以确保 PyAcademy 实际收到的款项总额等同于客户未进行该等预扣或扣减情形下 PyAcademy 应收到的金额。</p>
+</div>
+
+<div class="clause">
+<h3>H.3. 账单。</h3>
+<p>未能在到期时向 PyAcademy 支付所有到期款项可能导致暂停或终止客户对服务的访问。PyAcademy 保留其可能享有的其他一切催收权利。</p>
+</div>
+
+<h2>I. 终止和暂停</h2>
+
+<div class="clause">
+<h3>I.1. 期限。</h3>
+<p>这些条款从生效日期开始，持续到终止（"期限"）。</p>
+</div>
+
+<div class="clause">
+<h3>I.2. 终止。</h3>
+<p>I.2.a. 任何一方均可随时因便利而通过通知终止这些条款，但 PyAcademy 必须提前 30 天发出通知。</p>
+<p>I.2.b. 任何一方均可因对方的重大违约而终止这些条款，需提前 30 天发出详细说明违约性质的通知。</p>
+<p>I.2.c. 如果 PyAcademy 合理认为或确定其向客户提供服务被适用法律禁止，PyAcademy 可立即通知终止这些条款。</p>
+</div>
+
+<div class="clause">
+<h3>I.3. 暂停。</h3>
+<p>I.3.a. 在以下情形下，PyAcademy 可暂停客户对服务任何部分或全部的访问（以下每种情形统称"服务暂停"）：(a) PyAcademy 合理认为或确定：(i) 对任何服务存在风险或攻击；(ii) 客户或任何用户正在违反 D.1、D.2 或 D.4 条使用服务；或 (iii) 向客户提供服务被适用法律禁止，或将会导致提供服务的成本大幅增加；或 (b) 任何供应商暂停或终止 PyAcademy 使用使客户得以访问服务所必需的任何第三方服务或产品。</p>
+<p>I.3.b. PyAcademy 应尽合理努力就任何服务暂停向客户发出书面通知，并在导致服务暂停的事由（如可纠正）得到纠正后尽快恢复提供对服务的访问。</p>
+</div>
+
+<div class="clause">
+<h3>I.4. 终止效果。</h3>
+<p>终止后，客户不得再访问服务。以下条款在终止或到期后继续有效：(a) E（保密）、G（宣传）、H（费用）、I（终止和暂停）、J（争议）、K（赔偿）、L.2（免责声明）、L.3（责任限制）和 M（杂项）；(b) 必须存续以履行其基本目的的任何条款或条件。</p>
+</div>
+
+<h2>J. 争议</h2>
+
+<div class="clause">
+<h3>J.1. 争议。</h3>
+<p>如发生与本条款相关的争议、索赔或纠纷（"争议"），双方应首先本着善意尝试通过非正式方式解决该事项。提起争议的一方应通知另一方（"争议通知"）。另一方应及时对争议通知作出回应。如果双方在争议通知送达之日起 45 日内未能解决争议，任何一方均可按照第 J.2 条的规定寻求通过仲裁解决争议。</p>
+</div>
+
+<div class="clause">
+<h3>J.2. 仲裁。</h3>
+<p>任何争议应以英语由以下特定区域流程进行最终、约束性仲裁裁决。各方同意，其在法律允许的最大范围内放弃陪审团审判的权利以及加入和参与集体诉讼的权利。</p>
+<p>J.2.a. 对于居住在欧洲经济区（EEA）、瑞士或英国的客户，争议应由驻法国巴黎的独任仲裁员根据现行有效的国际商会（ICC）仲裁规则进行裁决。指定机构应为现任巴黎律师公会主席。</p>
+<p>J.2.b. 对于居住在其他任何地方的客户，争议应由驻加利福尼亚州旧金山的独任仲裁员根据司法仲裁和调解服务公司（JAMS）的综合仲裁规则和程序进行裁决。</p>
+</div>
+
+<div class="clause">
+<h3>J.3. 衡平法救济。</h3>
+<p>本 J 节不限制任何一方寻求衡平法救济。</p>
+</div>
+
+<h2>K. 赔偿</h2>
+
+<div class="clause">
+<h3>K.1. 针对客户的索赔。</h3>
+<p>PyAcademy 应为客户及其人员、继承人和受让人辩护并使其免受任何客户索赔的损害，并赔偿具有管辖权的法院就该客户索赔判予第三方的任何判决金额，或仲裁员在经 PyAcademy 批准的该客户索赔和解协议下裁决第三方获得的任何金额。"客户索赔"是指指控客户根据本条款付费使用服务或通过该等授权使用生成的输出侵犯任何第三方知识产权的第三方索赔、诉讼或程序。</p>
+</div>
+
+<div class="clause">
+<h3>K.2. 针对 PyAcademy 的索赔。</h3>
+<p>客户应为 PyAcademy 及其人员、继承人和受让人辩护并使其免受任何 PyAcademy 索赔的损害，并赔偿具有管辖权的法院就该 PyAcademy 索赔判予第三方的任何判决金额，或仲裁员在经客户批准的该 PyAcademy 索赔和解协议下裁决第三方获得的任何金额。"PyAcademy 索赔"是指与客户或其用户的 (a) 输入或其他数据，或 (b) 违反使用政策、服务特定条款或第 D.4 条使用服务相关的任何第三方索赔、诉讼或程序。PyAcademy 索赔和客户索赔统称为"索赔"，视具体情形而定。</p>
+</div>
+
+<div class="clause">
+<h3>K.3. 排除。</h3>
+<p>任何一方的辩护或赔偿义务不适用于因被赔偿方的欺诈、故意不当行为、违法或违反本协议而产生的指控。此外，PyAcademy 的辩护和赔偿义务不适用于因以下原因产生的客户索赔：(a) 客户对服务或输出所作的修改；(b) 将服务或输出与 PyAcademy 未提供的技术或内容相结合；(c) 客户提供的输入或其他数据；(d) 以客户知晓或理应知晓侵犯或违反他人权利的方式使用服务或输出；(e) 实施输出中所含已取得专利的发明；或 (f) 基于在商业贸易中使用输出而产生的商标侵权指控。</p>
+</div>
+
+<div class="clause">
+<h3>K.4. 程序。</h3>
+<p>被赔偿方必须及时通知赔偿方相关索赔事项，并在辩护过程中给予合理配合。赔偿方保留控制任何该等索赔辩护的权利，包括选任律师、确定诉讼或上诉的策略和进程，以及进行任何和解或妥协谈判，但被赔偿方有权（不得被不合理地行使）拒绝要求其承认不当行为或承担责任或使其承担持续积极义务的任何和解或妥协方案。</p>
+</div>
+
+<div class="clause">
+<h3>K.5. 唯一救济。</h3>
+<p>在本 K 节涵盖的范围内，赔偿是各方根据这些条款对任何第三方索赔的唯一和排他性救济。</p>
+</div>
+
+<h2>L. 保证和责任限制</h2>
+
+<div class="clause">
+<h3>L.1. 保证。</h3>
+<p>各方声明并保证 (a) 其有权签订本条款；(b) 签订和履行本条款不会违反其适用的公司规则。客户进一步声明并保证其拥有向服务提交输入所必需的一切权利和许可。</p>
+</div>
+
+<div class="clause">
+<h3>L.2. 免责声明。</h3>
+<p class="allcaps">除本条款中明确规定的范围外，在适用法律允许的最大范围内 (A) 服务和输出按"原样"和"可用"基础提供，不附带任何类型的保证；(B) PYACADEMY 不对第三方产品或服务（包括第三方接口）作任何明示或暗示的保证。PYACADEMY 明确排除一切默示保证，包括适销性、不侵权和特定用途适用性的保证，以及因法规、交易过程或履行或商业惯例而产生的任何默示保证。PYACADEMY 不保证且明确排除服务或输出准确、完整或无错误，或其使用将不中断。</p>
+</div>
+
+<div class="clause">
+<h3>L.3. 责任限制。</h3>
+<p>L.3.a. 除 L.3.b 中规定的情况外，各方及其关联方和许可方因本条款产生或与之相关的任何损害赔偿责任 (i) 排除附带的、间接的、特殊的、惩罚性的或后果性的损害赔偿，包括利润损失、业务损失、合同损失、收入损失、商誉损失、生产损失、预期储蓄或数据损失，以及采购替代商品或服务的成本，(ii) 限于客户在前 12 个月内为服务支付的费用总额。</p>
+<p>L.3.b. 本 L.3 节中的责任限制不适用于任何一方在第 K 节项下的义务。</p>
+<p class="allcaps">L.3.c. 本 L.3 节中的责任限制适用于：(I) 适用法律允许的最大范围；(II) 侵权责任，包括过失；(III) 无论行为形式如何，无论基于合同、侵权、严格产品责任或其他；(IV) 即使违约方事先被告知该等损害赔偿的可能性，且即使该等损害赔偿可以预见；及 (E) 即使受害方的救济未能达到其基本目的。</p>
+<p>L.3.d. 双方确认其系基于本 L.3 节的条款签订本条款，该等条款构成双方交易的基本基础。</p>
+</div>
+
+<h2>M. 杂项</h2>
+
+<div class="clause">
+<h3>M.1. 通知。</h3>
+<p>本条款项下的所有通知、要求、弃权和其他通信（每一封合称"通知"）均须以书面形式作出。除与仲裁请求或寻求衡平法救济相关的通知外，本条款项下发出的任何通知可电子方式发送至 PyAcademy 所保留的客户地址（如系发给客户）；如系发给 PyAcademy，则发送至 <a 其权利或委托其义务，但 PyAcademy 可以将其权利和义务转让给关联公司或作为全部或实质上全部业务出售的一部分。</p>
+</div>
+
+<div class="clause">
+<h3>M.5. 可分割性。</h3>
+<p>如果这些条款的某个条款在任何司法管辖区无效、非法或不可执行，该无效性、非法性或不可执行性不会影响这些条款的任何其他条款。</p>
+</div>
+
+<div class="clause">
+<h3>M.6. 解释。</h3>
+<p>本条款应被共同解释，任何一方均不被视为起草方。文件和章节标题仅供参考便利，不得用于解释本条款。"例如"、"包括"或"或"等用语不具有限制含义。</p>
+</div>
+
+<div class="clause">
+<h3>M.7. 适用法律；管辖地。</h3>
+<p>M.7.a. 这些条款受管辖法律管辖。(i) 对于 EEA、瑞士或英国的客户，适用法国法律；(ii) 对于所有其他客户，适用加利福尼亚州法律。</p>
+<p>M.7.b. 与这些条款相关的任何诉讼将在管辖地提起。(i) 对于 EEA、瑞士或英国的客户，管辖地为法国法院；(ii) 对于所有其他客户，管辖地为加利福尼亚州的联邦或州法院。</p>
+</div>
+
+<div class="clause">
+<h3>M.8. 出口和制裁。</h3>
+<p>客户不得向被美国或其他适用国际法禁止的人员或实体出口或提供对服务的访问。</p>
+</div>
+
+<div class="clause">
+<h3>M.9. 整合。</h3>
+<p>本条款（包括使用政策、支持地区政策、服务特定条款、数据处理附录、定价页面以及通过引用纳入本条款的其他文件或条款）构成双方关于服务提供和使用的完整理解。本条款取代双方之间就服务达成的所有其他理解或协议。</p>
+</div>
+
+<div class="clause">
+<h3>M.10. 不可抗力。</h3>
+<p>任何一方因超出其合理控制范围的情况而导致的未能或延迟履行不承担责任。</p>
+</div>
+
+</div>
+</div>
+
+<div class="highlight"><p><strong>Supplementary Legal Provisions / 附则A</strong></p><p><strong>A.1 DPO:</strong> <a href="mailto:dpo@li1234.top">dpo@li1234.top</a>. GDPR Art.37. PyAcademy SAS, 12 Rue de la Paix, 75002 Paris, France.</p><p><strong>A.2 Principles:</strong> GDPR Art.5 - lawfulness, purpose limitation, data minimisation, accuracy, storage limitation, integrity/confidentiality, accountability.</p><p><strong>A.3 Cross-border:</strong> GDPR Art.44-49 - SCCs, BCRs, adequacy decisions.</p><p><strong>A.4 CNIL Complaint:</strong> GDPR Art.77 - CNIL, 3 Place de Fontenoy, TSA 80715, 75334 Paris Cedex 07. +33 1 53 73 22 22. cnil.fr</p><p><strong>A.5 Automated Decisions:</strong> GDPR Art.22 - right not to be subject to solely automated decisions.</p><p><strong>A.6 Legal Bases:</strong> GDPR Art.6(1) - consent, contract, legal obligation, public interest, legitimate interests.</p><p><strong>A.7 CNIL Compliance:</strong> Loi n° 78-17 (Informatique et Libertés), CNIL Deliberation 2020-091, ePrivacy Directive 2002/58/EC.</p><p><strong>A.8 Consumer:</strong> Code de la consommation L111-1 to L111-7 (info obligations), L221-18 to L221-28 (withdrawal), L212-1 (unfair terms), L616-1 (mediation), L217-1 to L217-15 (digital content), L215-1 to L215-3 (renewal). EU Directive 2011/83/EU, 93/13/EEC, 2019/770.</p><p><strong>A.9 Contact:</strong> Legal: <a href="mailto:legal@li1234.top">legal@li1234.top</a>. DPO: <a href="mailto:dpo@li1234.top">dpo@li1234.top</a>. PyAcademy SAS, 12 Rue de la Paix, 75002 Paris, France.</p></div>
+    <footer>
+ <div class="footer-inner">
+ <div class="footer-links">
+ <a href="https://www.li1234.com" data-lang="en">Home</a>
+ <a href="https://www.li1234.com" data-lang="zh">首页</a>
+ <a href="https://www.li1234.com" data-lang="en">Commercial Terms</a>
+ <a href="https://www.li1234.com" data-lang="zh">商业条款</a>
+ </div>
+ <p class="footer-copy">&copy; 2026 PyAcademy. All rights reserved.</p>
+ </div>
+</footer>
+
+<script type="0dcdd3ca6bd2c4bd813df5d6-text/javascript">
+function switchLang(lang) {
+    document.body.classList.toggle('zh', lang === 'zh');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+}
+</script>
+
+
+</body>
+</html>

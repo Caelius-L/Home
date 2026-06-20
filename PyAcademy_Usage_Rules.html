@@ -1,0 +1,594 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Usage Rules – PyAcademy</title>
+ <style>
+ @font-face {
+ font-family: 'AnthropicSerif';
+ src: url('AnthropicSerif-Romans-Variable-25x258.ttf') format('truetype');
+ font-weight: 100 900;
+ font-style: normal;
+ font-display: swap;
+ }
+ *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'AnthropicSerif', 'Georgia', serif; color: #1a1a1a; background: #fff; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+ nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid #eaeaea; padding: 0 24px; }
+ .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+ .nav-logo { font-size: 18px; font-weight: 700; color: #1a1a1a; text-decoration: none; letter-spacing: -0.02em; }
+ .nav-logo span { color: #d97706; }
+ .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+ .nav-links a { font-size: 14px; font-weight: 500; color: #666; text-decoration: none; transition: color 0.2s; }
+ .nav-links a:hover { color: #1a1a1a; }
+ .lang-divider { width: 1px; height: 16px; background: #ddd; }
+ .lang-btn { font-size: 13px; font-weight: 500; color: #888; padding: 4px 10px; border: 1px solid #ddd; border-radius: 6px; transition: all 0.2s; cursor: pointer; background: none; }
+ .lang-btn:hover { color: #1a1a1a; border-color: #aaa; }
+ .lang-btn.active { color: #d97706; border-color: #d97706; background: #fffbeb; }
+ .hero { padding: 80px 24px 48px; max-width: 1200px; margin: 0 auto; }
+ .hero h1 { font-size: 42px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 16px; }
+ .hero .intro { font-size: 17px; color: #444; max-width: 720px; line-height: 1.8; }
+ .content { max-width: 760px; margin: 0 auto; padding: 24px 24px 120px; }
+ .content h2 { font-size: 24px; font-weight: 700; letter-spacing: -0.02em; margin-top: 56px; margin-bottom: 20px; color: #1a1a1a; border-bottom: 2px solid #f0f0f0; padding-bottom: 12px; }
+ .content h3 { font-size: 17px; font-weight: 600; margin-top: 32px; margin-bottom: 12px; color: #1a1a1a; }
+ .content p { font-size: 15px; line-height: 1.8; color: #333; margin-bottom: 14px; }
+ .content ul { margin-bottom: 14px; padding-left: 20px; }
+ .content li { font-size: 15px; line-height: 1.8; color: #333; margin-bottom: 6px; }
+ .content a { color: #d97706; text-decoration: underline; text-underline-offset: 2px; transition: color 0.2s; }
+ .content a:hover { color: #b45309; }
+ .content .note { font-size: 14px; color: #666; background: #f9f9f9; border-left: 3px solid #d97706; padding: 16px 20px; margin: 24px 0; border-radius: 0 6px 6px 0; }
+ .content .category { background: #fafafa; border: 1px solid #eee; border-radius: 8px; padding: 20px 24px; margin: 24px 0; }
+ .content .category-title { font-size: 15px; font-weight: 700; color: #d97706; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+ .content .category ul { margin-bottom: 0; }
+ .content .category li { font-size: 14px; }
+ .content .callout { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 16px 20px; margin: 24px 0; font-size: 14px; }
+ footer { border-top: 1px solid #eaeaea; padding: 48px 24px; text-align: center; }
+ .footer-inner { max-width: 1200px; margin: 0 auto; }
+ .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; flex-wrap: wrap; }
+ .footer-links a { font-size: 13px; color: #888; text-decoration: none; transition: color 0.2s; }
+ .footer-links a:hover { color: #1a1a1a; }
+ .footer-copy { font-size: 13px; color: #aaa; }
+ [[data-lang="zh"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh [data-lang="en"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh [[data-lang="zh"] { display: block; }
+ span[[data-lang="zh"], a[[data-lang="zh"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh span[data-lang="en"], body.zh a[data-lang="en"] { display: none; }
+body.zh [data-lang="zh"] { display: block; }
+        body.zh span[data-lang="zh"], body.zh a[data-lang="zh"] { display: inline; }
+                span[data-lang], a[data-lang] { display: none; }
+ body.zh span[[data-lang="zh"], body.zh a[[data-lang="zh"] { display: inline; }
+ @media (max-width: 640px) {
+ .hero h1 { font-size: 28px; }
+ .hero { padding: 48px 16px 32px; }
+ .content { padding: 16px 16px 80px; }
+ .nav-links { gap: 16px; }
+ }
+ html { scroll-behavior: smooth; }
+ ::selection { background: #fde68a; color: #1a1a1a; }
+ </style>
+</head>
+<body>
+
+<nav>
+ <div class="nav-inner">
+ <a href="https://www.li1234.com" class="nav-logo">Py<span>Academy</span></a>
+ <ul class="nav-links">
+ <li><a href="https://www.li1234.com" data-lang="en">Home</a><a href="https://www.li1234.com" data-lang="zh">首页</a></li>
+ <li><div class="lang-divider"></div></li>
+ <li><button class="lang-btn active" id="btn-en" onclick="switchLang('en')">EN</button><button class="lang-btn" id="btn-zh" onclick="switchLang('zh')">中文</button></li>
+ </ul>
+ </div>
+</nav>
+
+<!-- ==================== ENGLISH ==================== -->
+<div data-lang="en">
+<div class="hero">
+ <h1>Usage Rules</h1>
+ <p class="intro">Our Usage Rules (also referred to as our "Acceptable Use Policy" or "AUP") applies to anyone who can submit inputs to PyAcademy's products and/or services, including via any authorized resellers or passthrough access, all of whom we refer to as "users." The Usage Rules are intended to help our users stay safe and promote the responsible use of our products and services.</p>
+</div>
+<div class="content">
+
+<p>The Usage Rules are categorized according to who can use our products and for what purposes. We will update our rules as our technology and the associated risks evolve or as we learn about unanticipated risks.</p>
+
+<div class="note">
+ <strong>Universal Usage Standards:</strong> Our Universal Usage Standards apply to all users and use cases.<br>
+ <strong>High-Risk Use Case Requirements:</strong> Our High-Risk Use Case Requirements apply to specific consumer-facing use cases that pose an elevated risk of harm.<br>
+ <strong>Additional Use Case Guidelines:</strong> Our Additional Use Case Guidelines apply to certain other use cases, including consumer-facing chatbots, products serving minors, agentic use, and Model Context Protocol servers.
+</div>
+
+<p>PyAcademy's Safeguards Team will implement detection and monitoring to enforce our Usage Rules, so please review this policy carefully before using our products or services. If we learn that you have violated our Usage Rules, we may throttle, suspend, or terminate your access to our products and services. We may also block or modify model outputs when inputs violate our Usage Rules.</p>
+
+<p>If you believe that our model outputs are potentially inaccurate, biased or harmful, please notify us <a  <a href="mailto:legal@li1234.top">legal@li1234.top</a>l authorities if, in PyAcademy's judgment, the contractual use restrictions and applicable safeguards are adequate to mitigate the potential harms addressed by this Usage Rules.</p>
+
+<!-- ===== UNIVERSAL USAGE STANDARDS ===== -->
+<h2>Universal Usage Standards</h2>
+
+<div class="category">
+<div class="category-title">Illegal Activity &amp; IP Infringement</div>
+<p>This includes using our products or services to:</p>
+<ul>
+ <li>Acquire or exchange illegal or controlled substances</li>
+ <li>Engage in or facilitate human trafficking or prostitution</li>
+ <li>Infringe, misappropriate, or violate the intellectual property rights of a third party</li>
+ <li>Violate any other applicable laws or regulations in your jurisdiction</li>
+</ul>
+</div>
+
+<div class="category">
+<div class="category-title">Critical Infrastructure Attacks</div>
+<p>This includes using our products or services to:</p>
+<ul>
+ <li>Facilitate the destruction or disruption of critical infrastructure such as power grids, water treatment facilities, medical devices, telecommunication networks, or air traffic control systems</li>
+ <li>Obtain unauthorized access to critical systems such as voting machines, healthcare databases, and financial markets</li>
+ <li>Interfere with the operation of military bases and related infrastructure</li>
+</ul>
+</div>
+
+<div class="category">
+<div class="category-title">Cybersecurity Threats</div>
+<p>This includes using our products or services to:</p>
+<ul>
+ <li>Discover or exploit vulnerabilities in systems, networks, or applications without authorization of the system owner</li>
+ <li>Gain unauthorized access to systems, networks, applications, or devices through technical attacks or social engineering</li>
+ <li>Create or distribute malware, ransomware, or other types of malicious code</li>
+ <li>Develop tools for denial-of-service attacks or managing botnets</li>
+ <li>Create tools designed to intercept communications or monitor devices without authorization of the system owner</li>
+ <li>Develop persistent access tools designed to operate below normal system security levels, including firmware modifications or hardware implants</li>
+ <li>Create automated tools designed to compromise multiple systems at scale for malicious purposes</li>
+ <li>Bypass security controls such as authenticated systems, endpoint protection, or monitoring tools</li>
+</ul>
+</div>
+
+<div class="category">
+<div class="category-title">Weapons &amp; Dangerous Materials</div>
+<p>This includes using our products or services to:</p>
+<ul>
+ <li>Produce, modify, design, or illegally acquire weapons, explosives, dangerous materials or other systems designed to cause harm to or loss of human life</li>
+ <li>Design or develop weaponization and delivery processes for the deployment of weapons</li>
+ <li>Circumvent regulatory controls to acquire weapons or their precursors</li>
+ <li>Synthesize, or otherwise develop, high-yield explosives or biological, chemical, radiological, or nuclear weapons or their precursors, including modifications to evade detection or medical countermeasures</li>
+</ul>
+</div>
+
+<div class="category">
+<div class="category-title">Violence, Extremism &amp; Discrimination</div>
+<p>This includes using our products or services to:</p>
+<ul>
+ <li>Incite, facilitate, or promote violent extremism, terrorism, or hateful behavior</li>
+ <li>Provide material support for organizations or individuals associated with violent extremism, terrorism, or hateful behavior</li>
+ <li>Facilitate or promote any act of violence or intimidation targeting individuals, groups, animals, or property</li>
+ <li>Promote discriminatory practices or behaviors against individuals or groups on the basis of one or more protected attributes such as race, ethnicity, religion, national origin, gender, sexual orientation, or any other identifying trait</li>
+</ul>
+</div>
+
+<div class="category">
+<div class="category-title">Privacy Violations</div>
+<p>This includes using our products or services to:</p>
+<ul>
+ <li>Violate privacy rights as defined by applicable privacy laws, such as sharing personal information without consent or accessing private data unlawfully</li>
+ <li>Misuse, collect, solicit, or gain access without permission to private information such as non-public contact details, health data, biometric or neural data (including facial recognition), or confidential or proprietary data</li>
+ <li>Impersonate a human by presenting results as human-generated, or using results in a manner intended to convince a natural person that they are communicating with a natural person when they are not</li>
+</ul>
+</div>
+
+<div class="category">
+<div class="category-title">Child Sexual Exploitation</div>
+<p>This includes using our products or services to:</p>
+<ul>
+ <li>Create, distribute, or promote child sexual abuse material ("CSAM"), including AI-generated CSAM</li>
+ <li>Facilitate the trafficking, sextortion, or any other form of exploitation of a minor</li>
+ <li>Facilitate minor grooming, including generating content designed to impersonate a minor</li>
+ <li>Facilitate child abuse of any form, including instructions for how to conceal abuse</li>
+ <li>Promote or facilitate pedophilic relationships, including via roleplay with the model</li>
+ <li>Fetishize or sexualize minors, including in fictional settings or via roleplay with the model</li>
+</ul>
+<div class="callout"><strong>Note:</strong> We define a minor or child to be any individual under the age of 18 years old, regardless of jurisdiction. When we detect CSAM (including AI-generated CSAM), or coercion or enticement of a minor to engage in sexual activities, we will report to relevant authorities.</div>
+</div>
+
+<div class="category">
+<div class="category-title">Harm to Individuals</div>
+<p>This includes using our products or services to:</p>
+<ul>
+ <li>Facilitate, promote, or glamorize any form of suicide or self-harm, including disordered eating and unhealthy or compulsive exercise</li>
+ <li>Engage in behaviors that promote unhealthy or unattainable body image or beauty standards</li>
+ <li>Shame, humiliate, intimidate, bully, harass, or celebrate the suffering of individuals</li>
+ <li>Coordinate the harassment or intimidation of an individual or group</li>
+ <li>Generate content depicting animal cruelty or abuse</li>
+ <li>Promote, trivialize, or depict graphic violence or gratuitous gore, including sexual violence</li>
+ <li>Develop a new product or service, or support an existing product or service that employs or facilitates deceptive techniques with the intent of causing emotional harm</li>
+</ul>
+</div>
+
+<div class="category">
+<div class="category-title">Deception &amp; Misinformation</div>
+<p>This includes using our products or services to:</p>
+<ul>
+ <li>Create or disseminate deceptive or misleading information about, or with the intention of targeting, a group, entity or person</li>
+ <li>Create or disseminate deceptive or misleading information about laws, regulations, procedures, practices, standards established by an institution, entity or governing body</li>
+ <li>Create or disseminate conspiratorial narratives meant to target a specific group, individual or entity</li>
+ <li>Impersonate real entities or create fake personas to falsely attribute content or mislead others about its origin without consent or legal right</li>
+ <li>Provide false or misleading information related to medical, health or science issues</li>
+</ul>
+</div>
+
+<div class="category">
+<div class="category-title">Political Manipulation</div>
+<p>This includes using our products or services to:</p>
+<ul>
+ <li>Engage in personalized vote or campaign targeting based on individual profiles or data</li>
+ <li>Create artificial or deceptive political movements in which the source, scale or nature of the campaign or activities is misrepresented</li>
+ <li>Generate automated communications to public officials or voters at scale that conceal their artificial origin, or engage in systematic vote solicitation that could undermine election integrity</li>
+ <li>Create political content designed to deceive or mislead voters, including synthetic media of political figures</li>
+ <li>Generate or disseminate false or misleading information in political and electoral contexts, including about candidates, parties, policies, voting procedures, or election security</li>
+ <li>Engage in political lobbying or grassroots advocacy using false or fabricated information</li>
+ <li>Incite, glorify or facilitate the disruption of electoral or civic processes, including interference with voting systems, vote counting, or certification processes</li>
+ <li>Create content designed to suppress voter turnout or discourage legitimate political participation through deception or intimidation</li>
+</ul>
+</div>
+
+<div class="category">
+<div class="category-title">Surveillance &amp; Discriminatory Profiling</div>
+<p>This includes using our products or services to:</p>
+<ul>
+ <li>Make determinations on criminal justice applications, including making decisions about or determining eligibility for parole or sentencing</li>
+ <li>Target or track a person's physical location, emotional state, or communication without their consent, including using our products for facial recognition, battlefield management applications or predictive policing</li>
+ <li>Utilize models to assign scores or ratings to individuals based on an assessment of their trustworthiness or social behavior without notification or their consent</li>
+ <li>Build or support emotional recognition systems or techniques that are used to infer emotions of a natural person, except for medical or safety reasons</li>
+ <li>Analyze or identify specific content to censor on behalf of a government organization</li>
+ <li>Utilize models as part of any biometric categorization system for categorizing people based on their biometric data to infer their race, political opinions, trade union membership, religious or philosophical beliefs, sex life or sexual orientation</li>
+ <li>Utilize models as part of any law enforcement application that violates or impairs the liberty, civil liberties, or human rights of natural persons</li>
+</ul>
+</div>
+
+<div class="category">
+<div class="category-title">Fraud &amp; Deceptive Practices</div>
+<p>This includes using our products or services to:</p>
+<ul>
+ <li>Facilitate the production, acquisition, or distribution of counterfeit or illicitly acquired goods</li>
+ <li>Promote or facilitate the generation or distribution of spam</li>
+ <li>Generate content for fraudulent activities, schemes, scams, phishing, or malware that can result in direct financial or psychological harm</li>
+ <li>Create falsified documents including fake IDs, licenses, currency, or other government documents</li>
+ <li>Develop, promote, or otherwise facilitate the sale or distribution of fraudulent or deceptive products</li>
+ <li>Generate deceptive or misleading digital content such as fake reviews, comments, or media</li>
+ <li>Engage in or facilitate multi-level marketing, pyramid schemes, or other deceptive business models</li>
+ <li>Promote or facilitate payday loans, title loans, or other high-interest, short-term lending practices that exploit vulnerable individuals</li>
+ <li>Engage in deceptive or abusive practices that exploit individuals based on age, disability or a specific social or economic situation</li>
+ <li>Promote or facilitate the use of abusive or harassing debt collection practices</li>
+ <li>Develop a product or support an existing service that deploys subliminal, manipulative, or deceptive techniques to distort behavior by impairing decision-making</li>
+ <li>Engage in actions or behaviors that circumvent the guardrails or terms of other platforms or services</li>
+ <li>Plagiarize or submit AI-assisted work without proper permission or attribution</li>
+</ul>
+</div>
+
+<div class="category">
+<div class="category-title">Evasion &amp; Abuse</div>
+<p>This includes using our products or services to:</p>
+<ul>
+ <li>Coordinate malicious activity across multiple accounts to avoid detection or circumvent product guardrails or generating identical or similar inputs that otherwise violate our Usage Rules</li>
+ <li>Utilize automation in account creation or to engage in spammy behavior</li>
+ <li>Circumvent a ban through the use of a different account, such as the creation of a new account, use of an existing account, or providing access to a person or entity that was previously banned</li>
+ <li>Access or facilitate account or API access to PyAcademy to persons, entities, or users in violation of our Supported Regions Policy</li>
+ <li>Intentionally bypass capabilities, restrictions, or guardrails established within our products for the purposes of instructing the model to produce harmful outputs (e.g., jailbreaking or prompt injection) without prior authorization from PyAcademy</li>
+ <li>Utilization of inputs and outputs to train a competing AI model without prior authorization from PyAcademy</li>
+</ul>
+</div>
+
+<div class="category">
+<div class="category-title">Sexual Content</div>
+<p>This includes using our products or services to:</p>
+<ul>
+ <li>Depict or request sexual intercourse or sex acts</li>
+ <li>Generate content related to sexual fetishes or fantasies</li>
+ <li>Facilitate, promote, or depict incest or bestiality</li>
+ <li>Engage in erotic chats</li>
+</ul>
+</div>
+
+<!-- ===== HIGH-RISK USE CASES ===== -->
+<h2>High-Risk Use Case Requirements</h2>
+
+<p>Some use cases pose an elevated risk of harm because they influence domains that are vital to public welfare and social equity. For these use cases, given potential risks to individuals and consumers, we believe that relevant human expertise should be integrated and that end-users should be aware when AI has been involved in producing outputs.</p>
+
+<p>As such, for the "High-Risk Use Cases" described below, we require that you implement these additional safety measures:</p>
+
+<div class="note">
+ <strong>Human-in-the-loop:</strong> When using our products or services to provide advice, recommendations, or in subjective decision-making directly affecting individuals or consumers, a qualified professional in that field must review the content or decision prior to dissemination or finalization. You or your organization are responsible for the accuracy and appropriateness of that information.<br><br>
+ <strong>Disclosure:</strong> If model outputs are presented directly to individuals or consumers, you must disclose to them that you are using AI to help produce your advice, decisions, or recommendations. This disclosure must be provided at a minimum at the beginning of each session.
+</div>
+
+<p>"High-Risk Use Cases" include:</p>
+
+<ul>
+ <li><strong>Legal:</strong> Use cases related to legal interpretation, legal guidance, or decisions with legal implications</li>
+ <li><strong>Healthcare:</strong> Use cases related to healthcare decisions, medical diagnosis, patient care, therapy, mental health, or other medical guidance. Wellness advice (e.g., advice on sleep, stress, nutrition, exercise, etc.) does not fall under this category</li>
+ <li><strong>Insurance:</strong> Use cases related to health, life, property, disability, or other types of insurance underwriting, claims processing, or coverage decisions</li>
+ <li><strong>Finance:</strong> Use cases related to financial decisions, including investment advice, loan approvals, and determining financial eligibility or creditworthiness</li>
+ <li><strong>Employment and housing:</strong> Use cases related to decisions about the employability of individuals, resume screening, hiring tools, or other employment determinations or decisions regarding eligibility for housing, including leases and home loans</li>
+ <li><strong>Academic testing, accreditation and admissions:</strong> Use cases related to standardized testing companies that administer school admissions (including evaluating, scoring or ranking prospective students), language proficiency, or professional certification exams; agencies that evaluate and certify educational institutions</li>
+ <li><strong>Media or professional journalistic content:</strong> Use cases related to using our products or services to automatically generate content and publish it for external consumption</li>
+</ul>
+
+<!-- ===== ADDITIONAL USE CASE GUIDELINES ===== -->
+<h2>Additional Use Case Guidelines</h2>
+
+<p>The below use cases – regardless of whether they are High-Risk Use Cases – must comply with the additional guidance provided.</p>
+
+<ul>
+ <li>All consumer-facing chatbots, including any external-facing or interactive AI agent, must disclose to users that they are interacting with AI rather than a human. This disclosure must be provided at a minimum at the beginning of each chat session.</li>
+ <li>Products serving minors, including organizations providing minors with the ability to directly interact with products that incorporate our API(s), must comply with the additional guidelines outlined in our Help Center article.</li>
+ <li>Agentic use cases must still comply with the Usage Rules. We provide examples of Usage Rules prohibitions in the context of agentic use in this Help Center article.</li>
+ <li>Model Context Protocol (MCP) servers listed in our Connector Directory must comply with our Directory Policy.</li>
+</ul>
+
+</div>
+</div>
+
+<!-- ==================== CHINESE ==================== -->
+<div data-lang="zh">
+<div class="hero">
+ <h1>使用规则</h1>
+ <p class="intro">我们的使用规则（也称为"可接受使用政策"或"AUP"）适用于任何可以向 PyAcademy 的产品和/或服务提交输入的人，包括通过任何授权转售商或传递访问的所有人，我们统称为"用户"。使用规则旨在帮助我们的用户保持安全并促进负责任地使用我们的产品和服务。</p>
+</div>
+<div class="content">
+
+<p>本使用规则的制定和执行旨在遵守以下适用法律法规：欧盟《数字服务法》（Regulation (EU) 2022/2065）、法国《信息社会中的信任与安全法》（Loi LCEN，n° 2004-575）、法国《刑法典》（Code pénal）中关于非法内容的规定，以及欧盟《通用数据保护条例》（GDPR，Regulation (EU) 2016/679）。PyAcademy 保留根据上述法律法规的要求更新和调整本使用规则的权利。</p>
+
+<p>使用规则根据谁可以使用我们的产品以及用于什么目的进行分类。我们将随着技术的发展、相关风险的演变或我们了解到未预期的风险来更新我们的规则。</p>
+
+<div class="note">
+ <strong>通用使用标准：</strong>我们的通用使用标准适用于所有用户和使用场景。<br>
+ <strong>高风险使用场景要求：</strong>我们的高风险使用场景要求适用于对消费者造成更高伤害风险的特定使用场景。<br>
+ <strong>附加使用场景指南：</strong>我们的附加使用场景指南适用于某些其他使用场景，包括面向消费者的聊天机器人、服务未成年人的产品、代理使用和模型上下文协议服务器。
+</div>
+
+<p>PyAcademy 的安全团队将实施检测和监控以执行我们的使用规则，因此请在使用我们的产品或服务之前仔细审查此规则。如果我们发现您违反了我们的使用规则，我们可能会限制、暂停或终止您对我们产品和服务的访问。当输入违反我们的使用规则时，我们也可能阻止或修改模型输出。</p>
+
+<p>如果您认为我们的模型输出可能不准确、有偏见或有害，请通过 <a <li>违反您所在司法管辖区的任何其他适用法律或法规</li>
+</ul>
+<div class="note"><strong>法律依据：</strong>法国《刑法典》（Code pénal）第222-37条至第222-50条关于非法物质的规定；法国《刑法典》第225-4条至第225-6条关于人口贩卖的规定；欧盟《知识产权执法指令》（Directive 2004/48/EC）。</div>
+</div>
+
+<div class="category">
+<div class="category-title">关键基础设施攻击</div>
+<p>使用我们的产品或服务进行以下活动：</p>
+<ul>
+ <li>协助破坏或中断关键基础设施，如电网、水处理设施、医疗设备、电信网络或空中交通管制系统</li>
+ <li>未经授权访问关键系统，如投票机、医疗保健数据库和金融市场</li>
+ <li>干扰军事基地及相关基础设施的运行</li>
+</ul>
+</div>
+
+<div class="category">
+<div class="category-title">网络安全威胁</div>
+<p>使用我们的产品或服务进行以下活动：</p>
+<ul>
+ <li>在未经系统所有者授权的情况下发现或利用系统、网络或应用程序中的漏洞</li>
+ <li>通过技术攻击或社会工程学获取对系统、网络、应用程序或设备的未经授权访问</li>
+ <li>创建或分发恶意软件、勒索软件或其他类型的恶意代码</li>
+ <li>开发用于拒绝服务攻击或管理僵尸网络的工具</li>
+ <li>创建旨在拦截通信或监控设备的工具</li>
+ <li>开发旨在低于正常系统安全级别运行的持久访问工具</li>
+ <li>创建旨在大规模破坏多个系统以用于恶意目的的自动化工具</li>
+ <li>绕过安全控制，如认证系统、端点保护或监控工具</li>
+</ul>
+<div class="note"><strong>法律依据：</strong>欧盟《网络与信息系统安全指令》（NIS2 Directive，Directive (EU) 2022/2555）；法国《刑法典》第323-1条至第323-7条关于计算机欺诈的规定；欧盟《网络犯罪公约》（Budapest Convention）。</div>
+</div>
+
+<div class="category">
+<div class="category-title">武器和危险材料</div>
+<p>使用我们的产品或服务进行以下活动：</p>
+<ul>
+ <li>生产、修改、设计或非法获取武器、爆炸物、危险材料或其他旨在造成人身伤害或死亡的系统</li>
+ <li>设计或开发武器化和交付过程</li>
+ <li>规避监管控制以获取武器或其前体</li>
+ <li>合成或以其他方式开发高爆炸药或生物、化学、放射性或核武器或其前体</li>
+</ul>
+</div>
+
+<div class="category">
+<div class="category-title">暴力、极端主义和歧视</div>
+<p>使用我们的产品或服务进行以下活动：</p>
+<ul>
+ <li>煽动、协助或促进暴力极端主义、恐怖主义或仇恨行为</li>
+ <li>为与暴力极端主义、恐怖主义或仇恨行为相关的组织或个人提供物质支持</li>
+ <li>协助或促进针对个人、群体、动物或财产的任何暴力或恐吓行为</li>
+ <li>基于一个或多个受保护属性（如种族、民族、宗教、国籍、性别、性取向或任何其他识别特征）宣扬对个人或群体的歧视性做法或行为</li>
+</ul>
+<div class="note"><strong>法律依据：</strong>法国《刑法典》第212-1条至第212-3条关于恐怖主义犯罪的规定；欧盟《反种族主义和仇外心理框架决定》（Framework Decision 2008/913/JHA）；欧盟《基本权利宪章》（Charter of Fundamental Rights of the EU）第21条关于非歧视的规定。</div>
+</div>
+
+<div class="category">
+<div class="category-title">侵犯隐私</div>
+<p>使用我们的产品或服务进行以下活动：</p>
+<ul>
+ <li>违反适用隐私法定义的隐私权，如未经同意共享个人信息或非法访问私人数据</li>
+ <li>未经许可滥用、收集、征求或获取私人信息</li>
+ <li>通过将结果显示为人类生成来冒充人类，或以旨在使自然人相信他们正在与自然人交流的方式使用结果</li>
+</ul>
+<div class="note"><strong>法律依据：</strong>欧盟《通用数据保护条例》（GDPR，Regulation (EU) 2016/679）；法国《数据保护法》（Loi Informatique et Libertés，n° 78-17）；欧盟《电子隐私指令》（Directive 2002/58/EC）。</div>
+</div>
+
+<div class="category">
+<div class="category-title">儿童性剥削</div>
+<p>使用我们的产品或服务进行以下活动：</p>
+<ul>
+ <li>创建、分发或推广儿童性虐待材料（"CSAM"），包括 AI 生成的 CSAM</li>
+ <li>协助人口贩卖、性勒索或对未成年人的任何其他形式的剥削</li>
+ <li>协助未成年人诱骗，包括生成旨在冒充未成年人的内容</li>
+ <li>协助任何形式的虐待儿童，包括隐藏虐待的说明</li>
+ <li>宣扬或协助恋童关系，包括通过与模型的角色扮演</li>
+ <li>将未成年人恋物化或性化，包括在虚构场景中或通过与模型的角色扮演</li>
+</ul>
+<div class="callout"><strong>注意：</strong>我们将未成年人或儿童定义为 18 岁以下的任何个人，无论其司法管辖区如何。当我们检测到 CSAM（包括 AI 生成的 CSAM）或胁迫或引诱未成年人从事性活动时，我们将向相关当局报告。</div>
+<div class="note"><strong>法律依据：</strong>欧盟《打击儿童性剥削和性虐待指令》（Directive 2011/93/EU）；法国《刑法典》第226-23条至第226-31条关于未成年人保护的规定；欧盟《数字服务法》（Regulation (EU) 2022/2065）第16条关于报告CSAM的义务。</div>
+</div>
+
+<div class="category">
+<div class="category-title">对个人的伤害</div>
+<p>使用我们的产品或服务进行以下活动：</p>
+<ul>
+ <li>协助、宣扬或美化任何形式的自杀或自残，包括饮食失调和不健康或强迫性运动</li>
+ <li>从事宣扬不健康或无法实现的身体形象或美容标准的行为</li>
+ <li>羞辱、侮辱、恐吓、欺凌、骚扰或庆祝他人的痛苦</li>
+ <li>协调对个人或群体的骚扰或恐吓</li>
+ <li>生成描绘动物虐待的内容</li>
+ <li>宣扬、淡化或描绘血腥暴力或无端血腥</li>
+ <li>开发使用或协助旨在造成情感伤害的欺骗性技术的新产品或服务</li>
+</ul>
+</div>
+
+<div class="category">
+<div class="category-title">欺骗和虚假信息</div>
+<p>使用我们的产品或服务进行以下活动：</p>
+<ul>
+ <li>创建或传播关于或旨在针对群体、实体或个人的欺骗性或误导性信息</li>
+ <li>创建或传播关于法律、法规、程序、实践、机构、实体或治理机构制定的标准的欺骗性或误导性信息</li>
+ <li>创建或传播旨在针对特定群体、个人或实体的阴谋叙事</li>
+ <li>冒充真实实体或创建虚假人物以在未经同意或法律权利的情况下虚假归属内容或误导他人其来源</li>
+ <li>提供有关医疗、健康或科学问题的虚假或误导性信息</li>
+</ul>
+</div>
+
+<div class="category">
+<div class="category-title">政治操纵</div>
+<p>使用我们的产品或服务进行以下活动：</p>
+<ul>
+ <li>基于个人资料或数据进行个性化投票或竞选定向</li>
+ <li>创建虚假或欺骗性政治运动</li>
+ <li>大规模生成向公职人员或选民发送的自动化通信，隐藏其人工来源</li>
+ <li>创建旨在欺骗或误导选民的政治内容</li>
+ <li>在政治和选举背景下生成或传播虚假或误导性信息</li>
+ <li>使用虚假或捏造信息进行政治游说或草根倡导</li>
+ <li>煽动、美化或协助破坏选举或公民进程</li>
+ <li>创建旨在通过欺骗或恐吓压制选民投票率或阻碍合法政治参与的内容</li>
+</ul>
+</div>
+
+<div class="category">
+<div class="category-title">监控和歧视性分析</div>
+<p>使用我们的产品或服务进行以下活动：</p>
+<ul>
+ <li>对刑事司法申请作出决定</li>
+ <li>未经同意跟踪或定位他人的物理位置、情绪状态或通信</li>
+ <li>利用模型对个人进行评分或评级</li>
+ <li>构建或支持用于推断自然人情绪的情感识别系统或技术</li>
+ <li>代表政府组织分析或识别特定内容进行审查</li>
+ <li>利用模型作为任何生物识别分类系统的一部分</li>
+ <li>利用模型作为任何侵犯自然人自由、公民自由或人权的执法应用的一部分</li>
+</ul>
+<div class="note"><strong>法律依据：</strong>欧盟《人工智能法案》（Regulation (EU) 2024/1689）第5条关于禁止性AI实践的规定；欧盟《通用数据保护条例》（GDPR，Regulation (EU) 2016/679）第9条关于特殊类别数据处理的规定；法国《数据保护法》（Loi Informatique et Libertés）。</div>
+</div>
+
+<div class="category">
+<div class="category-title">欺诈和欺骗性做法</div>
+<p>使用我们的产品或服务进行以下活动：</p>
+<ul>
+ <li>协助假冒或非法获取商品的生产、获取或分发</li>
+ <li>宣扬或协助垃圾邮件的生成或分发</li>
+ <li>为欺诈活动、计划、骗局、网络钓鱼或恶意软件生成内容</li>
+ <li>创建伪造文件，包括假身份证件、许可证、货币或其他政府文件</li>
+ <li>开发、推广或以其他方式协助欺诈性或欺骗性产品的销售或分发</li>
+ <li>生成欺骗性或误导性数字内容，如虚假评论、评论或媒体</li>
+ <li>从事或协助多层次营销、金字塔计划或其他欺骗性商业模式</li>
+ <li>推广或协助利用弱势群体的发薪日贷款、产权贷款或其他高息短期贷款做法</li>
+ <li>从事基于年龄、残疾或特定社会或经济状况剥削个人的欺骗性或滥用性做法</li>
+ <li>促进或协助滥用性或骚扰性催收做法</li>
+ <li>开发部署潜意识、操纵性或欺骗性技术以扭曲行为的产品</li>
+ <li>从事绕过其他平台或服务的防护措施或条款的行为</li>
+ <li>抄袭或在未获得适当许可或归属的情况下提交 AI 辅助工作</li>
+</ul>
+<div class="note"><strong>法律依据：</strong>法国《刑法典》第313-1条至第313-3条关于欺诈的规定；欧盟《不公平商业行为指令》（Directive 2005/29/EC）；法国LCEN法（n° 2004-575）第22条关于垃圾邮件的规定。</div>
+</div>
+
+<div class="category">
+<div class="category-title">规避和滥用</div>
+<p>使用我们的产品或服务进行以下活动：</p>
+<ul>
+ <li>协调跨多个账户的恶意活动以避免检测或规避产品防护措施</li>
+ <li>在账户创建中使用自动化或从事垃圾行为</li>
+ <li>通过使用不同账户规避封禁</li>
+ <li>违反我们的支持地区政策向个人、实体或用户提供 PyAcademy 的账户或 API 访问</li>
+ <li>未经 PyAcademy 事先授权，故意绕过我们产品中建立的功能、限制或防护措施</li>
+ <li>未经 PyAcademy 事先授权，利用输入和输出训练竞争性 AI 模型</li>
+</ul>
+</div>
+
+<div class="category">
+<div class="category-title">性内容</div>
+<p>使用我们的产品或服务进行以下活动：</p>
+<ul>
+ <li>描绘或要求性行为</li>
+ <li>生成与性恋物癖或幻想相关的内容</li>
+ <li>协助、宣扬或描绘乱伦或兽交</li>
+ <li>进行色情聊天</li>
+</ul>
+</div>
+
+<!-- ===== 高风险使用场景 ===== -->
+<h2>高风险使用场景要求</h2>
+
+<p>某些使用场景构成更高的伤害风险，因为它们影响对公共福利和社会公平至关重要的领域。对于这些使用场景，考虑到对个人和消费者的潜在风险，我们认为应整合相关专业知识，最终用户应知道 AI 参与了输出的生成。</p>
+
+<p>因此，对于下面描述的"高风险使用场景"，我们要求您实施这些额外的安全措施：</p>
+
+<div class="note">
+ <strong>人在回路中：</strong>当使用我们的产品或服务提供建议、推荐或进行直接影响个人或消费者的主观决策时，该领域的合格专业人员必须在传播或最终确定之前审查内容或决策。<br><br>
+ <strong>披露：</strong>如果模型输出直接呈现给个人或消费者，您必须向他们披露您正在使用 AI 来帮助生成您的建议、决策或推荐。此披露必须在每次会话开始时至少提供一次。
+</div>
+
+<p>"高风险使用场景"包括：</p>
+
+<ul>
+ <li><strong>法律：</strong>与法律解释、法律指导或具有法律影响的决策相关的使用场景</li>
+ <li><strong>医疗保健：</strong>与医疗保健决策、医疗诊断、患者护理、治疗、心理健康或其他医疗指导相关的使用场景</li>
+ <li><strong>保险：</strong>与健康、人寿、财产、残疾或其他类型保险承保、理赔处理或承保决策相关的使用场景</li>
+ <li><strong>金融：</strong>与财务决策相关的使用场景，包括投资建议、贷款审批和确定财务资格或信用度</li>
+ <li><strong>就业和住房：</strong>与个人就业能力决策、简历筛选、招聘工具或其他就业决定或住房资格决定相关的使用场景</li>
+ <li><strong>学术测试、认证和招生：</strong>与管理学校招生的标准化测试公司相关的使用场景</li>
+ <li><strong>媒体或专业新闻内容：</strong>与使用我们的产品或服务自动生成内容并发布供外部消费相关的使用场景</li>
+</ul>
+
+<!-- ===== 附加使用场景指南 ===== -->
+<h2>附加使用场景指南</h2>
+
+<p>以下使用场景——无论是否是高风险使用场景——必须遵守提供的附加指南。</p>
+
+<ul>
+ <li>所有面向消费者的聊天机器人，包括任何外部或交互式 AI 代理，必须向用户披露他们正在与 AI 而不是人类互动。此披露必须在每次聊天会话开始时至少提供一次。</li>
+ <li>服务未成年人的产品，包括为未成年人提供直接与集成我们 API 的产品互动的能力的组织，必须遵守我们帮助中心文章中概述的附加指南。</li>
+ <li>代理使用场景仍必须遵守使用规则。</li>
+ <li>列在我们连接器目录中的模型上下文协议（MCP）服务器必须遵守我们的目录政策。</li>
+</ul>
+
+</div>
+</div>
+
+<div class="highlight"><p><strong>Supplementary Legal Provisions / 附则A</strong></p><p><strong>A.1 DPO:</strong> <a href="mailto:dpo@li1234.top">dpo@li1234.top</a>. GDPR Art.37. PyAcademy SAS, 12 Rue de la Paix, 75002 Paris, France.</p><p><strong>A.2 Principles:</strong> GDPR Art.5 - lawfulness, purpose limitation, data minimisation, accuracy, storage limitation, integrity/confidentiality, accountability.</p><p><strong>A.3 Cross-border:</strong> GDPR Art.44-49 - SCCs, BCRs, adequacy decisions.</p><p><strong>A.4 CNIL Complaint:</strong> GDPR Art.77 - CNIL, 3 Place de Fontenoy, TSA 80715, 75334 Paris Cedex 07. +33 1 53 73 22 22. cnil.fr</p><p><strong>A.5 Automated Decisions:</strong> GDPR Art.22 - right not to be subject to solely automated decisions.</p><p><strong>A.6 Legal Bases:</strong> GDPR Art.6(1) - consent, contract, legal obligation, public interest, legitimate interests.</p><p><strong>A.7 CNIL Compliance:</strong> Loi n° 78-17 (Informatique et Libertés), CNIL Deliberation 2020-091, ePrivacy Directive 2002/58/EC.</p><p><strong>A.8 Consumer:</strong> Code de la consommation L111-1 to L111-7 (info obligations), L221-18 to L221-28 (withdrawal), L212-1 (unfair terms), L616-1 (mediation), L217-1 to L217-15 (digital content), L215-1 to L215-3 (renewal). EU Directive 2011/83/EU, 93/13/EEC, 2019/770.</p><p><strong>A.9 Contact:</strong> Legal: <a href="mailto:legal@li1234.top">legal@li1234.top</a>. DPO: <a href="mailto:dpo@li1234.top">dpo@li1234.top</a>. PyAcademy SAS, 12 Rue de la Paix, 75002 Paris, France.</p></div>
+    <footer>
+ <div class="footer-inner">
+ <div class="footer-links">
+ <a href="https://www.li1234.com" data-lang="en">Home</a>
+ <a href="https://www.li1234.com" data-lang="zh">首页</a>
+ <a href="https://www.li1234.com" data-lang="en">Usage Rules</a>
+ <a href="https://www.li1234.com" data-lang="zh">使用规则</a>
+ </div>
+ <p class="footer-copy">&copy; 2026 PyAcademy. All rights reserved.</p>
+ </div>
+</footer>
+
+<script type="b8f26abb8d162cd83600b61c-text/javascript">
+function switchLang(lang) {
+    document.body.classList.toggle('zh', lang === 'zh');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+}
+</script>
+
+
+</body>
+</html>

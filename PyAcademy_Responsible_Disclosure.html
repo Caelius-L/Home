@@ -1,0 +1,655 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>负责任地数据披露指引 – PyAcademy</title>
+ <style>
+ @font-face { font-family: 'AnthropicSerif'; src: url('AnthropicSerif-Romans-Variable-25x258.ttf') format('truetype'); font-weight: 100 900; font-style: normal; font-display: swap; }
+ *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'AnthropicSerif', 'Georgia', serif; color: #1a1a1a; background: #fff; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+ nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid #eaeaea; padding: 0 24px; }
+ .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+ .nav-logo { font-size: 18px; font-weight: 700; color: #1a1a1a; text-decoration: none; letter-spacing: -0.02em; }
+ .nav-logo span { color: #d97706; }
+ .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+ .nav-links a { font-size: 14px; font-weight: 500; color: #666; text-decoration: none; transition: color 0.2s; }
+ .nav-links a:hover { color: #1a1a1a; }
+ .lang-divider { width: 1px; height: 16px; background: #ddd; }
+ .lang-btn { font-size: 13px; font-weight: 500; color: #888; padding: 4px 10px; border: 1px solid #ddd; border-radius: 6px; transition: all 0.2s; cursor: pointer; background: none; }
+ .lang-btn:hover { color: #1a1a1a; border-color: #aaa; }
+ .lang-btn.active { color: #d97706; border-color: #d97706; background: #fffbeb; }
+ .hero { padding: 80px 24px 48px; max-width: 1200px; margin: 0 auto; }
+ .hero h1 { font-size: 42px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 16px; }
+ .hero .date { font-size: 15px; color: #888; margin-bottom: 24px; }
+ .hero .intro { font-size: 17px; color: #444; max-width: 720px; line-height: 1.8; }
+ .content { max-width: 760px; margin: 0 auto; padding: 24px 24px 120px; }
+ .content h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin-top: 48px; margin-bottom: 16px; border-bottom: 2px solid #f0f0f0; padding-bottom: 8px; }
+ .content h3 { font-size: 16px; font-weight: 600; margin-top: 28px; margin-bottom: 10px; }
+ .content p, .content li { font-size: 15px; line-height: 1.8; color: #333; }
+ .content ul { margin-bottom: 14px; padding-left: 20px; }
+ .content li { margin-bottom: 8px; }
+ .content a { color: #d97706; text-decoration: underline; }
+ .note { background: #fffbeb; border: 1px solid #fde68a; padding: 16px 20px; margin: 24px 0; border-radius: 8px; font-size: 14px; }
+ footer { border-top: 1px solid #eaeaea; padding: 48px 24px; text-align: center; }
+ .footer-inner { max-width: 1200px; margin: 0 auto; }
+ .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; flex-wrap: wrap; }
+ .footer-links a { font-size: 13px; color: #888; text-decoration: none; }
+ .footer-copy { font-size: 13px; color: #aaa; }
+ [[data-lang="zh"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh [data-lang="en"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh [[data-lang="zh"] { display: block; }
+ @media (max-width: 640px) { .hero h1 { font-size: 28px; } .hero { padding: 48px 16px 32px; } .content { padding: 16px 16px 80px; } }
+ </style>
+</head>
+<body>
+<nav><div class="nav-inner">
+ <a href="https://www.li1234.com" class="nav-logo">Py<span>Academy</span></a>
+ <ul class="nav-links">
+ <li><a href="https://www.li1234.com" data-lang="en">Home</a><a href="https://www.li1234.com" data-lang="zh">首页</a></li>
+ <li><div class="lang-divider"></div></li>
+ <li><button class="lang-btn active" id="btn-en" onclick="switchLang('en')">EN</button><button class="lang-btn" id="btn-zh" onclick="switchLang('zh')">中文</button></li>
+ </ul>
+</div></nav>
+
+<!-- 英文版 -->
+<div data-lang="en">
+<div class="hero">
+ <h1>Responsible Disclosure Policy</h1>
+ <p class="date">Effective Date: May 4, 2026</p>
+ <p class="intro">The security of our systems and user data is PyAcademy's top priority. We appreciate the work of security researchers acting in good faith in identifying and reporting potential vulnerabilities. This policy provides comprehensive guidance on when and how data may be disclosed, the circumstances under which we share information with authorities, affected users, and the public, and the legal frameworks that govern these obligations.</p>
+</div>
+<div class="content">
+ <p><strong>Purpose:</strong> At PyAcademy, our mission is to help learners master Python through high-quality education while ensuring integrity and security of our platform. We've established this responsible disclosure program to collaborate with security researchers who help identify potential vulnerabilities in our systems. If you discover a vulnerability that affects multiple learning platforms, please submit separate reports to each affected organization.</p>
+
+ <!-- ===== PART I: VULNERABILITY DISCLOSURE ===== -->
+ <h2>Part I: Vulnerability Disclosure Program</h2>
+
+ <h3>1.1 Scope of Systems</h3>
+ <p>This Policy covers all internet-facing information systems, applications, or websites owned, operated, or controlled by PyAcademy, including any web or mobile applications hosted on li1234.top and related subdomains (collectively, "Information Systems"). It does not cover third-party systems even if under a PyAcademy domain.</p>
+
+ <h3>1.2 Scope of Vulnerabilities</h3>
+ <p>This Policy covers technical vulnerabilities such as misconfigurations, CSRF, privilege escalation, SQLi, XSS, directory traversal. Exclusions (at PyAcademy's discretion) include: missing security best practices without PoC, rate limiting on non-auth endpoints, account takeover via brute force, social engineering, denial of service, clickjacking without sensitive actions, and widely publicized zero-days with patch available less than 30 days. For safety/jailbreak issues, report <a  <a href="mailto:security@li1234.top">security@li1234.top</a>re timing, not engage in social engineering, comply with laws. PyAcademy will acknowledge within 3 business days and strive to resolve promptly.</p>
+
+ <h3>1.4 Reporting Requirements in Detail</h3>
+ <p>Each vulnerability report must include the following information to enable efficient triage and remediation:</p>
+ <ul>
+ <li><strong>Vulnerability Summary:</strong> A concise description of the vulnerability type and its location within the system.</li>
+ <li><strong>Steps to Reproduce:</strong> Clear, step-by-step instructions that allow our engineering team to reproduce the issue reliably.</li>
+ <li><strong>Affected URLs / Endpoints:</strong> The exact URLs, API endpoints, or page paths where the vulnerability exists.</li>
+ <li><strong>Proof of Concept (PoC):</strong> Functional exploit code, HTTP request/response pairs, or screenshots demonstrating the vulnerability. Redact any personal data of other users before submission.</li>
+ <li><strong>Impact Assessment:</strong> A description of the potential impact, including what data could be accessed, modified, or deleted, and whether the vulnerability could be chained with other issues.</li>
+ <li><strong>Remediation Suggestions:</strong> Recommendations for fixing the vulnerability, if available. Where possible, reference relevant OWASP guidance or specific technical standards.</li>
+ <li><strong>Environment Details:</strong> Browser version, operating system, and any relevant tools or configurations used during testing.</li>
+ </ul>
+ <div class="note"><strong>Important:</strong> Reports should be written in clear, simple terms. Our initial triage team includes developers who may not have specialized security backgrounds. Avoid unnecessary jargon and provide sufficient context for each finding.</div>
+
+ <h3>1.5 Disclosure Timeline and Process</h3>
+ <p>PyAcademy follows a Coordinated Vulnerability Disclosure (CVD) model, which balances the need for timely public awareness with the need for organizations to develop and deploy fixes:</p>
+ <ul>
+ <li><strong>Day 0 – Initial Report:</strong> Researcher submits the vulnerability report via our designated channel.</li>
+ <li><strong>Within 3 Business Days – Acknowledgment:</strong> PyAcademy confirms receipt and assigns an internal tracking identifier.</li>
+ <li><strong>Within 10 Business Days – Initial Assessment:</strong> PyAcademy provides an initial severity assessment (using CVSS v3.1 scoring) and a preliminary remediation timeline.</li>
+ <li><strong>Ongoing – Status Updates:</strong> Regular updates are provided to the researcher at least every 14 days during active remediation.</li>
+ <li><strong>Upon Patch Release – Coordinated Disclosure:</strong> Once a fix is deployed, PyAcademy and the researcher coordinate public disclosure, including publishing a security advisory and requesting a CVE identifier where appropriate.</li>
+ <li><strong>90-Day Maximum:</strong> Following the approach of Google Project Zero, if no patch has been released within 90 days of the initial report, the researcher may proceed with public disclosure. PyAcademy will make every effort to resolve the issue before this deadline.</li>
+ </ul>
+
+ <h3>1.6 What You May and May Not Do</h3>
+ <p><strong>Permitted Activities:</strong></p>
+ <ul>
+ <li>Test only against systems explicitly listed in the Scope of Systems section above.</li>
+ <li>Use the minimum level of exploitation necessary to demonstrate that a vulnerability exists.</li>
+ <li>Access or interact only with your own test accounts or data explicitly created for testing purposes.</li>
+ <li>Stop testing immediately upon discovering a vulnerability and report it promptly.</li>
+ <li>If you encounter sensitive data (personally identifiable information, financial data, credentials, or proprietary information of any party), you must stop your test immediately, not store or exfiltrate any data, and notify PyAcademy right away.</li>
+ </ul>
+ <p><strong>Prohibited Activities:</strong></p>
+ <ul>
+ <li>Do not use exploits to compromise or exfiltrate data, establish persistent access, or pivot to other systems.</li>
+ <li>Do not conduct denial-of-service (DoS/DDoS) attacks, including automated high-volume requests.</li>
+ <li>Do not engage in social engineering attacks against PyAcademy employees, contractors, or users.</li>
+ <li>Do not access, modify, or delete data belonging to other users.</li>
+ <li>Do not submit a high volume of low-quality or automated reports.</li>
+ <li>Do not demand payment or rewards as a condition for disclosing vulnerability details or refraining from public disclosure — this may constitute extortion.</li>
+ <li>Do not use automated vulnerability scanners without prior authorization.</li>
+ </ul>
+
+ <h3>1.7 Safe Harbor</h3>
+ <p>If you make a good faith effort to research and disclose vulnerabilities in accordance with this Policy, PyAcademy will not pursue legal action against you. Safe Harbor is conditional on unconditional disclosure without extortion or threats. This protection applies provided that you:</p>
+ <ul>
+ <li>Stay within the defined scope and rules of this program at all times.</li>
+ <li>Do not access, store, or exfiltrate any personal data, financial information, or proprietary data beyond the minimum necessary to demonstrate the vulnerability.</li>
+ <li>Do not share vulnerability details with any third party before the coordinated disclosure date.</li>
+ <li>Comply with all applicable laws and regulations in your jurisdiction.</li>
+ </ul>
+ <div class="note"><strong>Legal Disclaimer:</strong> This Policy does not constitute legal advice. Security research laws vary by jurisdiction. Researchers are responsible for understanding and complying with the laws applicable in their location. If in doubt, consult a qualified legal professional before conducting any security testing.</div>
+
+ <h3>1.8 Reward and Recognition</h3>
+ <p>PyAcademy currently does not operate a formal bug bounty program with monetary rewards. However, we are committed to recognizing researchers who contribute to our security:</p>
+ <ul>
+ <li><strong>Public Credit:</strong> With the researcher's permission, we will credit them in our security advisories and on our security hall of fame page.</li>
+ <li><strong>CVE Coordination:</strong> We will request CVE identifiers for qualifying vulnerabilities and attribute them to the discoverer.</li>
+ <li><strong>Souvenirs:</strong> We may offer PyAcademy branded merchandise (stickers, t-shirts) as a token of appreciation at our discretion.</li>
+ </ul>
+ <p>If PyAcademy launches a formal bug bounty program in the future, details will be published on our website and this Policy will be updated accordingly.</p>
+
+ <!-- ===== PART II: DATA BREACH DISCLOSURE ===== -->
+ <h2>Part II: Data Breach Disclosure – When and How PyAcademy Discloses Data</h2>
+ <p>This section describes the circumstances under which PyAcademy may disclose or share data, including personal data, with external parties such as regulatory authorities, affected users, law enforcement, and the public. It also outlines the legal frameworks that govern these obligations.</p>
+
+ <h3>2.1 Overview of Disclosure Circumstances</h3>
+ <p>PyAcademy may disclose data in the following categories of circumstances:</p>
+ <ul>
+ <li><strong>Regulatory and Legal Obligations:</strong> When required by applicable data protection laws, cybersecurity regulations, or government authorities.</li>
+ <li><strong>Data Breach Notifications:</strong> When a security incident results in the unauthorized access, disclosure, alteration, or loss of personal data.</li>
+ <li><strong>Law Enforcement Requests:</strong> When compelled by valid legal process, such as court orders, subpoenas, or warrants.</li>
+ <li><strong>Protection of Rights and Safety:</strong> When necessary to protect the rights, property, or safety of PyAcademy, our users, or the public.</li>
+ <li><strong>Business Transfers:</strong> In connection with mergers, acquisitions, asset sales, or other corporate restructuring.</li>
+ <li><strong>De-identified and Aggregated Data:</strong> Anonymized or aggregated data that cannot reasonably be linked to individual users.</li>
+ </ul>
+
+ <h3>2.2 Data Breach Notification – Regulatory Frameworks</h3>
+ <p>PyAcademy operates under multiple legal frameworks that impose data breach notification obligations. The applicable framework depends on the location and nationality of the affected individuals:</p>
+
+ <h3>2.2.1 General Data Protection Regulation (GDPR) – European Union</h3>
+ <p>For data breaches affecting individuals in the European Economic Area (EEA), PyAcademy complies with GDPR Articles 33 and 34:</p>
+ <ul>
+ <li><strong>Notification to Supervisory Authority (Article 33):</strong> PyAcademy shall notify the relevant Data Protection Authority (DPA) without undue delay and, where feasible, no later than 72 hours after becoming aware of a personal data breach, unless the breach is unlikely to result in a risk to the rights and freedoms of individuals. If the 72-hour deadline cannot be met, the notification shall include the reasons for the delay and be submitted in phases as information becomes available.</li>
+ <li><strong>Notification to Affected Individuals (Article 34):</strong> When the breach is likely to result in a <em>high risk</em> to the rights and freedoms of individuals, PyAcademy shall communicate the breach to the affected data subjects without undue delay. This higher threshold applies when the breach could lead to identity theft, financial loss, discrimination, reputational damage, or other significant harm.</li>
+ <li><strong>Exemptions from Individual Notification:</strong> Individual notification may not be required if: (a) appropriate technical and organizational protection measures were applied that render the data unintelligible (e.g., encryption); (b) subsequent measures ensure that the high risk is no longer likely to materialize; or (c) individual notification would require disproportionate effort, in which case public communication may be used instead.</li>
+ </ul>
+
+ <h3>2.2.2 People's Republic of China – Cybersecurity Law, Data Security Law, and Personal Information Protection Law</h3>
+ <p>For data breaches affecting individuals within the People's Republic of China, PyAcademy complies with the following requirements:</p>
+ <ul>
+ <li><strong>Cybersecurity Law (Article 25):</strong> Network operators shall immediately remediate security vulnerabilities, risks, and other hazards. In the event of a data breach or security incident that results in the leakage, damage, or loss of personal data, the operator shall immediately notify the affected users, report the incident to the relevant competent authorities, and take necessary remedial measures.</li>
+ <li><strong>Personal Information Protection Law (Article 57):</strong> In the event of a personal information security incident, the personal information handler shall immediately take remedial measures, notify the affected individuals, and report to the competent department. The notification to individuals shall include: the type and cause of the security incident, the categories of personal information that have been or may have been leaked, the potential impact and harm to the individuals, the remedial measures already taken, the measures that individuals can take to reduce harm, and the contact information of the personal information handler.</li>
+ <li><strong>Data Security Regulation (effective January 1, 2025):</strong> Network data processors shall establish emergency response plans for network data security incidents. When an incident occurs, the processor shall immediately activate the plan, take measures to prevent the expansion of harm, eliminate safety hazards, and report to the relevant competent authorities. When a network data security incident causes harm to the lawful rights and interests of individuals or organizations, the processor shall promptly notify the affected stakeholders of the incident details, risk situation, consequences, and remedial measures already taken, via telephone, SMS, instant messaging, email, or public announcement.</li>
+ <li><strong>24-Hour Reporting for Critical Incidents:</strong> Where a security incident involves potential harm to national security or public interest, PyAcademy shall report to the relevant competent authorities within 24 hours of becoming aware of the incident.</li>
+ </ul>
+
+ <h3>2.2.3 Other Jurisdictions</h3>
+ <p>PyAcademy also monitors and complies with data breach notification requirements in other jurisdictions where our users are located, including but not limited to:</p>
+ <ul>
+ <li><strong>United States:</strong> State-level breach notification laws (e.g., California CCPA/CPRA, New York SHIELD Act) which typically require notification within 30–60 days of discovery, with specific content requirements varying by state.</li>
+ <li><strong>United Kingdom:</strong> UK GDPR and the Data Protection Act 2018, requiring notification to the Information Commissioner's Office (ICO) within 72 hours where the breach poses a risk to individuals' rights and freedoms.</li>
+ <li><strong>ISO 27001 (Annex A.5.5 – Contact with Authorities):</strong> PyAcademy maintains documented procedures for contacting relevant authorities, including data protection authorities, regulatory bodies, and law enforcement, as part of our information security management system.</li>
+ </ul>
+
+ <h3>2.3 How PyAcademy Discloses Data – Detailed Procedures</h3>
+
+ <h3>2.3.1 Internal Incident Response Workflow</h3>
+ <p>Upon detection or notification of a potential data breach, PyAcademy follows a structured internal workflow:</p>
+ <ul>
+ <li><strong>Step 1 – Detection and Intake:</strong> The incident is logged in our incident tracking system. The security team confirms receipt and begins an initial investigation within 4 hours.</li>
+ <li><strong>Step 2 – Containment:</strong> Immediate measures are taken to contain the incident and prevent further data loss, including isolating affected systems, revoking compromised credentials, and blocking malicious access.</li>
+ <li><strong>Step 3 – Investigation and Assessment:</strong> The security team conducts a thorough investigation to determine: the nature and scope of the breach; the categories and approximate number of individuals affected; the categories of data involved; the likely consequences and risk level; and whether the data was encrypted or otherwise protected.</li>
+ <li><strong>Step 4 – Risk Classification:</strong> The breach is classified into one of three risk tiers based on severity and potential impact:
+ <ul>
+ <li><strong>Tier 1 – Low Risk:</strong> The breach is unlikely to result in any risk to individuals. No external notification is required beyond internal documentation.</li>
+ <li><strong>Tier 2 – Risk to Rights and Freedoms:</strong> The breach may result in risk to individuals. Notification to the relevant supervisory authority is required within 72 hours.</li>
+ <li><strong>Tier 3 – High Risk:</strong> The breach is likely to result in a high risk to individuals (e.g., identity theft, financial loss, discrimination). Direct notification to affected individuals is required without undue delay, in addition to supervisory authority notification.</li>
+ </ul>
+ </li>
+ <li><strong>Step 5 – Notification Execution:</strong> Based on the risk classification, PyAcademy prepares and delivers notifications to the appropriate parties (see Section 2.3.2 for notification content).</li>
+ <li><strong>Step 6 – Remediation and Recovery:</strong> The engineering team develops, tests, and deploys fixes. Affected systems are restored from clean backups where necessary. Additional security controls are implemented to prevent recurrence.</li>
+ <li><strong>Step 7 – Post-Incident Review:</strong> A comprehensive post-incident review is conducted within 30 days to identify lessons learned, update security controls, and refine incident response procedures.</li>
+ </ul>
+
+ <h3>2.3.2 Notification Content Requirements</h3>
+ <p>When PyAcademy is required to notify supervisory authorities or affected individuals, the notification shall include, to the extent available at the time of notification:</p>
+ <ul>
+ <li>The nature of the breach, including where possible the categories and approximate number of individuals and data records affected.</li>
+ <li>The name and contact details of PyAcademy's data protection officer or other contact point from whom more information can be obtained.</li>
+ <li>The likely consequences of the breach for affected individuals.</li>
+ <li>The measures taken or proposed to address the breach, including, where appropriate, measures to mitigate its possible adverse effects.</li>
+ <li>Specific guidance for affected individuals on steps they can take to protect themselves (e.g., changing passwords, monitoring financial accounts, enabling two-factor authentication).</li>
+ </ul>
+ <p>If the full scope of the breach is not yet known at the time of initial notification, PyAcademy will provide updates as information becomes available, in phases if necessary.</p>
+
+ <h3>2.3.3 Notification Methods</h3>
+ <p>PyAcademy uses the following methods to deliver notifications, depending on the nature and severity of the incident:</p>
+ <ul>
+ <li><strong>Email:</strong> Direct email notification to affected registered users at the email address associated with their account.</li>
+ <li><strong>Platform Notification:</strong> In-app or on-site notification banners and alerts displayed upon user login.</li>
+ <li><strong>Public Announcement:</strong> For large-scale incidents, a public security advisory published on our website and communicated through our official channels.</li>
+ <li><strong>SMS / Instant Messaging:</strong> For critical incidents requiring immediate user action, PyAcademy may send SMS or instant messaging notifications where contact information is available.</li>
+ <li><strong>Press Statement:</strong> In cases of significant public interest, PyAcademy may issue a press statement through recognized media channels.</li>
+ </ul>
+
+ <h3>2.4 Disclosure to Law Enforcement and Government Authorities</h3>
+ <p>PyAcademy may disclose personal data or other information to law enforcement agencies, government authorities, or regulatory bodies in the following circumstances:</p>
+ <ul>
+ <li><strong>Valid Legal Process:</strong> In response to a legally binding request, such as a court order, subpoena, search warrant, or other compulsory legal process issued by a competent authority.</li>
+ <li><strong>Emergency Disclosure:</strong> When PyAcademy reasonably believes that disclosure is necessary to prevent imminent and serious harm to the life, health, or safety of any individual, or to prevent a serious crime.</li>
+ <li><strong>National Security Requirements:</strong> When required by applicable national security laws or regulations, including lawful interception requirements.</li>
+ <li><strong>Criminal Investigation Cooperation:</strong> When PyAcademy discovers evidence of criminal activity during the course of a security incident investigation, we will report to the relevant law enforcement agencies (e.g., police, national security agencies) and cooperate with their investigation.</li>
+ </ul>
+ <div class="note"><strong>Transparency Principle:</strong> Whenever legally permissible, PyAcademy will notify affected users before disclosing their data to law enforcement, unless doing so would impede an investigation or create a risk of harm. We publish an annual transparency report summarizing the number and types of government and law enforcement requests we receive.</div>
+
+ <h3>2.5 Disclosure for Protection of Rights and Safety</h3>
+ <p>PyAcademy may disclose limited user data in the following circumstances to protect rights and safety:</p>
+ <ul>
+ <li><strong>To Protect Our Users:</strong> To investigate and prevent fraud, unauthorized access, abuse, or other violations of our Terms of Service that may harm other users.</li>
+ <li><strong>To Protect PyAcademy:</strong> To enforce our legal rights, defend against legal claims, or investigate potential violations of our policies.</li>
+ <li><strong>To Protect the Public:</strong> To address technical vulnerabilities that could affect other organizations or the broader internet community, in accordance with coordinated disclosure principles.</li>
+ <li><strong>To Prevent Harm:</strong> When we reasonably believe that a user's actions pose a threat to the safety of others or themselves.</li>
+ </ul>
+
+ <h3>2.6 Disclosure in Business Transfers</h3>
+ <p>In the event of a merger, acquisition, reorganization, bankruptcy, or sale of all or a portion of PyAcademy's assets, user data may be transferred to the acquiring entity as part of the transaction. In such cases:</p>
+ <ul>
+ <li>We will notify affected users via email or a prominent site notice before the transfer of their personal data to a different entity becomes effective.</li>
+ <li>The acquiring entity will assume the obligations of this Policy and all applicable privacy commitments.</li>
+ <li>Users will be provided with the opportunity to exercise their rights regarding their personal data, including the right to delete their account and associated data before the transfer takes effect.</li>
+ <li>We will use commercially reasonable efforts to ensure that the transferee provides an adequate level of data protection.</li>
+ </ul>
+
+ <h3>2.7 De-identified and Aggregated Data</h3>
+ <p>PyAcademy may collect, use, and disclose de-identified or aggregated data that cannot reasonably be used to identify individual users. This includes:</p>
+ <ul>
+ <li>Statistical data about platform usage, learning patterns, and course completion rates.</li>
+ <li>Aggregated demographic information for research and reporting purposes.</li>
+ <li>Anonymized security metrics for industry benchmarking and threat intelligence sharing.</li>
+ </ul>
+ <p>Once data is truly de-identified and cannot be re-linked to individuals, it is no longer considered personal data under applicable privacy laws and may be freely used and disclosed.</p>
+
+ <!-- ===== PART III: SECURITY ADVISORY PUBLICATION ===== -->
+ <h2>Part III: Security Advisory Publication</h2>
+
+ <h3>3.1 When PyAcademy Publishes Security Advisories</h3>
+ <p>PyAcademy publishes security advisories in the following circumstances:</p>
+ <ul>
+ <li>When a vulnerability in our systems has been remediated and a patch or fix has been deployed.</li>
+ <li>When a vulnerability in a third-party dependency used by our platform has been addressed.</li>
+ <li>When a data breach or security incident has occurred that affects our users, and we have completed our initial investigation.</li>
+ <li>When we become aware of industry-wide vulnerabilities or threats that may affect our users.</li>
+ </ul>
+
+ <h3>3.2 Content of Security Advisories</h3>
+ <p>Published security advisories will include, where applicable:</p>
+ <ul>
+ <li>A high-level summary of the vulnerability or incident and its impact.</li>
+ <li>The affected versions, components, or services, and the versions in which the issue has been resolved.</li>
+ <li>Technical details of the vulnerability, including CVSS severity score and CWE classification.</li>
+ <li>Mitigations and workarounds for users who cannot immediately apply the fix.</li>
+ <li>Links to the vendor's published advisory (for third-party components).</li>
+ <li>A timeline of discovery, internal communication, and remediation.</li>
+ <li>Acknowledgment of the security researcher who reported the issue (with their explicit permission).</li>
+ <li>CVE identifiers where applicable.</li>
+ </ul>
+
+ <h3>3.3 Publication Timeline</h3>
+ <p>Security advisories are published according to the following timeline:</p>
+ <ul>
+ <li><strong>Coordinated Disclosure:</strong> Advisories are published simultaneously with or shortly after the deployment of the fix, in coordination with the reporting researcher.</li>
+ <li><strong>Third-Party Vulnerabilities:</strong> Advisories are published within 24 hours of the patch being deployed to our production environment.</li>
+ <li><strong>Data Breach Notifications:</strong> Public advisories are published as soon as practicable after affected individuals and relevant authorities have been notified, and in compliance with all applicable legal requirements.</li>
+ </ul>
+
+ <!-- ===== PART IV: USER RIGHTS AND DATA ACCESS ===== -->
+ <h2>Part IV: User Rights Regarding Data Disclosure</h2>
+
+ <h3>4.1 Rights of Data Subjects</h3>
+ <p>PyAcademy recognizes and respects the following rights of individuals whose data we process:</p>
+ <ul>
+ <li><strong>Right of Access:</strong> You have the right to request a copy of the personal data PyAcademy holds about you.</li>
+ <li><strong>Right to Rectification:</strong> You have the right to request correction of inaccurate or incomplete personal data.</li>
+ <li><strong>Right to Erasure:</strong> You have the right to request deletion of your personal data, subject to certain legal exceptions (e.g., legal obligations, legitimate business interests).</li>
+ <li><strong>Right to Restrict Processing:</strong> You have the right to request that we limit how we use your data in certain circumstances.</li>
+ <li><strong>Right to Data Portability:</strong> You have the right to receive your personal data in a structured, commonly used, machine-readable format.</li>
+ <li><strong>Right to Object:</strong> You have the right to object to certain types of processing, including processing based on legitimate interests or for direct marketing purposes.</li>
+ <li><strong>Right to Withdraw Consent:</strong> Where processing is based on consent, you may withdraw your consent at any time without affecting the lawfulness of processing carried out prior to withdrawal.</li>
+ </ul>
+
+ <h3>4.2 How to Exercise Your Rights</h3>
+ <p>To exercise any of the above rights, please submit a request to our Data Protection Officer <a  <a href="mailto:contact@li1234.top">contact@li1234.top</a>ref="mailto:cemtbc@pyacade}i>com">cemtbc@pyacade}i>com</a>. We will respond to your request within 30 days. If we are unable to fulfill your request, we will explain the reasons and inform you of your right to lodge a complaint with the relevant supervisory authority.</p>
+
+ <!-- ===== PART V: COMPLIANCE AND GOVERNANCE ===== -->
+ <h2>Part V: Compliance and Governance</h2>
+
+ <h3>5.1 Data Protection Impact Assessments</h3>
+ <p>PyAcademy conducts Data Protection Impact Assessments (DPIAs) before undertaking any processing activity that is likely to result in a high risk to individuals' rights and freedoms, including:</p>
+ <ul>
+ <li>Systematic and extensive profiling with significant effects.</li>
+ <li>Large-scale processing of sensitive personal data.</li>
+ <li>Systematic monitoring of publicly accessible areas.</li>
+ <li>Use of new technologies that may pose heightened privacy risks.</li>
+ </ul>
+
+ <h3>5.2 Regular Audits and Reviews</h3>
+ <p>PyAcademy periodically conducts internal and external audits of its data protection and security practices, including:</p>
+ <ul>
+ <li>Annual compliance audits against GDPR, PIPL, and other applicable regulations.</li>
+ <li>Regular penetration testing and vulnerability assessments of our systems.</li>
+ <li>Quarterly reviews of access controls and data handling procedures.</li>
+ <li>Annual training for all employees on data protection and security awareness.</li>
+ </ul>
+
+ <h3>5.3 Data Retention and Secure Disposal</h3>
+ <p>PyAcademy retains personal data only for as long as necessary to fulfill the purposes for which it was collected, including satisfying any legal, accounting, or reporting requirements. When data is no longer needed, it is securely deleted or anonymized using industry-standard methods.</p>
+
+ <h3>5.4 Subprocessor and Third-Party Disclosure</h3>
+ <p>PyAcademy may share personal data with trusted third-party service providers (subprocessors) who assist us in operating our platform, such as cloud hosting providers, payment processors, and analytics services. All subprocessors are bound by contractual obligations to protect personal data to at least the same standard as required by this Policy. A current list of subprocessors is available upon request.</p>
+
+ <!-- ===== CHANGES AND CONTACT ===== -->
+ <h2>Changes to This Policy</h2>
+ <p>PyAcademy may update this Policy from time to time to reflect changes in legal requirements, industry best practices, or our operational practices. When we make material changes, we will notify users by posting the updated Policy on our website and, where appropriate, by sending an email notification. Vulnerabilities disclosed before updates remain under the prior version.</p>
+
+ <h2>Contact</h2>
+ <p><strong>Security Vulnerability Reports:</strong><a href="mailto:ovqrjxw@@cpGjs@@qsRv@Vjs|">ovqrjxw@@cpGjs@@qsRv@Vjs|</a></p>
+ <p><strong>Data Protection / Privacy Inquiries:</strong><a href="mailto:cemtbc@pyacade}i>com">cemtbc@pyacade}i>com</a></p>
+ <p><strong>Safety / Jailbreak Issues:</strong><a (CRA), GDPR Articles 33–34, China Cybersecurity Law, Data Security Law, Personal Information Protection Law, and the Network Data Security Management Regulation (effective January 1, 2025).</div>
+</div>
+</div>
+
+<!-- 中文版 -->
+<div data-lang="zh">
+<div class="hero">
+ <h1>负责任地数据披露指引</h1>
+ <p class="date">生效日期：2026年5月4日</p>
+ <p class="intro">PyAcademy 将系统和用户数据的安全视为最高优先事项。我们感谢安全研究人员本着善意识别和报告潜在漏洞的工作。本指引全面阐述了在何种情况下可以披露数据、如何披露、向哪些主体披露，以及规范这些义务的法律框架。</p>
+</div>
+<div class="content">
+ <p><strong>目的：</strong>在 PyAcademy，我们的使命是通过高质量教育帮助学习者掌握 Python，同时确保平台的完整性和安全性。我们建立此负责任披露计划，与帮助识别系统中潜在漏洞的安全研究人员合作。如果您发现的漏洞影响多个学习平台，请向每个受影响的机构分别提交报告。</p>
+
+ <!-- ===== 第一部分：漏洞披露计划 ===== -->
+ <h2>第一部分：漏洞披露计划</h2>
+
+ <h3>1.1 系统范围</h3>
+ <p>本政策涵盖由 PyAcademy 拥有、运营或控制的所有面向互联网的信息系统、应用程序或网站，包括托管在 li1234.top 及相关子域上的任何 Web 或移动应用程序（合称"信息系统"）。不涵盖第三方系统，即使使用 PyAcademy 域名。</p>
+
+ <h3>1.2 漏洞范围</h3>
+ <p>本政策涵盖技术漏洞，如配置错误、CSRF、权限提升、SQL注入、XSS、目录遍历。不包括以下内容（由 PyAcademy 自行决定）：缺少最佳实践且无 PoC、非认证端点的速率限制、暴力破解账户接管、社会工程、拒绝服务、无敏感操作的点击劫持、以及补丁发布不足30天的公开零日漏洞。安全和越狱问题请报告至 <a href="mailto:ovq{CC|@03!080#;0o08<">ovq{CC|@03!080#;0o08<</a>。</p>
+
+ <h3>1.3 如何提交漏洞报告</h3>
+ <p>将报告提交至 <a href="mailto:sadlzo{@njhzscmnrois|">sadlzo{@njhzscmnrois|</a>，包含详细摘要、复现步骤、URL、概念验证、截图、潜在影响和修复建议。每个报告只包含一个漏洞。您同意：避免造成伤害、不进行超出最小必要范围的利用、不窃取数据、协调披露时间、不进行社会工程攻击、遵守法律。PyAcademy 将在3个工作日内确认并尽快解决。</p>
+
+ <h3>1.4 报告要求的详细信息</h3>
+ <p>每份漏洞报告必须包含以下信息，以便我们高效进行分类和修复：</p>
+ <ul>
+ <li><strong>漏洞摘要：</strong>对漏洞类型及其在系统中的位置进行简明描述。</li>
+ <li><strong>复现步骤：</strong>清晰、分步的说明，使我们的工程团队能够可靠地复现该问题。</li>
+ <li><strong>受影响的 URL / 端点：</strong>漏洞存在的精确 URL、API 端点或页面路径。</li>
+ <li><strong>概念验证（PoC）：</strong>功能性利用代码、HTTP 请求/响应对或截图，用于演示该漏洞。提交前请隐去其他用户的个人数据。</li>
+ <li><strong>影响评估：</strong>描述潜在影响，包括可能被访问、修改或删除的数据，以及该漏洞是否可以与其他问题链式组合。</li>
+ <li><strong>修复建议：</strong>如有可用方案，提供修复漏洞的建议。尽可能引用相关的 OWASP 指南或具体技术标准。</li>
+ <li><strong>环境信息：</strong>测试期间使用的浏览器版本、操作系统以及任何相关工具或配置。</li>
+ </ul>
+ <div class="note"><strong>重要提示：</strong>报告应以清晰、简明的语言撰写。我们的初始分类团队包括可能没有专业安全背景的开发人员。请避免不必要的专业术语，并为每个发现提供充分的上下文。</div>
+
+ <h3>1.5 披露时间线和流程</h3>
+ <p>PyAcademy 采用协调漏洞披露（CVD）模式，在及时公开披露和组织开发部署修复之间取得平衡：</p>
+ <ul>
+ <li><strong>第0天 – 初始报告：</strong>研究人员通过我们指定的渠道提交漏洞报告。</li>
+ <li><strong>3个工作日内 – 确认收悉：</strong>PyAcademy 确认收到报告并分配内部跟踪编号。</li>
+ <li><strong>10个工作日内 – 初步评估：</strong>PyAcademy 提供初步严重性评估（使用 CVSS v3.1 评分）和初步修复时间表。</li>
+ <li><strong>持续进行 – 状态更新：</strong>在修复期间，至少每14天向研究人员提供定期更新。</li>
+ <li><strong>补丁发布后 – 协调披露：</strong>修复部署后，PyAcademy 与研究人员协调公开披露，包括发布安全公告并在适当情况下申请 CVE 标识符。</li>
+ <li><strong>90天上限：</strong>参照 Google Project Zero 的做法，如果初始报告提交后90天内未发布补丁，研究人员可进行公开披露。PyAcademy 将尽一切努力在此截止日期前解决问题。</li>
+ </ul>
+
+ <h3>1.6 您可以和不可以做什么</h3>
+ <p><strong>允许的活动：</strong></p>
+ <ul>
+ <li>仅对上述"系统范围"部分明确列出的系统进行测试。</li>
+ <li>使用证明漏洞存在所需的最低限度的利用手段。</li>
+ <li>仅访问或操作您自己的测试账户或明确为测试目的创建的数据。</li>
+ <li>发现漏洞后立即停止测试并及时报告。</li>
+ <li>如果您遇到敏感数据（任何一方的个人身份信息、财务数据、凭据或专有信息），必须立即停止测试，不得存储或窃取任何数据，并立即通知 PyAcademy。</li>
+ </ul>
+ <p><strong>禁止的活动：</strong></p>
+ <ul>
+ <li>不得使用漏洞利用来危害或窃取数据、建立持久访问权限或横向渗透到其他系统。</li>
+ <li>不得进行拒绝服务（DoS/DDoS）攻击，包括自动化高频请求。</li>
+ <li>不得对 PyAcademy 的员工、承包商或用户进行社会工程攻击。</li>
+ <li>不得访问、修改或删除属于其他用户的数据。</li>
+ <li>不得提交大量低质量或自动生成的报告。</li>
+ <li>不得以披露漏洞详情或不予公开披露为条件索要报酬或奖励——这可能构成勒索。</li>
+ <li>未经事先授权，不得使用自动化漏洞扫描工具。</li>
+ </ul>
+
+ <h3>1.7 安全港条款</h3>
+ <p>如果您根据本政策善意研究和披露漏洞，PyAcademy 不会对您提起法律诉讼。安全港的前提是无条件披露，且不涉及勒索或威胁。此保护适用于以下条件：</p>
+ <ul>
+ <li>始终在本计划规定的范围和规则内进行活动。</li>
+ <li>不访问、存储或窃取超出证明漏洞所需的最低限度的个人数据、财务信息或专有数据。</li>
+ <li>在协调披露日期之前，不与任何第三方共享漏洞详情。</li>
+ <li>遵守您所在司法管辖区所有适用的法律法规。</li>
+ </ul>
+ <div class="note"><strong>法律免责声明：</strong>本政策不构成法律建议。安全研究相关法律因司法管辖区而异。研究人员有责任了解并遵守其所在地的适用法律。如有疑问，在进行任何安全测试之前，请咨询合格的法律专业人士。</div>
+
+ <h3>1.8 奖励和认可</h3>
+ <p>PyAcademy 目前没有运营正式的漏洞赏金计划。但是，我们致力于认可为我们的安全做出贡献的研究人员：</p>
+ <ul>
+ <li><strong>公开致谢：</strong>经研究人员同意，我们将在安全公告和安全名人堂页面上致谢。</li>
+ <li><strong>CVE 协调：</strong>我们将为符合条件的漏洞申请 CVE 标识符，并将其归功于发现者。</li>
+ <li><strong>纪念品：</strong>我们可能会酌情提供 PyAcademy 品牌纪念品（贴纸、T恤等）以表感谢。</li>
+ </ul>
+ <p>如果 PyAcademy 未来启动正式的漏洞赏金计划，详情将在我们的网站上公布，本政策也将相应更新。</p>
+
+ <!-- ===== 第二部分：数据泄露披露 ===== -->
+ <h2>第二部分：数据泄露披露 – PyAcademy 在何种情况下披露数据</h2>
+ <p>本部分描述了 PyAcademy 在何种情况下可能向外部主体（如监管机构、受影响用户、执法部门和公众）披露或共享数据，包括个人数据。同时概述了规范这些义务的法律框架。</p>
+
+ <h3>2.1 披露情形概览</h3>
+ <p>PyAcademy 可能在以下类别的情形下披露数据：</p>
+ <ul>
+ <li><strong>监管和法律义务：</strong>当适用数据保护法律、网络安全法规或政府主管部门要求时。</li>
+ <li><strong>数据泄露通知：</strong>当安全事件导致个人数据被未授权访问、披露、更改或丢失时。</li>
+ <li><strong>执法请求：</strong>当受到有效法律程序（如法院命令、传票、搜查令）强制要求时。</li>
+ <li><strong>保护权利和安全：</strong>当为保护 PyAcademy、我们的用户或公众的权利、财产或安全而必要时。</li>
+ <li><strong>业务转让：</strong>在合并、收购、资产出售或其他公司重组过程中。</li>
+ <li><strong>去标识化和聚合数据：</strong>无法合理关联到个人用户的匿名化或聚合数据。</li>
+ </ul>
+
+ <h3>2.2 数据泄露通知 – 法律框架</h3>
+ <p>PyAcademy 受多个法律框架的约束，这些框架规定了数据泄露通知义务。适用的框架取决于受影响个人的所在地和国籍：</p>
+
+ <h3>2.2.1 欧盟《通用数据保护条例》（GDPR）</h3>
+ <p>对于影响欧洲经济区（EEA）内个人的数据泄露，PyAcademy 遵守 GDPR 第33条和第34条：</p>
+ <ul>
+ <li><strong>向监管机构通知（第33条）：</strong>PyAcademy 应在知悉个人数据泄露后，无不合理迟延地、且在可行的情况下不迟于72小时内向相关数据保护机构（DPA）发出通知，除非该泄露不太可能对个人的权利和自由造成风险。如果无法在72小时期限内完成通知，应在信息可用时分阶段提交，并说明延迟原因。</li>
+ <li><strong>向受影响个人通知（第34条）：</strong>当泄露可能对个人的权利和自由造成<em>高风险</em>时，PyAcademy 应无不合理迟延地将泄露情况告知受影响的数据主体。此更高门槛适用于泄露可能导致身份盗用、经济损失、歧视、声誉损害或其他重大损害的情形。</li>
+ <li><strong>个人通知的豁免情形：</strong>在以下情况下可能无需向个人通知：(a) 已采取适当的技术和组织保护措施使数据不可识别（如加密）；(b) 后续措施确保高风险不再可能出现；(c) 个人通知需要不成比例的努力，此时可使用公开通知代替。</li>
+ </ul>
+
+ <h3>2.2.2 中华人民共和国 – 网络安全法、数据安全法和个人信息保护法</h3>
+ <p>对于影响中华人民共和国境内个人的数据泄露，PyAcademy 遵守以下要求：</p>
+ <ul>
+ <li><strong>《网络安全法》第25条：</strong>网络运营者应当立即修复安全漏洞、风险和其他隐患。发生数据泄露或安全事件导致个人信息泄露、损毁、丢失的，应当立即通知受影响用户，向有关主管部门报告，并采取必要的补救措施。</li>
+ <li><strong>《个人信息保护法》第57条：</strong>发生个人信息安全事件时，个人信息处理者应当立即采取补救措施，通知受影响的个人，并向主管部门报告。向个人发出的通知应包括：安全事件的类型和原因、已经或可能泄露的个人信息类别、对个人可能造成的影响和危害、已采取的补救措施、个人可以采取的减轻危害的措施，以及个人信息处理者的联系方式。</li>
+ <li><strong>《网络数据安全管理条例》（2025年1月1日起施行）：</strong>网络数据处理者应当建立健全网络数据安全事件应急预案，发生事件时应立即启动预案，采取措施防止危害扩大、消除安全隐患，并按规定向有关主管部门报告。当网络数据安全事件对个人、组织合法权益造成危害时，应当及时以电话、短信、即时通信工具、电子邮件或公告等方式将安全事件和风险情况、危害后果、已采取的补救措施等通知利害关系人。</li>
+ <li><strong>涉及国家安全和公共利益的24小时报告：</strong>当安全事件可能危害国家安全或公共利益时，PyAcademy 应在知悉事件后24小时内向有关主管部门报告。</li>
+ </ul>
+
+ <h3>2.2.3 其他司法管辖区</h3>
+ <p>PyAcademy 还持续关注并遵守用户所在其他司法管辖区的数据泄露通知要求，包括但不限于：</p>
+ <ul>
+ <li><strong>美国：</strong>各州层面的泄露通知法律（如加州 CCPA/CPRA、纽约 SHIELD 法案），通常要求在发现后30–60天内通知，具体内容要求因州而异。</li>
+ <li><strong>英国：</strong>英国 GDPR 和《2018年数据保护法》，要求在泄露对个人权利和自由构成风险时，在72小时内通知信息专员办公室（ICO）。</li>
+ <li><strong>ISO 27001（附录 A.5.5 – 与当局的联系）：</strong>作为我们信息安全管理体系的一部分，PyAcademy 保留了与相关机构（包括数据保护机构、监管机构和执法部门）联系的书面程序。</li>
+ </ul>
+
+ <h3>2.3 PyAcademy 如何披露数据 – 详细流程</h3>
+
+ <h3>2.3.1 内部事件响应工作流程</h3>
+ <p>在检测到或收到潜在数据泄露通知后，PyAcademy 按照结构化的内部工作流程进行处理：</p>
+ <ul>
+ <li><strong>第1步 – 检测和受理：</strong>事件记录在我们的事件跟踪系统中。安全团队在4小时内确认收悉并开始初步调查。</li>
+ <li><strong>第2步 – 遏制：</strong>立即采取措施遏制事件并防止进一步的数据丢失，包括隔离受影响的系统、撤销被泄露的凭据以及阻止恶意访问。</li>
+ <li><strong>第3步 – 调查和评估：</strong>安全团队进行彻底调查，确定：泄露的性质和范围；受影响的个人类别和大致数量；涉及的数据类别；可能的后果和风险等级；以及数据是否已加密或以其他方式受到保护。</li>
+ <li><strong>第4步 – 风险分级：</strong>根据严重性和潜在影响，将泄露分为三个风险等级：
+ <ul>
+ <li><strong>一级 – 低风险：</strong>泄露不太可能对个人造成任何风险。除内部记录外，无需外部通知。</li>
+ <li><strong>二级 – 对权利和自由有风险：</strong>泄露可能对个人造成风险。需要在72小时内通知相关监管机构。</li>
+ <li><strong>三级 – 高风险：</strong>泄露可能对个人造成高风险（如身份盗用、经济损失、歧视）。除监管机构通知外，还需无不合理迟延地直接通知受影响个人。</li>
+ </ul>
+ </li>
+ <li><strong>第5步 – 通知执行：</strong>根据风险分级，PyAcademy 准备并向相关方发送通知（通知内容详见第2.3.2节）。</li>
+ <li><strong>第6步 – 修复和恢复：</strong>工程团队开发、测试并部署修复方案。必要时从干净备份恢复受影响的系统。实施额外的安全控制措施以防止再次发生。</li>
+ <li><strong>第7步 – 事后审查：</strong>在30天内进行全面的事后审查，总结经验教训，更新安全控制措施，并完善事件响应流程。</li>
+ </ul>
+
+ <h3>2.3.2 通知内容要求</h3>
+ <p>当 PyAcademy 需要通知监管机构或受影响个人时，通知应在通知时已掌握的信息范围内包含以下内容：</p>
+ <ul>
+ <li>泄露的性质，包括在可能的情况下说明受影响的个人类别和大致数量以及数据记录类别。</li>
+ <li>PyAcademy 数据保护官或其他可获取更多信息的联系点的姓名和联系方式。</li>
+ <li>泄露对受影响个人可能造成的后果。</li>
+ <li>已采取或拟采取的应对泄露的措施，包括在适当时减轻其可能不利影响的措施。</li>
+ <li>为受影响个人提供的具体指导，说明他们可以采取的保护措施（如更改密码、监控金融账户、启用双重身份验证）。</li>
+ </ul>
+ <p>如果在初始通知时泄露的完整范围尚不清楚，PyAcademy 将在信息可用时提供更新，必要时分阶段进行。</p>
+
+ <h3>2.3.3 通知方式</h3>
+ <p>PyAcademy 根据事件的性质和严重程度，使用以下方式发送通知：</p>
+ <ul>
+ <li><strong>电子邮件：</strong>向受影响的注册用户在其账户关联的邮箱地址发送直接邮件通知。</li>
+ <li><strong>平台通知：</strong>应用内或网站上的通知横幅和提醒，在用户登录时显示。</li>
+ <li><strong>公开公告：</strong>对于大规模事件，在我们的网站上发布公开安全公告，并通过官方渠道传达。</li>
+ <li><strong>短信 / 即时通信：</strong>对于需要用户立即采取行动的紧急事件，PyAcademy 可在联系方式可用时发送短信或即时通信通知。</li>
+ <li><strong>新闻声明：</strong>在涉及重大公共利益的情况下，PyAcademy 可通过认可的媒体渠道发布新闻声明。</li>
+ </ul>
+
+ <h3>2.4 向执法部门和政府机构披露</h3>
+ <p>PyAcademy 可能在以下情况下向执法机构、政府主管部门或监管机构披露个人数据或其他信息：</p>
+ <ul>
+ <li><strong>有效法律程序：</strong>响应具有法律约束力的请求，如主管当局发出的法院命令、传票、搜查令或其他强制性法律程序。</li>
+ <li><strong>紧急披露：</strong>当 PyAcademy 合理认为披露是防止对任何个人的生命、健康或安全造成迫在眉睫的严重危害，或防止严重犯罪所必需的。</li>
+ <li><strong>国家安全要求：</strong>当适用国家安全法律或法规要求时，包括合法的拦截要求。</li>
+ <li><strong>刑事调查配合：</strong>当 PyAcademy 在安全事件调查过程中发现犯罪活动证据时，我们将向相关执法机构（如公安机关、国家安全机关）报告并配合其调查。</li>
+ </ul>
+ <div class="note"><strong>透明度原则：</strong>在法律允许的范围内，PyAcademy 将在向执法部门披露用户数据之前通知受影响用户，除非这样做会妨碍调查或造成危害风险。我们发布年度透明度报告，汇总我们收到的政府和执法请求的数量和类型。</div>
+
+ <h3>2.5 为保护权利和安全而披露</h3>
+ <p>PyAcademy 可能在以下情况下披露有限的用户数据以保护权利和安全：</p>
+ <ul>
+ <li><strong>保护我们的用户：</strong>调查和防止欺诈、未授权访问、滥用或其他可能损害其他用户的服务条款违规行为。</li>
+ <li><strong>保护 PyAcademy：</strong>执行我们的合法权利、应对法律索赔或调查潜在的政策违规行为。</li>
+ <li><strong>保护公众：</strong>解决可能影响其他组织或更广泛互联网社区的技术漏洞，按照协调披露原则进行。</li>
+ <li><strong>防止伤害：</strong>当我们合理认为用户的行为对他人或其自身构成安全威胁时。</li>
+ </ul>
+
+ <h3>2.6 业务转让中的披露</h3>
+ <p>在合并、收购、重组、破产或出售 PyAcademy 全部或部分资产的情况下，用户数据可能作为交易的一部分转让给收购方。在这种情况下：</p>
+ <ul>
+ <li>我们将在用户个人数据转让给不同实体生效之前，通过电子邮件或醒目的网站通知告知受影响用户。</li>
+ <li>收购方将承继本政策和所有适用隐私承诺的义务。</li>
+ <li>用户将有机会行使其关于个人数据的权利，包括在转让生效前删除其账户和关联数据的权利。</li>
+ <li>我们将尽商业上合理的努力确保受让方提供适当水平的数据保护。</li>
+ </ul>
+
+ <h3>2.7 去标识化和聚合数据</h3>
+ <p>PyAcademy 可以收集、使用和披露无法合理用于识别个人用户的去标识化或聚合数据。这包括：</p>
+ <ul>
+ <li>关于平台使用情况、学习模式和课程完成率的统计数据。</li>
+ <li>用于研究和报告目的的聚合人口统计信息。</li>
+ <li>用于行业基准测试和威胁情报共享的匿名化安全指标。</li>
+ </ul>
+ <p>一旦数据被真正去标识化且无法重新关联到个人，即不再被视为适用隐私法下的个人数据，可以自由使用和披露。</p>
+
+ <!-- ===== 第三部分：安全公告发布 ===== -->
+ <h2>第三部分：安全公告发布</h2>
+
+ <h3>3.1 PyAcademy 何时发布安全公告</h3>
+ <p>PyAcademy 在以下情况下发布安全公告：</p>
+ <ul>
+ <li>当我们的系统中的漏洞已被修复且补丁或修复方案已部署时。</li>
+ <li>当我们的平台使用的第三方依赖项中的漏洞已被解决时。</li>
+ <li>当发生影响用户的数据泄露或安全事件且我们已完成初步调查时。</li>
+ <li>当我们了解到可能影响用户的行业范围漏洞或威胁时。</li>
+ </ul>
+
+ <h3>3.2 安全公告的内容</h3>
+ <p>发布的安全公告将在适用时包含以下内容：</p>
+ <ul>
+ <li>漏洞或事件及其影响的高层次摘要。</li>
+ <li>受影响的版本、组件或服务，以及已解决问题的版本。</li>
+ <li>漏洞的技术细节，包括 CVSS 严重性评分和 CWE 分类。</li>
+ <li>针对无法立即应用修复的用户的缓解措施和替代方案。</li>
+ <li>指向供应商发布的安全公告的链接（针对第三方组件）。</li>
+ <li>发现、内部沟通和修复的时间线。</li>
+ <li>对报告该问题的安全研究人员的致谢（经其明确同意）。</li>
+ <li>适用的 CVE 标识符。</li>
+ </ul>
+
+ <h3>3.3 发布时间线</h3>
+ <p>安全公告按照以下时间线发布：</p>
+ <ul>
+ <li><strong>协调披露：</strong>公告在修复部署后与报告研究人员协调同时或 shortly 之后发布。</li>
+ <li><strong>第三方漏洞：</strong>公告在补丁部署到我们生产环境后24小时内发布。</li>
+ <li><strong>数据泄露通知：</strong>公开公告在受影响个人和相关机构已获通知后尽快发布，并遵守所有适用的法律要求。</li>
+ </ul>
+
+ <!-- ===== 第四部分：用户权利和数据访问 ===== -->
+ <h2>第四部分：用户关于数据披露的权利</h2>
+
+ <h3>4.1 数据主体的权利</h3>
+ <p>PyAcademy 认可并尊重我们处理其数据的个人享有的以下权利：</p>
+ <ul>
+ <li><strong>知情权：</strong>您有权请求获取 PyAcademy 持有的关于您的个人数据副本。</li>
+ <li><strong>更正权：</strong>您有权请求更正不准确或不完整的个人数据。</li>
+ <li><strong>删除权：</strong>您有权请求删除您的个人数据，但须遵守某些法律例外情况（如法律义务、合法商业利益）。</li>
+ <li><strong>限制处理权：</strong>您有权请求在某些情况下限制我们使用您数据的方式。</li>
+ <li><strong>数据可携带权：</strong>您有权以结构化、常用且机器可读的格式接收您的个人数据。</li>
+ <li><strong>反对权：</strong>您有权反对某些类型的处理，包括基于合法利益的处理或出于直接营销目的的处理。</li>
+ <li><strong>撤回同意权：</strong>当处理基于同意时，您可以随时撤回您的同意，撤回不影响撤回前基于同意进行的处理的合法性。</li>
+ </ul>
+
+ <h3>4.2 如何行使您的权利</h3>
+ <p>要行使上述任何权利，请向我们的数据保护官提交请求：<a href="mailto:vcwckbscud@piqqssxhfasxfgnm">vcwckbscud@piqqssxhfasxfgnm</a>。我们将在30天内回复您的请求。如果我们无法满足您的请求，我们将说明原因并告知您向相关监管机构投诉的权利。</p>
+
+ <!-- ===== 第五部分：合规与治理 ===== -->
+ <h2>第五部分：合规与治理</h2>
+
+ <h3>5.1 数据保护影响评估</h3>
+ <p>PyAcademy 在进行任何可能对个人权利和自由造成高风险的处理活动之前，会进行数据保护影响评估（DPIA），包括：</p>
+ <ul>
+ <li>具有重大影响的系统性和广泛性画像分析。</li>
+ <li>大规模处理敏感个人数据。</li>
+ <li>对公开可访问区域的系统性监控。</li>
+ <li>使用可能带来更高隐私风险的新技术。</li>
+ </ul>
+
+ <h3>5.2 定期审计和审查</h3>
+ <p>PyAcademy 定期对其数据保护和安全实践进行内部和外部审计，包括：</p>
+ <ul>
+ <li>针对 GDPR、PIPL 和其他适用法规的年度合规审计。</li>
+ <li>对我们系统的定期渗透测试和漏洞评估。</li>
+ <li>对访问控制和数据处理程序的季度审查。</li>
+ <li>面向全体员工的数据保护和安全意识年度培训。</li>
+ </ul>
+
+ <h3>5.3 数据保留和安全处置</h3>
+ <p>PyAcademy 仅在实现收集目的所需的时间内保留个人数据，包括满足任何法律、会计或报告要求。当数据不再需要时，将使用行业标准方法进行安全删除或匿名化处理。</p>
+
+ <h3>5.4 子处理方和第三方披露</h3>
+ <p>PyAcademy 可能与受信任的第三方服务提供商（子处理方）共享个人数据，这些服务提供商协助我们运营平台，如云托管提供商、支付处理商和分析服务。所有子处理方均受合同义务约束，以至少与本政策要求同等的标准保护个人数据。子处理方当前名单可应要求提供。</p>
+
+ <!-- ===== 变更和联系方式 ===== -->
+ <h2>本政策的变更</h2>
+ <p>PyAcademy 可能不时更新本政策，以反映法律要求、行业最佳实践或我们运营实践的变化。当我们进行重大变更时，将通过在网站上发布更新后的政策来通知用户，并在适当情况下通过发送电子邮件通知。更新前披露的漏洞仍适用先前版本。</p>
+
+ <h2>联系方式</h2>
+ <p><strong>安全漏洞报告：</strong><a href="mailto:sadlzo{@njhzscmnrois|">sadlzo{@njhzscmnrois|</a></p>
+ <p><strong>数据保护 / 隐私咨询：</strong><a href="mailto:vcwckbscud@piqqssxhfasxfgnm">vcwckbscud@piqqssxhfasxfgnm</a></p>
+ <p><strong>安全 / 越狱问题：</strong><a href="mailto:ovq{CC|@03!080#;0o08<">ovq{CC|@03!080#;0o08<</a></p>
+ <p><strong>一般咨询：</strong><a href="mailto:vcwckbscud@piqqssxhfasxfgnm">vcwckbscud@piqqssxhfasxfgnm</a></p>
+
+ <div class="note"><strong>参考来源：</strong>本指引参考并遵循以下标准和框架：OWASP 漏洞披露速查表、CISA 漏洞披露政策模板、ISO/IEC 27001:2022（附录 A.5.5、A.8.11）、欧盟《网络弹性法案》（CRA）、GDPR 第33–34条、《中华人民共和国网络安全法》、《数据安全法》、《个人信息保护法》以及《网络数据安全管理条例》（2025年1月1日起施行）。</div>
+</div>
+</div>
+
+<div class="highlight"><p><strong>Supplementary Legal Provisions / 附则A</strong></p><p><strong>A.1 DPO:</strong> <a href="mailto:dpo@li1234.top">dpo@li1234.top</a>. GDPR Art.37. PyAcademy SAS, 12 Rue de la Paix, 75002 Paris, France.</p><p><strong>A.2 Principles:</strong> GDPR Art.5 - lawfulness, purpose limitation, data minimisation, accuracy, storage limitation, integrity/confidentiality, accountability.</p><p><strong>A.3 Cross-border:</strong> GDPR Art.44-49 - SCCs, BCRs, adequacy decisions.</p><p><strong>A.4 CNIL Complaint:</strong> GDPR Art.77 - CNIL, 3 Place de Fontenoy, TSA 80715, 75334 Paris Cedex 07. +33 1 53 73 22 22. cnil.fr</p><p><strong>A.5 Automated Decisions:</strong> GDPR Art.22 - right not to be subject to solely automated decisions.</p><p><strong>A.6 Legal Bases:</strong> GDPR Art.6(1) - consent, contract, legal obligation, public interest, legitimate interests.</p><p><strong>A.7 CNIL Compliance:</strong> Loi n° 78-17 (Informatique et Libertés), CNIL Deliberation 2020-091, ePrivacy Directive 2002/58/EC.</p><p><strong>A.8 Consumer:</strong> Code de la consommation L111-1 to L111-7 (info obligations), L221-18 to L221-28 (withdrawal), L212-1 (unfair terms), L616-1 (mediation), L217-1 to L217-15 (digital content), L215-1 to L215-3 (renewal). EU Directive 2011/83/EU, 93/13/EEC, 2019/770.</p><p><strong>A.9 Contact:</strong> Legal: <a href="mailto:legal@li1234.top">legal@li1234.top</a>. DPO: <a href="mailto:dpo@li1234.top">dpo@li1234.top</a>. PyAcademy SAS, 12 Rue de la Paix, 75002 Paris, France.</p></div>
+    <footer><div class="footer-inner">
+ <div class="footer-links"><a href="https://www.li1234.com">Home</a><a href="https://www.li1234.com">首页</a></div>
+ <p class="footer-copy">&copy; 2026 PyAcademy. All rights reserved.</p>
+</div></footer>
+<script>function switchLang(lang){document.body.classList.toggle('zh',lang==='zh');document.getElementById('btn-en').classList.toggle('active',lang==='en');document.getElementById('btn-zh').classList.toggle('active',lang==='zh');document.documentElement.lang=lang==='zh'?'zh-CN':'en';document.title=lang==='zh'?'负责任地数据披露指引 – PyAcademy':'Responsible Disclosure Policy – PyAcademy';}</script>
+
+</body>
+</html>

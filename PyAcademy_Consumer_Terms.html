@@ -1,0 +1,583 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Consumer Terms of Service – PyAcademy</title>
+ <style>
+ @font-face {
+ font-family: 'AnthropicSerif';
+ src: url('AnthropicSerif-Romans-Variable-25x258.ttf') format('truetype');
+ font-weight: 100 900;
+ font-style: normal;
+ font-display: swap;
+ }
+ *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'AnthropicSerif', 'Georgia', serif; color: #1a1a1a; background: #fff; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+ nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid #eaeaea; padding: 0 24px; }
+ .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+ .nav-logo { font-size: 18px; font-weight: 700; color: #1a1a1a; text-decoration: none; letter-spacing: -0.02em; }
+ .nav-logo span { color: #d97706; }
+ .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+ .nav-links a { font-size: 14px; font-weight: 500; color: #666; text-decoration: none; transition: color 0.2s; }
+ .nav-links a:hover { color: #1a1a1a; }
+ .lang-divider { width: 1px; height: 16px; background: #ddd; }
+ .lang-btn { font-size: 13px; font-weight: 500; color: #888; padding: 4px 10px; border: 1px solid #ddd; border-radius: 6px; transition: all 0.2s; cursor: pointer; background: none; }
+ .lang-btn:hover { color: #1a1a1a; border-color: #aaa; }
+ .lang-btn.active { color: #d97706; border-color: #d97706; background: #fffbeb; }
+ .hero { padding: 80px 24px 48px; max-width: 1200px; margin: 0 auto; }
+ .hero h1 { font-size: 42px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 16px; }
+ .hero .date { font-size: 15px; color: #888; margin-bottom: 24px; }
+ .hero .intro { font-size: 17px; color: #444; max-width: 720px; line-height: 1.8; }
+ .content { max-width: 760px; margin: 0 auto; padding: 24px 24px 120px; }
+ .content h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin-top: 48px; margin-bottom: 16px; color: #1a1a1a; }
+ .content h3 { font-size: 16px; font-weight: 600; margin-top: 28px; margin-bottom: 10px; color: #1a1a1a; }
+ .content p { font-size: 15px; line-height: 1.8; color: #333; margin-bottom: 14px; }
+ .content ul, .content ol { margin-bottom: 14px; padding-left: 20px; }
+ .content li { font-size: 15px; line-height: 1.8; color: #333; margin-bottom: 8px; }
+ .content a { color: #d97706; text-decoration: underline; text-underline-offset: 2px; transition: color 0.2s; }
+ .content a:hover { color: #b45309; }
+ .content .note { font-size: 14px; color: #666; background: #f9f9f9; border-left: 3px solid #d97706; padding: 16px 20px; margin: 24px 0; border-radius: 0 6px 6px 0; }
+ .content .clause { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid #f0f0f0; }
+ .content .clause:last-child { border-bottom: none; }
+ .content .allcaps { font-size: 13px; line-height: 1.7; letter-spacing: 0.02em; }
+ footer { border-top: 1px solid #eaeaea; padding: 48px 24px; text-align: center; }
+ .footer-inner { max-width: 1200px; margin: 0 auto; }
+ .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; flex-wrap: wrap; }
+ .footer-links a { font-size: 13px; color: #888; text-decoration: none; transition: color 0.2s; }
+ .footer-links a:hover { color: #1a1a1a; }
+ .footer-copy { font-size: 13px; color: #aaa; }
+ [[data-lang="zh"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh [data-lang="en"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh [[data-lang="zh"] { display: block; }
+ span[[data-lang="zh"], a[[data-lang="zh"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh span[data-lang="en"], body.zh a[data-lang="en"] { display: none; }
+body.zh [data-lang="zh"] { display: block; }
+        body.zh span[data-lang="zh"], body.zh a[data-lang="zh"] { display: inline; }
+                span[data-lang], a[data-lang] { display: none; }
+ body.zh span[[data-lang="zh"], body.zh a[[data-lang="zh"] { display: inline; }
+ @media (max-width: 640px) {
+ .hero h1 { font-size: 28px; }
+ .hero { padding: 48px 16px 32px; }
+ .content { padding: 16px 16px 80px; }
+ .nav-links { gap: 16px; }
+ }
+ html { scroll-behavior: smooth; }
+ ::selection { background: #fde68a; color: #1a1a1a; }
+ </style>
+</head>
+<body>
+
+<nav>
+ <div class="nav-inner">
+ <a href="https://www.li1234.com" class="nav-logo">Py<span>Academy</span></a>
+ <ul class="nav-links">
+ <li><a href="https://www.li1234.com" data-lang="en">Home</a><a href="https://www.li1234.com" data-lang="zh">首页</a></li>
+ <li><div class="lang-divider"></div></li>
+ <li><button class="lang-btn active" id="btn-en" onclick="switchLang('en')">EN</button><button class="lang-btn" id="btn-zh" onclick="switchLang('zh')">中文</button></li>
+ </ul>
+ </div>
+</nav>
+
+<!-- ==================== ENGLISH ==================== -->
+<div data-lang="en">
+<div class="hero">
+ <h1>Consumer Terms of Service</h1>
+ <p class="date">Effective Date: May 4, 2026</p>
+ <p class="intro">Welcome to PyAcademy! Before you access our services, please read these Terms of Service.</p>
+</div>
+<div class="content">
+
+<p>These Terms of Service ("Terms") govern your use of PyAcademy platform, PyAcademy Pro, and other products and services that we may offer for individuals, along with any associated apps, software, and websites (together, our "Services"). These Terms are a contract between you and PyAcademy ("PyAcademy") (and not our Providers), and they include our Acceptable Use Policy. By accessing our Services, you agree to these Terms.</p>
+
+<div class="note"><strong>Applicable Legal Framework.</strong> These Terms have been drafted with due regard to, and shall be interpreted in a manner consistent with, the following sources of applicable law, which constitute the governing legal framework for the provision of digital services and the protection of consumers within the European Union and the French Republic: (i) Directive 2011/83/EU of the European Parliament and of the Council of 25 October 2011 on consumer rights, amending Council Directive 93/13/EEC and Directives 97/7/EC and 2002/65/EC of the European Parliament and of the Council and repealing Council Directive 85/577/EEC and Directive 97/7/EC (the "EU Consumer Rights Directive"); (ii) Council Directive 93/13/EEC of 5 April 1993 on unfair terms in consumer contracts (the "EU Unfair Contract Terms Directive"); (iii) the French Consumer Code (<em>Code de la consommation</em>, as amended), in particular the provisions governing contracts concluded at a distance and outside commercial premises; (iv) Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data (the "General Data Protection Regulation" or "GDPR"); and (v) the French Civil Code (<em>Code civil</em>, as amended). To the extent that any provision of these Terms conflicts with mandatory provisions of applicable consumer protection law, the mandatory provisions shall prevail. Nothing in these Terms shall be construed as excluding or limiting any rights that you may have under applicable consumer protection legislation that cannot be waived or limited by contract.<br><br>Please read our <a href="#">Privacy Policy</a>, which describes how we collect and use personal information.<br><br>Please note: Our <a href="#">Commercial Terms of Service</a> govern your use of any PyAcademy API key, the PyAcademy Console, or any other PyAcademy offerings that reference the Commercial Terms of Service.</div>
+
+<h2>1. Who we are.</h2>
+<div class="clause">
+<p>PyAcademy is an online Python learning platform dedicated to helping learners of all levels master Python programming through courses, tutorials, and interactive exercises.</p>
+</div>
+
+<h2>2. Account creation and access.</h2>
+
+<div class="clause">
+<h3>Minimum age.</h3>
+<p>You must be at least 18 years old or the minimum age required to consent to use the Services in your location, whichever is higher.</p>
+<p>In accordance with Article 388 of the French Civil Code (<em>Code civil</em>), which defines the age of majority as eighteen years, and without prejudice to the applicable laws of your jurisdiction, you must have reached the legal age of majority in your country of residence to create an Account and use our Services. Where you are a minor (under 18 years of age), you may not create an Account or use our Services without the verifiable consent of your parent or legal guardian.</p>
+<p>In compliance with Article 8 of the General Data Protection Regulation (EU) 2016/679 ("GDPR"), where the processing of personal data relates to the offer of information society services directly to a child, we will obtain the consent of the holder of parental responsibility over the child. Where a child is below the age of 16 years, such processing shall only be lawful if the consent is given or authorised by the holder of parental responsibility, in accordance with the laws of the Member State concerned. In France, pursuant to Article 226-4-2 of the Penal Code (<em>Code pénal</em>), the consent of a minor over the age of fifteen (15) may be valid; however, for users under the age of 16, parental or guardian consent is required before account registration. We reserve the right to request proof of age and parental consent at any time and to suspend or terminate any Account where such proof cannot be satisfactorily provided.</p>
+</div>
+
+<div class="clause">
+<h3>Your PyAcademy Account.</h3>
+<p>To access our Services, we may ask you to create an Account. You agree to provide correct, current, and complete Account information and allow us to use it to communicate with you about our Services.</p>
+<p>You may not share your Account login information, PyAcademy API key, or Account credentials with anyone else. You are responsible for all activity occurring under your Account, and you agree to notify us immediately if you become aware of any unauthorized access to your Account by sending an email <a  <a href="mailto:accounts@li1234.top">accounts@li1234.top</a>inistrator may be able to monitor and control the Account, including having access to Materials (defined below).</p>
+</div>
+
+<div class="clause">
+<h3>Evaluation and Additional Services.</h3>
+<p>In some cases, we may permit you to evaluate our Services for a limited time or with limited functionality. Use of our Services for evaluation purposes are for your personal, non-commercial use only.</p>
+</div>
+
+<h2>3. Use of our Services.</h2>
+<div class="clause">
+<p>You may access and use our Services only in compliance with our Terms, including our Acceptable Use Policy, the Supported Regions Policy, and any guidelines or supplemental terms we may post on the Services.</p>
+<p>You may not access or use, or help another person to access or use, our Services in the following ways:</p>
+<ul>
+ <li>In any manner that violates any applicable law or regulation.</li>
+ <li>To develop any products or services that compete with our Services, including to develop or train any competing learning platform or resell the Services.</li>
+ <li>To decompile, reverse engineer, disassemble, or otherwise reduce our Services to human-readable form, except when these restrictions are prohibited by applicable law.</li>
+ <li>To crawl, scrape, or otherwise harvest data or information from our Services other than as permitted under these Terms.</li>
+ <li>To use our Services, the Materials, or the Actions to obtain unauthorized access to any system or information, or to deceive any person.</li>
+ <li>To infringe, misappropriate, or violate intellectual property or other legal rights.</li>
+ <li>Except when you are accessing our Services via a PyAcademy API Key or where we otherwise explicitly permit it, to access the Services through automated or non-human means.</li>
+ <li>To engage in any other conduct that restricts or inhibits any person from using or enjoying our Services.</li>
+ <li>To rely upon the Services, the Materials, or the Actions to buy or sell securities or to provide or receive advice about securities, commodities, derivatives, or other financial products or services.</li>
+</ul>
+<p>You also must not abuse, harm, interfere with, or disrupt our Services, including, for example, introducing viruses or malware, spamming or DDoSing Services, or bypassing any of our systems or protective measures.</p>
+</div>
+
+<h2>4. Inputs, Outputs, Actions, and Materials.</h2>
+
+<div class="clause">
+<h3>Generally.</h3>
+<p>You may be allowed to interact with our Services in a variety of formats (we call these "Inputs"). Our Services may generate responses (we call these "Outputs"), or enable the Services to take actions on your behalf (we call these "Actions"), based on your Inputs. Inputs and Outputs collectively are "Materials."</p>
+</div>
+
+<div class="clause">
+<h3>Rights and Responsibilities.</h3>
+<p>You are responsible for all Inputs you submit to our Services and all Actions. As between you and PyAcademy, and to the extent permitted by applicable law, you retain any right, title, and interest that you have in the Inputs you submit. Subject to your compliance with our Terms, we assign to you all of our right, title, and interest—if any—in Outputs.</p>
+</div>
+
+<div class="clause">
+<h3>Reliance on Outputs and Actions.</h3>
+<p>Our Services generate educational content that may not always be accurate. When you use our Services, you acknowledge and agree:</p>
+<ul>
+ <li>Outputs may not always be accurate and may contain material inaccuracies.</li>
+ <li>Actions may not be error free or operate as you intended.</li>
+ <li>You should not rely on any Outputs or Actions without independently confirming their accuracy.</li>
+ <li>The Services and any Outputs may not reflect correct, current, or complete information.</li>
+ <li>Outputs may contain content that is inconsistent with PyAcademy's views.</li>
+</ul>
+</div>
+
+<div class="clause">
+<h3>Our use of Materials.</h3>
+<p>We may use Materials to provide, maintain, and improve the Services and to develop other products and services, including improving our courses and learning experience, unless you opt out through your account settings. Even if you opt out, we will use Materials when: (1) you provide Feedback to us regarding any Materials, or (2) your Materials are flagged for safety review to improve our ability to detect harmful content, enforce our policies, or advance our safety research.</p>
+</div>
+
+<h2>5. Feedback</h2>
+<div class="clause">
+<p>We appreciate feedback, including ideas and suggestions for improvement or rating an Output in response to an Input ("Feedback"). If you rate an Output in response to an Input—for example, by using the thumbs up/thumbs down icon—we will store the related conversation as part of your Feedback. You have no obligation to give us Feedback, but if you do, you agree that we may use the Feedback however we choose without any obligation or other payment to you.</p>
+</div>
+
+<h2>6. Subscriptions, fees and payment.</h2>
+
+<div class="clause">
+<h3>Fees and billing.</h3>
+<p>You may be required to pay us fees to access or use our Services or certain features of our Services. You are responsible for paying any applicable fees listed for the Services on the Pricing Page unless otherwise communicated to you by PyAcademy in writing.</p>
+<p>If you purchase access to our Services or features of our Services, you must provide complete and accurate billing information ("Payment Method"). You agree that we may charge the Payment Method for any applicable fees listed on our Services and any applicable tax.</p>
+<p>Except as expressly provided in these Terms or where required by law, all payments are non-refundable.</p>
+<p>Without prejudice to the foregoing, and in accordance with Directive 2011/83/EU (the EU Consumer Rights Directive) and Articles L221-18 et seq. of the French Consumer Code (<em>Code de la consommation</em>), where you have entered into a distance contract (including a contract concluded via our website), you have the right to withdraw from the contract within fourteen (14) days from the date on which the contract was concluded, without giving any reason and without incurring any costs other than those expressly provided for in Article L221-25 of the French Consumer Code. Where you exercise your right of withdrawal, we shall reimburse all payments received from you, without undue delay and in any event not later than fourteen (14) days from the day on which we are informed of your decision to withdraw from the contract. We shall carry out such reimbursement using the same means of payment as you used for the initial transaction, unless you have expressly agreed otherwise.</p>
+<p>We reserve the right to refuse or cancel any Subscription order where we have reasonable grounds to believe that the transaction is fraudulent, that the Payment Method has not been validly authorised, or that the order has been placed for purposes that contravene these Terms or applicable law.</p>
+</div>
+
+<div class="clause">
+<h3>Subscriptions.</h3>
+<p>To access PyAcademy Pro and other subscription services we may make available to individuals, you must sign up for a subscription with us (a "Subscription"), first by creating an Account, and then following the subscription procedure on our Services.</p>
+</div>
+
+<div class="clause">
+<h3>Subscription term and automatic renewal.</h3>
+<p>If you sign up for a paid Subscription, we or the App Distributor will automatically charge your Payment Method on each agreed-upon periodic renewal date until you cancel.</p>
+</div>
+
+<div class="clause">
+<h3>Subscription cancellation.</h3>
+<p>If you subscribed via our website, you may cancel your Subscription for any reason by using a method we may provide to you through our products—for example, in your customer portal—or by notifying us <a  <a href="mailto:contact@li1234.top">contact@li1234.top</a> Subscription without giving a reason.</p>
+<ul>
+ <li>To exercise the right to cancel, you must inform us of your decision before the cancellation period has expired. The easiest way to do this is by cancelling your subscription in the customer portal, or you may contact us <a  <a href="mailto:contact@li1234.top">contact@li1234.top</a>een provided.</li>
+ <li>The 7-day cancellation period will not reset if you change subscription tiers or cancel and then resubscribe.</li>
+</ul>
+</div>
+
+<div class="clause">
+<h3>Subscription fees.</h3>
+<p>You will pay the fees, either to us or to the App Distributor, for the Initial Term and each subsequent Renewal Term up front. We have the right to make changes to the fees applicable to your Subscription from time to time. If these changes result in an increase in the fees payable by you, we will inform you at least 30 days in advance of the change.</p>
+</div>
+
+<h2>7. Third-party services and links</h2>
+<div class="clause">
+<p>Our Services may use or be used in connection with third-party content ("Third-Party Content"), services, or integrations. We do not control or accept responsibility for any loss or damage that may arise from your use of any Third-Party Content, services, and integrations. Your use of any Third-Party Content, services, and integrations is at your own risk.</p>
+</div>
+
+<h2>8. Content Moderation</h2>
+<div class="clause">
+<p>Third-Party Content is the responsibility of the person or entity that provides it to our Services. PyAcademy is under no obligation to host or serve Third-Party Content. If we become aware that any Third-Party Content infringes another's intellectual property, is in breach of these Terms, or may cause harm to PyAcademy, our users, or third parties, we reserve the right to remove or take down some or all of such Third-Party Content.</p>
+</div>
+
+<h2>9. Software</h2>
+<div class="clause">
+<p>We may offer manual or automatic updates to our software including our apps ("PyAcademy Software"), without advance notice to you. PyAcademy Software may include open source software.</p>
+</div>
+
+<h2>10. Ownership of the Services</h2>
+<div class="clause">
+<p>The Services are owned, operated, and provided by us and our affiliates, licensors, distributors, and service providers (collectively "Providers"). We and our Providers retain all of our respective rights, title, and interest, including intellectual property rights, in and to the Services.</p>
+</div>
+
+<h2>11. Disclaimer of warranties, limitations of liability, and indemnity</h2>
+<div class="clause">
+<p>Our team works hard to provide great services, and we're continuously working on improvements. However, there are certain aspects we can't guarantee. We are using ALL CAPS to explain this, to make sure that you see it.</p>
+<p class="allcaps">YOUR USE OF THE SERVICES, MATERIALS, AND ACTIONS IS SOLELY AT YOUR OWN RISK. THE SERVICES, OUTPUTS, AND ACTIONS ARE PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS AND, TO THE FULLEST EXTENT PERMISSIBLE UNDER APPLICABLE LAW, ARE PROVIDED WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS, IMPLIED, OR STATUTORY. WE AND OUR PROVIDERS EXPRESSLY DISCLAIM ANY AND ALL WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, TITLE, MERCHANTABILITY, ACCURACY, AVAILABILITY, RELIABILITY, SECURITY, PRIVACY, COMPATIBILITY, NON-INFRINGEMENT, AND ANY WARRANTY IMPLIED BY COURSE OF DEALING, COURSE OF PERFORMANCE, OR TRADE USAGE.</p>
+<p class="allcaps">TO THE FULLEST EXTENT PERMISSIBLE UNDER APPLICABLE LAW, IN NO EVENT WILL WE, OUR PROVIDERS, OR OUR OR THEIR RESPECTIVE AFFILIATES, INVESTORS, DIRECTORS, OFFICERS, EMPLOYEES, AGENTS, SUCCESSORS OR ASSIGNS (COLLECTIVELY, THE "PYACADEMY PARTIES"), BE LIABLE FOR ANY DIRECT, INDIRECT, PUNITIVE, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR OTHER DAMAGES ARISING OUT OF OR IN ANY WAY RELATED TO THE SERVICES, THE MATERIALS, THE ACTIONS, OR THESE TERMS, WHETHER BASED IN CONTRACT, TORT (INCLUDING NEGLIGENCE), STRICT LIABILITY, OR OTHER THEORY, EVEN IF ANY PYACADEMY PARTIES HAVE BEEN ADVISED OF THE POSSIBILITY OF DAMAGES, AND EVEN IF THE DAMAGES ARE FORESEEABLE.</p>
+<p class="allcaps">TO THE FULLEST EXTENT PERMISSIBLE UNDER APPLICABLE LAW, THE PYACADEMY PARTIES' TOTAL AGGREGATE LIABILITY TO YOU FOR ALL DAMAGES, LOSSES AND CAUSES OF ACTION ARISING OUT OF OR IN ANY WAY RELATED TO THE SERVICES, THE MATERIALS, THE ACTIONS, OR THESE TERMS, WHETHER IN CONTRACT, TORT (INCLUDING NEGLIGENCE) OR OTHERWISE, WILL NOT EXCEED THE GREATER OF THE AMOUNT YOU PAID TO US FOR ACCESS TO OR USE OF THE SERVICES (IF ANY) IN THE SIX MONTHS PRECEDING THE DATE SUCH DAMAGES, LOSSES, AND CAUSES OF ACTION FIRST AROSE, AND $100.</p>
+<p class="allcaps">YOU AGREE TO INDEMNIFY AND HOLD HARMLESS THE PYACADEMY PARTIES FROM AND AGAINST ANY AND ALL LIABILITIES, CLAIMS, DAMAGES, EXPENSES (INCLUDING REASONABLE ATTORNEYS' FEES AND COSTS), AND OTHER LOSSES ARISING OUT OF OR RELATED TO YOUR BREACH OR ALLEGED BREACH OF THESE TERMS; YOUR ACCESS TO, USE OF, OR ALLEGED USE OF THE SERVICES, THE MATERIALS, OR THE ACTIONS; YOUR FEEDBACK; ANY PRODUCTS OR SERVICES THAT YOU DEVELOP, OFFER, OR OTHERWISE MAKE AVAILABLE USING OR OTHERWISE IN CONNECTION WITH THE SERVICES; YOUR VIOLATION OF APPLICABLE LAW OR ANY THIRD-PARTY RIGHT; AND ANY ACTUAL OR ALLEGED FRAUD, INTENTIONAL MISCONDUCT, GROSS NEGLIGENCE, OR CRIMINAL ACTS COMMITTED BY YOU OR YOUR EMPLOYEES OR AGENTS.</p>
+<p class="allcaps">THE LAWS OF SOME JURISDICTIONS DO NOT ALLOW THE DISCLAIMER OF IMPLIED WARRANTIES OR CERTAIN TYPES OF DAMAGES, SO SOME OR ALL OF THE DISCLAIMERS AND LIMITATIONS OF LIABILITY IN THESE TERMS MAY NOT APPLY TO YOU.</p>
+<p>Without prejudice to the foregoing limitations of liability, and to the extent that the Services are provided to consumers (as defined under applicable law), nothing in these Terms shall exclude or limit our liability for:</p>
+<ul>
+ <li>Death or personal injury caused by our negligence, or the negligence of our employees, agents, or subcontractors, as provided under Article 1240 of the French Civil Code (<em>Code civil</em>), which establishes that any act of man which causes damage to another obliges the one by whose fault it occurred to make reparation therefor;</li>
+ <li>Fraud or fraudulent misrepresentation;</li>
+ <li>Any liability that cannot be excluded or limited under applicable law, including mandatory provisions of the French Consumer Code (<em>Code de la consommation</em>);</li>
+ <li>Damage resulting from our failure to perform our obligations under these Terms in accordance with the requirements of professional diligence.</li>
+</ul>
+<p>Furthermore, in accordance with Articles L212-1 et seq. of the French Consumer Code, the stipulations of these Terms are interpreted, applied, and performed in a manner that ensures the protection of the consumer's legitimate economic interests. Any term or condition that would have the object or effect of causing a significant imbalance in the rights and obligations of the parties to the contract arising therefrom, to the detriment of the consumer, shall be regarded as an unfair term within the meaning of Article L212-1 of the French Consumer Code and shall not be binding on the consumer, without prejudice to the application of Council Directive 93/13/EEC of 5 April 1993 on unfair terms in consumer contracts.</p>
+<p class="allcaps">OUR PROVIDERS ARE INTENDED THIRD PARTY BENEFICIARIES OF THE WARRANTY DISCLAIMERS AND LIMITATIONS OF LIABILITY CONTAINED IN THIS SECTION 11.</p>
+</div>
+
+<h2>12. General terms</h2>
+
+<div class="clause">
+<h3>Changes to the Services.</h3>
+<p>Our Services will change over time. We may sometimes add or remove features, increase or decrease capacity limits, offer new Services, or stop offering certain Services. Unless we specifically agree otherwise in a separate agreement with you, we reserve the right to modify, suspend, or discontinue the Services or your access to the Services, in whole or in part, at any time without notice to you.</p>
+</div>
+
+<div class="clause">
+<h3>Changes to these terms.</h3>
+<p>We may revise and update these Terms at our discretion. If you continue to access the Services after we post the updated Terms on PyAcademy's website or otherwise give you notice of Terms changes, then you agree to the updated Terms. If you do not accept the updated Terms, you must stop using our Services.</p>
+</div>
+
+<div class="clause">
+<h3>Supplemental terms.</h3>
+<p>We may offer Services or features that we believe require service-specific terms or guidelines. When using our Services, you agree to comply with any applicable guidelines, rules, or supplemental terms that may be posted on the Services from time to time ("Supplemental Terms").</p>
+</div>
+
+<div class="clause">
+<h3>Entire agreement.</h3>
+<p>These Terms and any other terms expressly incorporated by reference form the entire agreement between you and us regarding the subject matter of our Terms.</p>
+</div>
+
+<div class="clause">
+<h3>Termination.</h3>
+<p>You may stop accessing the Services at any time. We may suspend or terminate your access to the Services (including any Subscriptions) at any time without notice to you if we believe that you have breached these Terms, or if we must do so in order to comply with law.</p>
+<p>We may also terminate your Account if you have been inactive for over a year and you do not have a paid Account.</p>
+<p>Upon termination of these Terms, a Subscription, or your access to the Services, we may at our option delete any Materials or other data associated with your Account. Sections 6 (with respect to fees outstanding as of such expiration or termination) and 9 – 12 will survive any expiration or termination of our Terms or a Subscription.</p>
+</div>
+
+<div class="clause">
+<h3>Severability.</h3>
+<p>If a particular Term or portion of these Terms is not valid or enforceable, this will have no effect on any other Terms.</p>
+</div>
+
+<div class="clause">
+<h3>No waiver.</h3>
+<p>Any delay or failure on our part to enforce a provision of these Terms is not a waiver of our right to enforce them later.</p>
+</div>
+
+<div class="clause">
+<h3>No assignment.</h3>
+<p>These Terms may not be transferred or assigned by you without our prior written consent, but may be assigned by us without restriction.</p>
+</div>
+
+<div class="clause">
+<h3>Use of our brand.</h3>
+<p>You may not, without our prior written permission, use our name, logos, or other trademarks in connection with products or services other than the Services, or in any other way that implies our affiliation, endorsement, or sponsorship. To seek permission, please email us at <a (iv) any other restricted party lists.</p>
+</div>
+
+<div class="clause">
+<h3>Legal Compliance.</h3>
+<p>We may comply with governmental, court, and law enforcement requests or requirements relating to provision or use of the Services. We reserve the right, at our sole discretion, to report information from or about you, including but not limited to Inputs, Outputs, or Actions to law enforcement.</p>
+</div>
+
+<div class="clause">
+<h3>U.S. Government Use.</h3>
+<p>The Services were developed solely at private expense and are commercial computer software and commercial computer software documentation within the meaning of the applicable Federal Acquisition Regulations and their agency supplements. Accordingly, U.S. Government users of the Services will have only those rights that are granted to all other end users of the Services pursuant to these Terms.</p>
+</div>
+
+<h2>13. In case of disputes</h2>
+
+<div class="clause">
+<h3>Equitable relief.</h3>
+<p>You agree that (a) no adequate remedy exists at law if you breach Section 3 (Use of Our Services); (b) it would be difficult to determine the damages resulting from such breach, and any such breach would cause irreparable harm; and (c) a grant of injunctive relief provides the best remedy for any such breach.</p>
+</div>
+
+<div class="clause">
+<h3>Governing law and exclusive jurisdiction.</h3>
+<p>Our Terms will be governed by, and construed and interpreted in accordance with, the laws of the State of California without giving effect to conflict of law principles. You and PyAcademy agree that any disputes arising out of or relating to these Terms will be resolved exclusively in the state or federal courts located in San Francisco, California, and you and PyAcademy submit to the personal and exclusive jurisdiction of those courts. By accessing our Services, you waive any claims that may arise under the laws of other jurisdictions.</p>
+<p>Notwithstanding the foregoing, and without prejudice to the mandatory provisions of applicable consumer protection law, the choice of law and jurisdiction set forth above shall be subject to the provisions of Regulation (EC) No 593/2008 of the European Parliament and of the Council of 17 June 2008 on the law applicable to contractual obligations (Rome I Regulation) to the extent applicable. In particular, where the consumer has their habitual residence within the European Union, Article 6 of the Rome I Regulation shall apply, providing that the consumer may not be deprived of the protection afforded by the mandatory rules of the law of the State in which the consumer has their habitual residence, notwithstanding any choice of law provisions in these Terms. Furthermore, jurisdictional matters between parties within the European Union shall be subject to the provisions of Regulation (EU) No 1215/2012 of the European Parliament and of the Council of 12 December 2012 on jurisdiction and the recognition and enforcement of judgments in civil and commercial matters (Brussels I Regulation (recast)), in particular Article 18 thereof, which provides that in matters relating to a contract concluded by a person (the consumer) for a purpose which can be regarded as outside their trade or profession, jurisdiction shall be determined by the provisions of Section 4 of Chapter II of the Brussels I Regulation, and such a consumer may bring proceedings against the other party to the contract only in the courts of the Member State in which that party is domiciled or, where applicable, in the courts of the Member State in which the consumer is domiciled.</p>
+<p>Nothing in this clause shall deprive you of the protection afforded by mandatory provisions of the law of your country of residence as a consumer within the meaning of Council Directive 93/13/EEC on unfair terms in consumer contracts.</p>
+</div>
+
+<div class="clause">
+<h3>Alternative dispute resolution.</h3>
+<p>In accordance with Directive 2013/11/EU of the European Parliament and of the Council of 21 May 2013 on alternative dispute resolution for consumer disputes (the "ADR Directive") and Commission Implementing Regulation (EU) 2013/115/EU, we inform you that you may resort to an alternative dispute resolution (ADR) entity for any dispute arising from or in connection with these Terms that cannot be resolved through our internal complaints procedure. The European Commission provides an online dispute resolution platform <a  <a href="mailto:odr@li1234.top">odr@li1234.top</a>ref="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr</a>, which provides information about ADR entities and allows you to submit a complaint electronically.</p>
+<p>We are, however, neither obliged to participate in dispute resolution proceedings before a consumer ADR entity nor willing to do so in respect of disputes arising under these Terms, unless required to do so under applicable law or where a different outcome has been agreed in a binding manner.</p>
+</div>
+
+</div>
+</div>
+
+<!-- ==================== CHINESE ==================== -->
+<div data-lang="zh">
+<div class="hero">
+ <h1>消费者服务条款</h1>
+ <p class="date">生效日期：2026年5月4日</p>
+ <p class="intro">欢迎使用 PyAcademy！在访问我们的服务之前，请阅读这些服务条款。</p>
+</div>
+<div class="content">
+
+<p>这些服务条款（"条款"）管辖您对 PyAcademy 平台、PyAcademy Pro 以及我们可能向个人提供的其他产品和服务的使用，以及任何相关的应用程序、软件和网站（合称"服务"）。这些条款是您与 PyAcademy（"PyAcademy"）（而非我们的提供商）之间的合同，包括我们的可接受使用政策。访问我们的服务即表示您同意这些条款。</p>
+
+<div class="note"><strong>适用法律框架。</strong>本条款在制定时已充分考虑以下适用法律渊源，并应以与之一致的方式进行解释。该等法律渊源构成了欧盟及法国共和国内数字服务提供及消费者保护的管辖法律框架：（一）欧洲议会和理事会2011年10月25日第2011/83/EU号指令，关于消费者权利，修订理事会第93/13/EEC号指令以及欧洲议会和理事会第97/7/EC号和第2002/65/EC号指令，并废止理事会第85/577/EEC号指令和第97/7/EC号指令（"欧盟消费者权利指令"）；（二）理事会1993年4月5日第93/13/EEC号指令，关于消费者合同中的不公平条款（"欧盟不公平合同条款指令"）；（三）法国《消费法典》（<em>Code de la consommation</em>，经修订），特别是关于远程合同和商业场所外缔结合同的规定；（四）欧洲议会和理事会2016年4月27日第（欧盟）2016/679号条例，关于自然人个人数据处理及此类数据自由流动的保护（"通用数据保护条例"或"GDPR"）；（五）法国《民法典》（<em>Code civil</em>，经修订）。若本条款中任何规定与适用消费者保护法律的强制性规定相抵触，应以强制性规定为准。本条款中的任何内容均不得被解释为排除或限制您根据适用消费者保护立法所享有的、不可通过合同放弃或限制的任何权利。<br><br>请阅读我们的<a href="#">隐私政策</a>，其中描述了我们如何收集和使用个人信息。<br><br>请注意：我们的<a href="#">商业服务条款</a>管辖您对任何 PyAcademy API 密钥、PyAcademy 控制台或任何其他引用商业服务条款的 PyAcademy 产品的使用。</div>
+
+<h2>1. 我们是谁。</h2>
+<div class="clause">
+<p>PyAcademy 是一个在线 Python 学习平台，致力于帮助各级学习者通过课程、教程和互动练习掌握 Python 编程。</p>
+</div>
+
+<h2>2. 账户创建和访问。</h2>
+
+<div class="clause">
+<h3>最低年龄。</h3>
+<p>您必须年满 18 岁或您所在地区同意使用服务所需的最低年龄，以较高者为准。</p>
+<p>根据法国《民法典》（<em>Code civil</em>）第388条的规定，成年年龄为十八周岁，且在不减损您所在司法管辖区适用法律的前提下，您必须已达到您居住所在国的法定成年年龄，方可创建账户并使用我们的服务。如果您为未成年人（未满18周岁），未经您的父母或法定监护人可核实的同意，您不得创建账户或使用我们的服务。</p>
+<p>根据《通用数据保护条例》（欧盟）2016/679号（"GDPR"）第8条的规定，当个人数据的处理与直接向儿童提供信息社会服务相关时，我们将取得对儿童负有父母责任之人（以下简称"父母责任人"）的同意。在儿童未满16周岁的情况下，此类处理仅在已获得父母责任人的同意或授权的前提下，且符合相关成员国法律的规定时，方为合法。在法国，根据《刑法典》（<em>Code pénal</em>）第226-4-2条的规定，已满十五周岁（15岁）的未成年人的同意可能有效；然而，对于未满16周岁的用户，在注册账户之前需要获得父母或监护人的同意。我们保留随时要求提供年龄证明和父母同意证明的权利，并保留暂停或终止任何无法令人满意地提供该等证明的账户的权利。</p>
+</div>
+
+<div class="clause">
+<h3>您的 PyAcademy 账户。</h3>
+<p>要访问我们的服务，我们可能会要求您创建一个账户。您同意提供正确、最新和完整的账户信息，并允许我们使用它来与您沟通有关我们服务的信息。</p>
+<p>您不得与任何人共享您的账户登录信息、PyAcademy API 密钥或账户凭据。您对账户下发生的所有活动负责，如果您发现任何未经授权访问您账户的情况，请立即通过发送电子邮件至 <a 服务。</h2>
+<div class="clause">
+<p>您只能按照我们的条款访问和使用我们的服务，包括我们的可接受使用政策、支持地区政策以及我们可能在服务上发布的任何指南或补充条款。</p>
+<p>您不得以以下方式访问或使用，或帮助他人访问或使用我们的服务：</p>
+<ul>
+ <li>以任何违反任何适用法律或法规的方式。</li>
+ <li>开发与我们的服务竞争的任何产品或服务，包括开发或训练任何竞争性学习平台或转售服务。</li>
+ <li>反编译、逆向工程、反汇编或以其他方式将我们的服务还原为人类可读形式，除非适用法律禁止这些限制。</li>
+ <li>以爬虫、抓取或其他方式从我们的服务中收集数据或信息，除非这些条款允许。</li>
+ <li>使用我们的服务、材料或操作来获取对任何系统或信息的未经授权访问，或欺骗任何人。</li>
+ <li>侵犯、盗用或违反知识产权或其他法律权利。</li>
+ <li>除非您通过 PyAcademy API 密钥访问我们的服务或我们其他明确允许，否则通过自动化或非人类方式访问服务。</li>
+ <li>从事任何限制或阻止任何人使用或享受我们服务的其他行为。</li>
+ <li>依赖服务、材料或操作来买卖证券或提供或接收有关证券、商品、衍生品或其他金融产品或服务的建议。</li>
+</ul>
+<p>您还不得滥用、伤害、干扰或破坏我们的服务，例如引入病毒或恶意软件、垃圾邮件或 DDoS 攻击服务，或绕过我们的任何系统或保护措施。</p>
+</div>
+
+<h2>4. 输入、输出、操作和材料。</h2>
+
+<div class="clause">
+<h3>概述。</h3>
+<p>您可以通过多种格式与我们的服务互动（我们称之为"输入"）。我们的服务可能会生成响应（我们称之为"输出"），或根据您的输入使服务代表您采取操作（我们称之为"操作"）。输入和输出统称为"材料"。</p>
+</div>
+
+<div class="clause">
+<h3>权利和责任。</h3>
+<p>您对提交给我们服务的所有输入和所有操作负责。在您与 PyAcademy 之间且在适用法律允许的范围内，您保留对提交的输入的任何权利、所有权和权益。根据您对我们条款的遵守情况，我们将我们在输出中的所有权利、所有权和权益（如有）转让给您。</p>
+</div>
+
+<div class="clause">
+<h3>依赖输出和操作。</h3>
+<p>我们的服务生成的教育内容可能并不总是准确的。当您使用我们的服务时，您确认并同意：</p>
+<ul>
+ <li>输出可能并不总是准确的，可能包含重大不准确之处。</li>
+ <li>操作可能不是无错误的，也可能不按您的预期运行。</li>
+ <li>您不应在未独立确认其准确性的情况下依赖任何输出或操作。</li>
+ <li>服务和任何输出可能不反映正确、最新或完整的信息。</li>
+ <li>输出可能包含与 PyAcademy 观点不一致的内容。</li>
+</ul>
+</div>
+
+<div class="clause">
+<h3>我们对材料的使用。</h3>
+<p>我们可能会使用材料来提供、维护和改进服务以及开发其他产品和服务，包括改进我们的课程和学习体验，除非您通过账户设置选择退出。即使您选择退出，我们也会在以下情况下使用材料：(1) 您向我们提供有关任何材料的反馈，或 (2) 您的材料被标记为需要安全审查，以提高我们检测有害内容、执行政策或推进安全研究的能力。</p>
+</div>
+
+<h2>5. 反馈</h2>
+<div class="clause">
+<p>我们重视反馈，包括改进意见和建议，或对输入的输出进行评分（"反馈"）。如果您对输入的输出进行评分——例如使用点赞/点踩图标——我们将存储相关对话作为反馈的一部分。您没有义务向我们提供反馈，但如果您这样做，您同意我们可以按我们选择的任何方式使用反馈，而无需向您支付任何义务或其他报酬。</p>
+</div>
+
+<h2>6. 订阅、费用和付款。</h2>
+
+<div class="clause">
+<h3>费用和账单。</h3>
+<p>您可能需要向我们支付费用才能访问或使用我们的服务或服务的某些功能。您负责支付定价页面上列出的适用费用，除非 PyAcademy 以书面形式另行通知您。</p>
+<p>如果您购买对我们服务或服务功能的访问权限，您必须提供完整和准确的账单信息（"支付方式"）。您同意我们可能会向支付方式收取服务上列出的任何适用费用和任何适用税款。</p>
+<p>除这些条款中明确规定的范围或法律要求外，所有付款均不可退款。</p>
+<p>在不减损前述规定的前提下，根据第2011/83/EU号指令（欧盟消费者权利指令）及法国《消费法典》（<em>Code de la consommation</em>）第L221-18条及后续条款的规定，当您签订了远程合同（包括通过我们网站缔结的合同）时，您有权自合同缔结之日起十四（14）日内无任何理由地撤回合同，且不承担除法国《消费法典》第L221-25条明确规定以外的任何费用。当您行使撤回权时，我们应退还从您处收到的所有款项，不得无故迟延，且在任何情况下不超过我们收到您的撤回决定之日起十四（14）日。我们应使用您用于初始交易的同一支付方式进行该等退款，除非您明确另有约定。</p>
+<p>我们保留拒绝或取消任何订阅订单的权利，只要我们有合理理由认为该交易具有欺诈性、支付方式未获得有效授权，或该订单的目的违反本条款或适用法律。</p>
+</div>
+
+<div class="clause">
+<h3>订阅。</h3>
+<p>要访问 PyAcademy Pro 和我们可能向个人提供的其他订阅服务，您必须先创建一个账户，然后按照我们服务上的订阅程序进行订阅。</p>
+</div>
+
+<div class="clause">
+<h3>订阅期限和自动续订。</h3>
+<p>如果您注册了付费订阅，我们或应用分发商将在每个约定的定期续订日期自动向您的支付方式收费，直到您取消。</p>
+</div>
+
+<div class="clause">
+<h3>订阅取消。</h3>
+<p>如果您通过我们的网站订阅，您可以通过我们可能通过产品提供给您的任何方法取消订阅——例如，在您的客户门户中——或通过 <a </li>
+ <li>如果您在 7 天取消期内使用了服务，我们可能会保留与已提供内容成比例的金额。</li>
+ <li>如果您更改订阅等级或取消后重新订阅，7 天取消期不会重置。</li>
+</ul>
+</div>
+
+<div class="clause">
+<h3>订阅费用。</h3>
+<p>您将为初始期限和每个后续续订期预付费用。我们有权不时更改适用于您订阅的费用。如果这些更改导致您应支付的费用增加，我们将在变更前至少 30 天通知您。</p>
+</div>
+
+<h2>7. 第三方服务和链接</h2>
+<div class="clause">
+<p>我们的服务可能会使用或与第三方内容（"第三方内容"）、服务或集成一起使用。我们不控制也不对因您使用任何第三方内容、服务和集成而产生的任何损失或损害负责。您对任何第三方内容、服务和集成的使用风险自负。</p>
+</div>
+
+<h2>8. 内容审核</h2>
+<div class="clause">
+<p>第三方内容由向我们的服务提供该内容的人员或实体负责。PyAcademy 没有义务托管或提供第三方内容。如果我们发现任何第三方内容侵犯他人的知识产权、违反这些条款或可能对 PyAcademy、我们的用户或第三方造成伤害，我们保留删除或下架部分或全部此类第三方内容的权利。</p>
+</div>
+
+<h2>9. 软件</h2>
+<div class="clause">
+<p>我们可能会在不事先通知您的情况下提供我们软件（包括我们的应用程序）（"PyAcademy 软件"）的手动或自动更新。PyAcademy 软件可能包括开源软件。</p>
+</div>
+
+<h2>10. 服务的所有权</h2>
+<div class="clause">
+<p>服务由我们及其关联公司、许可方、分销商和服务提供商（统称"提供商"）拥有、运营和提供。我们和我们的提供商保留对服务的所有各自权利、所有权和权益，包括知识产权。</p>
+</div>
+
+<h2>11. 免责声明、责任限制和赔偿</h2>
+<div class="clause">
+<p>我们的团队努力提供优质的服务，我们不断努力改进。然而，有些方面我们无法保证。我们使用全大写来解释这一点，以确保您看到。</p>
+<p class="allcaps">您对服务、材料和操作的使用完全由您自行承担风险。服务、输出和操作按"原样"和"可用"基础提供，在适用法律允许的最大范围内，不附带任何类型的保证，无论是明示的、暗示的还是法定的。我们和我们的提供商明确否认所有保证，包括对适销性、特定用途适用性、标题、准确性、可用性、可靠性、安全性、隐私、兼容性、不侵权的保证，以及由交易过程、履约过程或贸易使用暗示的任何保证。</p>
+<p class="allcaps">在适用法律允许的最大范围内，在任何情况下，我们、我们的提供商或其各自关联公司、投资者、董事、高级职员、员工、代理人、继承人或受让人（统称"PYACADEMY 方"）均不对因服务、材料、操作或这些条款引起的或与之相关的任何直接、间接、惩罚性、附带、特殊、后果性、示范性或其他损害承担责任，无论是否基于合同、侵权（包括过失）、严格责任或其他理论，即使任何 PYACADEMY 方已被告知损害的可能性，即使损害是可预见的。</p>
+<p class="allcaps">在适用法律允许的最大范围内，PYACADEMY 方对您因服务、材料、操作或这些条款引起的或与之相关的所有损害、损失和诉讼原因的总赔偿责任不超过您在该损害、损失和诉讼原因首次发生前六个月内为访问或使用服务支付的金额（如有），且不低于 100 美元。</p>
+<p class="allcaps">您同意赔偿并使 PYACADEMY 方免受因您违反或涉嫌违反这些条款；您对服务、材料或操作的访问、使用或涉嫌使用；您的反馈；您使用或以其他方式与服务相关的开发、提供或以其他方式提供的任何产品或服务；您违反适用法律或任何第三方权利；以及您或您的员工或代理人实施的任何实际或涉嫌欺诈、故意不当行为、重大过失或犯罪行为而引起的任何和所有责任、索赔、损害、费用（包括合理的律师费和成本）和其他损失。</p>
+<p class="allcaps">某些司法管辖区的法律不允许否认暗示保证或某些类型的损害，因此这些条款中的部分或全部免责声明和责任限制可能不适用于您。</p>
+<p>在不减损前述责任限制的前提下，且在适用法律所定义的服务向消费者提供的情况下，本条款中的任何内容均不排除或限制我们在以下情况下的责任：</p>
+<ul>
+ <li>因我们的过失或我们的雇员、代理人或分包商的过失导致的死亡或人身伤害，根据法国《民法典》（<em>Code civil</em>）第1240条的规定，任何人因自身行为对他人造成损害的，应由有过错之人承担赔偿责任；</li>
+ <li>欺诈或欺诈性失实陈述；</li>
+ <li>根据适用法律（包括法国《消费法典》的强制性规定）不得排除或限制的任何责任；</li>
+ <li>因我们未能按照专业审慎要求履行本条款项下义务而造成的损害。</li>
+</ul>
+<p>此外，根据法国《消费法典》（<em>Code de la consommation</em>）第L212-1条及后续条款的规定，本条款的条文应以确保保护消费者合法经济利益的方式进行解释、适用和执行。任何旨在或导致合同当事方权利和义务之间产生重大失衡且损害消费者利益的条款或条件，均应被视为法国《消费法典》第L212-1条所规定的不公平条款，对消费者不具有约束力，且不影响理事会1993年4月5日第93/13/EEC号关于消费者合同中不公平条款的指令的适用。</p>
+<p class="allcaps">我们的提供商是本第 11 节中包含的免责声明和责任限制的预期第三方受益人。</p>
+</div>
+
+<h2>12. 一般条款</h2>
+
+<div class="clause">
+<h3>服务的变更。</h3>
+<p>我们的服务将随时间变化。我们有时可能会添加或删除功能，增加或减少容量限制，提供新服务，或停止提供某些服务。除非我们在单独的协议中与您另有约定，否则我们保留随时修改、暂停或终止服务或您对服务的访问的权利，全部或部分，恕不另行通知。</p>
+</div>
+
+<div class="clause">
+<h3>这些条款的变更。</h3>
+<p>我们可能会自行决定修订和更新这些条款。如果您在我们在 PyAcademy 网站上发布更新后的条款或以其他方式通知您条款变更后继续访问服务，则您同意更新后的条款。如果您不接受更新后的条款，您必须停止使用我们的服务。</p>
+</div>
+
+<div class="clause">
+<h3>补充条款。</h3>
+<p>我们可能会提供我们认为需要特定服务条款或指南的服务或功能。使用我们的服务时，您同意遵守我们可能不时在服务上发布的任何适用指南、规则或补充条款（"补充条款"）。</p>
+</div>
+
+<div class="clause">
+<h3>完整协议。</h3>
+<p>这些条款和任何其他明确通过引用纳入的条款构成了您和我们之间关于条款主题事项的完整协议。</p>
+</div>
+
+<div class="clause">
+<h3>终止。</h3>
+<p>您可以随时停止访问服务。如果我们认为您违反了这些条款，或者我们必须这样做以遵守法律，我们可以随时暂停或终止您对服务（包括任何订阅）的访问，恕不另行通知。</p>
+<p>如果您超过一年不活跃且没有付费账户，我们也可以终止您的账户。</p>
+<p>终止这些条款、订阅或您对服务的访问后，我们可以自行选择删除与您账户关联的任何材料或其他数据。第 6 节（关于到期或终止时未支付的费用）和第 9-12 节将在我们的条款或订阅到期或终止后继续有效。</p>
+</div>
+
+<div class="clause">
+<h3>可分割性。</h3>
+<p>如果这些条款的某个特定条款无效或不可执行，这不会影响任何其他条款。</p>
+</div>
+
+<div class="clause">
+<h3>弃权。</h3>
+<p>我们延迟或未能执行这些条款的任何规定并不构成我们以后执行它们的权利的放弃。</p>
+</div>
+
+<div class="clause">
+<h3>不可转让。</h3>
+<p>未经我们事先书面同意，您不得转让或转让这些条款，但我们可以不受限制地转让。</p>
+</div>
+
+<div class="clause">
+<h3>品牌使用。</h3>
+<p>未经我们事先书面许可，您不得将我们的名称、徽标或其他商标与服务以外的产品或服务一起使用，或以任何暗示我们关联、认可或赞助的其他方式使用。要寻求许可，请通过 <a 件文档。因此，服务的美国政府用户仅享有根据这些条款授予所有其他服务最终用户的权利。</p>
+</div>
+
+<h2>13. 争议处理</h2>
+
+<div class="clause">
+<h3>衡平法救济。</h3>
+<p>您同意 (a) 如果您违反第 3 节（使用我们的服务），法律上没有充分的补救措施；(b) 很难确定由此违约造成的损害，任何此类违约都会造成不可弥补的损害；(c) 授予禁令救济为任何此类违约提供了最佳补救措施。</p>
+</div>
+
+<div class="clause">
+<h3>适用法律和专属管辖权。</h3>
+<p>我们的条款将受加利福尼亚州法律管辖，不给予法律选择原则效力。您和 PyAcademy 同意，因这些条款引起的或与之相关的任何争议将仅在加利福尼亚州旧金山的州或联邦法院解决，您和 PyAcademy 服从这些法院的个人和专属管辖权。访问我们的服务即表示您放弃可能根据其他司法管辖区法律提出的任何索赔。</p>
+<p>尽管有上述规定，且在不减损适用消费者保护法律强制性规定的前提下，上述法律选择和管辖权的选择应受第（欧共体）593/2008号条例——欧洲议会和理事会2008年6月17日关于合同义务法律适用的第（欧共体）593/2008号条例（罗马I条例）的规定的约束（如适用）。特别是，当消费者惯常居所在欧盟境内时，应适用罗马I条例第6条，该条规定消费者不得被剥夺其惯常居所地国家强制性法律所提供的保护，无论本条款中有任何法律选择条款。此外，欧盟境内当事方之间的管辖权事项应受第（欧盟）1215/2012号条例——欧洲议会和理事会2012年12月12日关于民商事案件管辖权及判决的承认与执行的第（欧盟）1215/2012号条例（重订版布鲁塞尔I条例）的规定的约束，特别是其第18条，该条规定在涉及一方当事人（消费者）为其贸易或职业以外目的而缔结的合同的争议中，管辖权应由重订版布鲁塞尔I条例第二章第四节的规定确定，且该消费者只能在对方当事人所在地的成员国法院或在消费者所在地的成员国法院对合同另一方提起诉讼。</p>
+<p>本条中的任何内容均不得剥夺您作为理事会第93/13/EEC号关于消费者合同中不公平条款指令所定义的消费者而获得的、根据您惯常居所地国家强制性法律所提供的保护。</p>
+</div>
+
+<div class="clause">
+<h3>替代性争议解决。</h3>
+<p>根据欧洲议会和理事会2013年5月21日第2013/11/EU号关于消费者争议的替代性争议解决的指令（"ADR指令"）及第（欧盟）2013/115/EU号实施条例的规定，我们告知您，对于因本条款引起的或与之相关的、且无法通过我们的内部投诉程序解决的争议，您可以诉诸替代性争议解决（ADR）机构。欧盟委员会提供了一个在线争议解决平台，网址为 <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr</a>，该平台提供有关 ADR 机构的信息并允许您电子方式提交投诉。</p>
+<p>然而，除非适用法律另有要求或已以具有约束力的方式另行约定，我们既无义务也无意参与在消费者 ADR 机构面前就本条款项下产生的争议进行的争议解决程序。</p>
+</div>
+
+</div>
+</div>
+
+<div class="highlight"><p><strong>Supplementary Legal Provisions / 附则A</strong></p><p><strong>A.1 DPO:</strong> <a href="mailto:dpo@li1234.top">dpo@li1234.top</a>. GDPR Art.37. PyAcademy SAS, 12 Rue de la Paix, 75002 Paris, France.</p><p><strong>A.2 Principles:</strong> GDPR Art.5 - lawfulness, purpose limitation, data minimisation, accuracy, storage limitation, integrity/confidentiality, accountability.</p><p><strong>A.3 Cross-border:</strong> GDPR Art.44-49 - SCCs, BCRs, adequacy decisions.</p><p><strong>A.4 CNIL Complaint:</strong> GDPR Art.77 - CNIL, 3 Place de Fontenoy, TSA 80715, 75334 Paris Cedex 07. +33 1 53 73 22 22. cnil.fr</p><p><strong>A.5 Automated Decisions:</strong> GDPR Art.22 - right not to be subject to solely automated decisions.</p><p><strong>A.6 Legal Bases:</strong> GDPR Art.6(1) - consent, contract, legal obligation, public interest, legitimate interests.</p><p><strong>A.7 CNIL Compliance:</strong> Loi n° 78-17 (Informatique et Libertés), CNIL Deliberation 2020-091, ePrivacy Directive 2002/58/EC.</p><p><strong>A.8 Consumer:</strong> Code de la consommation L111-1 to L111-7 (info obligations), L221-18 to L221-28 (withdrawal), L212-1 (unfair terms), L616-1 (mediation), L217-1 to L217-15 (digital content), L215-1 to L215-3 (renewal). EU Directive 2011/83/EU, 93/13/EEC, 2019/770.</p><p><strong>A.9 Contact:</strong> Legal: <a href="mailto:legal@li1234.top">legal@li1234.top</a>. DPO: <a href="mailto:dpo@li1234.top">dpo@li1234.top</a>. PyAcademy SAS, 12 Rue de la Paix, 75002 Paris, France.</p></div>
+    <footer>
+ <div class="footer-inner">
+ <div class="footer-links">
+ <a href="https://www.li1234.com" data-lang="en">Home</a>
+ <a href="https://www.li1234.com" data-lang="zh">首页</a>
+ <a href="https://www.li1234.com" data-lang="en">Consumer Terms</a>
+ <a href="https://www.li1234.com" data-lang="zh">消费者条款</a>
+ </div>
+ <p class="footer-copy">&copy; 2026 PyAcademy. All rights reserved.</p>
+ </div>
+</footer>
+
+<script type="ba9827718c0438e019d6ef30-text/javascript">
+function switchLang(lang) {
+    document.body.classList.toggle('zh', lang === 'zh');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+}
+</script>
+
+
+</body>
+</html>

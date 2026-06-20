@@ -1,0 +1,425 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Account Penalties and Appeals Guide – PyAcademy</title>
+ <style>
+ @font-face { font-family: 'AnthropicSerif'; src: url('AnthropicSerif-Romans-Variable-25x258.ttf') format('truetype'); font-weight: 100 900; font-style: normal; font-display: swap; }
+ *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'AnthropicSerif', 'Georgia', serif; color: #1a1a1a; background: #fff; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+ nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid #eaeaea; padding: 0 24px; }
+ .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+ .nav-logo { font-size: 18px; font-weight: 700; color: #1a1a1a; text-decoration: none; letter-spacing: -0.02em; }
+ .nav-logo span { color: #d97706; }
+ .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+ .nav-links a { font-size: 14px; font-weight: 500; color: #666; text-decoration: none; transition: color 0.2s; }
+ .nav-links a:hover { color: #1a1a1a; }
+ .lang-divider { width: 1px; height: 16px; background: #ddd; }
+ .lang-btn { font-size: 13px; font-weight: 500; color: #888; padding: 4px 10px; border: 1px solid #ddd; border-radius: 6px; transition: all 0.2s; cursor: pointer; background: none; }
+ .lang-btn:hover { color: #1a1a1a; border-color: #aaa; }
+ .lang-btn.active { color: #d97706; border-color: #d97706; background: #fffbeb; }
+ .hero { padding: 80px 24px 48px; max-width: 1200px; margin: 0 auto; }
+ .hero h1 { font-size: 42px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 16px; }
+ .hero .date { font-size: 15px; color: #888; margin-bottom: 24px; }
+ .hero .intro { font-size: 17px; color: #444; max-width: 720px; line-height: 1.8; }
+ .content { max-width: 760px; margin: 0 auto; padding: 24px 24px 120px; }
+ .content h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin-top: 48px; margin-bottom: 16px; color: #1a1a1a; }
+ .content h3 { font-size: 16px; font-weight: 600; margin-top: 28px; margin-bottom: 10px; color: #1a1a1a; }
+ .content p { font-size: 15px; line-height: 1.8; color: #333; margin-bottom: 14px; }
+ .content ul { margin-bottom: 14px; padding-left: 20px; }
+ .content li { font-size: 15px; line-height: 1.8; color: #333; margin-bottom: 8px; }
+ .content a { color: #d97706; text-decoration: underline; text-underline-offset: 2px; transition: color 0.2s; }
+ .content a:hover { color: #b45309; }
+ .content .note { font-size: 14px; color: #666; background: #f9f9f9; border-left: 3px solid #d97706; padding: 16px 20px; margin: 24px 0; border-radius: 0 6px 6px 0; }
+ .content .highlight { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 20px 24px; margin: 24px 0; }
+ .content table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; }
+ .content th { background: #f5f5f5; font-weight: 600; text-align: left; padding: 12px 16px; border-bottom: 2px solid #e0e0e0; }
+ .content td { padding: 12px 16px; border-bottom: 1px solid #eee; vertical-align: top; line-height: 1.6; }
+ .content tr:last-child td { border-bottom: none; }
+ .content .card { background: #fafafa; border: 1px solid #eee; border-radius: 8px; padding: 20px 24px; margin: 20px 0; }
+ .content .card-title { font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+ .content .card-title.warning { color: #d97706; }
+ .content .card-title.danger { color: #ef4444; }
+ .content .card-title.info { color: #3b82f6; }
+ .content .card-title.success { color: #22c55e; }
+ footer { border-top: 1px solid #eaeaea; padding: 48px 24px; text-align: center; }
+ .footer-inner { max-width: 1200px; margin: 0 auto; }
+ .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; flex-wrap: wrap; }
+ .footer-links a { font-size: 13px; color: #888; text-decoration: none; transition: color 0.2s; }
+ .footer-links a:hover { color: #1a1a1a; }
+ .footer-copy { font-size: 13px; color: #aaa; }
+ [[data-lang="zh"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh [data-lang="en"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh [[data-lang="zh"] { display: block; }
+ span[[data-lang="zh"], a[[data-lang="zh"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh span[data-lang="en"], body.zh a[data-lang="en"] { display: none; }
+body.zh [data-lang="zh"] { display: block; }
+        body.zh span[data-lang="zh"], body.zh a[data-lang="zh"] { display: inline; }
+                span[data-lang], a[data-lang] { display: none; }
+ body.zh span[[data-lang="zh"], body.zh a[[data-lang="zh"] { display: inline; }
+ @media (max-width: 640px) { .hero h1 { font-size: 28px; } .hero { padding: 48px 16px 32px; } .content { padding: 16px 16px 80px; } .nav-links { gap: 16px; } }
+ html { scroll-behavior: smooth; }
+ ::selection { background: #fde68a; color: #1a1a1a; }
+ </style>
+</head>
+<body>
+
+<nav><div class="nav-inner">
+ <a href="https://www.li1234.com" class="nav-logo">Py<span>Academy</span></a>
+ <ul class="nav-links">
+ <li><a href="https://www.li1234.com" data-lang="en">Home</a><a href="https://www.li1234.com" data-lang="zh">首页</a></li>
+ <li><div class="lang-divider"></div></li>
+ <li><button class="lang-btn active" id="btn-en" onclick="switchLang('en')">EN</button><button class="lang-btn" id="btn-zh" onclick="switchLang('zh')">中文</button></li>
+ </ul>
+</div></nav>
+
+<!-- ==================== ENGLISH ==================== -->
+<div data-lang="en">
+<div class="hero">
+ <h1>Account Penalties and Appeals Guide</h1>
+ <p class="date">Effective Date: May 4, 2026</p>
+ <p class="intro">This guide describes the penalty system PyAcademy uses to enforce our Community Guidelines, and the process you can follow if you believe a penalty was applied in error.</p>
+</div>
+<div class="content">
+
+<div class="highlight">
+ <strong>Legal Basis and Regulatory Framework:</strong> This penalty and appeals framework is adopted pursuant to, and shall be interpreted in accordance with, the following regulatory instruments: Regulation (EU) 2022/2065 of the European Parliament and of the Council of 14 October 2022 on a Single Market For Digital Services (the "Digital Services Act" or "DSA"), in particular Articles 14 through 20 thereof concerning the obligations of hosting service providers, transparency requirements, and mechanisms for notice-and-action and internal complaint-handling; Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data (the "General Data Protection Regulation" or "GDPR"), with particular regard to the principles of data processing set forth in Articles 5 and 6 and the rights of data subjects under Articles 15 through 22; the French Civil Code (<em>Code civil</em>), including but not limited to provisions governing good faith performance of contracts and liability in tort; and the French Consumer Code (<em>Code de la consommation</em>), in particular provisions relating to unfair commercial practices, consumer information rights, and the right to effective remedy. All enforcement actions taken pursuant to this guide shall comply with the fundamental rights and freedoms guaranteed by the Charter of Fundamental Rights of the European Union, including the right to freedom of expression (Article 11) and the right to an effective remedy and a fair trial (Article 47).
+</div>
+
+<h2>1. Purpose of the Penalty System</h2>
+<p>The penalty system exists to protect the PyAcademy community. Its purpose is not to punish, but to maintain a respectful, safe, and productive learning environment for all users. Enforcement actions are proportionate to the severity and frequency of the violation, and PyAcademy aims to give users the opportunity to correct their behavior before imposing more severe penalties.</p>
+
+<h2>2. How Violations Are Identified</h2>
+<p>Violations may be identified through:</p>
+<ul>
+ <li>Reports from other community members using the "Report" button or email</li>
+ <li>Automated detection systems that flag potentially harmful content</li>
+ <li>Reviews conducted by PyAcademy's moderation team as part of routine platform oversight</li>
+ <li>Requests from law enforcement or regulatory authorities where legally required</li>
+</ul>
+<p>Every flagged item is reviewed by a trained member of PyAcademy's Trust & Safety team before any action is taken.</p>
+<p>The notice-and-action mechanisms employed by PyAcademy are established in accordance with Article 16 of the DSA, which requires hosting service providers to act in a timely, diligent, and non-arbitrary manner upon obtaining actual knowledge of, or being in possession of facts or circumstances from which it is apparent that, illegal content exists on their platform. All notices submitted by third parties are evaluated against the criteria set forth in Article 16(2) of the DSA to determine whether they contain sufficient information to enable the provider to identify the content at issue. Furthermore, in compliance with Article 20 of the DSA, PyAcademy maintains an internal complaint-handling mechanism that enables any affected recipient of a decision to contest such decisions, including decisions based on the provider's terms and conditions where they go beyond the obligations imposed by Union or national law.</p>
+
+<h2>3. Penalty Tiers</h2>
+<p>Penalties are applied on a graduated scale based on the nature and frequency of the violation. In accordance with the principle of proportionality enshrined in Article 14(3) of the DSA, each penalty imposed shall be tailored to the specific circumstances of the case and shall not exceed what is strictly necessary and proportionate to achieve the objective of ensuring compliance with PyAcademy's terms and conditions and applicable law. The assessment of proportionality takes into account the interests involved, the potential consequences for the user, and the possibility of achieving the same objective through less restrictive measures.</p>
+
+<div class="card">
+<div class="card-title warning">Level 1: Warning</div>
+<p>A formal notification informing you that your behavior has violated our Community Guidelines and must stop immediately. A warning is recorded on your account but does not restrict your access to any features. Warnings are typically issued for:</p>
+<ul>
+ <li>First-time minor violations (e.g., off-topic posting, mild language issues)</li>
+ <li>Unintentional breaches of community standards (e.g., accidental posting of duplicate content, inadvertent misuse of formatting tools)</li>
+ <li>Content that requires minor adjustments to meet guidelines (e.g., posts lacking proper citation, incomplete code snippets in discussion threads)</li>
+ <li>Minor infractions of discussion etiquette, such as derailing a thread topic or making comments that are tangential to the course material</li>
+ <li>Inadvertent sharing of information that, while not harmful, does not conform to the platform's academic integrity standards</li>
+</ul>
+</div>
+
+<div class="card">
+<div class="card-title warning">Level 2: Content Removal</div>
+<p>The offending content is removed from the platform. You will receive a notification explaining which content was removed and why. Content removal is typically issued for:</p>
+<ul>
+ <li>Posts, comments, or submissions that violate specific community guidelines (e.g., posting content in the wrong forum section, sharing links to external resources that conflict with the platform's academic integrity policy)</li>
+ <li>Sharing complete assignment solutions that circumvent the learning process (e.g., posting full source code for graded exercises, providing test cases intended for personal assessment completion)</li>
+ <li>Content containing inappropriate, harmful, or inaccurate information (e.g., misleading technical guidance that could damage users' computing environments, content promoting unsafe coding practices)</li>
+ <li>Excessive self-promotion or off-topic content (e.g., unsolicited advertising of external services, repeated cross-posting of the same promotional material across multiple course forums)</li>
+ <li>Unauthorized redistribution of course materials, including recordings of live sessions, proprietary datasets, or supplementary learning resources distributed under a restricted license</li>
+ <li>Content that violates applicable intellectual property rights, including unauthorized reproduction of third-party copyrighted material</li>
+</ul>
+</div>
+
+<div class="card">
+<div class="card-title danger">Level 3: Temporary Suspension</div>
+<p>Restricted access to specific community features (such as forums, discussions, or course interactions) for a defined period. Full access to course content and materials is generally maintained. Temporary suspension is typically issued for:</p>
+<ul>
+ <li>Repeated violations after a prior warning (e.g., persistent off-topic posting after receipt of a Level 1 warning, continued sharing of assessment solutions after prior content removal)</li>
+ <li>Harassment or discriminatory behavior toward other users (e.g., targeted personal attacks, persistent unwanted contact, use of demeaning or degrading language in forum interactions)</li>
+ <li>Academic dishonesty or impersonation (e.g., submitting work attributed to another person, misrepresenting qualifications or credentials, using automated tools to complete assessments in a manner that violates the platform's academic integrity policy)</li>
+ <li>Spamming or persistent disruptive conduct (e.g., repeated posting of irrelevant or unsolicited content, automated or semi-automated posting that degrades the quality of community interactions)</li>
+ <li>Deliberate circumvention of content restrictions or temporary limitations imposed by moderators</li>
+ <li>Campaigns of coordinated disruptive behavior designed to undermine course instruction or community discourse</li>
+</ul>
+<p>Duration of temporary suspensions typically ranges from 7 to 30 days depending on severity.</p>
+</div>
+
+<div class="card">
+<div class="card-title danger">Level 4: Permanent Ban</div>
+<p>Complete removal from the PyAcademy platform. All account data is retained as required by law but access is permanently revoked. A permanent ban is reserved for:</p>
+<ul>
+ <li>Severe violations such as threats, doxxing, or illegal activity (e.g., credible threats of violence, publishing another person's private identifying information without consent, any conduct that constitutes a criminal offense under applicable law)</li>
+ <li>Repeated violations after multiple prior penalties (e.g., a pattern of escalating misconduct despite progressive enforcement actions, demonstrating persistent disregard for community standards)</li>
+ <li>Creation of accounts to circumvent a prior suspension or ban (e.g., registering new accounts using alternate credentials to evade enforcement measures, assisting others in circumventing account restrictions)</li>
+ <li>Distribution of malware, phishing attempts, or security exploits (e.g., distributing malicious code, executing phishing campaigns targeting fellow learners, exploiting platform vulnerabilities for unauthorized access)</li>
+ <li>Content that sexualizes or exploits minors in any form</li>
+ <li>Conduct that poses an imminent threat to the safety of other users or the integrity of the platform's infrastructure</li>
+ <li>Systematic or organized activities designed to manipulate platform metrics, grades, or certification processes</li>
+</ul>
+</div>
+
+<h2>4. Factors Considered in Determining Penalties</h2>
+<p>When determining the appropriate penalty, PyAcademy considers the following factors:</p>
+<ul>
+ <li><strong>Severity of the violation:</strong> How harmful was the behavior to other users or the community?</li>
+ <li><strong>Frequency:</strong> Is this a first offense or a repeated pattern of behavior?</li>
+ <li><strong>Intent:</strong> Was the violation willful and deliberate, or accidental?</li>
+ <li><strong>Impact:</strong> How many users were affected, and to what degree?</li>
+ <li><strong>Cooperation:</strong> Did the user respond constructively when contacted about the issue?</li>
+ <li><strong>Remediation:</strong> Has the user taken steps to correct the behavior?</li>
+</ul>
+<p>In accordance with Article 14(4) of the DSA, where PyAcademy decides to impose a restriction on content, a suspension of access, or any other non-consensual measure, the statement of reasons provided to the affected user shall include, at a minimum: (a) the facts and circumstances relied upon, including a reference to the specific terms and conditions or legal provisions concerned; (b) the redress mechanisms available to the recipient of the service, including internal complaint-handling as provided for in Article 20 of the DSA and the right to an effective remedy before a court of law under Article 47 of the Charter of Fundamental Rights of the European Union; and (c) the means, including the technology used, by which the provider identifies and assesses the content. Furthermore, pursuant to Article 15 of the DSA, PyAcademy shall provide clear, specific, and easily comprehensible notice to any affected user of any content moderation decision, and shall maintain and publish regular transparency reports detailing the scope, nature, and outcomes of its content moderation activities, including aggregate statistical data on notices received, decisions taken, and complaints processed.</p>
+
+<h2>5. Impact of Penalties on Your Account</h2>
+
+<table>
+ <thead>
+ <tr><th style="width:25%">Penalty Level</th><th>Course Access</th><th>Community Features</th><th>Certificates</th></tr>
+ </thead>
+ <tbody>
+ <tr><td>Warning</td><td>Full access</td><td>Full access</td><td>No impact</td></tr>
+ <tr><td>Content Removal</td><td>Full access</td><td>Full access</td><td>No impact</td></tr>
+ <tr><td>Temporary Suspension</td><td>Full access</td><td>Restricted</td><td>No impact</td></tr>
+ <tr><td>Permanent Ban</td><td>Revoked</td><td>Revoked</td><td>Revoked</td></tr>
+ </tbody>
+</table>
+
+<p>When content you submitted for a course assessment is removed for a guideline violation, the affected assessment may need to be retaken. However, your course progress and previously earned grades are not penalized for content removal actions.</p>
+
+<h2>6. Appeals Process</h2>
+
+<h3>6.1. Right to Appeal</h3>
+<p>Every user has the right to appeal a moderation decision they believe was made in error. This right is established in accordance with Article 20 of the DSA, which requires hosting service providers to put in place effective, efficient, and transparent internal complaint-handling mechanisms to enable any recipient of their service to contest decisions related to measures taken on the basis of the provider's terms and conditions. Filing an appeal does not change your current penalty status while under review, except where the penalty would cause irreparable harm to the user's ability to access services already paid for, in which case a provisional stay may be considered pursuant to Article 20(2) of the DSA.</p>
+
+<h3>6.2. How to File an Appeal</h3>
+<p>To appeal a penalty, send an email <a  <a href="mailto:contact@li1234.top">contact@li1234.top</a>u believe were misapplied or misinterpreted</li>
+ <li>Whether you have exhausted the internal complaint-handling process under Article 20 of the DSA, if the appeal concerns a decision under the provider's terms and conditions</li>
+</ul>
+<p>Upon receipt of your appeal, PyAcademy shall acknowledge receipt and provide you with a unique reference number for tracking purposes. The acknowledgment shall include the name of the reviewing officer and the estimated timeline for a final decision.</p>
+
+<h3>6.3. Appeal Timeline</h3>
+<p>PyAcademy will process appeals according to the following timeline:</p>
+<ol>
+ <li><strong>Acknowledgment:</strong> We will confirm receipt of your appeal within 2 business days</li>
+ <li><strong>Preliminary Assessment:</strong> Within 5 business days of receipt, the appeals team will conduct a preliminary assessment to determine whether the appeal falls within scope and contains sufficient information for a substantive review. If additional information is required, a request will be issued within this period with a deadline of 10 business days for the user's response.</li>
+ <li><strong>Review:</strong> A different member of the Trust & Safety team (not the person who made the original decision) will conduct a full, independent review of your appeal. This review shall include an examination of all evidence on file, the applicable terms and conditions, and the statements of reasons provided in accordance with Article 14(4) of the DSA.</li>
+ <li><strong>Decision:</strong> You will receive a written decision within 10 business days of submission. The decision shall set out the reasons for the outcome in accordance with Article 20(1) of the DSA, including the facts and circumstances established, the measures adopted, and the redress mechanisms available.</li>
+ <li><strong>Implementation:</strong> If your appeal is upheld, the penalty will be reversed within 3 business days of the decision, and any affected content will be restored to its original state. The reversal shall be recorded in the platform's moderation logs.</li>
+</ol>
+<p>Where PyAcademy is unable to reach a decision within the above timeframes, it shall notify the appellant in writing of the reasons for the delay and provide a revised timeline.</p>
+
+<h3>6.4. Appeal Decisions</h3>
+<p>After reviewing your appeal, PyAcademy may:</p>
+<ul>
+ <li><strong>Uphold the original decision:</strong> The penalty stands as issued. The decision letter will set out the grounds on which the original decision is confirmed.</li>
+ <li><strong>Reduce the penalty:</strong> The penalty is downgraded to a less severe tier (e.g., permanent ban reduced to temporary suspension). The reduced penalty shall reflect a reassessment of proportionality in light of the circumstances presented.</li>
+ <li><strong>Reverse the decision:</strong> The penalty is fully removed from your account, and any associated restrictions on content or access shall be lifted immediately.</li>
+</ul>
+<p>The appeal decision is final. Filing multiple appeals for the same incident is not permitted. However, should new and material evidence come to light that was not available during the original appeal, you may submit a request for reconsideration within 30 calendar days of the appeal decision.</p>
+
+<h3>6.5. Out-of-Court Dispute Settlement</h3>
+<p>Without prejudice to the internal appeal process described above, and in accordance with Article 21 of the DSA, you may at any time seek out-of-court dispute settlement through a certified out-of-court dispute settlement body designated under Article 21(1) of the DSA. PyAcademy shall engage in good faith with any such proceedings initiated by a recipient of its service.</p>
+<p>Additionally, in compliance with Article L616-1 of the French Consumer Code (<em>Code de la consommation</em>), any consumer may, free of charge, submit a complaint concerning a dispute arising from an online purchase contract or a contract for the provision of digital services to a designated consumer mediator. The contact details of the mediator competent for PyAcademy's services are as follows:</p>
+<div class="note">
+ <strong>Consumer Mediation:</strong> Pursuant to Article L616-1 of the French Consumer Code and EU Directive 2013/11/EU on alternative dispute resolution for consumer disputes, users classified as consumers under applicable law may refer any dispute to the relevant consumer mediation body free of charge. PyAcademy undertakes to provide the identity and contact details of the designated mediator upon request.
+</div>
+<p>Users who are residents of the European Union may also use the European Commission's Online Dispute Resolution (ODR) platform, accessible <a  <a href="mailto:accounts@li1234.top">accounts@li1234.top</a>ref="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">https://ec.europa.eu/consumers/odr</a>, to submit a complaint and initiate alternative dispute resolution proceedings.</p>
+
+<h2>7. Account Restoration</h2>
+<p>For temporary suspensions, full access is automatically restored once the suspension period expires. You will receive an email notification when your account is restored.</p>
+<p>For permanent bans, in exceptional circumstances a user may request an account restoration review one year after the ban was imposed by emailing <a -cfemail="">[email&#160;protected]</span></a>.</p>
+<p>In compliance with Article 15 of the DSA, PyAcademy shall publish clear, specific, and easily comprehensible reports on content moderation activities at least once a year, and make them publicly available in a machine-readable format. These transparency reports shall include, at a minimum: (a) the number of notices submitted under Article 16 of the DSA and the actions taken in response; (b) the number of internal complaints received under Article 20 of the DSA, the categories of complaints, and the time taken to process them; (c) aggregate statistical data on content moderation decisions, including those taken on the provider's own initiative, and the redress mechanisms invoked; (d) the means, including the technology and tools, deployed by the provider for the purpose of detecting and identifying illegal content, as well as the human oversight mechanisms in place; and (e) any challenges brought before courts or out-of-court dispute settlement bodies and their outcomes.</p>
+<p>PyAcademy's transparency reports are prepared in accordance with the standardised reporting templates, where available, as provided for by the Commission delegated acts under Article 15(6) of the DSA.</p>
+
+<h2>9. Changes to This Guide</h2>
+<p>PyAcademy reserves the right to update this guide at any time. Material changes will be communicated via email or through a prominent notice on our platform. The version of this guide in effect at the time of the violation will be applied to any pending or future enforcement actions.</p>
+
+<h2>10. Contact</h2>
+<p>For questions about account penalties or the appeals process:</p>
+<ul>
+ <li>General moderation inquiries: <a href="mailto:contact@li1234.top">contact@li1234.top</a> rnative dispute resolution for consumer disputes (the "ADR Directive"). This Directive entitles you to submit a complaint to a certified alternative dispute resolution (ADR) entity in the event of a dispute concerning a contract for the provision of digital services. Furthermore, in accordance with Article L616-1 of the French Consumer Code and Article L612-1 thereof, you have the right to submit a consumer complaint free of charge to the relevant consumer mediator designated by PyAcademy. The identity and contact details of the designated consumer mediator shall be made available to you upon request and are accessible through the PyAcademy platform. These rights are without prejudice to any other rights or remedies available to you under applicable law, including the right to bring proceedings before a court of competent jurisdiction pursuant to Article 47 of the Charter of Fundamental Rights of the European Union.
+</div>
+
+</div>
+</div>
+<div data-lang="zh">
+<div class="hero">
+ <h1>账户处罚与申诉标准</h1>
+ <p class="date">生效日期：2026年5月4日</p>
+ <p class="intro">本指南描述了 PyAcademy 为执行社区公约而使用的处罚体系，以及当您认为处罚有误时可以遵循的申诉流程。</p>
+</div>
+<div class="content">
+
+<div class="highlight">
+ <strong>法律依据与监管框架：</strong>本处罚和申诉框架系根据以下法规制定，并应据此解释：欧洲议会和理事会第 (EU) 2022/2065 号条例（2022年10月14日）——《数字服务法》（DSA），特别是其中第14条至第20条关于托管服务提供商义务、透明度要求以及通知-行动和内部投诉处理机制的规定；欧洲议会和理事会第 (EU) 2016/679 号条例（2016年4月27日）——《通用数据保护条例》（GDPR），特别是第5条和第6条规定的处理原则以及第15条至第22条规定的数据主体权利；《法国民法典》（<em>Code civil</em>）中关于合同善意履行和侵权责任的条款；以及《法国消费者法典》（<em>Code de la consommation</em>）中关于不公平商业行为、消费者信息权和获得有效救济权的相关规定。依据本指南采取的一切执法行动均应遵守《欧盟基本权利宪章》所保障的基本权利和自由，包括言论自由权（第11条）和获得有效救济及公平审判权（第47条）。
+</div>
+
+<h2>1. 处罚体系的目的</h2>
+<p>处罚体系旨在保护 PyAcademy 社区。其目的不是惩罚，而是为所有用户维护一个尊重、安全和高效的学习环境。执法行动与违规行为的严重程度和频率成比例，PyAcademy 旨在让用户有机会在施加更严厉处罚之前纠正其行为。</p>
+
+<h2>2. 如何识别违规</h2>
+<p>违规行为可能通过以下方式被识别：</p>
+<ul>
+ <li>社区成员使用"举报"按钮或电子邮件进行举报</li>
+ <li>标记潜在有害内容的自动检测系统</li>
+ <li>PyAcademy 的审核团队在日常平台监督中进行的审查</li>
+ <li>法律或监管机构在法律要求下的请求</li>
+</ul>
+<p>每一个被标记的项目在采取任何行动之前，都由 PyAcademy 信任与安全团队的培训成员进行审查。</p>
+<p>PyAcademy 采用的通知-行动机制系根据 DSA 第16条设立，该条要求托管服务提供商在实际知悉或持有事实或情形表明平台上存在非法内容时，以及时、审慎和非任意的方式采取行动。所有由第三方提交的通知均根据 DSA 第16条第2款规定的标准进行评估，以确定其是否包含足以使提供商识别相关内容的充分信息。此外，根据 DSA 第20条，PyAcademy 维护内部投诉处理机制，使任何受影响的决策接收者均能对该等决策提出异议，包括基于提供商条款和条件（超出欧盟或国内法所规定义务范围的）而作出的决策。</p>
+
+<h2>3. 处罚等级</h2>
+<p>处罚根据违规行为的性质和频率按等级递进适用。根据 DSA 第14条第3款所确立的比例原则，每项处罚应根据案件的具体情况进行量身定制，不得超过确保 PyAcademy 条款和条件以及适用法律合规性所严格必要和相称的范围。比例性的评估考虑所涉利益、对用户的潜在影响，以及是否可以通过限制性较小的措施实现相同目标。</p>
+
+<div class="card">
+<div class="card-title warning">第一级：警告</div>
+<p>一份正式通知，告知您的行为违反了我们的社区公约，并且必须立即停止。警告记录在您的账户上，但不会限制您对任何功能的访问。警告通常针对以下情况发出：</p>
+<ul>
+ <li>首次轻微违规（如发帖偏离主题、轻微的语言问题）</li>
+ <li>无意违反社区标准（如意外发布重复内容、误用格式化工具）</li>
+ <li>内容需要小幅调整以符合准则（如帖子缺少适当引用、讨论帖中不完整的代码片段）</li>
+ <li>轻微违反讨论礼仪，如偏离帖文主题或发表与课程材料无关的评论</li>
+ <li>无意发布虽无害但不符合平台学术诚信标准的信息</li>
+</ul>
+</div>
+
+<div class="card">
+<div class="card-title warning">第二级：内容删除</div>
+<p>违规内容从平台移除。您将收到通知，说明哪些内容被移除以及原因。内容删除通常针对以下情况：</p>
+<ul>
+ <li>违反特定社区准则的帖子、评论或提交（如在错误的论坛板块发布内容、分享与平台学术诚信政策冲突的外部资源链接）</li>
+ <li>分享完整的作业解决方案以绕过学习过程（如发布分级练习的完整源代码、提供旨在完成个人评估的测试用例）</li>
+ <li>包含不当、有害或不准确信息的内容（如可能损害用户计算环境的误导性技术指导、推广不安全编码实践的内容）</li>
+ <li>过度自我推销或偏离主题的内容（如未经请求地推广外部服务、在同一课程论坛中多次重复发布相同的推广材料）</li>
+ <li>未经授权再分发课程材料，包括直播课程录音、专有数据集或在限制性许可下分发的补充学习资源</li>
+ <li>侵犯适用知识产权的内容，包括未经授权复制第三方受版权保护的材料</li>
+</ul>
+</div>
+
+<div class="card">
+<div class="card-title danger">第三级：临时暂停</div>
+<p>在规定期限内限制访问特定社区功能（如论坛、讨论或课程互动）。通常仍可访问课程内容和材料。临时暂停通常针对以下情况：</p>
+<ul>
+ <li>在先前警告后重复违规（如在收到一级警告后持续发布偏离主题的内容、在先前内容删除后继续分享评估解决方案）</li>
+ <li>对其他用户的骚扰或歧视行为（如有针对性的人身攻击、持续的不当联系、在论坛互动中使用贬损或侮辱性语言）</li>
+ <li>学术不端或冒充他人（如提交归属于他人的作品、伪造资历或证书、以违反平台学术诚信政策的方式使用自动化工具完成评估）</li>
+ <li>发送垃圾信息或持续的破坏性行为（如反复发布无关或未经请求的内容、降低社区互动质量的自动化或半自动化发布）</li>
+ <li>蓄意规避版主施加的内容限制或临时限制</li>
+ <li>蓄意破坏课程教学或社区讨论的协调性破坏行为</li>
+</ul>
+<p>临时暂停的期限通常为 7 到 30 天，视严重程度而定。</p>
+</div>
+
+<div class="card">
+<div class="card-title danger">第四级：永久封禁</div>
+<p>完全从 PyAcademy 平台移除。所有账户数据将依法保留，但访问权限将被永久撤销。永久封禁保留用于：</p>
+<ul>
+ <li>严重违规行为，如威胁、人肉搜索或非法活动（如可信的暴力威胁、未经同意发布他人的私密身份信息、构成适用法律下刑事犯罪的任何行为）</li>
+ <li>在多次先前处罚后重复违规（如在渐进式执法行动后仍持续升级的不当行为，表现出对社区标准持续无视）</li>
+ <li>创建账户以规避先前的暂停或封禁（如使用替代凭据注册新账户以逃避执法措施、协助他人规避账户限制）</li>
+ <li>分发恶意软件、钓鱼尝试或安全漏洞利用（如分发恶意代码、针对其他学员实施钓鱼活动、利用平台漏洞获取未授权访问）</li>
+ <li>以任何方式将未成年人性化或剥削的内容</li>
+ <li>对其他用户安全或平台基础设施完整性构成迫在眉睫威胁的行为</li>
+ <li>旨在操纵平台指标、成绩或认证流程的系统性或有组织活动</li>
+</ul>
+</div>
+
+<h2>4. 确定处罚时考虑的因素</h2>
+<p>在确定适当的处罚时，PyAcademy 考虑以下因素：</p>
+<ul>
+ <li><strong>违规的严重程度：</strong>该行为对其他用户或社区造成了多大伤害？</li>
+ <li><strong>频率：</strong>这是初犯还是重复的行为模式？</li>
+ <li><strong>意图：</strong>违规是故意和蓄意的，还是无意的？</li>
+ <li><strong>影响：</strong>有多少用户受到影响，影响程度如何？</li>
+ <li><strong>配合度：</strong>当被联系讨论该问题时，用户是否做出了建设性的回应？</li>
+ <li><strong>补救：</strong>用户是否已采取措施纠正行为？</li>
+</ul>
+<p>根据 DSA 第14条第4款，当 PyAcademy 决定对内容实施限制、暂停访问或采取任何其他非自愿措施时，向受影响用户提供的理由说明应至少包含：(a) 所依据的事实和情形，包括对所涉具体条款和条件或法律条款的引用；(b) 服务接收者可用的补救机制，包括根据 DSA 第20条规定的内部投诉处理和根据《欧盟基本权利宪章》第47条在法院获得有效救济的权利；以及 (c) 提供商用以识别和评估内容的手段和技术。此外，根据 DSA 第15条，PyAcademy 应向任何受影响用户提供清晰、具体和易于理解的内容审核决定通知，并应维护和发布定期透明度报告，详细说明其内容审核活动的范围、性质和结果，包括所收到通知、所作决定和所处理投诉的汇总统计数据。</p>
+
+<h2>5. 处罚对您账户的影响</h2>
+
+<table>
+ <thead>
+ <tr><th style="width:25%">处罚等级</th><th>课程访问</th><th>社区功能</th><th>证书</th></tr>
+ </thead>
+ <tbody>
+ <tr><td>警告</td><td>完全访问</td><td>完全访问</td><td>无影响</td></tr>
+ <tr><td>内容删除</td><td>完全访问</td><td>完全访问</td><td>无影响</td></tr>
+ <tr><td>临时暂停</td><td>完全访问</td><td>受限</td><td>无影响</td></tr>
+ <tr><td>永久封禁</td><td>撤销</td><td>撤销</td><td>撤销</td></tr>
+ </tbody>
+</table>
+
+<p>当您为课程评估提交的内容因违反准则而被移除时，受影响的评估可能需要重新完成。但是，您之前的课程进度和已获得的成绩不会因内容删除操作而受到处罚。</p>
+
+<h2>6. 申诉流程</h2>
+
+<h3>6.1. 申诉权</h3>
+<p>每位用户都有权对认为有误的管理决定提出申诉。该权利根据 DSA 第20条设立，该条要求托管服务提供商设立有效、高效和透明的内部投诉处理机制，使其服务的任何接收者能够就基于提供商条款和条件而采取的措施所作的决定提出异议。提交申诉不会改变您当前在审查期间的处罚状态，但如果处罚会导致用户已付费服务的不可逆转的损害，根据 DSA 第20条第2款的规定，可考虑给予临时中止执行。</p>
+
+<h3>6.2. 如何提交申诉</h3>
+<p>要对处罚提出申诉，请发送电子邮件至 <a href="mailto:contact@li1234.top">contact@li1234.top</a> rong>我们将在 2 个工作日内确认收到您的申诉</li>
+ <li><strong>初步评估：</strong>收到后 5 个工作日内，申诉团队将进行初步评估，以确定申诉是否在范围内并包含进行实质性审查所需的充分信息。如需补充信息，将在该期限内发出要求，用户应在 10 个工作日内回复。</li>
+ <li><strong>审查：</strong>信任与安全团队的另一位成员（非做出原始决定的人）将对您的申诉进行完整的独立审查。该审查应包括对案卷中所有证据、适用条款和条件以及根据 DSA 第14条第4款提供的理由说明的审查。</li>
+ <li><strong>决定：</strong>您将在提交后 10 个工作日内收到书面决定。根据 DSA 第20条第1款的规定，决定应列出调查结果的理由，包括所确定的事实和情形、所采取的措施以及可用的补救机制。</li>
+ <li><strong>执行：</strong>如果您的申诉被支持，处罚将在决定作出后 3 个工作日内被撤销，任何受影响的内容将恢复到原始状态。撤销应记录在平台的审核日志中。</li>
+</ol>
+<p>如 PyAcademy 无法在上述期限内作出决定，应书面通知申诉人延迟原因并提供修订后的时间表。</p>
+
+<h3>6.4. 申诉决定</h3>
+<p>审查您的申诉后，PyAcademy 可能会：</p>
+<ul>
+ <li><strong>维持原决定：</strong>处罚照原样执行。决定函将列出确认原决定的理由。</li>
+ <li><strong>降低处罚：</strong>处罚降级为较轻的等级（如永久封禁降为临时暂停）。减轻后的处罚应根据所呈现的情况重新评估比例性。</li>
+ <li><strong>撤销决定：</strong>处罚完全从您的账户中移除，任何相关的内容或访问限制应立即解除。</li>
+</ul>
+<p>申诉决定为最终决定。不允许对同一事件提交多次申诉。但是，如果在原始申诉期间不可用的新实质证据出现，您可以在申诉决定作出后 30 个日历日内提交重新审议请求。</p>
+
+<h3>6.5. 法庭外争议解决</h3>
+<p>在不影响上述内部申诉程序的前提下，根据 DSA 第21条，您可以随时通过根据 DSA 第21条第1款指定的经认证的法庭外争议解决机构寻求法庭外争议解决。PyAcademy 应善意参与由其服务接收者发起的任何此类程序。</p>
+<p>此外，根据《法国消费者法典》第 L616-1 条的规定，任何消费者均可免费将因在线购买合同或数字服务提供合同引起的争议提交至指定的消费者调解机构。PyAcademy 服务管辖的调解机构联系信息如下：</p>
+<div class="note">
+ <strong>消费者调解：</strong>根据《法国消费者法典》第 L616-1 条和欧盟关于消费者争议替代解决的第 2013/11/EU 号指令，被归类为适用法律下消费者的用户可免费将任何争议提交至相关的消费者调解机构。PyAcademy 承诺在收到请求后提供指定调解员的身份和联系方式。
+</div>
+<p>欧盟居民用户还可以使用欧盟委员会的在线争议解决（ODR）平台（访问地址：<a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">https://ec.europa.eu/consumers/odr</a>）提交投诉并启动替代争议解决程序。</p>
+
+<h2>7. 账户恢复</h2>
+<p>对于临时暂停，一旦暂停期满，将自动恢复完全访问权限。当您的账户恢复时，您将收到电子邮件通知。</p>
+<p>对于永久封禁，在特殊情况下，用户可以在封禁实施一年后通过发送电子邮件至 <a 汇总统计数据，包括由提供方自行采取的决定以及所援引的补救机制；(d) 提供方为检测和识别非法内容而部署的手段（包括技术和工具）以及所实施的人工监督机制；以及 (e) 向法院或法庭外争议解决机构提出的质疑及其结果。</p>
+<p>PyAcademy 的透明度报告按照 DSA 第15条第6款委员会授权法案提供的标准化报告模板编制（如可用）。</p>
+
+<h2>9. 本指南的变更</h2>
+<p>PyAcademy 保留随时更新本指南的权利。重大变更将通过电子邮件或平台上的显著通知进行沟通。违规发生时有效的本指南版本将适用于任何未决或未来的执法行动。</p>
+
+<h2>10. 联系方式</h2>
+<p>有关账户处罚或申诉流程的问题：</p>
+<ul>
+ <li>一般管理查询：<a 联系方式应根据您的要求提供，并可通过 PyAcademy 平台获取。这些权利不影响您根据适用法律享有的任何其他权利或救济，包括根据《欧盟基本权利宪章》第47条向有管辖权的法院提起诉讼的权利。
+</div>
+
+</div>
+</div>
+
+<div class="highlight"><p><strong>Supplementary Legal Provisions / 附则A</strong></p><p><strong>A.1 DPO:</strong> <a href="mailto:dpo@li1234.top">dpo@li1234.top</a>. GDPR Art.37. PyAcademy SAS, 12 Rue de la Paix, 75002 Paris, France.</p><p><strong>A.2 Principles:</strong> GDPR Art.5 - lawfulness, purpose limitation, data minimisation, accuracy, storage limitation, integrity/confidentiality, accountability.</p><p><strong>A.3 Cross-border:</strong> GDPR Art.44-49 - SCCs, BCRs, adequacy decisions.</p><p><strong>A.4 CNIL Complaint:</strong> GDPR Art.77 - CNIL, 3 Place de Fontenoy, TSA 80715, 75334 Paris Cedex 07. +33 1 53 73 22 22. cnil.fr</p><p><strong>A.5 Automated Decisions:</strong> GDPR Art.22 - right not to be subject to solely automated decisions.</p><p><strong>A.6 Legal Bases:</strong> GDPR Art.6(1) - consent, contract, legal obligation, public interest, legitimate interests.</p><p><strong>A.7 CNIL Compliance:</strong> Loi n° 78-17 (Informatique et Libertés), CNIL Deliberation 2020-091, ePrivacy Directive 2002/58/EC.</p><p><strong>A.8 Consumer:</strong> Code de la consommation L111-1 to L111-7 (info obligations), L221-18 to L221-28 (withdrawal), L212-1 (unfair terms), L616-1 (mediation), L217-1 to L217-15 (digital content), L215-1 to L215-3 (renewal). EU Directive 2011/83/EU, 93/13/EEC, 2019/770.</p><p><strong>A.9 Contact:</strong> Legal: <a href="mailto:legal@li1234.top">legal@li1234.top</a>. DPO: <a href="mailto:dpo@li1234.top">dpo@li1234.top</a>. PyAcademy SAS, 12 Rue de la Paix, 75002 Paris, France.</p></div>
+    <footer><div class="footer-inner">
+ <div class="footer-links">
+ <a href="https://www.li1234.com" data-lang="en">Home</a><a href="https://www.li1234.com" data-lang="zh">首页</a>
+ <a href="https://www.li1234.com" data-lang="en">Account Penalties</a><a href="https://www.li1234.com" data-lang="zh">账户处罚</a>
+ </div>
+ <p class="footer-copy">&copy; 2026 PyAcademy. All rights reserved.</p>
+</div></footer>
+
+<script type="9e50a797a98411e9fe233040-text/javascript">
+function switchLang(lang) {
+    document.body.classList.toggle('zh', lang === 'zh');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,487 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Cookie Policy – PyAcademy</title>
+ <style>
+ @font-face {
+ font-family: 'AnthropicSerif';
+ src: url('AnthropicSerif-Romans-Variable-25x258.ttf') format('truetype');
+ font-weight: 100 900;
+ font-style: normal;
+ font-display: swap;
+ }
+ *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'AnthropicSerif', 'Georgia', 'Times New Roman', serif; color: #1a1a1a; background: #fff; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+ nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid #eaeaea; padding: 0 24px; }
+ .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+ .nav-logo { font-family: 'AnthropicSerif', 'Georgia', serif; font-size: 18px; font-weight: 700; color: #1a1a1a; text-decoration: none; letter-spacing: -0.02em; }
+ .nav-logo span { color: #d97706; }
+ .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+ .nav-links a { font-family: 'AnthropicSerif', 'Georgia', serif; font-size: 14px; font-weight: 500; color: #666; text-decoration: none; transition: color 0.2s; }
+ .nav-links a:hover { color: #1a1a1a; }
+ .nav-links .lang-divider { width: 1px; height: 16px; background: #ddd; }
+ .lang-btn { font-family: 'AnthropicSerif', 'Georgia', serif; font-size: 13px; font-weight: 500; color: #888; padding: 4px 10px; border: 1px solid #ddd; border-radius: 6px; transition: all 0.2s; cursor: pointer; background: none; }
+ .lang-btn:hover { color: #1a1a1a; border-color: #aaa; }
+ .lang-btn.active { color: #d97706; border-color: #d97706; background: #fffbeb; }
+ .hero { padding: 80px 24px 48px; max-width: 1200px; margin: 0 auto; }
+ .hero h1 { font-size: 48px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 16px; }
+ .hero .date { font-size: 15px; color: #888; margin-bottom: 32px; }
+ .hero .intro { font-size: 17px; color: #444; max-width: 720px; line-height: 1.8; }
+ .content { max-width: 760px; margin: 0 auto; padding: 24px 24px 120px; }
+ .content h2 { font-size: 24px; font-weight: 700; letter-spacing: -0.02em; margin-top: 56px; margin-bottom: 20px; color: #1a1a1a; }
+ .content h3 { font-size: 17px; font-weight: 600; margin-top: 32px; margin-bottom: 12px; color: #1a1a1a; }
+ .content p { font-size: 15px; line-height: 1.8; color: #333; margin-bottom: 16px; }
+ .content ul, .content ol { margin-bottom: 16px; padding-left: 20px; }
+ .content li { font-size: 15px; line-height: 1.8; color: #333; margin-bottom: 8px; }
+ .content a { color: #d97706; text-decoration: underline; text-underline-offset: 2px; transition: color 0.2s; }
+ .content a:hover { color: #b45309; }
+ .content .note { font-size: 14px; color: #666; background: #f9f9f9; border-left: 3px solid #d97706; padding: 16px 20px; margin: 24px 0; border-radius: 0 6px 6px 0; }
+ .content .section-ref { font-size: 13px; color: #888; font-style: italic; margin-bottom: 16px; }
+ .legal-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; }
+ .legal-table th { background: #f5f5f5; font-weight: 600; text-align: left; padding: 12px 16px; border-bottom: 2px solid #e0e0e0; }
+ .legal-table td { padding: 12px 16px; border-bottom: 1px solid #eee; vertical-align: top; line-height: 1.6; }
+ .legal-table tr:last-child td { border-bottom: none; }
+ footer { border-top: 1px solid #eaeaea; padding: 48px 24px; text-align: center; }
+ .footer-inner { max-width: 1200px; margin: 0 auto; }
+ .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; flex-wrap: wrap; }
+ .footer-links a { font-size: 13px; color: #888; text-decoration: none; transition: color 0.2s; }
+ .footer-links a:hover { color: #1a1a1a; }
+ .footer-copy { font-size: 13px; color: #aaa; }
+ [[data-lang="zh"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh [data-lang="en"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh [[data-lang="zh"] { display: block; }
+ body.zh span[data-lang="en"], body.zh a[data-lang="en"] { display: none; }
+body.zh [data-lang="zh"] { display: block; }
+        body.zh span[data-lang="zh"], body.zh a[data-lang="zh"] { display: inline; }
+                span[data-lang], a[data-lang] { display: none; }
+ body.zh span[[data-lang="zh"], body.zh a[[data-lang="zh"] { display: inline; }
+ span[[data-lang="zh"], a[[data-lang="zh"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ @media (max-width: 640px) {
+ .hero h1 { font-size: 32px; }
+ .hero { padding: 48px 16px 32px; }
+ .content { padding: 16px 16px 80px; }
+ .nav-links { gap: 16px; }
+ .legal-table { font-size: 12px; }
+ .legal-table th, .legal-table td { padding: 8px 10px; }
+ }
+ </style>
+</head>
+<body>
+ <nav>
+ <div class="nav-inner">
+ <a href="https://www.li1234.com" class="nav-logo">Py<span>Academy</span></a>
+ <div class="nav-links">
+ <a href="https://www.li1234.com" data-lang="en">Home</a>
+ <a href="https://www.li1234.com" data-lang="zh">首页</a>
+ <div class="lang-divider"></div>
+ <button class="lang-btn active" id="btn-en" onclick="switchLang('en')">EN</button>
+ <button class="lang-btn" id="btn-zh" onclick="switchLang('zh')">中文</button>
+ </div>
+ </div>
+ </nav>
+
+ <div class="hero">
+ <h1 data-lang="en">Cookie Policy</h1>
+ <h1 data-lang="zh">Cookie 使用政策</h1>
+ <p class="date" data-lang="en">Effective Date: May 31, 2026</p>
+ <p class="date" data-lang="zh">生效日期：2026年5月31日</p>
+ <p class="intro" data-lang="en">This Cookie Policy explains how PyAcademy ("we," "us," or "our"), acting as the data controller, uses cookies, web beacons, pixels, local storage, and similar tracking technologies (collectively, "Cookies") when you access, browse, or use our website at https://www.li1234.com and any associated subdomains, mobile applications, or online services (collectively, the "Platform"). This Policy is drafted in compliance with the European Union General Data Protection Regulation (EU) 2016/679 ("GDPR"), the ePrivacy Directive 2002/58/EC (as amended by Directive 2009/136/EC), the French Data Protection Act of January 6, 1978 (Loi n° 78-17, as amended by Loi n° 2004-801 and Ordinance n° 2011-1012), and the relevant guidelines and recommendations issued by the Commission Nationale de l'Informatique et des Libertés ("CNIL").</p>
+ <p class="intro" data-lang="zh">本 Cookie 使用政策（以下简称"本政策"）旨在说明 PyAcademy（以下简称"我们"、"我方"或"本平台"）在您访问、浏览或使用我们的网站 https://www.li1234.com 及其关联子域名、移动应用程序或在线服务（以下统称"平台"）时，如何使用 Cookie、网络信标、像素标签、本地存储及类似追踪技术（以下统称"Cookie"）。本政策系依据欧洲联盟《通用数据保护条例》（欧盟）2016/679号（"GDPR"）、《电子隐私指令》2002/58/EC（经2009/136/EC指令修订）、法国1978年1月6日《数据保护法》（第78-17号法律，经第2004-801号法律及第2011-1012号法令修订）以及法国国家信息与自由委员会（"CNIL"）发布的相关指南和建议而制定。</p>
+ </div>
+
+ <div class="content">
+
+ <div data-lang="en">
+ <h2>1. What Are Cookies?</h2>
+ <p>Cookies are small text files, typically consisting of letters and numbers, that are placed on your device (computer, tablet, smartphone, or other internet-enabled device) when you visit a website. Cookies are widely used to make websites function correctly, to improve efficiency, to provide reporting information, and to assist with personalization and advertising.</p>
+ <p>Cookies may be set by the website you are visiting ("first-party cookies") or by third-party services that appear on our pages ("third-party cookies"). Cookies can be "session cookies" (which are deleted when you close your browser) or "persistent cookies" (which remain on your device for a predetermined period of time or until you delete them manually).</p>
+ <p>In addition to traditional HTTP cookies, we may use similar technologies including, but not limited to:</p>
+ <ul>
+ <li><strong>Web beacons (pixel tags/clear GIFs):</strong> Tiny transparent graphic images embedded in web pages or emails that allow us to count users who have visited particular pages or opened particular emails.</li>
+ <li><strong>Local storage (HTML5):</strong> A mechanism that allows websites to store data locally within the user's browser, similar to cookies but with a larger storage capacity.</li>
+ <li><strong>Session storage:</strong> Similar to local storage but data is cleared when the browser session ends.</li>
+ <li><strong>JavaScript tags:</strong> Snippets of code embedded in web pages that collect information about user interactions.</li>
+ <li><strong>ETags (entity tags):</strong> HTTP cache validators that may be used for browser fingerprinting purposes.</li>
+ </ul>
+ <p>For the purposes of this Policy, all such technologies are collectively referred to as "Cookies" unless otherwise specified.</p>
+
+ <h2>2. Legal Basis for Using Cookies</h2>
+ <p class="section-ref">Pursuant to Article 5(3) of the ePrivacy Directive 2002/58/EC and the corresponding provisions of the French Data Protection Act (Article 82 of the Loi n° 78-17), the storage of or access to information on a user's terminal equipment is only permitted on the condition that the user concerned has given their consent, having been provided with clear and comprehensive information in accordance with the GDPR.</p>
+ <p>When you first visit our Platform, we present you with a cookie consent banner that allows you to make an informed choice about which categories of Cookies you wish to accept. We will not set any non-essential Cookies on your device until you have provided your affirmative consent through this mechanism. This approach is in accordance with the strict interpretation of the consent requirement by the CNIL and the European Data Protection Board ("EDPB"), which requires that consent be:</p>
+ <ul>
+ <li><strong>Freely given:</strong> Consent must not be a precondition for accessing the service where access is not contingent upon the processing of data (per Article 7(4) GDPR). We do not employ "cookie walls" that block access to our Platform for users who decline non-essential Cookies.</li>
+ <li><strong>Specific:</strong> Consent must be given for each specific purpose of data processing. We obtain separate consent for each category of Cookie (functional, analytics, advertising).</li>
+ <li><strong>Informed:</strong> Users must receive clear and comprehensive information about the purposes of the Cookies, the types of data collected, the retention periods, and the identity of the data controllers and third parties (per Articles 13 and 14 GDPR).</li>
+ <li><strong>Unambiguous:</strong> Consent must result from a clear affirmative action, such as ticking a checkbox or clicking an "Accept" button. Pre-ticked boxes or implied consent are not acceptable (see CJEU Case C-673/17, <em>Planet49</em>, Judgment of 1 October 2019).</li>
+ <li><strong>Revocable:</strong> Users must be able to withdraw their consent at any time, as easily as it was to give consent (per Article 7(3) GDPR). We provide a persistent "Cookie Settings" link accessible from every page of our Platform.</li>
+ </ul>
+ <div class="note">
+ <strong>Note:</strong> In accordance with CNIL Deliberation No. 2020-091 of September 17, 2020 (as amended), certain strictly necessary Cookies that are essential for the functioning of the Platform are exempt from the consent requirement. These include Cookies required for user authentication, security, session management, and the proper delivery of the service requested by the user.
+ </div>
+
+ <h2>3. Categories of Cookies We Use</h2>
+
+ <h3>3.1 Strictly Necessary Cookies</h3>
+ <p>These Cookies are essential for the operation of our Platform and cannot be deactivated in our systems. They are set in response to actions you take, such as setting your privacy preferences, logging in, or filling in forms. These Cookies do not collect information about you that could be used for marketing purposes or for remembering your internet browsing activity across other websites. These Cookies are strictly necessary within the meaning of Article 5(3) of the ePrivacy Directive and do not require your consent.</p>
+ <table class="legal-table">
+ <thead><tr><th>Cookie Name</th><th>Purpose</th><th>Type</th><th>Retention</th></tr></thead>
+ <tbody>
+ <tr><td>session_id</td><td>Maintains user session state across page requests, including authentication, security verification, and load balancing.</td><td>Session</td><td>Duration of browser session; deleted upon closure.</td></tr>
+ <tr><td>csrf_token</td><td>Prevents cross-site request forgery attacks by validating the cryptographic origin of form submissions.</td><td>Session</td><td>Duration of browser session.</td></tr>
+ <tr><td>auth_token</td><td>Authenticates logged-in users and maintains secure access to their accounts. Contains an encrypted, signed JWT that expires after a defined inactivity period.</td><td>Persistent</td><td>30 days from last activity, or until user logs out.</td></tr>
+ <tr><td>cookie_consent</td><td>Records the user's cookie consent preferences to ensure compliance with their choices across sessions.</td><td>Persistent</td><td>365 days from date of consent.</td></tr>
+ <tr><td>language_pref</td><td>Stores the user's selected language preference (English or Chinese) for the Platform interface.</td><td>Persistent</td><td>365 days.</td></tr>
+ <tr><td>load_balancer</td><td>Distributes incoming traffic across multiple servers to ensure Platform availability and performance.</td><td>Session</td><td>Duration of session.</td></tr>
+ <tr><td>security_cookie</td><td>Detects malicious activity and mitigates automated attacks such as credential stuffing and DDoS.</td><td>Session</td><td>Duration of session or up to 24 hours.</td></tr>
+ </tbody>
+ </table>
+
+ <h3>3.2 Functional Cookies</h3>
+ <p>Functional Cookies enable enhanced functionality and personalization, such as remembering your preferences, language settings, display preferences, and region selection. If you do not allow these Cookies, some or all of the Platform's services may not function properly. These Cookies require your prior consent before being placed on your device.</p>
+ <table class="legal-table">
+ <thead><tr><th>Cookie Name</th><th>Purpose</th><th>Type</th><th>Retention</th></tr></thead>
+ <tbody>
+ <tr><td>ui_preferences</td><td>Stores user interface preferences such as font size, dark mode, code editor theme, and layout customization.</td><td>Persistent</td><td>365 days.</td></tr>
+ <tr><td>course_progress</td><td>Remembers the user's current position in a course or lesson sequence for seamless continuation upon return visits.</td><td>Persistent</td><td>180 days.</td></tr>
+ <tr><td>recent_courses</td><td>Maintains a list of recently accessed courses for quick navigation on the dashboard.</td><td>Persistent</td><td>90 days.</td></tr>
+ <tr><td>code_editor_state</td><td>Preserves the state of the in-browser Python code editor, including cursor position, open files, and unsaved drafts.</td><td>Session / Local Storage</td><td>Duration of session or up to 72 hours.</td></tr>
+ <tr><td>notification_prefs</td><td>Records user preferences for in-platform notification types and frequency.</td><td>Persistent</td><td>365 days.</td></tr>
+ </tbody>
+ </table>
+
+ <h3>3.3 Analytics / Performance Cookies</h3>
+ <p>Analytics Cookies allow us to count visits and traffic sources so we can measure and improve the performance of our Platform. They help us understand which pages are the most and least popular and see how visitors move around the Platform. All information collected by these Cookies is aggregated and therefore anonymous. If you do not allow these Cookies, we will not know when you have visited our Platform and will not be able to monitor its performance. These Cookies require your prior consent.</p>
+ <table class="legal-table">
+ <thead><tr><th>Cookie Name</th><th>Provider</th><th>Purpose</th><th>Type</th><th>Retention</th></tr></thead>
+ <tbody>
+ <tr><td>_ga</td><td>Google Analytics</td><td>Distinguishes unique users by assigning a randomly generated number. Used to calculate visitor, session, and campaign data.</td><td>Persistent</td><td>2 years.</td></tr>
+ <tr><td>_ga_&lt;id&gt;</td><td>Google Analytics 4</td><td>Maintains session state for Google Analytics 4 reporting purposes.</td><td>Persistent</td><td>2 years.</td></tr>
+ <tr><td>_gid</td><td>Google Analytics</td><td>Distinguishes users and tracks page views within a 24-hour window.</td><td>Persistent</td><td>24 hours.</td></tr>
+ <tr><td>_gat</td><td>Google Analytics</td><td>Used to throttle request rate to limit data collection on high-traffic sites.</td><td>Session</td><td>1 minute.</td></tr>
+ <tr><td>_hjSessionUser_&lt;id&gt;</td><td>Hotjar</td><td>Tracks user behavior and interaction patterns through session recording and heatmaps to improve UX.</td><td>Persistent</td><td>365 days.</td></tr>
+ <tr><td>_hjSession_&lt;id&gt;</td><td>Hotjar</td><td>Groups page views within a single browsing session for Hotjar analytics.</td><td>Session</td><td>30 minutes.</td></tr>
+ <tr><td>ph_&lt;project_token&gt;</td><td>PostHog</td><td>Collects anonymized product analytics data including feature usage, event tracking, and session recordings.</td><td>Persistent</td><td>1 year.</td></tr>
+ </tbody>
+ </table>
+
+ <h3>3.4 Advertising / Targeting Cookies</h3>
+ <p>Advertising Cookies are used to deliver advertisements that are relevant to you and your interests. They are also used to limit the number of times you see an advertisement and to help measure the effectiveness of advertising campaigns. These Cookies are usually placed by third-party advertising networks with our permission. They remember that you have visited a website and this information is shared with other organizations such as advertisers. If you do not allow these Cookies, you will not experience targeted advertising. These Cookies require your prior consent.</p>
+ <table class="legal-table">
+ <thead><tr><th>Cookie Name</th><th>Provider</th><th>Purpose</th><th>Type</th><th>Retention</th></tr></thead>
+ <tbody>
+ <tr><td>_fbp</td><td>Meta (Facebook)</td><td>Delivers, measures, and improves the relevancy of advertisements by tracking browsing behavior across websites.</td><td>Persistent</td><td>90 days.</td></tr>
+ <tr><td>_fbc</td><td>Meta (Facebook)</td><td>Stores the last Facebook ad click identifier to attribute conversions to specific ad campaigns.</td><td>Persistent</td><td>90 days.</td></tr>
+ <tr><td>IDE</td><td>Google (DoubleClick)</td><td>Used for serving targeted advertisements and remarketing across the Google Display Network.</td><td>Persistent</td><td>13 months.</td></tr>
+ <tr><td>NID</td><td>Google</td><td>Stores preferences and other information such as preferred language, number of search results per page, and activation of Google's SafeSearch filter.</td><td>Persistent</td><td>6 months.</td></tr>
+ <tr><td>test_cookie</td><td>Google (DoubleClick)</td><td>Used to check whether the user's browser supports cookies.</td><td>Session</td><td>15 minutes.</td></tr>
+ </tbody>
+ </table>
+
+ <h2>4. Third-Party Cookies and Providers</h2>
+ <p>Some Cookies on our Platform are placed by third-party service providers. We work with the following categories of third parties:</p>
+ <ul>
+ <li><strong>Analytics providers:</strong> Google Analytics (Google LLC), Hotjar (Hotjar Ltd.), and PostHog (PostHog, Inc.) — these providers help us understand how our Platform is used. Where required, we have entered into Data Processing Agreements ("DPAs") with each provider in accordance with Article 28 GDPR. Google Analytics is configured with IP anonymization enabled, and data is transmitted to Google servers in the United States only where adequate safeguards are in place (Standard Contractual Clauses approved by the European Commission pursuant to Article 46(2)(c) GDPR).</li>
+ <li><strong>Advertising partners:</strong> Meta Platforms Ireland Limited and Google Ireland Limited — these partners help us deliver relevant advertisements and measure campaign effectiveness. Data transfers to the United States are governed by the EU-U.S. Data Privacy Framework and/or Standard Contractual Clauses.</li>
+ <li><strong>Infrastructure providers:</strong> Cloudflare, Inc. — provides content delivery network (CDN) services and security features. Cloudflare's cookies are strictly necessary for Platform security and performance.</li>
+ </ul>
+ <p>Each third-party provider has its own privacy and cookie policy. We encourage you to review these policies directly. A comprehensive list of our current sub-processors is available upon request by contacting our Data Protection Officer.</p>
+
+ <h2>5. How to Manage and Control Cookies</h2>
+ <p>You have the right to decide whether to accept or reject Cookies (except strictly necessary Cookies). You can exercise your cookie preferences through the following mechanisms:</p>
+
+ <h3>5.1 Our Cookie Consent Banner</h3>
+ <p>When you first visit our Platform, a cookie consent banner is displayed, allowing you to accept or reject each category of non-essential Cookies. You may modify your preferences at any time by clicking the "Cookie Settings" link located in the footer of every page on our Platform.</p>
+
+ <h3>5.2 Browser Settings</h3>
+ <p>Most web browsers allow you to manage Cookies through their settings. You can configure your browser to:</p>
+ <ul>
+ <li>Block all Cookies;</li>
+ <li>Accept all Cookies;</li>
+ <li>Notify you when a Cookie is set;</li>
+ <li>Delete Cookies at the end of each browsing session.</li>
+ </ul>
+ <p>Please note that if you block or delete Cookies, some features of our Platform may become unavailable or may not function as intended. The specific steps for managing Cookies vary depending on your browser. Below are links to instructions for commonly used browsers:</p>
+ <ul>
+ <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener">Google Chrome</a></li>
+ <li><a href="https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop" target="_blank" rel="noopener">Mozilla Firefox</a></li>
+ <li><a href="https://support.apple.com/guide/safari/manage-cookies-sfri11471/mac" target="_blank" rel="noopener">Apple Safari</a></li>
+ <li><a href="https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener">Microsoft Edge</a></li>
+ </ul>
+
+ <h3>5.3 Mobile Device Settings</h3>
+ <p>On mobile devices, you can manage advertising identifiers and tracking preferences through your device's settings:</p>
+ <ul>
+ <li><strong>iOS:</strong> Go to Settings &gt; Privacy &amp; Security &gt; Tracking, and toggle off "Allow Apps to Request to Track."</li>
+ <li><strong>Android:</strong> Go to Settings &gt; Privacy &gt; Ads, and select "Delete advertising ID" or opt out of personalization.</li>
+ </ul>
+
+ <h2>6. Do Not Track ("DNT") Signals</h2>
+ <p>Some web browsers transmit "Do Not Track" (DNT) signals to websites. There is currently no universally accepted standard for how websites should respond to DNT signals. At this time, our Platform does not alter its data collection and use practices in response to DNT signals. However, you can manage your cookie preferences through our consent banner or through your browser settings as described in Section 5 above.</p>
+
+ <h2>7. Impact of Disabling Cookies</h2>
+ <p>If you choose to disable or reject Cookies, the following consequences may apply:</p>
+ <ul>
+ <li><strong>Strictly Necessary Cookies:</strong> These cannot be disabled. If you attempt to block them through browser settings, the Platform may not function correctly, and you may be unable to log in, access protected content, or complete forms.</li>
+ <li><strong>Functional Cookies:</strong> Disabling these may result in the loss of your preferences and personalized settings. The Platform will still function, but you may need to re-enter information each time you visit.</li>
+ <li><strong>Analytics Cookies:</strong> Disabling these will prevent us from understanding how you and other users interact with our Platform, which may limit our ability to identify and resolve issues or improve the user experience.</li>
+ <li><strong>Advertising Cookies:</strong> Disabling these will not prevent you from seeing advertisements, but the advertisements you see may be less relevant to your interests and may be repeated more frequently.</li>
+ </ul>
+
+ <h2>8. International Data Transfers</h2>
+ <p>Certain third-party Cookie providers process personal data outside the European Economic Area ("EEA"). Where such transfers occur, we ensure that appropriate safeguards are in place in accordance with Chapter V of the GDPR (Articles 44–49), including:</p>
+ <ul>
+ <li><strong>EU-U.S. Data Privacy Framework:</strong> Transfers to U.S. organizations that have been certified under the EU-U.S. Data Privacy Framework (adequacy decision of the European Commission of July 10, 2023).</li>
+ <li><strong>Standard Contractual Clauses ("SCCs"):</strong> Where a third-party provider is not certified under the Data Privacy Framework, we rely on the Standard Contractual Clauses adopted by the European Commission (Commission Implementing Decision (EU) 2021/914 of June 4, 2021), supplemented by a Transfer Impact Assessment where required.</li>
+ <li><strong>Binding Corporate Rules:</strong> Where applicable, transfers are governed by approved Binding Corporate Rules under Article 47 GDPR.</li>
+ </ul>
+
+ <h2>9. Data Retention</h2>
+ <p>Cookie data is retained for the periods specified in the tables in Section 3 above. Upon expiry of the applicable retention period, the data is automatically deleted or anonymized so that it can no longer be associated with you. In any event, cookie consent records are retained for a maximum of three (3) years from the date consent was last given, in accordance with the CNIL's guidance on the retention of consent evidence.</p>
+
+ <h2>10. Your Rights Under the GDPR</h2>
+ <p>As a data subject, you have the following rights in relation to personal data collected through Cookies:</p>
+ <ul>
+ <li><strong>Right of access</strong> (Article 15 GDPR): You may request a copy of the personal data we hold about you.</li>
+ <li><strong>Right to rectification</strong> (Article 16 GDPR): You may request the correction of inaccurate personal data.</li>
+ <li><strong>Right to erasure</strong> (Article 17 GDPR): You may request the deletion of your personal data, subject to applicable legal retention obligations.</li>
+ <li><strong>Right to restriction of processing</strong> (Article 18 GDPR): You may request the limitation of processing of your personal data.</li>
+ <li><strong>Right to data portability</strong> (Article 20 GDPR): You may request to receive your personal data in a structured, commonly used, and machine-readable format.</li>
+ <li><strong>Right to object</strong> (Article 21 GDPR): You have the right to object to the processing of your personal data based on legitimate interests.</li>
+ <li><strong>Right to withdraw consent</strong> (Article 7(3) GDPR): You may withdraw your cookie consent at any time without affecting the lawfulness of processing based on consent before its withdrawal.</li>
+ <li><strong>Right to lodge a complaint:</strong> You have the right to lodge a complaint with the CNIL (Commission Nationale de l'Informatique et des Libertés) or any other competent supervisory authority.</li>
+ </ul>
+ <p>To exercise any of these rights, please contact our Data Protection Officer at the contact details provided in Section 12 below.</p>
+
+ <h2>11. Changes to This Cookie Policy</h2>
+ <p>We may update this Cookie Policy from time to time to reflect changes in the Cookies we use, the purposes for which we use Cookies, or applicable legal requirements. When we make material changes, we will notify you by displaying a prominent notice on our Platform or by sending you a notification via email, and we will update the "Effective Date" at the top of this Policy. We encourage you to review this Policy periodically to stay informed about how we use Cookies.</p>
+ <p>The current version of this Policy is always available at https://www.li1234.com/cookie-policy. Previous versions may be obtained by contacting our Data Protection Officer.</p>
+
+ <h2>12. Contact Information</h2>
+ <p>If you have any questions, concerns, or requests regarding this Cookie Policy or our use of Cookies, please contact our Data Protection Officer ("DPO"):</p>
+ <p><strong>PyAcademy Data Protection Officer</strong><br>
+ Email: dpo@li1234.top<br>
+ Postal Address: PyAcademy SAS, 12 Rue de la Paix, 75002 Paris, France</p>
+ <p>You may also contact our DPO at the following email address: <a href="mailto:privacy@li1234.top">privacy@li1234.top</a></p>
+ <p>As mentioned above, you have the right to lodge a complaint with the CNIL:</p>
+ <p>Commission Nationale de l'Informatique et des Libertés (CNIL)<br>
+ 3 Place de Fontenoy<br>
+ TSA 80715<br>
+ 75334 Paris Cedex 07, France<br>
+ Tel: +33 1 53 73 22 22<br>
+ Website: <a href="https://www.cnil.fr" target="_blank" rel="noopener">https://www.cnil.fr</a></p>
+ </div>
+
+ <!-- ============================================================ -->
+ <!-- CHINESE CONTENT -->
+ <!-- ============================================================ -->
+ <div data-lang="zh">
+ <h2>1. 什么是 Cookie</h2>
+ <p>Cookie 是在您访问网站时放置在您的设备（电脑、平板电脑、智能手机或其他支持互联网的设备）上的小型文本文件，通常由字母和数字组成。Cookie 被广泛用于确保网站正常运行、提高效率、提供报告信息以及协助个性化和广告投放。</p>
+ <p>Cookie 可由您正在访问的网站设置（"第一方 Cookie"），也可由出现在我们页面上的第三方服务设置（"第三方 Cookie"）。Cookie 可以是"会话 Cookie"（在您关闭浏览器时被删除）或"持久性 Cookie"（在您设备上保留预定的时间段或直至您手动删除）。</p>
+ <p>除传统的 HTTP Cookie 外，我们可能使用类似技术，包括但不限于：</p>
+ <ul>
+ <li><strong>网络信标（像素标签/透明 GIF）：</strong>嵌入在网页或电子邮件中的微小透明图形图像，允许我们统计访问过特定页面或打开过特定电子邮件的用户数量。</li>
+ <li><strong>本地存储（HTML5）：</strong>允许网站在用户浏览器中本地存储数据的机制，类似于 Cookie 但具有更大的存储容量。</li>
+ <li><strong>会话存储：</strong>类似于本地存储，但在浏览器会话结束时数据被清除。</li>
+ <li><strong>JavaScript 标签：</strong>嵌入在网页中的代码片段，用于收集用户交互信息。</li>
+ <li><strong>ETag（实体标签）：</strong>HTTP 缓存验证器，可能用于浏览器指纹识别。</li>
+ </ul>
+ <p>就本政策而言，除非另有说明，所有此类技术统称为"Cookie"。</p>
+
+ <h2>2. 使用 Cookie 的法律依据</h2>
+ <p class="section-ref">根据《电子隐私指令》2002/58/EC 第5(3)条及法国《数据保护法》（第78-17号法律第82条）的相关规定，存储或访问用户终端设备上的信息，仅在相关用户已获得符合 GDPR 规定的明确和全面信息并给予其同意的前提下才被允许。</p>
+ <p>当您首次访问我们的平台时，我们会向您展示 Cookie 同意横幅，使您能够就希望接受的 Cookie 类别做出知情选择。在您通过该机制给予明确同意之前，我们不会在您的设备上设置任何非必要的 Cookie。此做法符合 CNIL 和欧洲数据保护委员会（"EDPB"）对同意要求的严格解释，该解释要求同意必须：</p>
+ <ul>
+ <li><strong>自由给予：</strong>同意不得作为访问服务的前提条件（根据 GDPR 第7(4)条）。我们不使用"Cookie 墙"来阻止拒绝非必要 Cookie 的用户访问我们的平台。</li>
+ <li><strong>特定：</strong>同意必须针对数据处理的每个具体目的。我们为每个 Cookie 类别（功能性、分析性、广告性）分别获取同意。</li>
+ <li><strong>知情：</strong>用户必须收到关于 Cookie 目的、收集的数据类型、保留期限以及数据控制者和第三方身份的明确和全面信息（根据 GDPR 第13条和第14条）。</li>
+ <li><strong>明确：</strong>同意必须通过明确的肯定性行为产生，例如勾选复选框或点击"接受"按钮。预先勾选的复选框或暗示性同意不可接受（参见欧洲法院 C-673/17 号案件 <em>Planet49</em>，2019年10月1日判决）。</li>
+ <li><strong>可撤回：</strong>用户必须能够随时撤回其同意，且撤回应与给予同意一样简便（根据 GDPR 第7(3)条）。我们在平台每个页面上都提供了持久的"Cookie 设置"链接。</li>
+ </ul>
+ <div class="note">
+ <strong>注意：</strong>根据 CNIL 2020年9月17日第2020-091号决议（经修订），某些对平台运行至关重要的严格必要 Cookie 豁免同意要求。这些包括用户身份验证、安全性、会话管理和正确交付用户所请求服务所必需的 Cookie。
+ </div>
+
+ <h2>3. 我们使用的 Cookie 类别</h2>
+
+ <h3>3.1 严格必要 Cookie</h3>
+ <p>这些 Cookie 对我们平台的运行至关重要，无法在我们的系统中停用。它们是在您执行操作（如设置隐私偏好、登录或填写表单）时设置的。这些 Cookie 不会收集可用于营销目的或记住您在其他网站上互联网浏览活动的关于您的信息。这些 Cookie 属于《电子隐私指令》第5(3)条所规定的严格必要 Cookie，不需要您的同意。</p>
+ <table class="legal-table">
+ <thead><tr><th>Cookie 名称</th><th>用途</th><th>类型</th><th>保留期限</th></tr></thead>
+ <tbody>
+ <tr><td>session_id</td><td>在页面请求之间维护用户会话状态，包括身份验证、安全验证和负载均衡。</td><td>会话</td><td>浏览器会话期间；关闭时删除。</td></tr>
+ <tr><td>csrf_token</td><td>通过验证表单提交的加密来源来防止跨站请求伪造攻击。</td><td>会话</td><td>浏览器会话期间。</td></tr>
+ <tr><td>auth_token</td><td>验证已登录用户的身份并维护其账户的安全访问。包含在指定不活动期后过期的加密签名 JWT。</td><td>持久性</td><td>最后活动后30天，或直到用户登出。</td></tr>
+ <tr><td>cookie_consent</td><td>记录用户的 Cookie 同意偏好，以确保跨会话遵守其选择。</td><td>持久性</td><td>自同意之日起365天。</td></tr>
+ <tr><td>language_pref</td><td>存储用户选择的平台界面语言偏好（英文或中文）。</td><td>持久性</td><td>365天。</td></tr>
+ <tr><td>load_balancer</td><td>将传入流量分配到多台服务器，以确保平台可用性和性能。</td><td>会话</td><td>会话期间。</td></tr>
+ <tr><td>security_cookie</td><td>检测恶意活动并缓解自动攻击，如凭据填充和 DDoS。</td><td>会话</td><td>会话期间或最长24小时。</td></tr>
+ </tbody>
+ </table>
+
+ <h3>3.2 功能性 Cookie</h3>
+ <p>功能性 Cookie 提供增强的功能和个性化，例如记住您的偏好、语言设置、显示偏好和区域选择。如果您不允许这些 Cookie，平台的部分或全部服务可能无法正常运行。这些 Cookie 需要在放置到您的设备之前获得您的事先同意。</p>
+ <table class="legal-table">
+ <thead><tr><th>Cookie 名称</th><th>用途</th><th>类型</th><th>保留期限</th></tr></thead>
+ <tbody>
+ <tr><td>ui_preferences</td><td>存储用户界面偏好，如字体大小、暗黑模式、代码编辑器主题和布局自定义。</td><td>持久性</td><td>365天。</td></tr>
+ <tr><td>course_progress</td><td>记住用户在课程或课程序列中的当前位置，以便返回时无缝继续。</td><td>持久性</td><td>180天。</td></tr>
+ <tr><td>recent_courses</td><td>维护最近访问的课程列表，以便在仪表板上快速导航。</td><td>持久性</td><td>90天。</td></tr>
+ <tr><td>code_editor_state</td><td>保留浏览器内 Python 代码编辑器的状态，包括光标位置、打开的文件和未保存的草稿。</td><td>会话 / 本地存储</td><td>会话期间或最长72小时。</td></tr>
+ <tr><td>notification_prefs</td><td>记录用户对平台内通知类型和频率的偏好。</td><td>持久性</td><td>365天。</td></tr>
+ </tbody>
+ </table>
+
+ <h3>3.3 分析 / 性能 Cookie</h3>
+ <p>分析 Cookie 允许我们统计访问量和流量来源，以便衡量和改善平台性能。它们帮助我们了解哪些页面最受欢迎和最不受欢迎，以及访客如何在平台上浏览。这些 Cookie 收集的所有信息都是汇总的，因此是匿名的。如果您不允许这些 Cookie，我们将不知道您何时访问了我们的平台，也无法监控其性能。这些 Cookie 需要您的事先同意。</p>
+ <table class="legal-table">
+ <thead><tr><th>Cookie 名称</th><th>提供者</th><th>用途</th><th>类型</th><th>保留期限</th></tr></thead>
+ <tbody>
+ <tr><td>_ga</td><td>Google Analytics</td><td>通过分配随机生成的数字来区分唯一用户。用于计算平台分析报告的访问者、会话和营销活动数据。</td><td>持久性</td><td>2年。</td></tr>
+ <tr><td>_ga_&lt;id&gt;</td><td>Google Analytics 4</td><td>为 Google Analytics 4 报告维护会话状态。</td><td>持久性</td><td>2年。</td></tr>
+ <tr><td>_gid</td><td>Google Analytics</td><td>在24小时窗口内区分用户并跟踪页面浏览量。</td><td>持久性</td><td>24小时。</td></tr>
+ <tr><td>_gat</td><td>Google Analytics</td><td>用于限制请求速率，以在高流量网站上限制数据收集。</td><td>会话</td><td>1分钟。</td></tr>
+ <tr><td>_hjSessionUser_&lt;id&gt;</td><td>Hotjar</td><td>通过会话录制和热图跟踪用户行为和交互模式，以改善用户体验。</td><td>持久性</td><td>365天。</td></tr>
+ <tr><td>_hjSession_&lt;id&gt;</td><td>Hotjar</td><td>将单次浏览会话中的页面浏览分组用于 Hotjar 分析。</td><td>会话</td><td>30分钟。</td></tr>
+ <tr><td>ph_&lt;project_token&gt;</td><td>PostHog</td><td>收集匿名产品分析数据，包括功能使用、事件跟踪和会话录制。</td><td>持久性</td><td>1年。</td></tr>
+ </tbody>
+ </table>
+
+ <h3>3.4 广告 / 定向 Cookie</h3>
+ <p>广告 Cookie 用于向您投放与您和您的兴趣相关的广告。它们还用于限制您看到广告的次数并帮助衡量广告活动的有效性。这些 Cookie 通常由经我们许可的第三方广告网络放置。它们记住您已访问过某个网站，该信息会与其他组织（如广告商）共享。如果您不允许这些 Cookie，您将不会体验到定向广告。这些 Cookie 需要您的事先同意。</p>
+ <table class="legal-table">
+ <thead><tr><th>Cookie 名称</th><th>提供者</th><th>用途</th><th>类型</th><th>保留期限</th></tr></thead>
+ <tbody>
+ <tr><td>_fbp</td><td>Meta (Facebook)</td><td>通过跨网站跟踪浏览行为来投放、衡量和改善广告的相关性。</td><td>持久性</td><td>90天。</td></tr>
+ <tr><td>_fbc</td><td>Meta (Facebook)</td><td>存储最后的 Facebook 广告点击标识符，以便将转化归因于特定的广告活动。</td><td>持久性</td><td>90天。</td></tr>
+ <tr><td>IDE</td><td>Google (DoubleClick)</td><td>用于在 Google 展示广告网络中投放定向广告和再营销。</td><td>持久性</td><td>13个月。</td></tr>
+ <tr><td>NID</td><td>Google</td><td>存储偏好和其他信息，如首选语言、每个页面的搜索结果数量以及 Google 安全搜索过滤器的激活。</td><td>持久性</td><td>6个月。</td></tr>
+ <tr><td>test_cookie</td><td>Google (DoubleClick)</td><td>用于检查用户的浏览器是否支持 Cookie。</td><td>会话</td><td>15分钟。</td></tr>
+ </tbody>
+ </table>
+
+ <h2>4. 第三方 Cookie 和服务提供者</h2>
+ <p>我们平台上的某些 Cookie 由第三方服务提供者放置。我们与以下类别的第三方合作：</p>
+ <ul>
+ <li><strong>分析提供者：</strong>Google Analytics（Google LLC）、Hotjar（Hotjar Ltd.）和 PostHog（PostHog, Inc.）——这些提供者帮助我们了解平台的使用方式。在需要的情况下，我们已根据 GDPR 第28条与每个提供者签订了数据处理协议（"DPA"）。Google Analytics 配置了 IP 匿名化功能，且数据仅在有适当保障措施的情况下（欧盟委员会根据 GDPR 第46(2)(c)条批准的标准合同条款）传输至美国的 Google 服务器。</li>
+ <li><strong>广告合作伙伴：</strong>Meta Platforms Ireland Limited 和 Google Ireland Limited——这些合作伙伴帮助我们投放相关广告并衡量活动效果。向美国的数据传输受欧盟-美国数据隐私框架和/或标准合同条款的管辖。</li>
+ <li><strong>基础设施提供者：</strong>Cloudflare, Inc.——提供内容分发网络（CDN）服务和安全功能。Cloudflare 的 Cookie 对平台安全和性能而言是严格必要的。</li>
+ </ul>
+ <p>每个第三方提供者都有自己的隐私和 Cookie 政策。我们建议您直接查阅这些政策。我们当前子处理者的完整列表可应要求通过联系我们的数据保护官获取。</p>
+
+ <h2>5. 如何管理和控制 Cookie</h2>
+ <p>您有权决定是否接受或拒绝 Cookie（严格必要 Cookie 除外）。您可以通过以下机制行使您的 Cookie 偏好设置：</p>
+
+ <h3>5.1 我们的 Cookie 同意横幅</h3>
+ <p>当您首次访问我们的平台时，会显示一个 Cookie 同意横幅，允许您接受或拒绝每个类别的非必要 Cookie。您可以随时通过点击我们平台每个页面底部的"Cookie 设置"链接来修改您的偏好。</p>
+
+ <h3>5.2 浏览器设置</h3>
+ <p>大多数网络浏览器允许您通过其设置管理 Cookie。您可以将浏览器配置为：</p>
+ <ul>
+ <li>阻止所有 Cookie；</li>
+ <li>接受所有 Cookie；</li>
+ <li>在设置 Cookie 时通知您；</li>
+ <li>在每次浏览会话结束时删除 Cookie。</li>
+ </ul>
+ <p>请注意，如果您阻止或删除 Cookie，平台的某些功能可能变得不可用或无法按预期运行。管理 Cookie 的具体步骤因浏览器而异。以下是一些常用浏览器的说明链接：</p>
+ <ul>
+ <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener">Google Chrome</a></li>
+ <li><a href="https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop" target="_blank" rel="noopener">Mozilla Firefox</a></li>
+ <li><a href="https://support.apple.com/guide/safari/manage-cookies-sfri11471/mac" target="_blank" rel="noopener">Apple Safari</a></li>
+ <li><a href="https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener">Microsoft Edge</a></li>
+ </ul>
+
+ <h3>5.3 移动设备设置</h3>
+ <p>在移动设备上，您可以通过设备设置管理广告标识符和跟踪偏好：</p>
+ <ul>
+ <li><strong>iOS：</strong>前往"设置"&gt;"隐私与安全"&gt;"跟踪"，关闭"允许 App 请求跟踪"。</li>
+ <li><strong>Android：</strong>前往"设置"&gt;"隐私"&gt;"广告"，选择"删除广告 ID"或选择退出个性化。</li>
+ </ul>
+
+ <h2>6. "请勿跟踪"（"DNT"）信号</h2>
+ <p>某些网络浏览器会向网站发送"请勿跟踪"（DNT）信号。目前尚无普遍接受的标准规定网站应如何响应 DNT 信号。目前，我们的平台不会因 DNT 信号而改变其数据收集和使用做法。但是，您可以通过上述第5节中描述的同意横幅或浏览器设置来管理您的 Cookie 偏好。</p>
+
+ <h2>7. 禁用 Cookie 的影响</h2>
+ <p>如果您选择禁用或拒绝 Cookie，可能会产生以下后果：</p>
+ <ul>
+ <li><strong>严格必要 Cookie：</strong>这些无法被禁用。如果您试图通过浏览器设置阻止它们，平台可能无法正常运行，您可能无法登录、访问受保护的内容或填写表单。</li>
+ <li><strong>功能性 Cookie：</strong>禁用这些可能会导致丢失您的偏好和个性化设置。平台仍可运行，但您可能需要每次访问时重新输入信息。</li>
+ <li><strong>分析 Cookie：</strong>禁用这些将阻止我们了解您和平台其他用户的互动方式，这可能限制我们识别和解决问题或改善用户体验的能力。</li>
+ <li><strong>广告 Cookie：</strong>禁用这些不会阻止您看到广告，但您看到的广告可能与您的兴趣相关性较低，并且可能更频繁地重复出现。</li>
+ </ul>
+
+ <h2>8. 国际数据传输</h2>
+ <p>某些第三方 Cookie 提供者在欧洲经济区（"EEA"）之外处理个人数据。在发生此类传输时，我们确保根据 GDPR 第五章（第44-49条）采取适当的保障措施，包括：</p>
+ <ul>
+ <li><strong>欧盟-美国数据隐私框架：</strong>向已根据欧盟-美国数据隐私框架获得认证的美国组织进行的传输（欧盟委员会2023年7月10日的充分性决定）。</li>
+ <li><strong>标准合同条款（"SCC"）：</strong>如果第三方提供者未根据数据隐私框架获得认证，我们依赖欧盟委员会通过的标准合同条款（欧盟委员会2021年6月4日第2021/914号实施决定），并在需要时辅以传输影响评估。</li>
+ <li><strong>约束性公司规则：</strong>在适用的情况下，传输受根据 GDPR 第47条批准的约束性公司规则管辖。</li>
+ </ul>
+
+ <h2>9. 数据保留</h2>
+ <p>Cookie 数据按照上述第3节表格中规定的期限保留。在适用的保留期限到期后，数据将被自动删除或匿名化，使其无法再与您相关联。在任何情况下，Cookie 同意记录最多保留自最后给予同意之日起三（3）年，这符合 CNIL 关于同意证据保留的指导。</p>
+
+ <h2>10. 您根据 GDPR 享有的权利</h2>
+ <p>作为数据主体，您对通过 Cookie 收集的个人数据享有以下权利：</p>
+ <ul>
+ <li><strong>访问权</strong>（GDPR 第15条）：您可以请求获取我们持有的关于您的个人数据副本。</li>
+ <li><strong>更正权</strong>（GDPR 第16条）：您可以请求更正不准确的个人数据。</li>
+ <li><strong>删除权</strong>（GDPR 第17条）：您可以请求删除您的个人数据，但需遵守适用的法定保留义务。</li>
+ <li><strong>限制处理权</strong>（GDPR 第18条）：您可以请求限制对您个人数据的处理。</li>
+ <li><strong>数据可携带权</strong>（GDPR 第20条）：您可以请求以结构化、常用且机器可读的格式接收您的个人数据。</li>
+ <li><strong>反对权</strong>（GDPR 第21条）：您有权反对基于合法利益对您个人数据的处理。</li>
+ <li><strong>撤回同意权</strong>（GDPR 第7(3)条）：您可以随时撤回您的 Cookie 同意，且不影响撤回前基于同意的处理的合法性。</li>
+ <li><strong>投诉权：</strong>您有权向 CNIL（国家信息与自由委员会）或任何其他有管辖权的监管机构提出投诉。</li>
+ </ul>
+ <p>要行使上述任何权利，请通过以下第12节提供的联系方式联系我们的数据保护官。</p>
+
+ <h2>11. 本 Cookie 政策的变更</h2>
+ <p>我们可能会不时更新本 Cookie 政策，以反映我们使用的 Cookie、使用 Cookie 的目的或适用法律要求方面的变化。当我们做出重大变更时，我们将通过在平台上显示显著通知或通过电子邮件向您发送通知来通知您，并更新本政策顶部的"生效日期"。我们建议您定期查看本政策，以了解我们如何使用 Cookie。</p>
+ <p>本政策的当前版本始终可在 https://www.li1234.com/cookie-policy 获取。历史版本可应要求通过联系我们的数据保护官获取。</p>
+
+ <h2>12. 联系方式</h2>
+ <p>如果您对本 Cookie 政策或我们使用 Cookie 有任何问题、疑虑或请求，请联系我们的数据保护官（"DPO"）：</p>
+ <p><strong>PyAcademy 数据保护官</strong><br>
+ 电子邮件：dpo@li1234.top<br>
+ 邮寄地址：PyAcademy SAS, 12 Rue de la Paix, 75002 Paris, France</p>
+ <p>您也可以通过以下电子邮件地址联系我们的 DPO：<a href="mailto:privacy@li1234.top">privacy@li1234.top</a></p>
+ <p>如上所述，您有权向 CNIL 提出投诉：</p>
+ <p>Commission Nationale de l'Informatique et des Libertés (CNIL)<br>
+ 3 Place de Fontenoy<br>
+ TSA 80715<br>
+ 75334 Paris Cedex 07, France<br>
+ 电话：+33 1 53 73 22 22<br>
+ 网站：<a href="https://www.cnil.fr" target="_blank" rel="noopener">https://www.cnil.fr</a></p>
+ </div>
+
+ </div>
+
+ <div class="highlight"><p><strong>Supplementary Legal Provisions / 附则A</strong></p><p><strong>A.1 DPO:</strong> <a href="mailto:dpo@li1234.top">dpo@li1234.top</a>. GDPR Art.37. PyAcademy SAS, 12 Rue de la Paix, 75002 Paris, France.</p><p><strong>A.2 Principles:</strong> GDPR Art.5 - lawfulness, purpose limitation, data minimisation, accuracy, storage limitation, integrity/confidentiality, accountability.</p><p><strong>A.3 Cross-border:</strong> GDPR Art.44-49 - SCCs, BCRs, adequacy decisions.</p><p><strong>A.4 CNIL Complaint:</strong> GDPR Art.77 - CNIL, 3 Place de Fontenoy, TSA 80715, 75334 Paris Cedex 07. +33 1 53 73 22 22. cnil.fr</p><p><strong>A.5 Automated Decisions:</strong> GDPR Art.22 - right not to be subject to solely automated decisions.</p><p><strong>A.6 Legal Bases:</strong> GDPR Art.6(1) - consent, contract, legal obligation, public interest, legitimate interests.</p><p><strong>A.7 CNIL Compliance:</strong> Loi n° 78-17 (Informatique et Libertés), CNIL Deliberation 2020-091, ePrivacy Directive 2002/58/EC.</p><p><strong>A.8 Consumer:</strong> Code de la consommation L111-1 to L111-7, L221-18 to L221-28, L212-1, L616-1, L217-1 to L217-15, L215-1 to L215-3. EU Directive 2011/83/EU, 93/13/EEC, 2019/770.</p><p><strong>A.9 Contact:</strong> Legal: <a href="mailto:legal@li1234.top">legal@li1234.top</a>. DPO: <a href="mailto:dpo@li1234.top">dpo@li1234.top</a>. PyAcademy SAS, 12 Rue de la Paix, 75002 Paris, France.</p></div>
+    <footer>
+ <div class="footer-inner">
+ <div class="footer-links">
+ <a href="https://www.li1234.com" data-lang="en">Home</a>
+ <a href="https://www.li1234.com" data-lang="zh">首页</a>
+ <a href="https://www.li1234.com" data-lang="en">Privacy Policy</a>
+ <a href="https://www.li1234.com" data-lang="zh">隐私政策</a>
+ </div>
+ <p class="footer-copy">&copy; 2026 PyAcademy. All rights reserved.</p>
+ </div>
+ </footer>
+
+ <script type="text/javascript">
+ function switchLang(lang) {
+    document.body.classList.toggle('zh', lang === 'zh');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+}
+ </script>
+</body>
+</html>

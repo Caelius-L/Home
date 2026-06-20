@@ -1,0 +1,571 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Acceptable Use Policy – PyAcademy</title>
+ <style>
+ @font-face {
+ font-family: 'AnthropicSerif';
+ src: url('AnthropicSerif-Romans-Variable-25x258.ttf') format('truetype');
+ font-weight: 100 900;
+ font-style: normal;
+ font-display: swap;
+ }
+ *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'AnthropicSerif', 'Georgia', 'Times New Roman', serif; color: #1a1a1a; background: #fff; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+ nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid #eaeaea; padding: 0 24px; }
+ .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+ .nav-logo { font-family: 'AnthropicSerif', 'Georgia', serif; font-size: 18px; font-weight: 700; color: #1a1a1a; text-decoration: none; letter-spacing: -0.02em; }
+ .nav-logo span { color: #d97706; }
+ .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+ .nav-links a { font-family: 'AnthropicSerif', 'Georgia', serif; font-size: 14px; font-weight: 500; color: #666; text-decoration: none; transition: color 0.2s; }
+ .nav-links a:hover { color: #1a1a1a; }
+ .nav-links .lang-divider { width: 1px; height: 16px; background: #ddd; }
+ .lang-btn { font-family: 'AnthropicSerif', 'Georgia', serif; font-size: 13px; font-weight: 500; color: #888; padding: 4px 10px; border: 1px solid #ddd; border-radius: 6px; transition: all 0.2s; cursor: pointer; background: none; }
+ .lang-btn:hover { color: #1a1a1a; border-color: #aaa; }
+ .lang-btn.active { color: #d97706; border-color: #d97706; background: #fffbeb; }
+ .hero { padding: 80px 24px 48px; max-width: 1200px; margin: 0 auto; }
+ .hero h1 { font-size: 48px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 16px; }
+ .hero .date { font-size: 15px; color: #888; margin-bottom: 32px; }
+ .hero .intro { font-size: 17px; color: #444; max-width: 720px; line-height: 1.8; }
+ .content { max-width: 760px; margin: 0 auto; padding: 24px 24px 120px; }
+ .content h2 { font-size: 24px; font-weight: 700; letter-spacing: -0.02em; margin-top: 56px; margin-bottom: 20px; color: #1a1a1a; }
+ .content h3 { font-size: 17px; font-weight: 600; margin-top: 32px; margin-bottom: 12px; color: #1a1a1a; }
+ .content p { font-size: 15px; line-height: 1.8; color: #333; margin-bottom: 16px; }
+ .content ul, .content ol { margin-bottom: 16px; padding-left: 20px; }
+ .content li { font-size: 15px; line-height: 1.8; color: #333; margin-bottom: 8px; }
+ .content a { color: #d97706; text-decoration: underline; text-underline-offset: 2px; transition: color 0.2s; }
+ .content a:hover { color: #b45309; }
+ .content .note { font-size: 14px; color: #666; background: #f9f9f9; border-left: 3px solid #d97706; padding: 16px 20px; margin: 24px 0; border-radius: 0 6px 6px 0; }
+ .content .section-ref { font-size: 13px; color: #888; font-style: italic; margin-bottom: 16px; }
+ .legal-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; }
+ .legal-table th { background: #f5f5f5; font-weight: 600; text-align: left; padding: 12px 16px; border-bottom: 2px solid #e0e0e0; }
+ .legal-table td { padding: 12px 16px; border-bottom: 1px solid #eee; vertical-align: top; line-height: 1.6; }
+ .legal-table tr:last-child td { border-bottom: none; }
+ footer { border-top: 1px solid #eaeaea; padding: 48px 24px; text-align: center; }
+ .footer-inner { max-width: 1200px; margin: 0 auto; }
+ .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; flex-wrap: wrap; }
+ .footer-links a { font-size: 13px; color: #888; text-decoration: none; transition: color 0.2s; }
+ .footer-links a:hover { color: #1a1a1a; }
+ .footer-copy { font-size: 13px; color: #aaa; }
+ [[data-lang="zh"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh [data-lang="en"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh [[data-lang="zh"] { display: block; }
+ body.zh span[data-lang="en"], body.zh a[data-lang="en"] { display: none; }
+body.zh [data-lang="zh"] { display: block; }
+        body.zh span[data-lang="zh"], body.zh a[data-lang="zh"] { display: inline; }
+                span[data-lang], a[data-lang] { display: none; }
+ body.zh span[[data-lang="zh"], body.zh a[[data-lang="zh"] { display: inline; }
+ span[[data-lang="zh"], a[[data-lang="zh"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ @media (max-width: 640px) {
+ .hero h1 { font-size: 32px; }
+ .hero { padding: 48px 16px 32px; }
+ .content { padding: 16px 16px 80px; }
+ .nav-links { gap: 16px; }
+ .legal-table { font-size: 12px; }
+ .legal-table th, .legal-table td { padding: 8px 10px; }
+ }
+ </style>
+</head>
+<body>
+ <nav>
+ <div class="nav-inner">
+ <a href="https://www.li1234.com" class="nav-logo">Py<span>Academy</span></a>
+ <div class="nav-links">
+ <a href="https://www.li1234.com" data-lang="en">Home</a>
+ <a href="https://www.li1234.com" data-lang="zh">首页</a>
+ <div class="lang-divider"></div>
+ <button class="lang-btn active" id="btn-en" onclick="switchLang('en')">EN</button>
+ <button class="lang-btn" id="btn-zh" onclick="switchLang('zh')">中文</button>
+ </div>
+ </div>
+ </nav>
+
+ <div class="hero">
+ <h1 data-lang="en">Acceptable Use Policy</h1>
+ <h1 data-lang="zh">可接受使用政策</h1>
+ <p class="date" data-lang="en">Effective Date: May 31, 2026</p>
+ <p class="date" data-lang="zh">生效日期：2026年5月31日</p>
+ <p class="intro" data-lang="en">This Acceptable Use Policy ("AUP" or "Policy") sets forth the rules, standards, and obligations governing the use of the PyAcademy platform and all related services, websites, applications, APIs, content, and infrastructure (collectively, the "Platform") provided by PyAcademy ("we," "us," or "our"). This Policy applies to all users, including registered account holders, unregistered visitors, instructors, contributors, and any other person or entity that accesses or uses the Platform (collectively, "Users" or "you"). By accessing or using the Platform, you agree to comply with this Policy. This Policy is incorporated into and forms an integral part of our Terms of Service and is governed by applicable European Union and French law.</p>
+ <p class="intro" data-lang="zh">本可接受使用政策（"AUP"或"本政策"）规定了 PyAcademy（"我们"、"我方"）提供的平台及相关所有服务、网站、应用程序、API、内容和基础设施（以下统称"平台"）的使用规则、标准和义务。本政策适用于所有用户，包括注册账户持有人、未注册访客、讲师、贡献者以及访问或使用平台的任何其他人或实体（以下统称"用户"或"您"）。访问或使用平台即表示您同意遵守本政策。本政策被纳入并构成我们服务条款的组成部分，并受适用的欧洲联盟和法国法律管辖。</p>
+ </div>
+
+ <div class="content">
+
+ <div data-lang="en">
+
+ <h2>1. Acceptance of This Policy</h2>
+ <p>By creating an account, accessing, browsing, or otherwise using the Platform, you acknowledge that you have read, understood, and agree to be bound by this Acceptable Use Policy. If you do not agree to the terms of this Policy, you must immediately cease all use of the Platform and, if applicable, close your account in accordance with our Terms of Service.</p>
+ <p>This Policy applies regardless of whether you access the Platform through a web browser, mobile application, API, or any other means. It extends to all content, materials, interactions, and communications that occur on or through the Platform.</p>
+ <div class="note">
+ <strong>Note:</strong> This Acceptable Use Policy is to be read in conjunction with our Terms of Service, Privacy Policy, Cookie Policy, and any other applicable policies. In the event of a conflict between this Policy and any other applicable policy, the more restrictive provision shall prevail, unless otherwise required by applicable law.
+ </div>
+
+ <h2>2. Prohibited Uses and Conduct</h2>
+ <p>You agree not to use the Platform for any purpose that is unlawful, prohibited by this Policy, or that could damage, disable, overburden, or impair the Platform or interfere with any other party's use and enjoyment of the Platform. The following is a non-exhaustive list of prohibited conduct:</p>
+
+ <h3>2.1 Illegal Activities and Content</h3>
+ <ul>
+ <li>Using the Platform in violation of any applicable local, national, or international law, regulation, or ordinance, including but not limited to the laws of France, the European Union, and any Member State thereof.</li>
+ <li>Uploading, posting, transmitting, or distributing any content that constitutes, incites, promotes, or facilitates criminal offenses, illegal activities, or unlawful conduct under applicable law.</li>
+ <li>Distributing, hosting, or facilitating access to content that constitutes child sexual abuse material (CSAM) or any material that exploits or endangers minors, in violation of Directive 2011/93/EU and French criminal law (Articles 227-23 through 227-27 of the Code pénal).</li>
+ <li>Engaging in, promoting, or facilitating money laundering, terrorist financing, fraud, embezzlement, insider trading, or any other financial crime.</li>
+ <li>Using the Platform for purposes that violate export control laws, sanctions, or trade restrictions, including those imposed by the European Union, the United Nations, or the United States Office of Foreign Assets Control (OFAC).</li>
+ </ul>
+
+ <h3>2.2 Harmful, Abusive, and Offensive Content</h3>
+ <ul>
+ <li>Uploading, posting, or transmitting content that is defamatory, libelous, slanderous, harassing, threatening, invasive of privacy or publicity rights, or that constitutes hate speech, discrimination, or incitement to violence or hatred against any individual or group based on race, ethnicity, national origin, religion, gender, gender identity, sexual orientation, disability, age, or any other protected characteristic under EU Directive 2000/78/EC (Employment Equality Directive) and the French Labour Code (Code du travail).</li>
+ <li>Sharing content that promotes or glorifies self-harm, eating disorders, suicide, or substance abuse.</li>
+ <li>Posting content that is obscene, pornographic, sexually explicit, or otherwise objectionable.</li>
+ <li>Engaging in cyberbullying, cyberstalking, or online harassment of any User or third party.</li>
+ </ul>
+
+ <h3>2.3 Intellectual Property Violations</h3>
+ <ul>
+ <li>Uploading, sharing, or distributing content that infringes or misappropriates the intellectual property rights of any third party, including copyrights, trademarks, patents, trade secrets, or any other proprietary rights, in accordance with Directive 2001/29/EC (InfoSoc Directive) and the French Intellectual Property Code (Code de la propriété intellectuelle).</li>
+ <li>Reproducing, modifying, distributing, publicly displaying, or creating derivative works from Platform content without proper authorization.</li>
+ <li>Circumventing, disabling, or otherwise interfering with digital rights management (DRM) technologies, copy protection mechanisms, or access controls.</li>
+ <li>Using automated tools (bots, scrapers, crawlers) to extract, collect, or harvest Platform content, user data, or course materials without express written authorization.</li>
+ </ul>
+
+ <h3>2.4 Security and Technical Attacks</h3>
+ <ul>
+ <li>Attempting to gain unauthorized access to any portion of the Platform, other Users' accounts, or any systems, servers, or networks connected to the Platform.</li>
+ <li>Interfering with, disrupting, or creating an undue burden on the Platform, its infrastructure, servers, or networks, including through distributed denial-of-service (DDoS) attacks, traffic flooding, or deliberate resource exhaustion.</li>
+ <li>Introducing malicious software, viruses, worms, Trojan horses, ransomware, spyware, adware, or any other harmful code into the Platform.</li>
+ <li>Conducting port scanning, vulnerability scanning, penetration testing, or any form of security reconnaissance on the Platform without prior written authorization from PyAcademy.</li>
+ <li>Intercepting, monitoring, or modifying data or communications not intended for you, including man-in-the-middle attacks, packet sniffing, or session hijacking.</li>
+ </ul>
+
+ <h3>2.5 Abuse of Platform Features and Services</h3>
+ <ul>
+ <li>Using the Platform's interactive features (discussion forums, code sharing, Q&A sections, comments) to distribute spam, unsolicited advertisements, promotional materials, chain letters, pyramid schemes, or other forms of commercial solicitation.</li>
+ <li>Creating multiple accounts to circumvent enforcement actions, manipulate ratings or reviews, or otherwise abuse the Platform's systems.</li>
+ <li>Impersonating or falsely representing an affiliation with any person, entity, or organization.</li>
+ <li>Using the Platform to collect, harvest, or mine personal data of other Users for any purpose without their express consent, in violation of Articles 6, 14, and 15 of the GDPR.</li>
+ <li>Manipulating, inflating, or artificially generating engagement metrics, review scores, course ratings, or completion certificates.</li>
+ <li>Sharing login credentials with unauthorized third parties or allowing unauthorized access to your account.</li>
+ </ul>
+
+ <h3>2.6 Automated and Bot-Related Misuse</h3>
+ <ul>
+ <li>Using bots, scripts, automated tools, or AI-powered systems to interact with the Platform in a manner that is inconsistent with normal human use patterns, unless such use is expressly authorized by PyAcademy in writing.</li>
+ <li>Automating the completion of courses, quizzes, assessments, or certifications to obtain credentials without genuine learning engagement.</li>
+ <li>Scraping, indexing, or archiving Platform content for the purpose of creating competing educational products or services.</li>
+ </ul>
+
+ <h3>2.7 Misuse of User-Generated Content and AI Features</h3>
+ <ul>
+ <li>Using the Platform's AI-assisted coding tools, code generation features, or intelligent assistants to generate, distribute, or promote harmful, illegal, or malicious code.</li>
+ <li>Claiming authorship or ownership of AI-generated content produced through the Platform's tools in a manner that constitutes fraud or misrepresentation.</li>
+ <li>Using the Platform to train, fine-tune, or benchmark external AI models without express written permission from PyAcademy.</li>
+ </ul>
+
+ <h2>3. Content Standards and User Obligations</h2>
+
+ <h3>3.1 Content You Submit</h3>
+ <p>When you upload, post, share, or otherwise make available any content through the Platform ("User Content"), you represent and warrant that:</p>
+ <ul>
+ <li>You are the creator and owner of the User Content, or you have obtained all necessary licenses, permissions, consents, and rights to submit the User Content and to grant the rights described herein.</li>
+ <li>The User Content does not and will not infringe, misappropriate, or violate the intellectual property, privacy, publicity, or other rights of any third party.</li>
+ <li>The User Content complies with all applicable laws and regulations, including French law and EU law.</li>
+ <li>The User Content does not contain any malware, viruses, or other harmful code.</li>
+ <li>The User Content is accurate and not misleading.</li>
+ </ul>
+ <p>By submitting User Content, you grant PyAcademy a worldwide, non-exclusive, royalty-free, sublicensable, and transferable license to use, reproduce, modify, adapt, publish, translate, distribute, and display such User Content in connection with the operation and promotion of the Platform, in accordance with Article 6(1)(a) of the GDPR (consent) and Article 6(1)(f) (legitimate interests).</p>
+
+ <h3>3.2 Instructor Obligations</h3>
+ <p>If you publish or distribute educational content as an instructor on the Platform, you additionally agree to:</p>
+ <ul>
+ <li>Ensure that all course materials, exercises, quizzes, and supplementary resources are accurate, up-to-date, and pedagogically sound.</li>
+ <li>Clearly disclose any affiliations, sponsorships, or commercial relationships that may influence the content of your courses, in compliance with Directive 2005/29/EC (Unfair Commercial Practices Directive) and French consumer protection law (Code de la consommation, Articles L121-1 et seq.).</li>
+ <li>Respond to student inquiries and provide reasonable support within the timeframes specified by the Platform.</li>
+ <li>Not use the Platform to engage in unfair, deceptive, or misleading commercial practices.</li>
+ </ul>
+
+ <h2>4. Enforcement and Measures</h2>
+ <p>We reserve the right to investigate and take appropriate action against any User who, in our sole discretion, violates this Policy. Actions may include, but are not limited to:</p>
+
+ <table class="legal-table">
+ <thead><tr><th style="width:30%">Measure</th><th style="width:70%">Description</th></tr></thead>
+ <tbody>
+ <tr><td><strong>Warning</strong></td><td>A formal notice issued to the User informing them of the specific violation and requiring immediate cessation of the prohibited conduct.</td></tr>
+ <tr><td><strong>Content Removal</strong></td><td>Immediate removal or disabling of access to the offending content, in accordance with our obligations under the EU Digital Services Act (Regulation (EU) 2022/2065) and applicable French law.</td></tr>
+ <tr><td><strong>Account Suspension</strong></td><td>Temporary suspension of the User's account and access to the Platform, with notification of the reason and expected duration. The User may appeal the suspension as described in Section 5 below.</td></tr>
+ <tr><td><strong>Account Termination</strong></td><td>Permanent termination of the User's account and revocation of all access rights. Termination may be immediate in cases of severe or repeated violations, or where continued access poses a risk to the Platform, its Users, or third parties.</td></tr>
+ <tr><td><strong>Legal Action</strong></td><td>Referral to law enforcement authorities, regulatory bodies, or the pursuit of civil remedies, including claims for damages, injunctive relief, or other appropriate legal measures, in accordance with applicable law.</td></tr>
+ <tr><td><strong>Reporting to Authorities</strong></td><td>Mandatory reporting to competent authorities where required by law, including but not limited to reports of CSAM to national law enforcement, terrorist content to the relevant authorities under Regulation (EU) 2021/784, or data breaches to the CNIL under Article 33 of the GDPR.</td></tr>
+ </tbody>
+ </table>
+
+ <div class="note">
+ <strong>Notice Regarding the EU Digital Services Act:</strong> In accordance with Regulation (EU) 2022/2065 (Digital Services Act), we are committed to processing notices of illegal content in a timely, diligent, non-arbitrary, and objective manner. We will provide clear reasons for any decision to remove or disable access to content and will afford Users the opportunity to contest such decisions through an internal complaint-handling mechanism.
+ </div>
+
+ <h2>5. Appeals and Complaints Procedure</h2>
+
+ <h3>5.1 Internal Appeal</h3>
+ <p>If you believe that an enforcement action has been taken against your account or content in error, you have the right to submit an internal appeal. Appeals must be submitted in writing to <a href="mailto:appeals@li1234.top">appeals@li1234.top</a> within thirty (30) calendar days of the date of the enforcement action. Your appeal must include:</p>
+ <ul>
+ <li>Your account identifier and the date of the enforcement action;</li>
+ <li>A detailed description of why you believe the action was taken in error;</li>
+ <li>Any supporting documentation or evidence.</li>
+ </ul>
+ <p>We will review your appeal within fifteen (15) business days and provide you with a written decision, including the reasons for our determination.</p>
+
+ <h3>5.2 External Recourse</h3>
+ <p>If you are not satisfied with the outcome of the internal appeal, you may:</p>
+ <ul>
+ <li>Request out-of-court dispute resolution in accordance with Regulation (EU) 2022/2065, Article 20, through a certified out-of-court dispute settlement body designated by the relevant Digital Services Coordinator;</li>
+ <li>Lodge a complaint with the competent supervisory authority in your Member State of establishment or the Member State where you are affected;</li>
+ <li>Exercise any other rights available to you under applicable law, including the right to seek judicial remedies before the competent courts of France.</li>
+ </ul>
+
+ <h2>6. Monitoring and Reporting</h2>
+
+ <h3>6.1 Our Monitoring Practices</h3>
+ <p>We reserve the right to monitor, review, and inspect User Content and activity on the Platform to the extent necessary to ensure compliance with this Policy, our Terms of Service, and applicable law. Such monitoring may include, but is not limited to:</p>
+ <ul>
+ <li>Automated content moderation using machine learning and rule-based systems to detect and filter potentially illegal or policy-violating content;</li>
+ <li>Review of User Content in response to reports from other Users or third parties;</li>
+ <li>Analysis of usage patterns to detect potential abuse, fraud, or security threats.</li>
+ </ul>
+ <p>All monitoring activities are conducted in accordance with the GDPR, the French Data Protection Act, and the principles of data minimization (Article 5(1)(c) GDPR), purpose limitation (Article 5(1)(b) GDPR), and transparency (Article 12 GDPR).</p>
+
+ <h3>6.2 User Reporting Mechanism</h3>
+ <p>If you become aware of any content or activity on the Platform that violates this Policy, you are encouraged to report it to us promptly at <a href="mailto:abuse@li1234.top">abuse@li1234.top</a> or through the in-platform reporting tool. Reports should include:</p>
+ <ul>
+ <li>A description of the content or activity in question;</li>
+ <li>The URL or identifier of the relevant content or User;</li>
+ <li>The specific provision(s) of this Policy that you believe have been violated;</li>
+ <li>Any supporting evidence.</li>
+ </ul>
+ <p>We will acknowledge receipt of your report within forty-eight (48) hours and will endeavor to process and resolve the matter as expeditiously as possible, taking into account the principles of due diligence, proportionality, and timeliness required by the EU Digital Services Act.</p>
+
+ <h2>7. Platform Integrity and Availability</h2>
+
+ <h3>7.1 Infrastructure Protection</h3>
+ <p>You must not take any action that may compromise the integrity, security, or availability of the Platform's infrastructure, including its servers, databases, networks, APIs, and associated systems. Specifically, you agree not to:</p>
+ <ul>
+ <li>Exceed any rate limits or usage quotas imposed on API access or other Platform features;</li>
+ <li>Reverse engineer, decompile, disassemble, or otherwise attempt to derive the source code, algorithms, or underlying technology of the Platform, except to the extent expressly permitted by applicable law (e.g., Article L122-6-1 of the French Intellectual Property Code);</li>
+ <li>Remove, alter, or obscure any proprietary notices, labels, or watermarks on Platform content;</li>
+ <li>Use the Platform in a manner that could damage, disable, overburden, or impair it.</li>
+ </ul>
+
+ <h3>7.2 Fair Use</h3>
+ <p>The Platform is designed to provide educational services to its Users. You agree to use the Platform in a manner consistent with its intended purpose and in good faith. Excessive or abnormal use patterns that may degrade the experience for other Users or impose disproportionate costs on PyAcademy may result in the imposition of usage limitations or the suspension of your access.</p>
+
+ <h2>8. Data Protection and Privacy</h2>
+ <p>Your use of the Platform is also governed by our <a href="PyAcademy_Privacy_Policy.html">Privacy Policy</a>, which describes how we collect, use, process, and protect your personal data in accordance with the GDPR, the French Data Protection Act, and other applicable data protection legislation. By using the Platform, you acknowledge that:</p>
+ <ul>
+ <li>You will not collect, process, or disclose personal data of other Users without a lawful basis under Article 6 of the GDPR;</li>
+ <li>You will comply with all applicable data protection laws when using the Platform's features to interact with or communicate with other Users;</li>
+ <li>You will promptly report any personal data breach you become aware of to our Data Protection Officer at <a href="mailto:dpo@li1234.top">dpo@li1234.top</a>, in accordance with Article 33 of the GDPR.</li>
+ </ul>
+
+ <h2>9. Intellectual Property of PyAcademy</h2>
+ <p>All intellectual property rights in the Platform, its content, design, code, logos, trademarks, and associated materials are owned by or licensed to PyAcademy. Nothing in this Policy or in your use of the Platform grants you any right, title, or interest in or to PyAcademy's intellectual property, except the limited, revocable, non-exclusive, non-transferable license to access and use the Platform in accordance with this Policy and our Terms of Service.</p>
+ <p>PyAcademy and the PyAcademy logo are trademarks of PyAcademy SAS, registered in France and the European Union. Unauthorized use of these trademarks is strictly prohibited.</p>
+
+ <h2>10. Limitation of Liability</h2>
+ <p>To the maximum extent permitted by applicable law, including Article 1240 of the French Civil Code (Code civil), PyAcademy shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or related to a User's violation of this Policy, including but not limited to loss of profits, loss of data, business interruption, or reputational harm. PyAcademy's total aggregate liability for any claims arising out of or related to this Policy shall not exceed the greater of (a) the amount paid by the User to PyAcademy in the twelve (12) months preceding the event giving rise to the claim, or (b) one hundred euros (€100).</p>
+ <p>The limitations set forth in this section do not apply to liability that cannot be excluded or limited under applicable law, including liability for willful misconduct (faute intentionnelle), gross negligence (faute lourde), or liability arising from the French Consumer Code (Code de la consommation) provisions on unfair terms (Articles L212-1 et seq.).</p>
+
+ <h2>11. Indemnification</h2>
+ <p>To the extent permitted by applicable law, you agree to indemnify, defend, and hold harmless PyAcademy, its officers, directors, employees, agents, and affiliates from and against any and all claims, liabilities, damages, losses, costs, and expenses (including reasonable legal fees) arising out of or in connection with:</p>
+ <ul>
+ <li>Your violation of this Policy;</li>
+ <li>Your violation of any applicable law, regulation, or third-party right;</li>
+ <li>Any User Content you submit, post, or transmit through the Platform;</li>
+ <li>Your interaction with other Users of the Platform.</li>
+ </ul>
+ <div class="note">
+ <strong>Note for Consumers:</strong> If you are a consumer within the meaning of Directive 93/13/EEC (Unfair Contract Terms Directive) and the French Code de la consommation, the indemnification clause above shall not apply to the extent that it would constitute an unfair term within the meaning of Article L212-1 of the Code de la consommation.
+ </div>
+
+ <h2>12. Termination</h2>
+ <p>We reserve the right to suspend or terminate your access to the Platform at any time, with or without cause, with or without notice, and without liability, for conduct that we, in our sole discretion, believe to be in violation of this Policy or otherwise harmful to the Platform, its Users, or third parties. Upon termination:</p>
+ <ul>
+ <li>Your right to access and use the Platform ceases immediately;</li>
+ <li>You must cease all use of Platform content and materials;</li>
+ <li>We may retain your data in accordance with our Privacy Policy and applicable legal retention obligations;</li>
+ <li>Any outstanding obligations or liabilities of either party shall survive termination.</li>
+ </ul>
+
+ <h2>13. Governing Law and Jurisdiction</h2>
+ <p>This Policy is governed by and shall be construed in accordance with the laws of the French Republic, without regard to its conflict of laws provisions. Any dispute arising out of or in connection with this Policy that cannot be resolved through the appeals procedure described in Section 5 shall be subject to the exclusive jurisdiction of the competent courts of Paris, France, unless otherwise required by applicable consumer protection legislation or by the Brussels I Regulation (Recast) (Regulation (EU) No 1215/2012).</p>
+ <p>Nothing in this section shall deprive consumers of the protection afforded by the mandatory provisions of the law of the Member State in which they are habitually resident (Article 6(2) of Rome I Regulation, Regulation (EC) No 593/2008).</p>
+
+ <h2>14. Amendments to This Policy</h2>
+ <p>We reserve the right to modify this Policy at any time. When we make material changes, we will notify Users by email or by a prominent notice on the Platform at least thirty (30) calendar days before the changes take effect. Your continued use of the Platform after the effective date of any modifications constitutes your acceptance of the amended Policy. If you do not agree to the amended Policy, you must cease using the Platform and close your account.</p>
+
+ <h2>15. Severability</h2>
+ <p>If any provision of this Policy is held to be invalid, illegal, or unenforceable by a court of competent jurisdiction, such provision shall be modified to the minimum extent necessary to make it valid and enforceable, or if modification is not possible, shall be severed from this Policy. The invalidity of any provision shall not affect the validity or enforceability of the remaining provisions, which shall continue in full force and effect.</p>
+
+ <h2>16. Contact Information</h2>
+ <p>For any questions, reports, or concerns regarding this Acceptable Use Policy, please contact:</p>
+ <p><strong>PyAcademy Trust & Safety Team</strong><br>
+ Email: <a href="mailto:abuse@li1234.top">abuse@li1234.top</a><br>
+ Data Protection Officer: <a href="mailto:dpo@li1234.top">dpo@li1234.top</a><br>
+ Appeals: <a href="mailto:appeals@li1234.top">appeals@li1234.top</a><br>
+ Postal Address: PyAcademy SAS, 12 Rue de la Paix, 75002 Paris, France</p>
+
+ </div>
+
+ <!-- ============================================================ -->
+ <!-- CHINESE CONTENT -->
+ <!-- ============================================================ -->
+ <div data-lang="zh">
+
+ <h2>1. 接受本政策</h2>
+ <p>通过创建账户、访问、浏览或以其他方式使用平台，即表示您已阅读、理解并同意受本可接受使用政策的约束。如果您不同意本政策的条款，您必须立即停止使用平台的所有使用，并在适用的情况下，根据我们的服务条款关闭您的账户。</p>
+ <p>无论您是通过网络浏览器、移动应用程序、API 或任何其他方式访问平台，本政策均适用。它延伸到在平台上或通过平台发生的所有内容、材料、交互和通信。</p>
+ <div class="note">
+ <strong>注意：</strong>本可接受使用政策应与我们的服务条款、隐私政策、Cookie 政策及任何其他适用政策结合阅读。如果本政策与任何其他适用政策之间存在冲突，以更严格的条款为准，除非适用法律另有规定。
+ </div>
+
+ <h2>2. 禁止使用和行为</h2>
+ <p>您同意不将平台用于任何违法、被本政策禁止、或可能损害、禁用、过载或损害平台或干扰任何其他方使用和享受平台的目的。以下是禁止行为的非穷尽性列表：</p>
+
+ <h3>2.1 违法活动和内容</h3>
+ <ul>
+ <li>违反任何适用的地方法律、国家或国际法律、法规或条例使用平台，包括但不限于法国法律、欧盟法律及其成员国的法律。</li>
+ <li>上传、发布、传输或分发构成、煽动、促进或协助犯罪行为、违法活动或根据适用法律的非法行为的任何内容。</li>
+ <li>分发、托管或协助访问构成儿童性虐待材料（CSAM）或剥削或危及未成年人的任何材料的内容，违反指令 2011/93/EU 和法国刑法（《刑法典》第227-23条至第227-27条）。</li>
+ <li>从事、促进或协助洗钱、恐怖主义融资、欺诈、挪用公款、内幕交易或任何其他金融犯罪。</li>
+ <li>将平台用于违反出口管制法律、制裁或贸易限制的目的，包括欧盟、联合国或美国外国资产控制办公室（OFAC）施加的限制。</li>
+ </ul>
+
+ <h3>2.2 有害、侮辱性和冒犯性内容</h3>
+ <ul>
+ <li>上传、发布或传输诽谤、中伤、骚扰、威胁、侵犯隐私或公开权的，或构成基于种族、民族、国籍、宗教、性别、性别认同、性取向、残疾、年龄或任何其他受保护特征的仇恨言论、歧视或煽动暴力或仇恨的内容，违反欧盟指令 2000/78/EC（就业平等指令）和法国劳动法典（《劳动法典》）。</li>
+ <li>分享促进或美化自残、饮食障碍、自杀或药物滥用的内容。</li>
+ <li>发布淫秽、色情、性露骨或 otherwise 令人反感的内容。</li>
+ <li>对任何用户或第三方实施网络欺凌、网络跟踪或在线骚扰。</li>
+ </ul>
+
+ <h3>2.3 知识产权侵权</h3>
+ <ul>
+ <li>上传、分享或分发侵犯或盗用任何第三方知识产权的内容，包括版权、商标、专利、商业秘密或任何其他专有权利，依据指令 2001/29/EC（信息社会指令）和法国知识产权法典（《知识产权法典》）。</li>
+ <li>未经适当授权复制、修改、分发、公开展示或创建平台内容的衍生作品。</li>
+ <li>规避、禁用或以其他方式干扰数字版权管理（DRM）技术、复制保护机制或访问控制。</li>
+ <li>使用自动化工具（机器人、抓取器、爬虫器）在未经明确书面授权的情况下提取、收集或获取平台内容、用户数据或课程材料。</li>
+ </ul>
+
+ <h3>2.4 安全和技术攻击</h3>
+ <ul>
+ <li>试图未经授权访问平台的任何部分、其他用户的账户或连接到平台的任何系统、服务器或网络。</li>
+ <li>干扰、中断或对平台、其基础设施、服务器或网络造成不当负担，包括通过分布式拒绝服务（DDoS）攻击、流量泛洪或故意资源耗尽。</li>
+ <li>向平台引入恶意软件、病毒、蠕虫、特洛伊木马、勒索软件、间谍软件、广告软件或任何其他有害代码。</li>
+ <li>在未经 PyAcademy 事先书面授权的情况下，对平台进行端口扫描、漏洞扫描、渗透测试或任何形式的安全侦察。</li>
+ <li>拦截、监控或修改非为您准备的数据或通信，包括中间人攻击、数据包嗅探或会话劫持。</li>
+ </ul>
+
+ <h3>2.5 平台功能和服务的滥用</h3>
+ <ul>
+ <li>使用平台的交互功能（讨论论坛、代码共享、问答版块、评论）来分发垃圾邮件、未经请求的广告、促销材料、连锁信、金字塔计划或其他形式的商业招揽。</li>
+ <li>创建多个账户以规避执行操作、操纵评分或评论，或以其他方式滥用平台的系统。</li>
+ <li>冒充或虚假声称与任何人、实体或组织有隶属关系。</li>
+ <li>使用平台在未经其他用户明确同意的情况下收集、获取或挖掘其他用户的个人数据，违反 GDPR 第6条、第14条和第15条。</li>
+ <li>操纵、夸大或人为生成参与度指标、评论评分、课程评分或完成证书。</li>
+ <li>与未经授权的第三方共享登录凭据或允许未经授权访问您的账户。</li>
+ </ul>
+
+ <h3>2.6 自动化和机器人相关滥用</h3>
+ <ul>
+ <li>使用机器人、脚本、自动化工具或人工智能系统以与正常人类使用模式不一致的方式与平台互动，除非 PyAcademy 以书面形式明确授权此类使用。</li>
+ <li>自动化完成课程、测验、评估或认证以在没有真正学习参与的情况下获得凭证。</li>
+ <li>抓取、索引或存档平台内容，用于创建竞争性教育产品或服务。</li>
+ </ul>
+
+ <h3>2.7 用户生成内容和 AI 功能的滥用</h3>
+ <ul>
+ <li>使用平台的 AI 辅助编码工具、代码生成功能或智能助手来生成、分发或推广有害、违法或恶意的代码。</li>
+ <li>以构成欺诈或虚假陈述的方式，声称通过平台工具生成的 AI 内容的作者身份或所有权。</li>
+ <li>未经 PyAcademy 明确书面许可，使用平台来训练、微调或基准测试外部 AI 模型。</li>
+ </ul>
+
+ <h2>3. 内容标准和用户义务</h2>
+
+ <h3>3.1 您提交的内容</h3>
+ <p>当您通过平台上传、发布、分享或以其他方式提供任何内容（"用户内容"）时，您声明并保证：</p>
+ <ul>
+ <li>您是用户内容的创建者和所有者，或您已获得提交用户内容和授予此处所述权利所需的所有必要许可、同意和权利。</li>
+ <li>用户内容不会且将不会侵犯任何第三方的知识产权、隐私权、公开权或其他权利。</li>
+ <li>用户内容符合适用的法律法规，包括法国法律和欧盟法律。</li>
+ <li>用户内容不包含任何恶意软件、病毒或其他有害代码。</li>
+ <li>用户内容是准确的，不具有误导性。</li>
+ </ul>
+ <p>通过提交用户内容，您授予 PyAcademy 一项全球性、非排他性、免版税、可再许可和可转让的许可，以使用、复制、修改、改编、发布、翻译、分发和展示此类用户内容，以连接平台的运营和推广，依据 GDPR 第6(1)(a)条（同意）和第6(1)(f)条（合法利益）。</p>
+
+ <h3>3.2 讲师义务</h3>
+ <p>如果您作为讲师在平台上发布或分发教育内容，您还同意：</p>
+ <ul>
+ <li>确保所有课程材料、练习、测验和补充资源准确、最新且教学上合理。</li>
+ <li>清楚披露可能影响课程内容的任何隶属关系、赞助或商业关系，依据指令 2005/29/EC（不公平商业行为指令）和法国消费者保护法（《消费法典》第L121-1条及后续条款）。</li>
+ <li>在平台规定的时间范围内回应学生咨询并提供合理的支持。</li>
+ <li>不使用平台从事不公平、欺骗性或误导性的商业行为。</li>
+ </ul>
+
+ <h2>4. 执行和措施</h2>
+ <p>我们保留调查并采取适当行动的权利，针对任何我们认为违反本政策的用户。措施可能包括但不限于：</p>
+
+ <table class="legal-table">
+ <thead><tr><th style="width:30%">措施</th><th style="width:70%">描述</th></tr></thead>
+ <tbody>
+ <tr><td><strong>警告</strong></td><td>向用户发出正式通知，告知其具体违规行为并要求立即停止禁止行为。</td></tr>
+ <tr><td><strong>内容删除</strong></td><td>立即删除或禁用对违规内容的访问，依据我们在欧盟《数字服务法》（（欧盟）2022/2065号法规）和适用法国法律下的义务。</td></tr>
+ <tr><td><strong>账户暂停</strong></td><td>临时暂停用户的账户和对平台的访问，并通知原因和预期持续时间。用户可按照以下第5节中的描述提出申诉。</td></tr>
+ <tr><td><strong>账户终止</strong></td><td>永久终止用户的账户并撤销所有访问权利。在严重或反复违规的情况下，或在继续访问对平台、其用户或第三方构成风险的情况下，可立即终止。</td></tr>
+ <tr><td><strong>法律行动</strong></td><td>提交执法机关、监管机构或寻求民事救济，包括损害赔偿、禁令救济或根据适用法律的其他适当法律措施。</td></tr>
+ <tr><td><strong>向主管机关报告</strong></td><td>在法律要求的情况下向主管机关进行强制性报告，包括但不限于向国家执法机关报告 CSAM、依据（欧盟）2021/784号法规向有关当局报告恐怖主义内容，或依据 GDPR 第33条向 CNIL 报告数据泄露。</td></tr>
+ </tbody>
+ </table>
+
+ <div class="note">
+ <strong>关于欧盟《数字服务法》的说明：</strong>依据（欧盟）2022/2065号法规（《数字服务法》），我们承诺以及时、尽职、非任意和客观的方式处理非法内容通知。我们将为任何删除或禁用内容访问的决定提供明确理由，并将为用户提供通过内部投诉处理机制对相关决定提出异议的机会。
+ </div>
+
+ <h2>5. 申诉和投诉程序</h2>
+
+ <h3>5.1 内部申诉</h3>
+ <p>如果您认为针对您的账户或内容的执行操作是在错误的情况下采取的，您有权提交内部申诉。申诉必须在执行操作之日起三十（30）个日历日内以书面形式提交至 <a href="mailto:appeals@li1234.top">appeals@li1234.top</a>。您的申诉必须包括：</p>
+ <ul>
+ <li>您的账户标识符和执行操作的日期；</li>
+ <li>您认为该操作是在错误情况下采取的详细描述；</li>
+ <li>任何支持性文件或证据。</li>
+ </ul>
+ <p>我们将在十五（15）个工作日内审查您的申诉并向您提供书面决定，包括我们裁定的理由。</p>
+
+ <h3>5.2 外部救济</h3>
+ <p>如果您对内部申诉的结果不满意，您可以：</p>
+ <ul>
+ <li>根据（欧盟）2022/2065号法规第20条，通过相关数字服务协调官指定的经认证的庭外争议解决机构，请求庭外争议解决；</li>
+ <li>向您所在成员国的有管辖权的监管机构或您受到影响的成员国提出投诉；</li>
+ <li>行使根据适用法律可获得的任何其他权利，包括向法国有管辖权的法院寻求司法救济的权利。</li>
+ </ul>
+
+ <h2>6. 监控和报告</h2>
+
+ <h3>6.1 我们的监控实践</h3>
+ <p>我们保留监控、审查和检查平台上用户内容和活动的权利，范围以确保遵守本政策、我们的服务条款和适用法律所必需的为限。此类监控可能包括但不限于：</p>
+ <ul>
+ <li>使用机器学习和基于规则的系统进行自动内容审核，以检测和过滤可能违法或违反政策的内容；</li>
+ <li>根据其他用户或第三方的报告审查用户内容；</li>
+ <li>分析使用模式以检测潜在的滥用、欺诈或安全威胁。</li>
+ </ul>
+ <p>所有监控活动均依据 GDPR、法国《数据保护法》以及数据最小化原则（GDPR 第5(1)(c)条）、目的限制原则（GDPR 第5(1)(b)条）和透明度原则（GDPR 第12条）进行。</p>
+
+ <h3>6.2 用户报告机制</h3>
+ <p>如果您发现平台上任何违反本政策的内容或活动，我们鼓励您及时通过 <a href="mailto:abuse@li1234.top">abuse@li1234.top</a> 或平台内报告工具向我们报告。报告应包括：</p>
+ <ul>
+ <li>对相关内容或活动的描述；</li>
+ <li>相关内容或用户的 URL 或标识符；</li>
+ <li>您认为已被违反的本政策具体条款；</li>
+ <li>任何支持性证据。</li>
+ </ul>
+ <p>我们将在四十八（48）小时内确认收到您的报告，并将尽合理努力尽快处理和解决该事项，同时考虑到欧盟《数字服务法》要求的尽职调查、比例原则和及时性原则。</p>
+
+ <h2>7. 平台完整性和可用性</h2>
+
+ <h3>7.1 基础设施保护</h3>
+ <p>您不得采取任何可能损害平台基础设施（包括其服务器、数据库、网络、API 及相关系统）的完整性、安全性或可用性的行动。具体而言，您同意不：</p>
+ <ul>
+ <li>超过对 API 访问或其他平台功能施加的速率限制或使用配额；</li>
+ <li>反向工程、反编译、反汇编或以其他方式试图获取平台的源代码、算法或底层技术，除非适用法律（如法国《知识产权法典》第L122-6-1条）明确允许；</li>
+ <li>删除、更改或模糊平台内容上的任何专有通知、标签或水印；</li>
+ <li>以可能损坏、禁用、过载或损害平台的方式使用平台。</li>
+ </ul>
+
+ <h3>7.2 公平使用</h3>
+ <p>平台旨在为其用户提供教育服务。您同意以与其预期目的一致且诚信的方式使用平台。可能降低其他用户体验或对 PyAcademy 施加不成比例成本的过度或异常使用模式可能导致使用限制的施加或暂停您的访问。</p>
+
+ <h2>8. 数据保护和隐私</h2>
+ <p>您对平台的使用也受我们的 <a href="PyAcademy_Privacy_Policy.html">隐私政策</a> 的管辖，该政策描述了我们如何根据 GDPR、法国《数据保护法》及其他适用的数据保护立法收集、使用、处理和保护您的个人数据。使用平台即表示您确认：</p>
+ <ul>
+ <li>您不会在没有 GDPR 第6条规定的合法依据的情况下收集、处理或披露其他用户的个人数据；</li>
+ <li>您在使用平台的功能与其他用户交互或通信时，将遵守所有适用的数据保护法律；</li>
+ <li>您将及时向我们的数据保护官报告您意识到的任何个人数据泄露（<a href="mailto:dpo@li1234.top">dpo@li1234.top</a>），依据 GDPR 第33条。</li>
+ </ul>
+
+ <h2>9. PyAcademy 的知识产权</h2>
+ <p>平台及其内容、设计、代码、徽标、商标和相关材料的所有知识产权均为 PyAcademy 所有或经其许可。本政策或您使用平台中的任何内容均不授予您对 PyAcademy 知识产权的任何权利、所有权或利益，除非根据本政策和服务条款所授予的有限的、可撤销的、非排他的、不可转让的访问和使用平台的许可。</p>
+ <p>PyAcademy 和 PyAcademy 徽标是 PyAcademy SAS 的商标，在法国和欧盟注册。严禁未经授权使用这些商标。</p>
+
+ <h2>10. 责任限制</h2>
+ <p>在适用法律允许的最大范围内，包括法国《民法典》第1240条，PyAcademy 对因用户违反本政策而引起的或与之相关的任何间接的、附带的、特殊的、后果性的或惩罚性的损害不承担任何责任，包括但不限于利润损失、数据损失、业务中断或声誉损害。PyAcademy 对因本政策引起的或与之相关的任何索赔的总累计责任不超过以下两者中的较大者：（a）用户在导致索赔的事件之前十二（12）个月内向 PyAcademy 支付的金额，或（b）一百欧元（€100）。</p>
+ <p>本节中的限制不适用于根据适用法律不能排除或限制的责任，包括因故意不当行为（faute intentionnelle）、重大过失（faute lourde）或因法国《消费法典》不公平条款条款（第L212-1条及后续条款）引起的责任。</p>
+
+ <h2>11. 赔偿</h2>
+ <p>在适用法律允许的范围内，您同意赔偿、辩护并使 PyAcademy 及其高级管理人员、董事、雇员、代理人和关联公司免受因以下原因引起的或与之相关的任何和所有索赔、责任、损害、损失、成本和费用（包括合理的律师费）：</p>
+ <ul>
+ <li>您违反本政策；</li>
+ <li>您违反任何适用的法律、法规或第三方权利；</li>
+ <li>您通过平台提交、发布或传输的任何用户内容；</li>
+ <li>您与平台其他用户的互动。</li>
+ </ul>
+ <div class="note">
+ <strong>消费者注意：</strong>如果您是指令 93/13/EEC（不公平合同条款指令）和法国《消费法典》所定义的消费者，上述赔偿条款在构成《消费法典》第L212-1条所定义的不公平条款的范围内不适用。
+ </div>
+
+ <h2>12. 终止</h2>
+ <p>我们保留随时暂停或终止您对平台的访问的权利，无论是否有原因，无论是否有通知，且不承担责任，针对我们认为违反本政策或以其他方式损害平台、其用户或第三方的行为。终止后：</p>
+ <ul>
+ <li>您访问和使用平台的权利立即终止；</li>
+ <li>您必须停止使用平台内容和材料；</li>
+ <li>我们可能根据我们的隐私政策和适用的法定保留义务保留您的数据；</li>
+ <li>任何一方的未到期义务或责任在终止后继续有效。</li>
+ </ul>
+
+ <h2>13. 适用法律和管辖权</h2>
+ <p>本政策受法兰西共和国法律管辖并应根据其解释，不考虑其法律冲突条款。因本政策引起的或与之相关的任何争议，如无法通过第5节中描述的申诉程序解决，应由法国巴黎有管辖权的法院专属管辖，除非适用的消费者保护立法或《布鲁塞尔I号条例》（修订版）（（欧盟）第1215/2012号条例）另有规定。</p>
+ <p>本节中的任何内容均不得剥夺消费者根据其惯常居住地法律的强制性规定所提供的保护（《罗马I号条例》（（欧共体）第593/2008号条例）第6(2)条）。</p>
+
+ <h2>14. 本政策的修订</h2>
+ <p>我们保留随时修改本政策的权利。当我们做出重大变更时，我们将在变更生效前至少三十（30）个日历日通过电子邮件或在平台上发布显著通知来通知用户。在任何修改生效后继续使用平台即表示您接受修改后的政策。如果您不同意修改后的政策，您必须停止使用平台并关闭您的账户。</p>
+
+ <h2>15. 可分割性</h2>
+ <p>如果本政策的任何条款被有管辖权的法院认定为无效、违法或不可执行，该条款应在必要范围内修改至有效和可执行的最低限度，或如果不可能修改，则应从本政策中删除。任何条款的无效性不影响本政策其余条款的有效性和可执行性，其余条款继续完全有效。</p>
+
+ <h2>16. 联系方式</h2>
+ <p>如有关于本可接受使用政策的任何问题、报告或疑虑，请联系：</p>
+ <p><strong>PyAcademy 信任与安全团队</strong><br>
+ 电子邮件：<a href="mailto:abuse@li1234.top">abuse@li1234.top</a><br>
+ 数据保护官：<a href="mailto:dpo@li1234.top">dpo@li1234.top</a><br>
+ 申诉邮箱：<a href="mailto:appeals@li1234.top">appeals@li1234.top</a><br>
+ 邮寄地址：PyAcademy SAS, 12 Rue de la Paix, 75002 Paris, France</p>
+
+ </div>
+
+ </div>
+
+ <div class="highlight"><p><strong>Supplementary Legal Provisions / 附则A</strong></p><p><strong>A.1 DPO:</strong> <a href="mailto:dpo@li1234.top">dpo@li1234.top</a>. GDPR Art.37. PyAcademy SAS, 12 Rue de la Paix, 75002 Paris, France.</p><p><strong>A.2 Principles:</strong> GDPR Art.5 - lawfulness, purpose limitation, data minimisation, accuracy, storage limitation, integrity/confidentiality, accountability.</p><p><strong>A.3 Cross-border:</strong> GDPR Art.44-49 - SCCs, BCRs, adequacy decisions.</p><p><strong>A.4 CNIL Complaint:</strong> GDPR Art.77 - CNIL, 3 Place de Fontenoy, TSA 80715, 75334 Paris Cedex 07. +33 1 53 73 22 22. cnil.fr</p><p><strong>A.5 Automated Decisions:</strong> GDPR Art.22 - right not to be subject to solely automated decisions.</p><p><strong>A.6 Legal Bases:</strong> GDPR Art.6(1) - consent, contract, legal obligation, public interest, legitimate interests.</p><p><strong>A.7 CNIL Compliance:</strong> Loi n° 78-17 (Informatique et Libertés), CNIL Deliberation 2020-091, ePrivacy Directive 2002/58/EC.</p><p><strong>A.8 Consumer:</strong> Code de la consommation L111-1 to L111-7, L221-18 to L221-28, L212-1, L616-1, L217-1 to L217-15, L215-1 to L215-3. EU Directive 2011/83/EU, 93/13/EEC, 2019/770.</p><p><strong>A.9 Contact:</strong> Legal: <a href="mailto:legal@li1234.top">legal@li1234.top</a>. DPO: <a href="mailto:dpo@li1234.top">dpo@li1234.top</a>. PyAcademy SAS, 12 Rue de la Paix, 75002 Paris, France.</p></div>
+    <footer>
+ <div class="footer-inner">
+ <div class="footer-links">
+ <a href="https://www.li1234.com" data-lang="en">Home</a>
+ <a href="https://www.li1234.com" data-lang="zh">首页</a>
+ <a href="https://www.li1234.com" data-lang="en">Privacy Policy</a>
+ <a href="https://www.li1234.com" data-lang="zh">隐私政策</a>
+ </div>
+ <p class="footer-copy">&copy; 2026 PyAcademy. All rights reserved.</p>
+ </div>
+ </footer>
+
+ <script type="text/javascript">
+ function switchLang(lang) {
+    document.body.classList.toggle('zh', lang === 'zh');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+}
+ </script>
+</body>
+</html>

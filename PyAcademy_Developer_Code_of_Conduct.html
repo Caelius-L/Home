@@ -1,0 +1,221 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>开发者行为准则 – PyAcademy</title>
+ <style>
+ @font-face { font-family: 'AnthropicSerif'; src: url('AnthropicSerif-Romans-Variable-25x258.ttf') format('truetype'); font-weight: 100 900; font-style: normal; font-display: swap; }
+ *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'AnthropicSerif', 'Georgia', serif; color: #1a1a1a; background: #fff; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+ nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid #eaeaea; padding: 0 24px; }
+ .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+ .nav-logo { font-size: 18px; font-weight: 700; color: #1a1a1a; text-decoration: none; letter-spacing: -0.02em; }
+ .nav-logo span { color: #d97706; }
+ .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+ .nav-links a { font-size: 14px; font-weight: 500; color: #666; text-decoration: none; transition: color 0.2s; }
+ .nav-links a:hover { color: #1a1a1a; }
+ .lang-divider { width: 1px; height: 16px; background: #ddd; }
+ .lang-btn { font-size: 13px; font-weight: 500; color: #888; padding: 4px 10px; border: 1px solid #ddd; border-radius: 6px; transition: all 0.2s; cursor: pointer; background: none; }
+ .lang-btn:hover { color: #1a1a1a; border-color: #aaa; }
+ .lang-btn.active { color: #d97706; border-color: #d97706; background: #fffbeb; }
+ .hero { padding: 80px 24px 48px; max-width: 1200px; margin: 0 auto; }
+ .hero h1 { font-size: 42px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 16px; }
+ .hero .date { font-size: 15px; color: #888; margin-bottom: 24px; }
+ .hero .intro { font-size: 17px; color: #444; max-width: 720px; line-height: 1.8; }
+ .content { max-width: 760px; margin: 0 auto; padding: 24px 24px 120px; }
+ .content h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin-top: 48px; margin-bottom: 16px; color: #1a1a1a; border-bottom: 2px solid #f0f0f0; padding-bottom: 8px; }
+ .content h3 { font-size: 16px; font-weight: 600; margin-top: 28px; margin-bottom: 10px; color: #1a1a1a; }
+ .content p { font-size: 15px; line-height: 1.8; color: #333; margin-bottom: 14px; }
+ .content ul { margin-bottom: 14px; padding-left: 20px; }
+ .content li { font-size: 15px; line-height: 1.8; color: #333; margin-bottom: 8px; }
+ .content a { color: #d97706; text-decoration: underline; text-underline-offset: 2px; }
+ .content a:hover { color: #b45309; }
+ .note { background: #f9f9f9; border-left: 3px solid #d97706; padding: 16px 20px; margin: 24px 0; border-radius: 0 6px 6px 0; font-size: 14px; color: #666; }
+ .related-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; padding: 10px 18px; background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; font-size: 14px; font-weight: 500; color: #d97706; text-decoration: none; transition: all 0.2s; }
+ .related-link:hover { background: #fef3c7; border-color: #d97706; color: #b45309; }
+ footer { border-top: 1px solid #eaeaea; padding: 48px 24px; text-align: center; }
+ .footer-inner { max-width: 1200px; margin: 0 auto; }
+ .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; flex-wrap: wrap; }
+ .footer-links a { font-size: 13px; color: #888; text-decoration: none; }
+ .footer-links a:hover { color: #1a1a1a; }
+ .footer-copy { font-size: 13px; color: #aaa; }
+ [[data-lang="zh"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh [data-lang="en"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh [[data-lang="zh"] { display: block; }
+ span[[data-lang="zh"], a[[data-lang="zh"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh span[data-lang="en"], body.zh a[data-lang="en"] { display: none; }
+body.zh [data-lang="zh"] { display: block; }
+        body.zh span[data-lang="zh"], body.zh a[data-lang="zh"] { display: inline; }
+                span[data-lang], a[data-lang] { display: none; }
+ body.zh span[[data-lang="zh"], body.zh a[[data-lang="zh"] { display: inline; }
+ html { scroll-behavior: smooth; }
+ ::selection { background: #fde68a; color: #1a1a1a; }
+ @media (max-width: 640px) { .hero h1 { font-size: 28px; } .hero { padding: 48px 16px 32px; } .content { padding: 16px 16px 80px; } }
+ </style>
+</head>
+<body>
+<nav><div class="nav-inner">
+ <a href="https://www.li1234.com" class="nav-logo">Py<span>Academy</span></a>
+ <ul class="nav-links">
+ <li><a href="https://www.li1234.com" data-lang="en">Home</a><a href="https://www.li1234.com" data-lang="zh">首页</a></li>
+ <li><div class="lang-divider"></div></li>
+ <li><button class="lang-btn active" id="btn-en" onclick="switchLang('en')">EN</button><button class="lang-btn" id="btn-zh" onclick="switchLang('zh')">中文</button></li>
+ </ul>
+</div></nav>
+
+<!-- 英文版 -->
+<div data-lang="en">
+<div class="hero">
+ <h1>Developer Code of Conduct</h1>
+ <p class="date">Effective Date: May 4, 2026</p>
+ <p class="intro">This Code of Conduct applies to all developers, partners, and third-party integrators who build applications, tools, or services using PyAcademy's APIs, SDKs, learning content, or any platform integrations (collectively, "Developer Products").</p>
+</div>
+<div class="content">
+ <p>By accessing or using PyAcademy's developer resources, you agree to comply with this Code of Conduct. Violations may result in suspension or revocation of API credentials, removal of your integration, or termination of your developer account. This document governs developer conduct only; for submission and review criteria, see the companion <a href="https://li1234.com/PyAcademy_Developer_Review_Guidelines.html">Developer Review Guidelines</a>.</p>
+
+ <div class="note">This Code of Conduct is one of two complementary documents. Please also read the <a href="https://li1234.com/PyAcademy_Developer_Review_Guidelines.html">Developer Review Guidelines</a> before submitting any integration.</div>
+
+ <h2>1. Respect for Users and the Community</h2>
+ <p>Developers must uphold the privacy, consent, dignity, and rights of PyAcademy users at all times. The PyAcademy platform exists to serve learners; all Developer Products must enhance—not undermine—that mission.</p>
+ <h3>1.1 Privacy and Consent</h3>
+ <p>Do not collect, store, process, or share user data obtained through the platform without the user's explicit, informed consent and full compliance with applicable privacy laws, including the EU General Data Protection Regulation (GDPR) and France's Informatique et Libertés Act. Consent obtained through dark patterns, forced bundling, or obfuscated disclosures is invalid.</p>
+ <h3>1.2 Non-Discrimination</h3>
+ <p>Developer Products must not discriminate against, demean, or harm users on the basis of age, disability, ethnicity, gender, national origin, race, religion, sexual orientation, or any other protected characteristic. Features that target vulnerable learner groups for financial exploitation are prohibited.</p>
+ <h3>1.3 Respectful Communication</h3>
+ <p>If your Developer Product includes messaging, notification, or community features, you must ensure those features cannot be weaponised for harassment, stalking, spam, or abuse. Implement clear user-blocking and reporting mechanisms, and respond to abuse reports promptly.</p>
+
+ <h2>2. Integrity and Honesty</h2>
+ <h3>2.1 Accurate Representation</h3>
+ <p>Do not misrepresent the functionality, source, quality, accuracy, or affiliation of your Developer Product. All capability claims—especially those involving AI, machine learning, or automated assessment—must be substantiated and updated when they become inaccurate.</p>
+ <h3>2.2 Transparent Disclosure</h3>
+ <p>Clearly and prominently disclose when your product uses PyAcademy's services, APIs, or content. If your product incorporates AI-generated content, automated grading, or algorithmic recommendations that affect learner outcomes, you must inform users of this fact.</p>
+ <h3>2.3 No Deceptive Branding</h3>
+ <p>Avoid impersonation or deceptive branding. You may not use "PyAcademy" or confusingly similar names, logos, or colour schemes in a way that implies official endorsement or creates a false impression of affiliation. See our <a href="#">Branding Guidelines</a> for permitted uses.</p>
+ <h3>2.4 No Astroturfing or Fake Reviews</h3>
+ <p>You may not generate, purchase, or solicit fake reviews, ratings, testimonials, or usage metrics for your Developer Product. All user-generated endorsements must reflect genuine, uncompensated experience.</p>
+
+ <h2>3. Security and Data Protection</h2>
+ <h3>3.1 Baseline Security Requirements</h3>
+ <p>Implement industry-standard security measures to protect API keys, OAuth tokens, session credentials, and all user information stored or transmitted by your product. At minimum this includes: encrypted storage of credentials, HTTPS-only communication, and regular dependency patching. API keys must never be embedded in client-side code or public repositories.</p>
+ <h3>3.2 Principle of Least Privilege</h3>
+ <p>Request only the API scopes and user permissions that are strictly necessary for your product's stated functionality. Do not request elevated permissions "just in case." If your product's required permissions change, notify affected users and obtain fresh consent.</p>
+ <h3>3.3 Incident Response and Disclosure</h3>
+ <p>If you discover or suspect a security vulnerability in PyAcademy's systems, or if your Developer Product suffers a breach that may expose PyAcademy user data, you must notify us immediately at <a href="mailto:security@li1234.top">security@li1234.top</a>. Do not publicly disclose the vulnerability before coordinating with PyAcademy. Follow our <a href="https://li1234.com/PyAcademy_Responsible_Disclosure.html">Responsible Disclosure Policy</a> in all cases.</p>
+ <h3>3.4 Data Retention and Deletion</h3>
+ <p>Do not retain user data beyond the period necessary for your product's stated purpose. Provide users with a straightforward mechanism to request deletion of their data. Honour deletion requests within 30 days and confirm completion in writing.</p>
+
+ <h2>4. Compliance with PyAcademy Policies</h2>
+ <h3>4.1 Usage Rules</h3>
+ <p>Your Developer Product must comply fully with PyAcademy's <a href="https://li1234.com/PyAcademy_Usage_Rules.html">Usage Rules</a>. Violations attributable to your product's design, defaults, or explicit features will be treated as violations by you personally.</p>
+ <h3>4.2 Prohibited Content</h3>
+ <p>You may not use PyAcademy's APIs or platform to generate, distribute, or facilitate access to prohibited content, including but not limited to: content that harasses or threatens individuals; content that facilitates illegal activities; instructions for creating weapons or dangerous substances; child sexual abuse material (CSAM) or any sexualised content involving minors; content designed to radicalise or incite violence; and academically dishonest content intended to circumvent educational assessments.</p>
+ <h3>4.3 Regulatory Compliance</h3>
+ <p>You are solely responsible for ensuring that your Developer Product complies with all applicable laws and regulations in every jurisdiction where it is made available, including consumer protection, education, data privacy, accessibility, and export control laws.</p>
+
+ <h2>5. Fair Use of API Resources</h2>
+ <h3>5.1 No Abusive Usage</h3>
+ <p>Do not intentionally overload, disrupt, degrade, or attempt to destabilise PyAcademy's infrastructure. This includes distributed denial-of-service behaviour, credential stuffing, excessive polling, and any pattern of usage designed to circumvent rate limits or cost controls.</p>
+ <h3>5.2 No Reverse Engineering</h3>
+ <p>You may not attempt to reverse engineer, decompile, disassemble, or extract: the underlying model weights, proprietary learning algorithms, curriculum sequencing logic, or any other non-public aspect of PyAcademy's systems. Scraping content beyond what is explicitly authorised by your API agreement is also prohibited.</p>
+ <h3>5.3 API Key Responsibility</h3>
+ <p>You are responsible for all activity that occurs under your API credentials, whether or not you authorise it. Compromised credentials must be rotated immediately; failure to do so following a known breach may result in suspension.</p>
+
+ <h2>6. Liability and Disclaimer</h2>
+ <p>PyAcademy is not responsible for the behaviour, content, security, or legal compliance of any Developer Product. Developers assume all liability arising from their integration, including claims brought by end users. The disclaimer of warranties and limitation of liability set forth in the <a href="https://li1234.com/PyAcademy_Consumer_Terms.html">Consumer Terms</a> apply mutatis mutandis to all developers.</p>
+
+ <h2>7. Amendments and Enforcement</h2>
+ <p>PyAcademy may update this Code of Conduct at any time. Material changes will be communicated via the developer portal or email. Continued use of the APIs following notice constitutes acceptance. Enforcement decisions—including suspension and termination—are at PyAcademy's sole discretion, subject to the appeals process described in the <a href="https://li1234.com/PyAcademy_Developer_Review_Guidelines.html">Developer Review Guidelines</a>.</p>
+
+ <h2>8. Contact</h2>
+ <p>For questions, to report a violation, or to seek clarification, contact <a href="mailto:developers@li1234.top">developers@li1234.top</a>.</p>
+
+ <p style="margin-top: 40px;">
+ <a href="https://li1234.com/PyAcademy_Developer_Review_Guidelines.html" class="related-link">→ Read the Developer Review Guidelines</a>
+ </p>
+</div>
+</div>
+
+<!-- 中文版 -->
+<div data-lang="zh">
+<div class="hero">
+ <h1>开发者行为准则</h1>
+ <p class="date">生效日期：2026年5月4日</p>
+ <p class="intro">本准则适用于所有使用 PyAcademy API、SDK、学习内容或平台集成构建应用程序、工具或服务的开发者、合作伙伴和第三方集成方（合称"开发者产品"）。</p>
+</div>
+<div class="content">
+ <p>访问或使用 PyAcademy 的开发者资源即表示您同意遵守本行为准则。违规可能导致 API 凭证被暂停或撤销、集成被移除或开发者账户被终止。本文件仅规范开发者行为；有关提交和审核标准，请参阅配套的<a href="https://li1234.com/PyAcademy_Developer_Review_Guidelines.html">《开发者审核规范》</a>。</p>
+
+ <div class="note">本行为准则与<a href="https://li1234.com/PyAcademy_Developer_Review_Guidelines.html">《开发者审核规范》</a>为配套文件，提交任何集成前请务必一并阅读。</div>
+
+ <h2>1. 尊重用户与社区</h2>
+ <p>开发者必须始终维护 PyAcademy 用户的隐私、知情同意权、尊严和权利。PyAcademy 平台的使命是服务于学习者，所有开发者产品必须强化而非损害这一使命。</p>
+ <h3>1.1 隐私与同意</h3>
+ <p>未经用户明确、知情的同意，且未完全遵守适用隐私法律（包括欧盟《通用数据保护条例》及法国《信息与自由法》），不得收集、存储、处理或分享通过平台获取的用户数据。通过黑暗模式、捆绑强制或模糊披露获得的同意无效。</p>
+ <h3>1.2 非歧视</h3>
+ <p>开发者产品不得基于年龄、残疾、种族、性别、国籍、宗教、性取向或任何其他受保护特征歧视、贬损或伤害用户。禁止针对弱势学习群体进行财务剥削的功能。</p>
+ <h3>1.3 文明沟通</h3>
+ <p>如果您的开发者产品包含消息、通知或社区功能，您必须确保这些功能不会被用于骚扰、跟踪、垃圾邮件或滥用。实施清晰的屏蔽和举报机制，并及时处理滥用举报。</p>
+
+ <h2>2. 诚信与真实</h2>
+ <h3>2.1 准确表述</h3>
+ <p>不得虚假宣传开发者产品的功能、来源、质量、准确性或关联关系。所有能力声明——尤其是涉及人工智能、机器学习或自动评估的声明——必须有据可查，并在不再准确时及时更新。</p>
+ <h3>2.2 透明披露</h3>
+ <p>清晰、显著地披露您的产品使用了 PyAcademy 的服务、API 或内容。如果您的产品包含 AI 生成内容、自动评分或影响学习成果的算法推荐，必须告知用户。</p>
+ <h3>2.3 禁止欺骗性品牌</h3>
+ <p>避免冒充或欺骗性品牌使用。不得以暗示官方背书或产生虚假关联印象的方式使用"PyAcademy"或易混淆的名称、标识或配色。允许的使用方式请参阅我们的<a href="#">品牌指南</a>。</p>
+ <h3>2.4 禁止刷好评</h3>
+ <p>不得为您的开发者产品生成、购买或征集虚假评论、评分、推荐语或使用指标。所有用户生成的背书必须反映真实、无偿的使用体验。</p>
+
+ <h2>3. 安全与数据保护</h2>
+ <h3>3.1 基准安全要求</h3>
+ <p>实施行业标准安全措施，保护 API 密钥、OAuth 令牌、会话凭证以及产品存储或传输的所有用户信息。最低要求包括：凭证加密存储、仅 HTTPS 通信和定期依赖包更新。API 密钥绝不能嵌入客户端代码或公开仓库。</p>
+ <h3>3.2 最小权限原则</h3>
+ <p>仅申请产品声明功能严格必要的 API 范围和用户权限，不得以"备用"为由申请超出必要的权限。如果所需权限发生变更，须通知受影响用户并重新获取同意。</p>
+ <h3>3.3 事件响应与披露</h3>
+ <p>如果您发现或怀疑 PyAcademy 系统存在安全漏洞，或您的开发者产品遭受可能泄露 PyAcademy 用户数据的安全事件，您必须立即通过 <a href="mailto:security@li1234.top">security@li1234.top</a> 通知我们。在与 PyAcademy 协调之前，不得公开披露漏洞。所有情况均须遵循我们的<a href="https://li1234.com/PyAcademy_Responsible_Disclosure.html">《负责任披露政策》</a>。</p>
+ <h3>3.4 数据保留与删除</h3>
+ <p>不得超出产品声明用途所必要的期限保留用户数据。为用户提供便捷的数据删除申请机制，并在 30 天内完成删除并书面确认。</p>
+
+ <h2>4. 遵守 PyAcademy 政策</h2>
+ <h3>4.1 使用规则</h3>
+ <p>您的开发者产品必须完全符合 PyAcademy 的<a href="https://li1234.com/PyAcademy_Usage_Rules.html">《使用规则》</a>。可归因于产品设计、默认设置或明确功能的违规，将被视为您本人的违规行为处理。</p>
+ <h3>4.2 禁止内容</h3>
+ <p>不得使用 PyAcademy 的 API 或平台生成、分发或提供以下禁止内容，包括但不限于：骚扰或威胁个人的内容；协助非法活动的内容；武器或危险物质制作说明；儿童性虐待材料或任何涉及未成年人的色情内容；旨在煽动极端主义或暴力的内容；以及意图规避教育评估的学术不诚信内容。</p>
+ <h3>4.3 法规遵从</h3>
+ <p>您全权负责确保您的开发者产品在其可用的所有司法管辖区符合适用法律法规，包括消费者保护、教育、数据隐私、无障碍和出口管制法律。</p>
+
+ <h2>5. 公平使用 API 资源</h2>
+ <h3>5.1 禁止滥用</h3>
+ <p>不得故意超载、干扰、降级或试图破坏 PyAcademy 的基础设施，包括分布式拒绝服务行为、凭证填充、过度轮询以及任何旨在绕过速率限制或成本控制的使用模式。</p>
+ <h3>5.2 禁止逆向工程</h3>
+ <p>不得尝试逆向工程、反编译、反汇编或提取 PyAcademy 系统的底层模型权重、专有学习算法、课程序列逻辑或任何其他非公开部分。未经 API 协议明确授权的内容抓取同样禁止。</p>
+ <h3>5.3 API 密钥责任</h3>
+ <p>您对在您的 API 凭证下发生的所有活动负责，无论是否经您授权。凭证泄露后必须立即轮换；已知泄露后未能轮换可能导致账户被暂停。</p>
+
+ <h2>6. 责任与免责声明</h2>
+ <p>PyAcademy 不对任何开发者产品的行为、内容、安全性或法规合规性负责。开发者承担因其集成产生的所有责任，包括终端用户提出的索赔。<a href="https://li1234.com/PyAcademy_Consumer_Terms.html">《消费者条款》</a>中规定的免责声明和责任限制经必要调整后适用于所有开发者。</p>
+
+ <h2>7. 修订与执行</h2>
+ <p>PyAcademy 可随时更新本行为准则。重大变更将通过开发者门户或电子邮件通知。收到通知后继续使用 API 即视为接受变更。包括暂停和终止在内的执行决定由 PyAcademy 自行裁量，但受<a href="https://li1234.com/PyAcademy_Developer_Review_Guidelines.html">《开发者审核规范》</a>中规定的申诉程序约束。</p>
+
+ <h2>8. 联系方式</h2>
+ <p>如有疑问、举报违规或寻求说明，请联系 <a href="mailto:developers@li1234.top">developers@li1234.top</a>。</p>
+
+ <p style="margin-top: 40px;">
+ <a href="https://li1234.com/PyAcademy_Developer_Review_Guidelines.html" class="related-link">→ 阅读《开发者审核规范》</a>
+ </p>
+</div>
+</div>
+
+<div class="highlight"><p><strong>Supplementary Legal Provisions / 附则A</strong></p><p><strong>A.1 DPO:</strong> <a href="mailto:dpo@li1234.top">dpo@li1234.top</a>. GDPR Art.37. PyAcademy SAS, 12 Rue de la Paix, 75002 Paris, France.</p><p><strong>A.2 Principles:</strong> GDPR Art.5 - lawfulness, purpose limitation, data minimisation, accuracy, storage limitation, integrity/confidentiality, accountability.</p><p><strong>A.3 Cross-border:</strong> GDPR Art.44-49 - SCCs, BCRs, adequacy decisions.</p><p><strong>A.4 CNIL Complaint:</strong> GDPR Art.77 - CNIL, 3 Place de Fontenoy, TSA 80715, 75334 Paris Cedex 07. +33 1 53 73 22 22. cnil.fr</p><p><strong>A.5 Automated Decisions:</strong> GDPR Art.22 - right not to be subject to solely automated decisions.</p><p><strong>A.6 Legal Bases:</strong> GDPR Art.6(1) - consent, contract, legal obligation, public interest, legitimate interests.</p><p><strong>A.7 CNIL Compliance:</strong> Loi n° 78-17 (Informatique et Libertés), CNIL Deliberation 2020-091, ePrivacy Directive 2002/58/EC.</p><p><strong>A.8 Consumer:</strong> Code de la consommation L111-1 to L111-7 (info obligations), L221-18 to L221-28 (withdrawal), L212-1 (unfair terms), L616-1 (mediation), L217-1 to L217-15 (digital content), L215-1 to L215-3 (renewal). EU Directive 2011/83/EU, 93/13/EEC, 2019/770.</p><p><strong>A.9 Contact:</strong> Legal: <a href="mailto:legal@li1234.top">legal@li1234.top</a>. DPO: <a href="mailto:dpo@li1234.top">dpo@li1234.top</a>. PyAcademy SAS, 12 Rue de la Paix, 75002 Paris, France.</p></div>
+    <footer><div class="footer-inner">
+ <div class="footer-links"><a href="https://www.li1234.com">Home</a><a href="https://www.li1234.com">首页</a></div>
+ <p class="footer-copy">&copy; 2026 PyAcademy. All rights reserved.</p>
+</div></footer>
+<script>function switchLang(lang){document.body.classList.toggle('zh',lang==='zh');document.getElementById('btn-en').classList.toggle('active',lang==='en');document.getElementById('btn-zh').classList.toggle('active',lang==='zh');document.documentElement.lang=lang==='zh'?'zh-CN':'en';document.title=lang==='zh'?'开发者行为准则 – PyAcademy':'Developer Code of Conduct – PyAcademy';}</script>
+</body>
+</html>

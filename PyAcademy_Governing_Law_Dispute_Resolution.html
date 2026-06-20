@@ -1,0 +1,557 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Governing Law &amp; Dispute Resolution – PyAcademy</title>
+ <style>
+ @font-face {
+ font-family: 'AnthropicSerif';
+ src: url('AnthropicSerif-Romans-Variable-25x258.ttf') format('truetype');
+ font-weight: 100 900;
+ font-style: normal;
+ font-display: swap;
+ }
+ *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'AnthropicSerif', 'Georgia', 'Times New Roman', serif; color: #1a1a1a; background: #fff; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+ nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid #eaeaea; padding: 0 24px; }
+ .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+ .nav-logo { font-family: 'AnthropicSerif', 'Georgia', serif; font-size: 18px; font-weight: 700; color: #1a1a1a; text-decoration: none; letter-spacing: -0.02em; }
+ .nav-logo span { color: #d97706; }
+ .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+ .nav-links a { font-family: 'AnthropicSerif', 'Georgia', serif; font-size: 14px; font-weight: 500; color: #666; text-decoration: none; transition: color 0.2s; }
+ .nav-links a:hover { color: #1a1a1a; }
+ .nav-links .lang-divider { width: 1px; height: 16px; background: #ddd; }
+ .lang-btn { font-family: 'AnthropicSerif', 'Georgia', serif; font-size: 13px; font-weight: 500; color: #888; padding: 4px 10px; border: 1px solid #ddd; border-radius: 6px; transition: all 0.2s; cursor: pointer; background: none; }
+ .lang-btn:hover { color: #1a1a1a; border-color: #aaa; }
+ .lang-btn.active { color: #d97706; border-color: #d97706; background: #fffbeb; }
+ .hero { padding: 80px 24px 48px; max-width: 1200px; margin: 0 auto; }
+ .hero h1 { font-size: 48px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 16px; }
+ .hero .date { font-size: 15px; color: #888; margin-bottom: 32px; }
+ .hero .intro { font-size: 17px; color: #444; max-width: 720px; line-height: 1.8; }
+ .content { max-width: 760px; margin: 0 auto; padding: 24px 24px 120px; }
+ .content h2 { font-size: 24px; font-weight: 700; letter-spacing: -0.02em; margin-top: 56px; margin-bottom: 20px; color: #1a1a1a; }
+ .content h3 { font-size: 17px; font-weight: 600; margin-top: 32px; margin-bottom: 12px; color: #1a1a1a; }
+ .content p { font-size: 15px; line-height: 1.8; color: #333; margin-bottom: 16px; }
+ .content ul, .content ol { margin-bottom: 16px; padding-left: 20px; }
+ .content li { font-size: 15px; line-height: 1.8; color: #333; margin-bottom: 8px; }
+ .content a { color: #d97706; text-decoration: underline; text-underline-offset: 2px; transition: color 0.2s; }
+ .content a:hover { color: #b45309; }
+ .content .note { font-size: 14px; color: #666; background: #f9f9f9; border-left: 3px solid #d97706; padding: 16px 20px; margin: 24px 0; border-radius: 0 6px 6px 0; }
+ .content .section-ref { font-size: 13px; color: #888; font-style: italic; margin-bottom: 16px; }
+ .legal-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; }
+ .legal-table th { background: #f5f5f5; font-weight: 600; text-align: left; padding: 12px 16px; border-bottom: 2px solid #e0e0e0; }
+ .legal-table td { padding: 12px 16px; border-bottom: 1px solid #eee; vertical-align: top; line-height: 1.6; }
+ .legal-table tr:last-child td { border-bottom: none; }
+ footer { border-top: 1px solid #eaeaea; padding: 48px 24px; text-align: center; }
+ .footer-inner { max-width: 1200px; margin: 0 auto; }
+ .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; flex-wrap: wrap; }
+ .footer-links a { font-size: 13px; color: #888; text-decoration: none; transition: color 0.2s; }
+ .footer-links a:hover { color: #1a1a1a; }
+ .footer-copy { font-size: 13px; color: #aaa; }
+ [[data-lang="zh"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh [data-lang="en"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ body.zh [[data-lang="zh"] { display: block; }
+ body.zh span[data-lang="en"], body.zh a[data-lang="en"] { display: none; }
+body.zh [data-lang="zh"] { display: block; }
+        body.zh span[data-lang="zh"], body.zh a[data-lang="zh"] { display: inline; }
+                span[data-lang], a[data-lang] { display: none; }
+ body.zh span[[data-lang="zh"], body.zh a[[data-lang="zh"] { display: inline; }
+ span[[data-lang="zh"], a[[data-lang="zh"] { display: none; }
+        span[data-lang], a[data-lang] { display: none; }
+ @media (max-width: 640px) {
+ .hero h1 { font-size: 32px; }
+ .hero { padding: 48px 16px 32px; }
+ .content { padding: 16px 16px 80px; }
+ .nav-links { gap: 16px; }
+ .legal-table { font-size: 12px; }
+ .legal-table th, .legal-table td { padding: 8px 10px; }
+ }
+ </style>
+</head>
+<body>
+ <nav>
+ <div class="nav-inner">
+ <a href="https://www.li1234.com" class="nav-logo">Py<span>Academy</span></a>
+ <div class="nav-links">
+ <a href="https://www.li1234.com" data-lang="en">Home</a>
+ <a href="https://www.li1234.com" data-lang="zh">首页</a>
+ <div class="lang-divider"></div>
+ <button class="lang-btn active" id="btn-en" onclick="switchLang('en')">EN</button>
+ <button class="lang-btn" id="btn-zh" onclick="switchLang('zh')">中文</button>
+ </div>
+ </div>
+ </nav>
+
+ <div class="hero">
+ <h1 data-lang="en">Governing Law &amp; Dispute Resolution</h1>
+ <h1 data-lang="zh">适用法律与争议解决条款</h1>
+ <p class="date" data-lang="en">Effective Date: May 31, 2026</p>
+ <p class="date" data-lang="zh">生效日期：2026年5月31日</p>
+ <p class="intro" data-lang="en">This Governing Law and Dispute Resolution Policy ("Policy") sets forth the legal framework governing the interpretation, validity, and enforcement of all terms, conditions, policies, and agreements relating to the PyAcademy platform and all related services, websites, applications, APIs, content, and infrastructure (collectively, the "Platform") provided by PyAcademy SAS ("we," "us," or "our"), a société par actions simplifiée incorporated under the laws of the French Republic. This Policy establishes the applicable governing law, jurisdictional provisions, dispute resolution mechanisms, and procedural safeguards applicable to all Users of the Platform. By accessing or using the Platform, you acknowledge that you have read, understood, and agree to be bound by this Policy.</p>
+ <p class="intro" data-lang="zh">本适用法律与争议解决政策（"本政策"）规定了与 PyAcademy SAS（"我们"、"我方"，一家依据法兰西共和国法律注册成立的简化股份公司）提供的平台及相关所有服务、网站、应用程序、API、内容和基础设施（以下统称"平台"）相关的所有条款、条件、政策和协议的解释、效力和执行所适用的法律框架。本政策确立了适用于平台所有用户的适用法律、管辖权条款、争议解决机制和程序保障措施。访问或使用平台即表示您确认已阅读、理解并同意受本政策约束。</p>
+ </div>
+
+ <div class="content">
+
+ <div data-lang="en">
+
+ <h2>1. Acceptance and Scope</h2>
+ <p>This Governing Law and Dispute Resolution Policy ("Policy") applies to all access to, use of, and interaction with the Platform, including but not limited to account registration, course enrollment, content submission, community participation, payment transactions, and any other activity conducted on or through the Platform. This Policy is incorporated into and forms an integral part of the PyAcademy Terms of Service and all other applicable policies.</p>
+ <p>By creating an account, accessing, browsing, or otherwise using the Platform, you irrevocably agree that any dispute, controversy, or claim arising out of or relating to this Policy, the Terms of Service, the Privacy Policy, the Cookie Policy, the Acceptable Use Policy, the Force Majeure Policy, or any other agreement or policy between you and PyAcademy (collectively, the "Applicable Agreements"), including disputes regarding its formation, interpretation, performance, breach, termination, or invalidity, shall be governed by and resolved in accordance with the provisions set forth herein.</p>
+ <p>This Policy applies regardless of where you are located, whether you access the Platform from within the European Union, the European Economic Area, the United Kingdom, Switzerland, the United States, or any other jurisdiction worldwide. Nothing in this Policy shall be construed to limit or exclude any mandatory consumer protection rights afforded to you under the laws of your jurisdiction of residence where such rights cannot be waived or restricted by contract.</p>
+ <div class="note">
+ <strong>Note:</strong> This Policy is to be read in conjunction with our Terms of Service, Privacy Policy, Cookie Policy, Acceptable Use Policy, and Force Majeure Policy. In the event of a conflict between this Policy and any mandatory provision of applicable law, the mandatory provision of applicable law shall prevail.
+ </div>
+
+ <h2>2. Governing Law</h2>
+
+ <h3>2.1 Primary Governing Law</h3>
+ <p>This Policy and all Applicable Agreements, and any non-contractual obligations arising out of or in connection with them, shall be governed by and construed in accordance with the substantive laws of the French Republic, without regard to its conflict-of-laws provisions. The application of the United Nations Convention on Contracts for the International Sale of Goods (CISG) is expressly excluded.</p>
+ <p>The governing law of the French Republic applies to all aspects of the Applicable Agreements, including but not limited to their formation, validity, interpretation, performance, amendment, breach, remedies, and termination. This choice of law is made in accordance with Article 3 of Regulation (EC) No 593/2008 of the European Parliament and of the Council of 17 June 2008 on the law applicable to contractual obligations (the "Rome I Regulation"), which permits parties to choose the law applicable to a contract.</p>
+
+ <h3>2.2 Scope of French Law</h3>
+ <p>Without limiting the generality of Section 2.1, the following matters shall be governed exclusively by French law:</p>
+ <ul>
+ <li>The formation, existence, validity, binding effect, and enforceability of the Applicable Agreements.</li>
+ <li>The rights and obligations of the parties thereunder, including the interpretation of terms and conditions.</li>
+ <li>The consequences of non-performance, delay, or defective performance of obligations.</li>
+ <li>The grounds for, and effects of, termination, rescission, or modification of the Applicable Agreements.</li>
+ <li>The assessment and calculation of damages, penalties, and other remedies.</li>
+ <li>The rules relating to prescription, limitation, and laches.</li>
+ <li>The validity and effect of any limitation or exclusion of liability clauses.</li>
+ </ul>
+
+ <h3>2.3 Application of EU Law</h3>
+ <p>To the extent that European Union law is directly applicable or has been transposed into French law, the following EU instruments shall apply to the relationship between you and PyAcademy:</p>
+ <ul>
+ <li><strong>Regulation (EU) 2016/679</strong> (General Data Protection Regulation or "GDPR"): Governing the processing of personal data, including your rights as a data subject under Articles 12 through 22 of the GDPR.</li>
+ <li><strong>Directive 2002/58/EC</strong> (ePrivacy Directive): Governing the use of electronic communications, including cookies and tracking technologies, as transposed into French law by the Loi n° 2004-669 of 21 July 2004.</li>
+ <li><strong>Directive 93/13/EEC</strong> (Unfair Contract Terms Directive): Protecting consumers from unfair terms in standard form contracts, as transposed into French law by Articles L212-1 et seq. of the Code de la consommation.</li>
+ <li><strong>Directive 2011/83/EU</strong> (Consumer Rights Directive): Establishing consumer protection requirements for distance and off-premises contracts, as transposed into French law by Articles L221-1 et seq. of the Code de la consommation.</li>
+ <li><strong>Directive 2000/31/EC</strong> (E-Commerce Directive): Establishing legal framework for information society services, as transposed into French law by the Loi n° 2004-575 of 21 June 2004 pour la confiance dans l'économie numérique ("LCEN").</li>
+ <li><strong>Regulation (EU) 2022/2065</strong> (Digital Services Act): Establishing rules for intermediary services, including transparency and due diligence obligations applicable to the Platform.</li>
+ <li><strong>Regulation (EU) 2019/1150</strong> (P2B Regulation): Establishing fairness and transparency for business users of online intermediation services.</li>
+ <li><strong>Regulation (EU) 2018/302</strong> (Geo-blocking Regulation): Prohibiting unjustified geo-blocking and other forms of discrimination based on nationality, place of residence, or place of establishment within the EU.</li>
+ </ul>
+
+ <h3>2.4 Consumer Protection Carve-Out</h3>
+ <p>Nothing in this Policy shall be construed to deprive consumers of the protection afforded by mandatory provisions of the law of the country in which they have their habitual residence, in accordance with Article 6(2) of the Rome I Regulation. Where you qualify as a consumer under the laws of an EU Member State and your habitual residence is in an EU Member State, you may benefit from the mandatory provisions of consumer protection law of that Member State which cannot be derogated from by agreement.</p>
+ <p>In particular, but without limitation:</p>
+ <ul>
+ <li>If you are habitually resident in France, you may invoke the protections of the Code de la consommation, including Articles L212-1 and L212-2 (unfair terms), L221-1 et seq. (distance contracts), and L132-1 et seq. (unfair commercial practices).</li>
+ <li>If you are habitually resident in another EU Member State, you may invoke the equivalent consumer protection provisions transposed from Directives 93/13/EEC, 2011/83/EU, and 2005/29/EC into the law of that Member State.</li>
+ <li>If you qualify as a consumer under EU law, you may not be deprived of the right to bring proceedings in the courts of your Member State of habitual residence, in accordance with Article 18(1) of Regulation (EU) No 1215/2012 (Brussels I Regulation (recast)).</li>
+ </ul>
+
+ <h2>3. Jurisdiction</h2>
+
+ <h3>3.1 Exclusive Jurisdiction — Non-Consumer Users</h3>
+ <p>Subject to the consumer protection carve-out set forth in Section 2.4, and to the mandatory jurisdictional rules of the Brussels I Regulation (recast) (Regulation (EU) No 1215/2012) as applied in France, you and PyAcademy irrevocably submit to the exclusive jurisdiction of the courts of Paris, France (Tribunal judiciaire de Paris), for any dispute, controversy, or claim arising out of or relating to this Policy or the Applicable Agreements, including disputes regarding its formation, interpretation, performance, breach, termination, or invalidity.</p>
+ <p>The parties acknowledge and agree that the courts of Paris constitute the most appropriate and convenient forum for the resolution of disputes and that the submission to the exclusive jurisdiction of the courts of Paris is reasonable, fair, and does not contravene public policy.</p>
+
+ <h3>3.2 Jurisdiction for Consumer Users</h3>
+ <p>Notwithstanding Section 3.1, if you qualify as a consumer within the meaning of Article 17(1) of the Brussels I Regulation (recast) and have your habitual residence in a Member State of the European Union or the European Economic Area, you may bring proceedings:</p>
+ <ul>
+ <li>In the courts of your Member State of habitual residence, in accordance with Article 17(1) of the Brussels I Regulation (recast); or</li>
+ <li>In the courts of Paris, France (Tribunal judiciaire de Paris), in accordance with Article 17(1) of the Brussels I Regulation (recast).</li>
+ </ul>
+ <p>PyAcademy may bring proceedings against a consumer user only in the courts of the consumer's Member State of habitual residence or in the courts of Paris, France, in accordance with Article 17(1) of the Brussels I Regulation (recast).</p>
+
+ <h3>3.3 International Jurisdictional Principles</h3>
+ <p>For Users who are not habitually resident in a Member State of the European Union or the European Economic Area, any proceedings arising out of or relating to this Policy or the Applicable Agreements that cannot be brought before the courts of Paris by agreement shall be submitted to the competent courts of the place where PyAcademy has its registered office (i.e., the courts of Paris, France), in accordance with the principles of international jurisdiction recognized under French private international law (droit international privé) and, where applicable, the Hague Conference on Private International Law Conventions.</p>
+
+ <h2>4. Mandatory Pre-Action Requirements</h2>
+
+ <h3>4.1 Notice of Dispute</h3>
+ <p>Prior to initiating any formal legal proceedings (whether judicial, arbitral, or administrative) against PyAcademy, you must first provide PyAcademy with a written notice of dispute ("Notice of Dispute"), which must include all of the following information:</p>
+ <ul>
+ <li>Your full name, email address associated with your PyAcademy account, and postal address.</li>
+ <li>A detailed description of the dispute, including the nature of the claim, the facts and circumstances giving rise to the dispute, and the specific provisions of the Applicable Agreements that you believe have been breached or are at issue.</li>
+ <li>Supporting documentation, including but not limited to correspondence, screenshots, transaction records, and any other evidence relevant to your claim.</li>
+ <li>A clear statement of the relief or remedy you are seeking, including any specific monetary amounts, injunctive relief, or other remedies.</li>
+ <li>Your preferred method of resolution (negotiation, mediation, or arbitration, as applicable).</li>
+ </ul>
+ <p>The Notice of Dispute must be sent by email to <a href="mailto:legal@li1234.top">legal@li1234.top</a> and by registered letter with acknowledgment of receipt (lettre recommandée avec accusé de réception) to the following address:</p>
+ <p><strong>PyAcademy SAS<br>Legal Department<br>12 Rue de la Paix<br>75002 Paris, France</strong></p>
+
+ <h3>4.2 Mandatory Negotiation Period</h3>
+ <p>Upon receipt of a valid Notice of Dispute, PyAcademy shall use reasonable efforts to respond to you within thirty (30) calendar days. You and PyAcademy shall then endeavor in good faith to resolve the dispute through direct negotiation for a period of at least sixty (60) calendar days from the date of PyAcademy's initial response (the "Negotiation Period"), unless such period is extended by mutual written agreement.</p>
+ <p>During the Negotiation Period, both parties shall:</p>
+ <ul>
+ <li>Exchange all relevant information and documentation in a timely manner.</li>
+ <li>Designate authorized representatives with settlement authority to participate in good faith negotiations.</li>
+ <li>Explore all reasonable options for settlement, including but not limited to monetary compensation, service credits, account modifications, or other mutually acceptable remedies.</li>
+ <li>Refrain from initiating or threatening formal legal proceedings, except as necessary to preserve rights that would be irretrievably lost by the passage of time (including limitation or prescription periods).</li>
+ </ul>
+ <p>The Negotiation Period shall not be deemed to limit or prejudice either party's right to pursue any available legal remedy after the expiration of the Negotiation Period.</p>
+
+ <h3>4.3 Preservation of Rights</h3>
+ <p>Nothing in this Section 4 shall be construed to prevent or limit either party's right to seek interim or conservatory measures (mesures provisoires) from a court of competent jurisdiction where there is an imminent risk of irreparable harm, or to apply to the Commission d'ordonnancement (or any competent judge of référé) under Articles 835 et seq. of the French Code de procédure civile.</p>
+
+ <h2>5. Mediation</h2>
+
+ <h3>5.1 Mandatory Mediation for Consumer Disputes</h3>
+ <p>In accordance with Article L616-1 of the Code de la consommation and Directive 2013/11/EU on alternative dispute resolution for consumer disputes, PyAcademy undertakes to submit any unresolved consumer dispute to an approved mediator (médiateur de la consommation) following the expiration of the Negotiation Period described in Section 4.2, if you qualify as a consumer and have not obtained satisfaction through the initial complaint procedure.</p>
+ <p>PyAcademy has designated the following consumer mediator:</p>
+ <p><strong>Médiateur de la consommation<br>CNIL Mediation Service (or designated successor body)<br>or such other approved mediator as may be applicable<br>Email: <a href="mailto:mediation@li1234.top">mediation@li1234.top</a></strong></p>
+ <p>The mediation process shall be conducted in accordance with the mediation rules of the designated mediator and applicable law. The costs of mediation for consumer disputes shall be borne by PyAcademy in accordance with Article L616-2 of the Code de la consommation.</p>
+
+ <h3>5.2 Voluntary Mediation for Non-Consumer Disputes</h3>
+ <p>For disputes that do not involve consumers, and following the expiration of the Negotiation Period described in Section 4.2, either party may submit the dispute to mediation administered by the International Chamber of Commerce ("ICC") in accordance with its Mediation Rules then in effect. The mediation shall take place in Paris, France, and shall be conducted in the English language, unless the parties otherwise agree.</p>
+ <p>If the parties cannot agree on the appointment of a mediator within thirty (30) calendar days of the request for mediation, the ICC shall appoint a mediator in accordance with its Rules. The mediation shall be conducted on a confidential basis, and neither party shall be bound by any proposals or offers made during the mediation unless and until a written settlement agreement is executed by both parties.</p>
+
+ <h3>5.3 EU Online Dispute Resolution Platform</h3>
+ <p>In accordance with Regulation (EU) No 524/2013 (the "ODR Regulation") and Article 14(1) of Commission Implementing Decision (EU) 2016/2246, the European Commission provides an online dispute resolution platform ("ODR Platform") accessible at <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">https://ec.europa.eu/consumers/odr</a>. If you are a consumer habitually resident in the European Union, you may use the ODR Platform to submit a complaint arising from an online transaction.</p>
+ <p>PyAcademy's email address for the purposes of the ODR Platform is: <a href="mailto:odr@li1234.top">odr@li1234.top</a>. You are entitled to use the ODR Platform irrespective of whether you have first engaged in the Negotiation Period or the mediation process described in Sections 4.2 and 5.1, provided that your dispute qualifies for the ODR Platform under the applicable rules.</p>
+ <div class="note">
+ <strong>Note:</strong> The use of the EU ODR Platform is not mandatory for consumers, nor does it preclude either party from initiating judicial proceedings. The ODR Platform is an additional and voluntary tool designed to facilitate the consensual resolution of cross-border consumer disputes.
+ </div>
+
+ <h2>6. Arbitration</h2>
+
+ <h3>6.1 Binding Arbitration — Non-Consumer Users</h3>
+ <p>Subject to the provisions of Section 2.4 (consumer protection carve-out) and Section 3.2 (jurisdiction for consumer users), any dispute, controversy, or claim arising out of or relating to this Policy or the Applicable Agreements, including disputes regarding its formation, interpretation, performance, breach, termination, or invalidity, that is not resolved through negotiation or mediation as described in Sections 4 and 5, shall be finally and exclusively settled by binding arbitration administered by the International Court of Arbitration of the International Chamber of Commerce ("ICC") in accordance with the ICC Rules of Arbitration then in effect.</p>
+ <p>The arbitration shall be conducted under the following terms:</p>
+ <ul>
+ <li><strong>Number of Arbitrators:</strong> The arbitral tribunal shall consist of a sole arbitrator, unless the ICC Court of Arbitration determines, in its discretion, that three arbitrators are warranted given the complexity or value of the dispute.</li>
+ <li><strong>Seat of Arbitration:</strong> Paris, France.</li>
+ <li><strong>Language:</strong> The arbitration shall be conducted in English, unless the parties agree otherwise or the arbitral tribunal determines that another language is appropriate.</li>
+ <li><strong>Governing Law:</strong> The arbitral tribunal shall apply the substantive laws of the French Republic in accordance with Section 2.1 of this Policy.</li>
+ <li><strong>Confidentiality:</strong> The existence of the arbitration, all submissions, evidence, testimony, and the award shall be treated as confidential by all parties, the arbitrator(s), and the ICC, except as required by applicable law or to enforce the award.</li>
+ <li><strong>Consolidation and Joinder:</strong> The ICC may consolidate multiple arbitrations or allow third-party joinder where the arbitrations arise out of the same or related transactions, involve common questions of law or fact, and meet the requirements of the ICC Rules.</li>
+ </ul>
+
+ <h3>6.2 Arbitral Award</h3>
+ <p>The award rendered by the arbitral tribunal shall be final and binding on the parties. Judgment upon the award may be entered in any court of competent jurisdiction, including the courts of Paris, France, or any other jurisdiction where a party has assets, in accordance with the New York Convention on the Recognition and Enforcement of Foreign Arbitral Awards of 1958 (to which France is a signatory), the European Convention on International Commercial Arbitration of 1961, and applicable national legislation, including Book IV of the French Code de procédure civile (Articles 1477 et seq.).</p>
+ <p>The costs of the arbitration, including the ICC administrative fees, the arbitrator(s)' fees, and any reasonable expenses incurred in connection with the arbitration, shall be allocated by the arbitral tribunal in its award. Each party shall bear its own legal costs, unless the tribunal determines otherwise.</p>
+
+ <h3>6.3 Limited Exception — Small Claims</h3>
+ <p>Notwithstanding Section 6.1, if your claim falls within the jurisdiction of a small claims court (tribunal de proximité or tribunal judiciaire sitting in limited jurisdiction formation) under applicable law, either party may elect to resolve the dispute in such court, provided that the claim does not exceed the monetary threshold established by applicable law for such court's jurisdiction.</p>
+
+ <h2>7. Representative Actions and Class Proceedings</h2>
+
+ <h3>7.1 Class Action Waiver</h3>
+ <p>To the maximum extent permitted by applicable law, you and PyAcademy agree that any dispute resolution proceedings (whether in court, arbitration, or mediation) shall be conducted only on an individual basis and not as a class, collective, consolidated, or representative action. You waive any right to participate in a class action lawsuit, class arbitration, or collective proceeding of any kind, except as expressly required by mandatory applicable law.</p>
+ <p>This class action waiver applies to the maximum extent permitted by applicable law. If applicable law prohibits the waiver of class or collective claims in a particular jurisdiction, this Section 7 shall be deemed modified to the minimum extent necessary to comply with such mandatory law, while preserving its maximum permissible effect.</p>
+
+ <h3>7.2 Representative Actions Under EU Law</h3>
+ <p>Notwithstanding Section 7.1, in accordance with Directive (EU) 2020/1828 on representative actions for the protection of the collective interests of consumers (the "Representative Actions Directive"), as transposed into French law, qualifying qualified entities (entités qualifiées) may bring representative actions on behalf of consumers against PyAcademy before the competent courts. This Section 7 does not limit or restrict the rights of consumers to benefit from representative actions brought by qualified entities under the Representative Actions Directive and its transposition into French law.</p>
+
+ <h2>8. Limitation Periods and Prescription</h2>
+
+ <h3>8.1 General Prescription Period</h3>
+ <p>Any claim or cause of action arising out of or relating to this Policy or the Applicable Agreements must be commenced within the applicable prescription (limitation) period under French law. Pursuant to Article 2224 of the French Code civil, the general prescription period for actions arising from a personal obligation or a movable property right is five (5) years from the date on which the claimant knew or ought to have known of the facts giving rise to the claim.</p>
+
+ <h3>8.2 Specific Prescription Periods</h3>
+ <p>The following specific prescription periods may apply under French law:</p>
+ <ul>
+ <li><strong>Contractual liability:</strong> Five (5) years from the date of the breach (Article 2224 of the Code civil).</li>
+ <li><strong>Personal injury:</strong> Twenty (20) years from the date of the injury or the aggravation thereof (Article 2226 of the Code civil).</li>
+ <li><strong>Product liability:</strong> Three (3) years from the date of discovery of the damage, the defect, and the identity of the manufacturer (Article 1142-6 of the Code civil, as amended by Loi n° 98-389 of 19 May 1998, transposing Directive 85/374/EEC).</li>
+ <li><strong>Unfair commercial practices:</strong> Five (5) years from the cessation of the unlawful practice (Article L132-24 of the Code de la consommation).</li>
+ <li><strong>Claims for payment of subscription fees:</strong> Two (2) years from the date the payment was due (Article L133-3 of the Code de la consommation for electronic payment instruments).</li>
+ </ul>
+
+ <h3>8.3 Suspension and Interruption of Prescription</h3>
+ <p>The prescription period may be suspended (interrompu) or interrupted in accordance with the provisions of Articles 2240 et seq. of the French Code civil, including by means of:</p>
+ <ul>
+ <li>Serving a formal notice (mise en demeure) or a commandement de payer.</li>
+ <li>Filing a lawsuit or initiating arbitration proceedings in good faith.</li>
+ <li>The debtor's recognition of the debt in writing.</li>
+ <li>The operation of force majeure in accordance with Article 2238 of the Code civil.</li>
+ </ul>
+ <p>The operation of prescription is itself subject to the general rules of prescription under French law, including the rules applicable to the suspension and interruption thereof.</p>
+
+ <h2>9. Enforcement of Judgments and Awards</h2>
+
+ <h3>9.1 Recognition and Enforcement Within the EU</h3>
+ <p>Any judgment rendered by the courts of Paris, France, may be recognized and enforced in the other Member States of the European Union in accordance with Regulation (EU) No 1215/2012 (Brussels I Regulation (recast)), without the need for a declaration of enforceability (exequatur), in accordance with Article 36 of the Regulation.</p>
+ <p>For judgments from courts of EU Member States other than France, PyAcademy may seek recognition and enforcement in France in accordance with the same Regulation.</p>
+
+ <h3>9.2 Enforcement of Arbitral Awards</h3>
+ <p>Any arbitral award rendered in accordance with Section 6 shall be enforceable in France in accordance with Articles 1477 et seq. of the French Code de procédure civile and the New York Convention of 1958, without the need for exequatur from the French courts except for the limited purposes specified in Articles 1487 and 1488 of the Code de procédure civile (i.e., violation of international public policy or lack of a valid arbitration agreement).</p>
+ <p>Outside France, arbitral awards may be recognized and enforced in accordance with the New York Convention, the European Convention on International Commercial Arbitration, or any other applicable bilateral or multilateral treaty.</p>
+
+ <h2>10. Injunctive and Interim Relief</h2>
+ <p>Nothing in this Policy shall be construed to prevent or limit either party's right to seek interim or conservatory measures (mesures conservatoires and mesures provisoires) from any court of competent jurisdiction, including the President of the Tribunal judiciaire (référé proceedings) under Articles 835 et seq. of the French Code de procédure civile, or from any arbitral tribunal constituted under Section 6.</p>
+ <p>Without limitation, either party may seek injunctive relief to:</p>
+ <ul>
+ <li>Prevent irreparable harm that cannot be adequately compensated by damages.</li>
+ <li>Preserve evidence or prevent the destruction of evidence.</li>
+ <li>Prevent or halt ongoing violations of intellectual property rights, confidentiality obligations, or data protection requirements.</li>
+ <li>Protect the security and integrity of the Platform, its systems, and its users' data.</li>
+ <li>Prevent the transfer or dissipation of assets pending the resolution of a dispute.</li>
+ </ul>
+ <p>The availability of injunctive relief under this Section 10 is in addition to, and does not limit, any other remedies available at law or in equity.</p>
+
+ <h2>11. Data Protection Disputes</h2>
+ <p>Disputes arising from or relating to the processing of personal data by PyAcademy, including disputes concerning the exercise of data subject rights under Articles 12 through 22 of the GDPR, are governed by this Policy and are subject to the dispute resolution mechanisms described herein.</p>
+ <p>Without prejudice to the foregoing, you have the right to lodge a complaint with the Commission nationale de l'informatique et des libertés ("CNIL"), the French supervisory authority for data protection, at the following address:</p>
+ <p><strong>CNIL<br>3 Place de Fontenoy<br>TSA 80715<br>75334 Paris Cedex 07, France<br><a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">https://www.cnil.fr</a></strong></p>
+ <p>If you are habitually resident in an EU Member State other than France, you may also lodge a complaint with the competent supervisory authority of your Member State of habitual residence, in accordance with Article 77(1) of the GDPR. Furthermore, pursuant to Article 79(1) of the GDPR, you have the right to an effective judicial remedy before a court of the Member State of your habitual residence, the place of work, or the place of the alleged infringement, if you consider that your rights under the GDPR have been infringed.</p>
+
+ <h2>12. Severability</h2>
+ <p>If any provision of this Policy is held by a court of competent jurisdiction, arbitral tribunal, or other adjudicatory body to be invalid, illegal, unenforceable, or contrary to public policy (ordre public) under the laws of the applicable jurisdiction, such provision shall be modified to the minimum extent necessary to make it valid, legal, and enforceable while preserving its original intent, or if modification is not possible, such provision shall be severed from this Policy.</p>
+ <p>The invalidity, illegality, or unenforceability of any provision shall not affect the validity, legality, or enforceability of the remaining provisions of this Policy, which shall continue in full force and effect. The parties shall negotiate in good faith to replace the invalid, illegal, or unenforceable provision with a valid, legal, and enforceable provision that achieves, to the greatest extent possible, the economic, legal, and commercial objectives of the original provision.</p>
+ <p>This severability clause is drafted in accordance with the principle of severability recognized under French law (Article 1184 of the Code civil, as amended by Ordonnance n° 2016-131 of 10 February 2016) and EU law, and in particular with the requirements of Directive 93/13/EEC regarding fair contract terms.</p>
+
+ <h2>13. Amendments to This Policy</h2>
+ <p>PyAcademy reserves the right to amend, modify, or update this Policy at any time, in its sole discretion. Material changes to this Policy shall be notified to Users by email and by prominent notice on the Platform at least thirty (30) calendar days before the effective date of such changes. Your continued use of the Platform after the effective date of any amendment to this Policy constitutes your acceptance of the amended terms.</p>
+ <p>If you do not agree to the amended terms, you must cease using the Platform and close your account before the effective date of the changes. For disputes that have already arisen prior to the effective date of any amendment, the version of this Policy in effect at the time the dispute arose shall apply, unless you expressly agree in writing to the application of the amended version.</p>
+
+ <h2>14. Waiver</h2>
+ <p>No failure or delay by either party in exercising any right, remedy, power, or privilege under this Policy shall operate as a waiver thereof, nor shall any single or partial exercise of any right, remedy, power, or privilege preclude any other or further exercise thereof or the exercise of any other right, remedy, power, or privilege. Any waiver must be in writing and signed by the waiving party to be effective. A waiver on any one occasion shall not be construed as a waiver on any subsequent occasion.</p>
+
+ <h2>15. Entire Agreement</h2>
+ <p>This Policy, together with the Terms of Service, Privacy Policy, Cookie Policy, Acceptable Use Policy, Force Majeure Policy, and any other policies or agreements referenced herein, constitutes the entire agreement between you and PyAcademy with respect to the subject matter hereof and supersedes all prior and contemporaneous understandings, agreements, representations, and warranties, both written and oral, with respect to such subject matter.</p>
+
+ <h2>16. Contact Information</h2>
+ <p>For any questions, inquiries, or notices relating to this Governing Law and Dispute Resolution Policy, please contact:</p>
+ <p><strong>PyAcademy SAS<br>Legal Department<br>Email: <a href="mailto:legal@li1234.top">legal@li1234.top</a><br>Data Protection Officer: <a href="mailto:dpo@li1234.top">dpo@li1234.top</a><br>Dispute Resolution: <a href="mailto:disputes@li1234.top">disputes@li1234.top</a><br>Registered Office: 12 Rue de la Paix, 75002 Paris, France<br>Company Registration: RCS Paris B [registration number]<br>VAT: [VAT identification number]</strong></p>
+
+ </div>
+
+ <div data-lang="zh">
+
+ <h2>1. 接受与适用范围</h2>
+ <p>本适用法律与争议解决政策（"本政策"）适用于对平台的一切访问、使用和交互行为，包括但不限于账户注册、课程购买、内容提交、社区参与、支付交易以及通过平台进行的任何其他活动。本政策被纳入并构成 PyAcademy 服务条款和所有其他适用政策的组成部分。</p>
+ <p>通过创建账户、访问、浏览或以其他方式使用平台，您不可撤销地同意：因本政策、服务条款、隐私政策、Cookie 使用政策、可接受使用政策、不可抗力政策或您与 PyAcademy 之间的任何其他协议或政策（以下统称"适用协议"）引起的或与之相关的任何争议、纠纷或索赔，包括关于其签订、解释、履行、违约、终止或无效性的争议，均应按照本政策所载条款管辖和解决。</p>
+ <p>无论您位于何处，本政策均适用，无论您是从欧洲联盟、欧洲经济区、英国、瑞士、美国还是世界任何其他司法管辖区访问平台。本政策中的任何内容均不得被解释为限制或排除您居住地法律赋予您的、不可通过合同放弃或限制的强制性消费者保护权利。</p>
+ <div class="note">
+ <strong>注意：</strong>本政策应与我们的服务条款、隐私政策、Cookie 使用政策、可接受使用政策和不可抗力政策一并阅读。如本政策与任何适用法律的强制性规定发生冲突，以适用法律的强制性规定为准。
+ </div>
+
+ <h2>2. 适用法律</h2>
+
+ <h3>2.1 主要适用法律</h3>
+ <p>本政策及所有适用协议，以及由此产生或与之相关的任何非合同义务，均受法兰西共和国实体法律管辖并据以解释，不考虑其法律冲突规则。明确排除《联合国国际货物销售合同公约》（CISG）的适用。</p>
+ <p>法兰西共和国法律的适用涵盖适用协议的各个方面，包括但不限于其签订、效力、解释、履行、修改、违约、救济和终止。此法律选择系依据欧洲议会和理事会2008年6月17日关于合同义务法律适用的第(EC) 593/2008号条例（"罗马I条例"）第3条作出，该条允许当事人选择适用于合同的法律。</p>
+
+ <h3>2.2 法国法律的适用范围</h3>
+ <p>在不限制第2.1条一般性的前提下，以下事项应完全受法兰西共和国法律管辖：</p>
+ <ul>
+ <li>适用协议的签订、存在、效力、约束力和可执行性。</li>
+ <li>当事人在协议项下的权利和义务，包括条款和条件的解释。</li>
+ <li>不履行、延迟履行或瑕疵履行义务的后果。</li>
+ <li>终止、撤销或修改适用协议的依据和效力。</li>
+ <li>损害赔偿、违约金和其他救济的评估和计算。</li>
+ <li>与诉讼时效、除斥期间和权利懈怠相关的规则。</li>
+ <li>任何责任限制或排除条款的效力和效果。</li>
+ </ul>
+
+ <h3>2.3 欧盟法律的适用</h3>
+ <p>在欧盟法律直接适用或已被转化为法国法律的范围内，以下欧盟法规/指令适用于您与 PyAcademy 之间的关系：</p>
+ <ul>
+ <li><strong>第(EU) 2016/679号条例</strong>（《通用数据保护条例》或"GDPR"）：管辖个人数据的处理，包括您作为数据主体依据GDPR第12至22条享有的权利。</li>
+ <li><strong>第2002/58/EC号指令</strong>（《电子隐私指令》）：管辖电子通讯的使用，包括Cookie和跟踪技术，经2004年7月21日第Loi n° 2004-669号法律转化为法国法律。</li>
+ <li><strong>第93/13/EEC号指令</strong>（《不公平合同条款指令》）：保护消费者免受格式合同中不公平条款的损害，经《消费法典》(Code de la consommation) L212-1条及后续条款转化为法国法律。</li>
+ <li><strong>第2011/83/EU号指令</strong>（《消费者权利指令》）：确立远程合同和非营业场所合同的消费者保护要求，经《消费法典》L221-1条及后续条款转化为法国法律。</li>
+ <li><strong>第2000/31/EC号指令</strong>（《电子商务指令》）：确立信息社会服务的法律框架，经2004年6月21日第Loi n° 2004-575号法律（"LCEN"）转化为法国法律。</li>
+ <li><strong>第(EU) 2022/2065号条例</strong>（《数字服务法》）：确立中介服务规则，包括适用于平台的透明度和注意义务。</li>
+ <li><strong>第(EU) 2019/1150号条例</strong>（《P2B条例》）：确立在线中介服务商业用户公平和透明原则。</li>
+ <li><strong>第(EU) 2018/302号条例</strong>（《禁止地域封锁条例》）：禁止基于国籍、居住地或设立地的不合理地域封锁和其他形式的歧视。</li>
+ </ul>
+
+ <h3>2.4 消费者保护例外</h3>
+ <p>本政策中的任何内容均不得被解释为剥夺消费者根据其惯常居住国强制性法律所获得的保护，此乃依据罗马I条例第6(2)条之规定。如您依据欧盟成员国法律属于消费者，且您的惯常居住地在欧盟成员国，您可以援引该成员国消费者保护法的强制性规定，这些规定不得通过协议减损。</p>
+ <p>特别地，但不限于：</p>
+ <ul>
+ <li>如您的惯常居住地在法国，您可以援引《消费法典》(Code de la consommation)的保护，包括L212-1条和L212-2条（不公平条款）、L221-1条及后续条款（远程合同）以及L132-1条及后续条款（不公平商业行为）。</li>
+ <li>如您的惯常居住地在另一个欧盟成员国，您可以援引该成员国法律中转化自第93/13/EEC号、第2011/83/EU号和第2005/29/EC号指令的等效消费者保护规定。</li>
+ <li>如您依据欧盟法律属于消费者，您不得被剥夺在惯常居住地法院提起诉讼的权利，此乃依据（欧盟）第1215/2012号条例（《布鲁塞尔I条例修订版》）第18(1)条之规定。</li>
+ </ul>
+
+ <h2>3. 管辖权</h2>
+
+ <h3>3.1 专属管辖权——非消费者用户</h3>
+ <p>在遵守第2.4条所载消费者保护例外以及适用于法国的（欧盟）第1215/2012号条例（《布鲁塞尔I条例修订版》）强制性管辖权规则的前提下，您和 PyAcademy 不可撤销地服从法国巴黎法院（Tribunal judiciaire de Paris）的专属管辖权，以解决因本政策或适用协议引起的或与之相关的任何争议、纠纷或索赔，包括关于其签订、解释、履行、违约、终止或无效性的争议。</p>
+ <p>双方确认并同意，巴黎法院是解决争议最适当和最便利的法庭，且服从巴黎法院的专属管辖权是合理的、公平的，且不违反公共政策。</p>
+
+ <h3>3.2 消费者用户的管辖权</h3>
+ <p>尽管有第3.1条的规定，如您依据《布鲁塞尔I条例修订版》第17(1)条属于消费者，且您的惯常居住地在欧盟或欧洲经济区成员国，您可以选择以下法院提起诉讼：</p>
+ <ul>
+ <li>依据《布鲁塞尔I条例修订版》第17(1)条，在您的惯常居住地成员国法院提起诉讼；或</li>
+ <li>依据《布鲁塞尔I条例修订版》第17(1)条，在法国巴黎法院（Tribunal judiciaire de Paris）提起诉讼。</li>
+ </ul>
+ <p>PyAcademy 仅能在消费者的惯常居住地成员国法院或法国巴黎法院对消费者用户提起诉讼，此乃依据《布鲁塞尔I条例修订版》第17(1)条之规定。</p>
+
+ <h3>3.3 国际管辖权原则</h3>
+ <p>对于惯常居住地不在欧盟或欧洲经济区成员国的用户，因本政策或适用协议引起的且不能通过协议提交巴黎法院管辖的诉讼，应根据法国国际私法(droit international privé)所承认的国际管辖权原则以及（如适用）海牙国际私法会议公约的规定，提交 PyAcademy 注册地（即法国巴黎）有管辖权的法院审理。</p>
+
+ <h2>4. 强制性诉前程序</h2>
+
+ <h3>4.1 争议通知</h3>
+ <p>在对 PyAcademy 提起任何正式法律程序（无论司法、仲裁或行政）之前，您必须首先向 PyAcademy 提供书面争议通知（"争议通知"），该通知须包含以下全部信息：</p>
+ <ul>
+ <li>您的全名、与 PyAcademy 账户关联的电子邮件地址和邮寄地址。</li>
+ <li>争议的详细描述，包括索赔性质、引起争议的事实和情况，以及您认为被违反或存在争议的适用协议具体条款。</li>
+ <li>支持文件，包括但不限于往来信函、截屏、交易记录以及与您索赔相关的任何其他证据。</li>
+ <li>您所寻求的救济或补救措施的明确声明，包括任何具体金额、禁令救济或其他救济。</li>
+ <li>您偏好的解决方式（谈判、调解或仲裁，如适用）。</li>
+ </ul>
+ <p>争议通知须通过电子邮件发送至 <a href="mailto:legal@li1234.top">legal@li1234.top</a>，并以带回执的挂号信（lettre recommandée avec accusé de réception）寄至以下地址：</p>
+ <p><strong>PyAcademy SAS<br>法务部<br>12 Rue de la Paix<br>75002 Paris, France</strong></p>
+
+ <h3>4.2 强制谈判期</h3>
+ <p>收到有效的争议通知后，PyAcademy 应在三十（30）个日历日内作出合理回复。此后，您和 PyAcademy 应本着善意努力通过直接谈判解决争议，谈判期自 PyAcademy 初始回复之日起至少持续六十（60）个日历日（"谈判期"），除非双方书面同意延长该期限。</p>
+ <p>在谈判期内，双方应：</p>
+ <ul>
+ <li>及时交换所有相关文件和信息。</li>
+ <li>指定有权进行善意和解谈判的授权代表。</li>
+ <li>探索所有合理的和解方案，包括但不限于金钱赔偿、服务积分、账户修改或其他双方均可接受的救济。</li>
+ <li>不得发起或威胁提起正式法律程序，但为保全因时间流逝而不可挽回地丧失的权利（包括诉讼时效期间）所必需的除外。</li>
+ </ul>
+ <p>谈判期不应被解释为限制或损害任何一方在谈判期届满后寻求任何可用法律救济的权利。</p>
+
+ <h3>4.3 权利保留</h3>
+ <p>本第4条中的任何内容均不得被解释为阻止或限制任何一方在存在不可弥补损害的紧迫风险时向有管辖权的法院寻求临时或保全措施(mesures provisoires)，或依据《法国民事诉讼法典》第835条及后续条款向裁定法官(juge des référés)申请的权利。</p>
+
+ <h2>5. 调解</h2>
+
+ <h3>5.1 消费者争议的强制调解</h3>
+ <p>依据《消费法典》(Code de la consommation) L616-1条和第2013/11/EU号《消费者争议替代性解决指令》的规定，如您属于消费者且未通过第4.2条所述的初始投诉程序获得满意的解决方案，PyAcademy 承诺在第4.2条所述的谈判期届满后，将任何未解决的消费者争议提交给经批准的调解员(médiateur de la consommation)调解。</p>
+ <p>PyAcademy 已指定以下消费者调解员：</p>
+ <p><strong>消费者调解员<br>CNIL 调解服务（或指定的后续机构）<br>或适用的其他经批准调解员<br>电子邮件：<a href="mailto:mediation@li1234.top">mediation@li1234.top</a></strong></p>
+ <p>调解过程应按照指定调解员的调解规则和适用法律进行。消费者争议的调解费用应由 PyAcademy 承担，此乃依据《消费法典》L616-2条之规定。</p>
+
+ <h3>5.2 非消费者争议的自愿调解</h3>
+ <p>对于不涉及消费者的争议，在第4.2条所述的谈判期届满后，任何一方均可将争议提交国际商会("ICC")依据其当时有效的调解规则管理的调解。调解应在法国巴黎进行，以英语进行，除非双方另行约定。</p>
+ <p>如双方无法在调解请求之日起三十（30）个日历日内就调解员的指定达成一致，ICC应依据其规则指定调解员。调解应在保密基础上进行，除非双方签署书面和解协议，否则任何一方不受调解过程中提出的任何提案或要约的约束。</p>
+
+ <h3>5.3 欧盟在线争议解决平台</h3>
+ <p>依据第(EU) No 524/2013号条例（"ODR条例"）和第(EU) 2016/2246号实施决定第14(1)条，欧盟委员会提供在线争议解决平台("ODR平台")，可通过 <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">https://ec.europa.eu/consumers/odr</a> 访问。如您是惯常居住在欧盟的消费者，您可以使用ODR平台提交源于在线交易的投诉。</p>
+ <p>PyAcademy 就ODR平台指定的电子邮件地址为：<a href="mailto:odr@li1234.top">odr@li1234.top</a>。您有权使用ODR平台，无论您是否已先参与第4.2条和第5.1条所述的谈判期或调解程序，前提是您的争议根据适用规则符合ODR平台的受理条件。</p>
+ <div class="note">
+ <strong>注意：</strong>使用ODR平台对消费者而言并非强制性的，也不排除任何一方提起司法诉讼的权利。ODR平台是一个额外的自愿工具，旨在促进跨境消费者争议的协商解决。
+ </div>
+
+ <h2>6. 仲裁</h2>
+
+ <h3>6.1 有约束力的仲裁——非消费者用户</h3>
+ <p>在遵守第2.4条（消费者保护例外）和第3.2条（消费者用户管辖权）规定的前提下，因本政策或适用协议引起的或与之相关的任何争议、纠纷或索赔，包括关于其签订、解释、履行、违约、终止或无效性的争议，如未通过第4条和第5条所述的谈判或调解解决，应最终且专属地由国际商会国际仲裁院("ICC")依据其当时有效的《ICC仲裁规则》进行的有约束力的仲裁解决。</p>
+ <p>仲裁应按照以下条款进行：</p>
+ <ul>
+ <li><strong>仲裁员人数：</strong>仲裁庭由一名独任仲裁员组成，除非ICC仲裁院根据争议的复杂性或金额酌定三名仲裁员更为适当。</li>
+ <li><strong>仲裁地：</strong>法国巴黎。</li>
+ <li><strong>语言：</strong>仲裁以英语进行，除非双方另有约定或仲裁庭确定另一种语言更为适当。</li>
+ <li><strong>适用法律：</strong>仲裁庭应依据本政策第2.1条适用法兰西共和国实体法律。</li>
+ <li><strong>保密性：</strong>仲裁的存在、所有提交材料、证据、证词和裁决应由所有当事人、仲裁员和ICC保密处理，但适用法律要求或为执行裁决所必需的除外。</li>
+ <li><strong>合并仲裁和追加当事人：</strong>如多个仲裁源于相同或相关交易、涉及共同的法律或事实问题且符合《ICC仲裁规则》的要求，ICC可合并仲裁或允许追加当事人。</li>
+ </ul>
+
+ <h3>6.2 仲裁裁决</h3>
+ <p>仲裁庭作出的裁决为终局裁决，对双方具有约束力。裁决可在任何有管辖权的法院（包括法国巴黎法院或任何其他当事人拥有资产的司法管辖区的法院）申请执行，此乃依据1958年《关于承认和执行外国仲裁裁决的纽约公约》（法国为缔约国）、1961年《国际商事仲裁欧洲公约》以及适用的国内立法（包括《法国民事诉讼法典》第四卷第1477条及后续条款）之规定。</p>
+ <p>仲裁费用，包括ICC行政管理费、仲裁员报酬以及与仲裁相关的任何合理支出，应由仲裁庭在其裁决中分配。各方各自承担自己的律师费用，除非仲裁庭另行裁定。</p>
+
+ <h3>6.3 有限例外——小额诉讼</h3>
+ <p>尽管有第6.1条的规定，如您的索赔在适用法律下属于小额法院的管辖范围，任何一方均可选择在该法院解决争议，前提是索赔金额不超过适用法律为该法院管辖权规定的金额上限。</p>
+
+ <h2>7. 代表诉讼与集体诉讼</h2>
+
+ <h3>7.1 集体诉讼弃权</h3>
+ <p>在适用法律允许的最大范围内，您和 PyAcademy 同意任何争议解决程序均仅以个人名义进行，不得以集体、联合、合并或代表诉讼的形式进行。您放弃参与集体诉讼、集体仲裁或任何形式的集体程序的权利，但适用法律明确要求的除外。</p>
+ <p>此集体诉讼弃权在适用法律允许的最大范围内适用。如适用法律在特定司法管辖区禁止放弃集体或联合索赔，本第7条应被视为在必要范围内修改以遵守该强制性法律规定，同时保留其最大许可效力。</p>
+
+ <h3>7.2 欧盟法律下的代表诉讼</h3>
+ <p>尽管有第7.1条的规定，依据第(EU) 2020/1828号《关于保护消费者集体利益的代表诉讼指令》及其转化为法国法律的规定，符合条件的合格实体可代表消费者在有管辖权的法院对 PyAcademy 提起代表诉讼。本第7条不限制或削减消费者从代表诉讼指令及其法国法律转化中受益的权利。</p>
+
+ <h2>8. 诉讼时效期间</h2>
+
+ <h3>8.1 一般诉讼时效</h3>
+ <p>因本政策或适用协议引起的或与之相关的任何索赔或诉因，必须在法国法律规定的适用诉讼时效期间内提起。根据《法国民法典》第2224条，一般诉讼时效为五年，自原告知道或应当知道引起索赔的事实之日起计算。</p>
+
+ <h3>8.2 特殊诉讼时效</h3>
+ <p>法国法律下可能适用以下特殊诉讼时效：</p>
+ <ul>
+ <li><strong>合同责任：</strong>自违约之日起五年（《民法典》第2224条）。</li>
+ <li><strong>人身伤害：</strong>自伤害或伤害加重之日起二十年（《民法典》第2226条）。</li>
+ <li><strong>产品责任：</strong>自发现损害、缺陷和制造商身份之日起三年（《民法典》第1142-6条，转化自第85/374/EEC号指令）。</li>
+ <li><strong>不公平商业行为：</strong>自违法行为停止之日起五年（《消费法典》L132-24条）。</li>
+ <li><strong>订阅费用支付索赔：</strong>自应付之日起两年（《消费法典》L133-3条）。</li>
+ </ul>
+
+ <h3>8.3 诉讼时效的中止和中断</h3>
+ <p>诉讼时效可依据《法国民法典》第2240条及后续条款的规定中止或暂停，包括但不限于：</p>
+ <ul>
+ <li>送达催告函(mise en demeure)或付款命令(commandement de payer)。</li>
+ <li>善意提起诉讼或启动仲裁程序。</li>
+ <li>债务人书面承认债务。</li>
+ <li>依据《民法典》第2238条因不可抗力而中止。</li>
+ </ul>
+
+ <h2>9. 判决和裁决的执行</h2>
+
+ <h3>9.1 欧盟境内的承认和执行</h3>
+ <p>法国巴黎法院作出的任何判决，可根据第(EU) No 1215/2012号条例（《布鲁塞尔I条例修订版》）在欧盟其他成员国承认和执行，无需执行令(exequatur)，此乃依据该条例第36条之规定。</p>
+ <p>对于欧盟其他成员国法院作出的判决，PyAcademy 可依据同一条例在法国寻求承认和执行。</p>
+
+ <h3>9.2 仲裁裁决的执行</h3>
+ <p>依据第6条作出的任何仲裁裁决，可根据《法国民事诉讼法典》第1477条及后续条款和1958年《纽约公约》在法国执行，无需法国法院的执行令，但《民事诉讼法典》第1487条和第1488条规定的情形除外。</p>
+ <p>在法国以外，仲裁裁决可根据《纽约公约》、《国际商事仲裁欧洲公约》或任何其他适用的双边或多边条约承认和执行。</p>
+
+ <h2>10. 禁令救济和临时措施</h2>
+ <p>本政策中的任何内容均不得被解释为阻止或限制任何一方从任何有管辖权的法院或依据第6条组建的任何仲裁庭寻求临时或保全措施(mesures conservatoires 和 mesures provisoires)的权利。</p>
+ <p>特别地，任何一方均可寻求禁令救济以：</p>
+ <ul>
+ <li>防止无法以损害赔偿充分弥补的不可挽回的损害。</li>
+ <li>保全证据或防止证据被销毁。</li>
+ <li>阻止或制止正在进行的知识产权侵权、保密义务违反或数据保护要求违反。</li>
+ <li>保护平台、其系统和用户数据的安全和完整性。</li>
+ <li>在争议解决前防止资产转移或散失。</li>
+ </ul>
+
+ <h2>11. 数据保护争议</h2>
+ <p>因 PyAcademy 处理个人数据引起的或与之相关的争议，包括涉及依据GDPR第12至22条行使数据主体权利的争议，受本政策管辖并应按本政策所述的争议解决机制解决。</p>
+ <p>您有权向法国国家信息与自由委员会("CNIL")提出投诉，地址如下：</p>
+ <p><strong>CNIL<br>3 Place de Fontenoy<br>TSA 80715<br>75334 Paris Cedex 07, France<br><a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">https://www.cnil.fr</a></strong></p>
+ <p>如您的惯常居住地在法国以外的欧盟成员国，您亦有权依据GDPR第77(1)条向您惯常居住地成员国的主管监管机构提出投诉。此外，依据GDPR第79(1)条，如您认为您的GDPR权利受到侵犯，您有权在您惯常居住地、工作地或涉嫌侵权地的成员国法院获得有效的司法救济。</p>
+
+ <h2>12. 可分割性</h2>
+ <p>如本政策的任何条款被有管辖权的法院、仲裁庭或其他裁决机构认定无效、违法、不可执行或违反公共政策，该条款应在保留其原始意图的前提下被修改至使其有效、合法和可执行所需的最低限度，如修改不可能，则该条款应从本政策中删除。</p>
+ <p>任何条款的无效、违法或不可执行性不影响本政策其他条款的效力、合法性或可执行性，其他条款应继续完全有效。</p>
+
+ <h2>13. 本政策的修改</h2>
+ <p>PyAcademy 保留随时自行决定修改、变更或更新本政策的权利。重大变更将通过电子邮件和平台上的显著通知在变更生效日前至少三十（30）个日历日通知用户。您在任何修改生效后继续使用平台即构成您对修改后条款的接受。</p>
+ <p>如您不同意修改后的条款，您必须在变更生效日之前停止使用平台并关闭您的账户。对于在修改生效日之前已产生的争议，应适用该争议产生时有效的本政策版本，除非您以书面方式明确同意适用修改后的版本。</p>
+
+ <h2>14. 弃权</h2>
+ <p>任何一方未行使或延迟行使本政策下的任何权利、救济、权力或特权，不得构成弃权，任何一次或部分行使不排除任何其他或进一步的行使。任何弃权必须以书面形式并由弃权方签署方可有效。</p>
+
+ <h2>15. 完整协议</h2>
+ <p>本政策连同服务条款、隐私政策、Cookie 使用政策、可接受使用政策、不可抗力政策以及本政策中引用的任何其他政策或协议，构成您与 PyAcademy 之间就本政策标的事项的完整协议，并取代所有先前和同期的理解、协议、陈述和保证，无论书面或口头。</p>
+
+ <h2>16. 联系方式</h2>
+ <p>如有关于本适用法律与争议解决政策的任何问题、查询或通知，请联系：</p>
+ <p><strong>PyAcademy SAS<br>法务部<br>电子邮件：<a href="mailto:legal@li1234.top">legal@li1234.top</a><br>数据保护官：<a href="mailto:dpo@li1234.top">dpo@li1234.top</a><br>争议解决：<a href="mailto:disputes@li1234.top">disputes@li1234.top</a><br>注册地址：12 Rue de la Paix, 75002 Paris, France</strong></p>
+
+ </div>
+
+ </div>
+
+ <div class="highlight"><p><strong>Supplementary Legal Provisions / 附则A</strong></p><p><strong>A.1 DPO:</strong> <a href="mailto:dpo@li1234.top">dpo@li1234.top</a>. GDPR Art.37. PyAcademy SAS, 12 Rue de la Paix, 75002 Paris, France.</p><p><strong>A.2 Principles:</strong> GDPR Art.5 - lawfulness, purpose limitation, data minimisation, accuracy, storage limitation, integrity/confidentiality, accountability.</p><p><strong>A.3 Cross-border:</strong> GDPR Art.44-49 - SCCs, BCRs, adequacy decisions.</p><p><strong>A.4 CNIL Complaint:</strong> GDPR Art.77 - CNIL, 3 Place de Fontenoy, TSA 80715, 75334 Paris Cedex 07. +33 1 53 73 22 22. cnil.fr</p><p><strong>A.5 Automated Decisions:</strong> GDPR Art.22 - right not to be subject to solely automated decisions.</p><p><strong>A.6 Legal Bases:</strong> GDPR Art.6(1) - consent, contract, legal obligation, public interest, legitimate interests.</p><p><strong>A.7 CNIL Compliance:</strong> Loi n° 78-17 (Informatique et Libertés), CNIL Deliberation 2020-091, ePrivacy Directive 2002/58/EC.</p><p><strong>A.8 Consumer:</strong> Code de la consommation L111-1 to L111-7, L221-18 to L221-28, L212-1, L616-1, L217-1 to L217-15, L215-1 to L215-3. EU Directive 2011/83/EU, 93/13/EEC, 2019/770.</p><p><strong>A.9 Contact:</strong> Legal: <a href="mailto:legal@li1234.top">legal@li1234.top</a>. DPO: <a href="mailto:dpo@li1234.top">dpo@li1234.top</a>. PyAcademy SAS, 12 Rue de la Paix, 75002 Paris, France.</p></div>
+    <footer>
+ <div class="footer-inner">
+ <div class="footer-links">
+ <a href="https://www.li1234.com" data-lang="en">Home</a>
+ <a href="https://www.li1234.com" data-lang="zh">首页</a>
+ <a href="https://www.li1234.com" data-lang="en">Privacy Policy</a>
+ <a href="https://www.li1234.com" data-lang="zh">隐私政策</a>
+ </div>
+ <p class="footer-copy">&copy; 2026 PyAcademy. All rights reserved.</p>
+ </div>
+ </footer>
+
+ <script type="text/javascript">
+ function switchLang(lang) {
+    document.body.classList.toggle('zh', lang === 'zh');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+}
+ </script>
+</body>
+</html>
