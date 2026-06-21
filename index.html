@@ -593,45 +593,50 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-function renderCaptcha() {
-    var checkCount = 0;
-    var checkInterval = setInterval(function() {
-        if (typeof window.initAliyunCaptcha === 'function') {
-            clearInterval(checkInterval);
-            try {
-                window.initAliyunCaptcha({
-                    sceneId: CAPTCHA_CONFIG.sceneId,
-                    element: '#captcha',        // 验证码挂载点（隐藏容器）
-                    button: '#loginBtn',        // 👈 点击登录按钮触发验证码弹窗
-                    mode: 'popup',              // 👈 弹出式模式
-                    language: 'zh',
-                    server: ['captcha-esa-open.aliyuncs.com', 'captcha-esa-open-b.aliyuncs.com'],
-                    success: function(captchaVerifyParam) {
-                        captchaToken = captchaVerifyParam;
-                        captchaVerified = true;
-                        loginBtn.disabled = false;
-                        loginBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>登录 / 注册';
-                        showToast('✅ 验证通过，请点击登录');
-                    },
-                    fail: function(result) {
-                        captchaToken = null;
-                        captchaVerified = false;
-                        console.warn('验证失败:', result);
-                    },
-                    getInstance: function(instance) {
-                        window.captchaInstance = instance;
-                    }
-                });
-            } catch (e) {
-                console.error('Aliyun Captcha init error:', e);
-                showToast('⚠️ 验证码初始化失败，请刷新重试');
+    function renderCaptcha() {
+        var checkCount = 0;
+        var checkInterval = setInterval(function() {
+            if (typeof window.initAliyunCaptcha === 'function') {
+                clearInterval(checkInterval);
+                try {
+                    // ========== 使用官方推荐参数 ==========
+                    window.initAliyunCaptcha({
+                        sceneId: CAPTCHA_CONFIG.sceneId,
+                        element: '#captcha',        // 挂载点（嵌入式）
+                        mode: 'embed',               // 改为嵌入式（直接显示在页面）
+                        language: 'zh',
+                        server: ['captcha-esa-open.aliyuncs.com', 'captcha-esa-open-b.aliyuncs.com'],
+                        success: function(captchaVerifyParam) {
+                            // 注意：官方 success 回调参数直接是 captchaVerifyParam
+                            captchaToken = captchaVerifyParam;
+                            captchaVerified = true;
+                            loginBtn.disabled = false;
+                            loginBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>登录 / 注册';
+                            showToast('✅ 验证通过，请点击登录');
+                        },
+                        fail: function(result) {
+                            // 验证失败回调（通常不需要额外处理，验证码自动重置）
+                            captchaToken = null;
+                            captchaVerified = false;
+                            console.warn('验证失败:', result);
+                            // 可选提示
+                            // showToast('❌ 验证未通过，请重试');
+                        },
+                        getInstance: function(instance) {
+                            // 保存实例以备后续重置
+                            window.captchaInstance = instance;
+                        }
+                    });
+                } catch (e) {
+                    console.error('Aliyun Captcha init error:', e);
+                    showToast('⚠️ 验证码初始化失败，请刷新重试');
+                }
+            } else if (checkCount++ > 50) {
+                clearInterval(checkInterval);
+                showToast('⚠️ 验证码加载超时，请刷新重试');
             }
-        } else if (checkCount++ > 50) {
-            clearInterval(checkInterval);
-            showToast('⚠️ 验证码加载超时，请刷新重试');
-        }
-    }, 100);
-}
+        }, 100);
+    }
 
     function tryInitCaptcha() {
         if (loginBtn) {
