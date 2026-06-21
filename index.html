@@ -515,7 +515,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<!-- 阿里云 ESA AI 验证码 + Auth0 登录逻辑 -->
+<!-- 阿里云 ESA AI 验证码 + Auth0 登录逻辑（含二次验证） -->
 <script>
 (async function() {
     const AUTH0_DOMAIN   = 'dev-ipau6rke7ayzc0kt.us.auth0.com';
@@ -528,11 +528,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ========== 阿里云 ESA AI 验证码配置 ==========
     // TODO: 替换为您的身份标 (prefix) 和区域 (region)
-    // 身份标：在 ESA 控制台 AI 验证码配置页面右上角获取[reference:0]
-    // 场景ID：在配置页面的相应规则条目的场景ID列获取[reference:1]
+    // 身份标：在 ESA 控制台 AI 验证码配置页面右上角获取
+    // 场景ID：在配置页面的相应规则条目的场景ID列获取
     const CAPTCHA_CONFIG = {
-        region: "sgp",              // 验证码示例所属地区，支持 cn（中国内地）、sgp（新加坡）[reference:2]
-        prefix: "esa-pzb5wb0s0l",   // 身份标，替换为实际值[reference:3]
+        region: "cn",              // 验证码示例所属地区，支持 cn（中国内地）、sgp（新加坡）
+        prefix: "esa-pzb5wb0s0l",   // 身份标，替换为实际值
         sceneId: "pxahkhig"   // 场景ID，替换为实际值
     };
 
@@ -573,13 +573,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ========== 阿里云 ESA AI 验证码初始化 ==========
     function initAliyunCaptcha() {
-        // 设置全局配置[reference:4][reference:5]
+        // 设置全局配置
         window.AliyunCaptchaConfig = {
             region: CAPTCHA_CONFIG.region,
             prefix: CAPTCHA_CONFIG.prefix
         };
 
-        // 动态加载验证码 JS[reference:6][reference:7]
+        // 动态加载验证码 JS
         var script = document.createElement('script');
         script.src = 'https://o.alicdn.com/captcha-frontend/aliyunCaptcha/AliyunCaptcha.js';
         script.async = true;
@@ -590,11 +590,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (typeof window.initAliyunCaptcha === 'function') {
                     clearInterval(checkInterval);
                     try {
-                        // 调用初始化方法[reference:8][reference:9]
+                        // 调用初始化方法
                         window.initAliyunCaptcha({
                             sceneId: CAPTCHA_CONFIG.sceneId,
                             element: '#captcha',        // 验证码挂载点
-                            mode: 'popup',               // 弹出式模式[reference:10]
+                            mode: 'popup',               // 弹出式模式
                             language: 'zh',
                             onSuccess: function(data) {
                                 // 验证成功回调
@@ -647,9 +647,38 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        // TODO: 如果需要服务端二次验证，可在此处将 captchaToken 发送到您的服务端
-        // 调用 VerifyIntelligentCaptcha 接口进行验证[reference:11]
-        // 阿里云 ESA AI 验证码无需集成服务端代码即可完成验证[reference:12]
+        // ============================================================
+        // 二次验证：将 token 发送到服务端，调用 VerifyIntelligentCaptcha 接口
+        // 参考：https://help.aliyun.com/zh/captcha/captcha2-0/user-guide/server-access
+        // 服务端需实现 /api/verify-captcha 接口，使用阿里云 SDK 调用 VerifyIntelligentCaptcha
+        // 请求参数：{ token: captchaToken }
+        // 返回格式：{ success: true/false, score: 风险分(可选) }
+        // ============================================================
+        try {
+            const verifyRes = await fetch('https://captcha.network.li1234.top/api/verify-captcha', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ token: captchaToken })
+            });
+            const verifyData = await verifyRes.json();
+
+            if (!verifyData.success) {
+                showToast('❌ 验证未通过，请重试');
+                captchaVerified = false;
+                captchaToken = null;
+                loginBtn.disabled = true;
+                loginBtn.innerHTML = '请完成验证';
+                // 重置验证码（如需要可调用相应重置方法）
+                return;
+            }
+            // 可选：获取风险评分 verifyData.score 做额外处理
+            console.log('二次验证成功，风险评分:', verifyData.score);
+        } catch (err) {
+            console.error('二次验证请求失败', err);
+            showToast('⚠️ 验证服务异常，请重试');
+            return;
+        }
+        // ============================================================
 
         if (!auth0Client) {
             showToast('⚠️ 登录服务未就绪，请稍后重试');
