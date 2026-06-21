@@ -410,7 +410,7 @@
     <p class="login-subtitle">请先登录。</p>
     <p style="text-align:center;">开始之前：让我们知道你是人类</p>
     <p class="captcha-hint" style="text-align:center;color:#86868b;font-size:14px;margin-bottom:16px;">我们怀疑你不是真人，请点击“I'm not a robot”复选框（如需要），告诉我们你是真实访客。</p>
-    <p class="captcha-hint" style="text-align:center;color:#86868b;font-size:14px;margin-bottom:16px;">你需要证明自己不是恶意自动程序（漫游器）后，才能继续，由 Cloudflare Turnstile 验证。</p>
+    <p class="captcha-hint" style="text-align:center;color:#86868b;font-size:14px;margin-bottom:16px;">你需要证明自己不是恶意自动程序（漫游器）后，才能继续，由阿里云 ESA AI 验证码验证。</p>
     <div id="captcha" style="display:flex;justify-content:center;margin-bottom:20px;"></div>
     <div class="auth-options">
         <button class="auth-btn auth0" id="loginBtn" type="button">
@@ -510,12 +510,12 @@ document.addEventListener('DOMContentLoaded', function() {
     dataStatementConfirm.addEventListener('click', function() {
         dataStatementMask.style.display = "none";
         loginCard.style.display = "block";
-        if (typeof window.tryInitTurnstile === 'function') window.tryInitTurnstile();
+        if (typeof window.tryInitCaptcha === 'function') window.tryInitCaptcha();
     });
 });
 </script>
 
-<!-- Cloudflare Turnstile + Auth0 登录逻辑 -->
+<!-- 阿里云 ESA AI 验证码 + Auth0 登录逻辑 -->
 <script>
 (async function() {
     const AUTH0_DOMAIN   = 'dev-ipau6rke7ayzc0kt.us.auth0.com';
@@ -523,14 +523,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const REDIRECT_URI = window.location.origin + window.location.pathname;
 
     let auth0Client = null;
-    let turnstileToken = null;
-    let turnstileVerified = false;
+    let captchaVerified = false;
+    let captchaToken = null;
 
-    // ========== Cloudflare Turnstile 配置 ==========
-    const TURNSTILE_SITEKEY = '0x4AAAAAADkmU7ehrNwg2V1d';
-    // TODO: 部署 Worker 后替换为您的 siteverify Worker URL
-    // 例如: const TURNSTILE_WORKER_URL = 'https://turnstile-siteverify.your-worker.workers.dev';
-    const TURNSTILE_WORKER_URL = 'https://captcha.network.li1234.top/api/turnstile/verify';
+    // ========== 阿里云 ESA AI 验证码配置 ==========
+    // TODO: 替换为您的身份标 (prefix) 和区域 (region)
+    // 身份标：在 ESA 控制台 AI 验证码配置页面右上角获取[reference:0]
+    // 场景ID：在配置页面的相应规则条目的场景ID列获取[reference:1]
+    const CAPTCHA_CONFIG = {
+        region: "sgp",              // 验证码示例所属地区，支持 cn（中国内地）、sgp（新加坡）[reference:2]
+        prefix: "esa-pzb5wb0s0l",   // 身份标，替换为实际值[reference:3]
+        sceneId: "pxahkhig"   // 场景ID，替换为实际值
+    };
 
     const loginBtn = document.getElementById('loginBtn');
 
@@ -567,102 +571,85 @@ document.addEventListener('DOMContentLoaded', function() {
         console.warn('Auth0 初始化失败（不影响验证码）', e);
     }
 
-    // 加载 Turnstile script 并渲染 widget
-    function renderTurnstile() {
-        // 如果 Turnstile 已加载，直接渲染
-        if (typeof turnstile !== 'undefined') {
-            try {
-                turnstile.render('#captcha', {
-                    sitekey: TURNSTILE_SITEKEY,
-                    theme: 'light',
-                    callback: function(token) {
-                        turnstileToken = token;
-                        turnstileVerified = true;
-                        loginBtn.disabled = false;
-                        loginBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>登录 / 注册';
-                        showToast('✅ 验证通过，请点击登录');
-                    },
-                    'error-callback': function() {
-                        turnstileToken = null;
-                        turnstileVerified = false;
-                        showToast('❌ 验证失败，请重试');
-                    },
-                    'expired-callback': function() {
-                        turnstileToken = null;
-                        turnstileVerified = false;
-                        showToast('⚠️ 验证已过期，请重新验证');
-                    }
-                });
-            } catch (e) {
-                console.error('Turnstile render error:', e);
-                showToast('⚠️ 验证码渲染失败，请刷新重试');
-            }
-            return;
-        }
+    // ========== 阿里云 ESA AI 验证码初始化 ==========
+    function initAliyunCaptcha() {
+        // 设置全局配置[reference:4][reference:5]
+        window.AliyunCaptchaConfig = {
+            region: CAPTCHA_CONFIG.region,
+            prefix: CAPTCHA_CONFIG.prefix
+        };
 
-        // 如果 Turnstile 还未加载，先加载 script（使用 render=explicit 参数）
+        // 动态加载验证码 JS[reference:6][reference:7]
         var script = document.createElement('script');
-        script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+        script.src = 'https://o.alicdn.com/captcha-frontend/aliyunCaptcha/AliyunCaptcha.js';
         script.async = true;
-        script.defer = true;
         script.onload = function() {
-            // 等待 Turnstile 全局对象可用
+            // 等待 initAliyunCaptcha 可用
             var checkCount = 0;
             var checkInterval = setInterval(function() {
-                if (typeof turnstile !== 'undefined' && turnstile.render) {
+                if (typeof window.initAliyunCaptcha === 'function') {
                     clearInterval(checkInterval);
-                    renderTurnstile();
+                    try {
+                        // 调用初始化方法[reference:8][reference:9]
+                        window.initAliyunCaptcha({
+                            sceneId: CAPTCHA_CONFIG.sceneId,
+                            element: '#captcha',        // 验证码挂载点
+                            mode: 'popup',               // 弹出式模式[reference:10]
+                            language: 'zh',
+                            onSuccess: function(data) {
+                                // 验证成功回调
+                                captchaToken = data.captchaVerifyParam;
+                                captchaVerified = true;
+                                loginBtn.disabled = false;
+                                loginBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>登录 / 注册';
+                                showToast('✅ 验证通过，请点击登录');
+                            },
+                            onError: function() {
+                                captchaToken = null;
+                                captchaVerified = false;
+                                showToast('❌ 验证失败，请重试');
+                            }
+                        });
+                    } catch (e) {
+                        console.error('Aliyun Captcha init error:', e);
+                        showToast('⚠️ 验证码初始化失败，请刷新重试');
+                    }
                 } else if (checkCount++ > 50) {
                     clearInterval(checkInterval);
-                    showToast('⚠️ Turnstile 加载失败，请刷新重试');
+                    showToast('⚠️ 验证码加载失败，请刷新重试');
                 }
             }, 100);
         };
         script.onerror = function() {
-            showToast('⚠️ Turnstile 加载失败，请刷新重试');
+            showToast('⚠️ 验证码加载失败，请刷新重试');
         };
         document.head.appendChild(script);
     }
 
-    // 初始化 Turnstile
-    function initTurnstile() {
+    function tryInitCaptcha() {
         if (loginBtn) {
             loginBtn.disabled = true;
             loginBtn.textContent = '加载验证码...';
         }
-        renderTurnstile();
+        initAliyunCaptcha();
     }
 
-    window.tryInitTurnstile = initTurnstile;
+    window.tryInitCaptcha = tryInitCaptcha;
 
-    // 根据页面显示状态决定初始化哪个
+    // 根据页面显示状态决定初始化
     if (document.getElementById('loginCard').style.display === 'block') {
-        initTurnstile();
+        tryInitCaptcha();
     }
 
     loginBtn.addEventListener('click', async function() {
-        if (!turnstileVerified || !turnstileToken) {
+        if (!captchaVerified || !captchaToken) {
             showToast('⚠️ 请先完成人机验证');
             return;
         }
 
-        if (TURNSTILE_WORKER_URL) {
-            try {
-                const verifyRes = await fetch(TURNSTILE_WORKER_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ token: turnstileToken })
-                });
-                const verifyData = await verifyRes.json();
-                if (!verifyData.success) {
-                    showToast('❌ 验证失败，请重试');
-                    turnstile.reset();
-                    return;
-                }
-            } catch (err) {
-                console.error('Turnstile 验证请求失败', err);
-            }
-        }
+        // TODO: 如果需要服务端二次验证，可在此处将 captchaToken 发送到您的服务端
+        // 调用 VerifyIntelligentCaptcha 接口进行验证[reference:11]
+        // 阿里云 ESA AI 验证码无需集成服务端代码即可完成验证[reference:12]
 
         if (!auth0Client) {
             showToast('⚠️ 登录服务未就绪，请稍后重试');
