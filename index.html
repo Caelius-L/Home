@@ -536,18 +536,20 @@ document.addEventListener('DOMContentLoaded', function() {
     policyConfirmBtn.classList.add('disabled');
 
     agreeCheck.addEventListener('change', function() {
-        if (this.checked) {
-            policyConfirmBtn.classList.remove('disabled');
-            policyConfirmBtn.style.background = '#0071e3';
-            policyConfirmBtn.style.cursor = 'pointer';
-            policyConfirmBtn.style.pointerEvents = 'auto';
-        } else {
-            policyConfirmBtn.classList.add('disabled');
-            policyConfirmBtn.style.background = '#b0b0b0';
-            policyConfirmBtn.style.cursor = 'not-allowed';
-            policyConfirmBtn.style.pointerEvents = 'none';
-        }
-    });
+    if (this.checked) {
+        policyConfirmBtn.classList.remove('disabled');
+        policyConfirmBtn.style.setProperty('background', '#0071e3', 'important');
+        policyConfirmBtn.style.setProperty('cursor', 'pointer', 'important');
+        policyConfirmBtn.style.setProperty('pointer-events', 'auto', 'important');
+        policyConfirmBtn.style.setProperty('opacity', '1', 'important');
+    } else {
+        policyConfirmBtn.classList.add('disabled');
+        policyConfirmBtn.style.removeProperty('background');
+        policyConfirmBtn.style.removeProperty('cursor');
+        policyConfirmBtn.style.removeProperty('pointer-events');
+        policyConfirmBtn.style.removeProperty('opacity');
+    }
+});
 
     // 点击时直接执行（因为 disabled 类有 pointer-events: none，未勾选时根本不会触发点击）
     policyConfirmBtn.addEventListener('click', function() {
