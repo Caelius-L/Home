@@ -347,14 +347,15 @@ img-src 'self' data:;
         .policy-check label { font-size: 14px; color: #1d1d1f; }
         .policy-confirm { width: 100%; padding: 14px; background: #0071e3; color: #fff; border: none; border-radius: 16px; font-size: 15px; font-weight: 600; cursor: pointer; transition: all var(--transition-fast); }
         .policy-confirm:hover { background: #0077ED; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,113,227,0.3); }
-        .policy-confirm:disabled {
+        /* 修复：使用类控制禁用样式，保留点击事件 */
+        .policy-confirm.disabled {
             background: #b0b0b0 !important;
             color: #fff !important;
             cursor: not-allowed !important;
             opacity: 0.6;
             transform: none !important;
             box-shadow: none !important;
-            pointer-events: none;
+            pointer-events: auto; /* 允许点击，但逻辑上会拦截 */
         }
         .login-card { display: none; }
         .data-statement-mask { position: fixed; inset: 0; background: rgba(0,0,0,0.7); display: none; align-items: flex-start; justify-content: center; z-index: 999999; overflow-y: auto; padding: 20px 0; animation: fadeIn 0.2s ease; }
@@ -468,7 +469,7 @@ img-src 'self' data:;
             <a href="https://li1234.com/PyAcademy_Force_Majeure.html" target="_blank">《不可抗力条款》</a>
         </div>
         <div class="policy-check"><input type="checkbox" id="agreeCheck"><label for="agreeCheck">我已阅读并同意以上全部不可分割、不可让之条例</label></div>
-        <button class="policy-confirm" id="policyConfirmBtn">确认并进入登录</button>
+        <button class="policy-confirm disabled" id="policyConfirmBtn">确认并进入登录</button>
     </div>
 </div>
 
@@ -486,7 +487,7 @@ img-src 'self' data:;
 </div>
 
 <script>
-// 协议与卡片显示逻辑（未修改）
+// 协议与卡片显示逻辑（修复：使用类控制禁用，点击时检查复选框）
 document.addEventListener('DOMContentLoaded', function() {
     const policyMask = document.getElementById('policyMask');
     const agreeCheck = document.getElementById('agreeCheck');
@@ -500,16 +501,30 @@ document.addEventListener('DOMContentLoaded', function() {
     loginCard.style.display  = "none";
     policyMask.style.display = "flex";
     dataStatementMask.style.display = "none";
-    policyConfirmBtn.disabled = true;
+    // 初始禁用状态（用类）
+    policyConfirmBtn.classList.add('disabled');
 
     agreeCheck.addEventListener('change', function() {
-        policyConfirmBtn.disabled = !this.checked;
+        // 切换 disabled 类
+        if (this.checked) {
+            policyConfirmBtn.classList.remove('disabled');
+        } else {
+            policyConfirmBtn.classList.add('disabled');
+        }
     });
+
     policyConfirmBtn.addEventListener('click', function() {
+        // 检查复选框是否勾选
+        if (!agreeCheck.checked) {
+            alert('请先勾选所有条款');
+            return;
+        }
+        // 执行弹窗切换
         policyMask.style.display = "none";
         dataStatementMask.style.display = "flex";
         dataStatementConfirm.disabled = false;
     });
+
     dataStatementConfirm.addEventListener('click', function() {
         dataStatementMask.style.display = "none";
         loginCard.style.display = "block";
