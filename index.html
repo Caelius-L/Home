@@ -412,8 +412,9 @@ img-src 'self' data:;
     <div class="logo"><div class="logo-icon">P</div><span class="logo-text">PyAcademy</span></div>
     <h1 class="login-title">欢迎回来</h1>
     <p class="login-subtitle">请先登录。</p>
-    <p style="text-align:center">开始之前：让我们知道你是人类</p>
-    <p class="captcha-hint" style="text-align:center;color:#86868b;font-size:14px;margin-bottom:16px">我们怀疑你不是真人，请点击下方复选框证明你是人类。</p>
+    <p style="text-align:center">开始之前：证明你不是恶意自动程序</p>
+    <p class="captcha-hint" style="text-align:center;color:#86868b;font-size:14px;margin-bottom:16px">我们怀疑你不是人类，请进行人机身份验证，以告诉我们你是真实访客，点击下方“我是真人”复选框进行认证。</p>
+    <p class="captcha-hint" style="text-align:center;color:#86868b;font-size:14px;margin-bottom:16px">本网站采用 reCAPTCHA 来防范漫游器，你需要回答交互式问题才能继续，进行托管质询可能需要几秒钟，由 Google 提供的性能和安全服务。</p>
     <div id="captcha" style="display:flex;justify-content:center;margin-bottom:20px"></div>
     <div class="auth-options">
         <button class="auth-btn auth0" id="loginBtn" type="button">
@@ -557,7 +558,7 @@ document.addEventListener('DOMContentLoaded', function() {
         loginBtn.textContent = '加载验证码...';
         loginBtn.disabled = true;
         const recaptchaScript = document.createElement('script');
-        recaptchaScript.src = 'https://www.recaptcha.net/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit';
+        recaptchaScript.src = 'https://www.recaptcha.net/recaptcha/api.js';
         recaptchaScript.async = true;
         recaptchaScript.defer = true;
         recaptchaScript.onload = function() {
