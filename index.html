@@ -484,6 +484,44 @@ img-src 'self' data:;
 </div>
 
 <script>
+// ===== 全局函数与变量（供 reCAPTCHA 回调使用）=====
+window.captchaVerified = false;
+
+window.showToastGlobal = function(msg) {
+    let t = document.querySelector('.toast');
+    if (!t) {
+        t = document.createElement('div');
+        t.className = 'toast';
+        document.body.appendChild(t);
+    }
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3000);
+};
+
+window.onRecaptchaLoad = function() {
+    const loginCard = document.getElementById('loginCard');
+    // 只有登录卡片可见时才渲染验证码
+    if (loginCard && loginCard.style.display === 'block') {
+        const loginBtn = document.getElementById('loginBtn');
+        grecaptcha.ready(function() {
+            grecaptcha.render('captcha', {
+                sitekey: '6LfYkUUtAAAAANfABsXYW4cpB1JcQ9D8eXtiZCP3',
+                theme: 'light',
+                size: 'normal'
+            });
+            window.captchaVerified = true;
+            if (loginBtn) {
+                loginBtn.disabled = false;
+                loginBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>登录 / 注册';
+            }
+            window.showToastGlobal('✅ 验证码已就绪');
+        });
+    }
+};
+</script>
+
+<script>
 document.addEventListener('DOMContentLoaded', function() {
     const policyMask = document.getElementById('policyMask');
     const agreeCheck = document.getElementById('agreeCheck');
@@ -508,10 +546,16 @@ document.addEventListener('DOMContentLoaded', function() {
     dataStatementConfirm.addEventListener('click', function() {
         dataStatementMask.style.display = "none";
         loginCard.style.display = "block";
-        if (typeof window.tryInitCaptcha === 'function') window.tryInitCaptcha();
+        // 延迟一小段时间确保 DOM 渲染完成后再加载验证码
+        setTimeout(function() {
+            if (typeof window.tryInitCaptcha === 'function') {
+                window.tryInitCaptcha();
+            }
+        }, 100);
     });
 });
 </script>
+
 <script>
 (async function() {
     const AUTH0_DOMAIN   = 'dev-ipau6rke7ayzc0kt.us.auth0.com';
@@ -519,21 +563,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const REDIRECT_URI = window.location.origin + window.location.pathname;
 
     let auth0Client = null;
-    let captchaVerified = false;
+    // 不再定义局部 captchaVerified，直接用 window.captchaVerified
 
     const loginBtn = document.getElementById('loginBtn');
 
-    function showToast(msg) {
-        let t = document.querySelector('.toast');
-        if (!t) {
-            t = document.createElement('div');
-            t.className = 'toast';
-            document.body.appendChild(t);
-        }
-        t.textContent = msg;
-        t.classList.add('show');
-        setTimeout(() => t.classList.remove('show'), 3000);
-    }
+    // 用全局的 showToastGlobal
+    function showToast(msg) { window.showToastGlobal(msg); }
 
     try {
         await window.loadSDK('https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.min.js');
@@ -556,13 +591,43 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function initRecaptcha() {
+        // 使用全局的 onRecaptchaLoad
         loginBtn.textContent = '加载验证码...';
         loginBtn.disabled = true;
+
+        // 如果已经加载过，直接渲染
+        if (typeof grecaptcha !== 'undefined' && grecaptcha.render) {
+            grecaptcha.render('captcha', {
+                sitekey: '6LfYkUUtAAAAANfABsXYW4cpB1JcQ9D8eXtiZCP3',
+                theme: 'light',
+                size: 'normal'
+            });
+            grecaptcha.ready(function() {
+                window.captchaVerified = true;
+                loginBtn.disabled = false;
+                loginBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>登录 / 注册';
+                showToast('✅ 验证码已就绪');
+            });
+            return;
+        }
+
+        // 否则加载脚本（含 onload 参数）
         const recaptchaScript = document.createElement('script');
-        recaptchaScript.src = 'https://www.recaptcha.net/recaptcha/api.js';
+        recaptchaScript.src = 'https://www.recaptcha.net/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit';
         recaptchaScript.async = true;
         recaptchaScript.defer = true;
-        recaptchaScript.onload = function() {
+        recaptchaScript.onerror = function() {
+            showToast('❌ 验证码加载失败，请刷新重试');
+            loginBtn.textContent = '登录 / 注册';
+            loginBtn.disabled = false;
+        };
+        document.head.appendChild(recaptchaScript);
+    }
+
+    function tryInitCaptcha() {
+        // 避免重复加载
+        if (document.querySelector('script[src*="recaptcha/api.js"]')) {
+            // 如果已经加载但未渲染，重新尝试渲染
             if (typeof grecaptcha !== 'undefined' && grecaptcha.render) {
                 grecaptcha.render('captcha', {
                     sitekey: '6LfYkUUtAAAAANfABsXYW4cpB1JcQ9D8eXtiZCP3',
@@ -570,49 +635,27 @@ document.addEventListener('DOMContentLoaded', function() {
                     size: 'normal'
                 });
                 grecaptcha.ready(function() {
-                    captchaVerified = true;
+                    window.captchaVerified = true;
                     loginBtn.disabled = false;
                     loginBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>登录 / 注册';
                     showToast('✅ 验证码已就绪');
                 });
+                return;
             }
-        };
-        recaptchaScript.onerror = function() {
-            showToast('验证码加载失败，请刷新重试');
-            loginBtn.textContent = '登录 / 注册';
-            loginBtn.disabled = false;
-        };
-        document.head.appendChild(recaptchaScript);
-    }
-
-    window.onRecaptchaLoad = function() {
-        if (document.getElementById('loginCard').style.display === 'block') {
-            grecaptcha.render('captcha', {
-                sitekey: '6LfYkUUtAAAAANfABsXYW4cpB1JcQ9D8eXtiZCP3',
-                theme: 'light',
-                size: 'normal'
-            });
-            grecaptcha.ready(function() {
-                captchaVerified = true;
-                loginBtn.disabled = false;
-                loginBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>登录 / 注册';
-                showToast('✅ 验证码已就绪');
-            });
         }
-    };
-
-    function tryInitCaptcha() {
+        // 否则正常加载
         initRecaptcha();
     }
 
     window.tryInitCaptcha = tryInitCaptcha;
 
+    // 如果登录卡片一开始就显示（比如用户已同意协议），立即加载
     if (document.getElementById('loginCard').style.display === 'block') {
         tryInitCaptcha();
     }
 
     loginBtn.addEventListener('click', async function() {
-        if (!captchaVerified) {
+        if (!window.captchaVerified) {
             showToast('⚠️ 请先完成人机验证');
             return;
         }
@@ -631,7 +674,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!verifyData.success) {
                 showToast('❌ 验证未通过，请重试');
                 grecaptcha.reset();
-                captchaVerified = false;
+                window.captchaVerified = false;
                 loginBtn.disabled = true;
                 loginBtn.textContent = '请完成验证';
                 return;
@@ -642,7 +685,7 @@ document.addEventListener('DOMContentLoaded', function() {
             showToast('⚠️ 验证服务异常，请重试');
             return;
         }
-        captchaVerified = true;
+        // 后端验证成功后，继续 Auth0 登录
         if (!auth0Client) {
             showToast('⚠️ 登录服务未就绪，请稍后重试');
             return;
