@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="
-connect-src 'self' https://www.google.com https://recaptcha.net https://www.recaptcha.net https://captcha1.api.li1234.top;
-script-src 'self' 'unsafe-inline' https://www.recaptcha.net https://recaptcha.net https://cdn.auth0.com https://static.cloudflareinsights.com https://www.gstatic.com https://gstatic.com;
+connect-src 'self' https://static.geetest.com https://captcha1.api.li1234.top;
+script-src 'self' 'unsafe-inline' https://static.geetest.com https://cdn.auth0.com https://static.cloudflareinsights.com;
 font-src 'self' https://li1234.com;
 style-src 'self' 'unsafe-inline';
-frame-src 'self' https://www.recaptcha.net https://recaptcha.net https://www.gstatic.com https://gstatic.com;
 img-src 'self' data:;
+frame-src 'self' https://static.geetest.com;
 ">
     <title>登录 - PyAcademy</title>
     
@@ -414,7 +414,7 @@ img-src 'self' data:;
     <h1 class="login-title">欢迎回来</h1>
     <p class="login-subtitle">请先登录。</p>
     <p style="text-align:center">开始之前：证明你不是恶意自动程序</p>
-    <p class="captcha-hint" style="text-align:center;color:#86868b;font-size:14px;margin-bottom:16px">我们怀疑你不是人类，请进行人机身份验证，以告诉我们你是真实访客，点击下方“我是真人”复选框进行认证。</p>
+    <p class="captcha-hint" style="text-align:center;color:#86868b;font-size:14px;margin-bottom:16px">我们怀疑你不是人类，请进行人机身份验证，以告诉我们你是真实访客，点击下方"我是真人"复选框进行认证。</p>
     <p class="captcha-hint" style="text-align:center;color:#86868b;font-size:14px;margin-bottom:16px">本网站采用 reCAPTCHA 来防范漫游器，你需要回答交互式问题才能继续，进行托管质询可能需要几秒钟，由 Google 提供的性能和安全服务。</p>
     <div id="captcha" style="display:flex;justify-content:center;margin-bottom:20px"></div>
     <div class="auth-options">
@@ -484,8 +484,9 @@ img-src 'self' data:;
 </div>
 
 <script>
-// ===== 全局函数与变量（供 reCAPTCHA 回调使用）=====
+// ===== 全局变量 =====
 window.captchaVerified = false;
+window.captchaValidateData = null;
 
 window.showToastGlobal = function(msg) {
     let t = document.querySelector('.toast');
@@ -497,27 +498,6 @@ window.showToastGlobal = function(msg) {
     t.textContent = msg;
     t.classList.add('show');
     setTimeout(() => t.classList.remove('show'), 3000);
-};
-
-window.onRecaptchaLoad = function() {
-    const loginCard = document.getElementById('loginCard');
-    // 只有登录卡片可见时才渲染验证码
-    if (loginCard && loginCard.style.display === 'block') {
-        const loginBtn = document.getElementById('loginBtn');
-        grecaptcha.ready(function() {
-            grecaptcha.render('captcha', {
-                sitekey: '6LfYkUUtAAAAANfABsXYW4cpB1JcQ9D8eXtiZCP3',
-                theme: 'light',
-                size: 'normal'
-            });
-            window.captchaVerified = true;
-            if (loginBtn) {
-                loginBtn.disabled = false;
-                loginBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>登录 / 注册';
-            }
-            window.showToastGlobal('✅ 验证码已就绪');
-        });
-    }
 };
 </script>
 
@@ -590,64 +570,81 @@ document.addEventListener('DOMContentLoaded', function() {
         console.warn('Auth0 初始化失败（不影响验证码）', e);
     }
 
-    function initRecaptcha() {
-        // 使用全局的 onRecaptchaLoad
+    function initGeetest4() {
         loginBtn.textContent = '加载验证码...';
         loginBtn.disabled = true;
 
-        // 如果已经加载过，直接渲染
-        if (typeof grecaptcha !== 'undefined' && grecaptcha.render) {
-            grecaptcha.render('captcha', {
-                sitekey: '6LfYkUUtAAAAANfABsXYW4cpB1JcQ9D8eXtiZCP3',
-                theme: 'light',
-                size: 'normal'
-            });
-            grecaptcha.ready(function() {
-                window.captchaVerified = true;
-                loginBtn.disabled = false;
-                loginBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>登录 / 注册';
-                showToast('✅ 验证码已就绪');
-            });
+        // 如果已经加载过，直接初始化
+        if (typeof initGeetest4 !== 'undefined') {
+            doInitGeetest();
             return;
         }
 
-        // 否则加载脚本（含 onload 参数）
-        const recaptchaScript = document.createElement('script');
-        recaptchaScript.src = 'https://www.recaptcha.net/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit';
-        recaptchaScript.async = true;
-        recaptchaScript.defer = true;
-        recaptchaScript.onerror = function() {
+        // 加载极验 SDK
+        const gs = document.createElement('script');
+        gs.src = 'https://static.geetest.com/v4/gt4.js';
+        gs.async = true;
+        gs.onload = function() {
+            doInitGeetest();
+        };
+        gs.onerror = function() {
             showToast('❌ 验证码加载失败，请刷新重试');
             loginBtn.textContent = '登录 / 注册';
             loginBtn.disabled = false;
         };
-        document.head.appendChild(recaptchaScript);
-    }
+        document.head.appendChild(gs);
 
-    function tryInitCaptcha() {
-        // 避免重复加载
-        if (document.querySelector('script[src*="recaptcha/api.js"]')) {
-            // 如果已经加载但未渲染，重新尝试渲染
-            if (typeof grecaptcha !== 'undefined' && grecaptcha.render) {
-                grecaptcha.render('captcha', {
-                    sitekey: '6LfYkUUtAAAAANfABsXYW4cpB1JcQ9D8eXtiZCP3',
-                    theme: 'light',
-                    size: 'normal'
-                });
-                grecaptcha.ready(function() {
-                    window.captchaVerified = true;
+        function doInitGeetest() {
+            initGeetest4({
+                captcha_id: '187071c48969947dd74d595a6c757cc5', // TODO: 替换为你在极验控制台创建的 captchaId
+                product: 'bind',
+                language: 'zh-cn',
+                timeout: 10000,
+            }, function (captchaObj) {
+                // 验证成功
+                captchaObj.onSuccess(function () {
+                    const validate = captchaObj.getValidate();
+                    if (!validate) {
+                        showToast('❌ 验证失败，请重试');
+                        return;
+                    }
+                    captchaValidateData = validate;
+                    captchaVerified = true;
                     loginBtn.disabled = false;
                     loginBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>登录 / 注册';
                     showToast('✅ 验证码已就绪');
                 });
-                return;
-            }
+
+                // 验证失败
+                captchaObj.onFail(function () {
+                    showToast('❌ 验证失败，请重试');
+                });
+
+                // 错误处理
+                captchaObj.onError(function (err) {
+                    showToast('❌ 验证码错误: ' + (err.msg || err.code));
+                });
+
+                // 关闭处理
+                captchaObj.onClose(function () {
+                    captchaVerified = false;
+                    captchaValidateData = null;
+                });
+
+                // 将验证码按钮附加到 #captcha 容器
+                captchaObj.appendTo('#captcha');
+
+                // 绑定到登录按钮，点击登录按钮时弹出验证码
+                loginBtn.disabled = false;
+                loginBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>登录 / 注册';
+                loginBtn.addEventListener('click', function () {
+                    captchaObj.showCaptcha();
+                });
+            });
         }
-        // 否则正常加载
-        initRecaptcha();
     }
 
-    window.tryInitCaptcha = tryInitCaptcha;
+    window.tryInitCaptcha = initGeetest4;
 
     // 如果登录卡片一开始就显示（比如用户已同意协议），立即加载
     if (document.getElementById('loginCard').style.display === 'block') {
@@ -655,26 +652,24 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     loginBtn.addEventListener('click', async function() {
-        if (!window.captchaVerified) {
+        if (!window.captchaVerified || !window.captchaValidateData) {
             showToast('⚠️ 请先完成人机验证');
-            return;
-        }
-        const recaptchaToken = grecaptcha.getResponse();
-        if (!recaptchaToken) {
-            showToast('⚠️ 请完成人机验证');
             return;
         }
         try {
             const verifyRes = await fetch('https://captcha1.api.li1234.top/api/verify-captcha', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ token: recaptchaToken, type: 'recaptcha_v2' })
+                body: JSON.stringify({
+                    token: window.captchaValidateData,
+                    type: 'geetest_v4'
+                })
             });
             const verifyData = await verifyRes.json();
             if (!verifyData.success) {
                 showToast('❌ 验证未通过，请重试');
-                grecaptcha.reset();
                 window.captchaVerified = false;
+                window.captchaValidateData = null;
                 loginBtn.disabled = true;
                 loginBtn.textContent = '请完成验证';
                 return;
