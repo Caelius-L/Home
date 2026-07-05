@@ -9,7 +9,7 @@ script-src 'self' 'unsafe-inline' https://static.geetest.com https://gcaptcha4.g
 font-src 'self' https://li1234.com;
 style-src 'self' 'unsafe-inline';
 img-src 'self' data:;
-frame-src 'self' https://static.geetest.com;
+frame-src 'self' https://static.geetest.com https://gcaptcha4.geetest.com https://gcaptcha4.geevisit.com https://gcaptcha4.gsensebot.com;
 ">
     <title>登录 - PyAcademy</title>
     
@@ -386,6 +386,14 @@ frame-src 'self' https://static.geetest.com;
         .choose-btn.btn-3:hover { background: rgba(0,0,0,0.03); border-color: rgba(0,0,0,0.18); }
         .choose-footer { text-align: center; margin-top: 28px; font-size: 13px; color: #aeaeb2; }
         @media (max-width: 480px) { .choose-card { padding: 36px 28px; margin: 16px; } .choose-title { font-size: 24px; } }
+        #captcha {
+    display:flex;
+    justify-content:center;
+    margin-bottom:20px;
+    min-height: 44px;
+    width: 100%;
+    overflow: visible;
+}
     </style>
     <script>
     window.loadSDK = function(src) {
@@ -599,6 +607,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 product: 'bind',
                 language: 'zh-cn',
                 timeout: 10000,
+                offline:true
             }, function (captchaObj) {
                 // 验证成功
                 captchaObj.onSuccess(function () {
@@ -607,8 +616,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         showToast('❌ 验证失败，请重试');
                         return;
                     }
-                    captchaValidateData = validate;
-                    captchaVerified = true;
+                    window.captchaValidateData = validate;
+                    window.captchaVerified = true;
                     loginBtn.disabled = false;
                     loginBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>登录 / 注册';
                     showToast('✅ 验证码已就绪');
@@ -626,8 +635,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // 关闭处理
                 captchaObj.onClose(function () {
-                    captchaVerified = false;
-                    captchaValidateData = null;
+                    window.captchaVerified = false;
+                    window.captchaValidateData = null;
                 });
 
                 // 将验证码按钮附加到 #captcha 容器
