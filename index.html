@@ -594,13 +594,13 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     document.head.appendChild(gs);
 
-    function doInitGeetest() {
-        // ✅ 明确调用 SDK 的 initGeetest4
-        window.initGeetest4({
-            captcha_id: '187071c48969947dd74d595a6c757cc5',
-            product: 'bind',
-            language: 'zh-cn',
-            timeout: 10000,
+    ffunction doInitGeetest() {
+    window.initGeetest4({
+        captcha_id: '187071c48969947dd74d595a6c757cc5',
+        product: 'bind',
+        language: 'zh-cn',
+        timeout: 10000,
+        api_server: 'https://gcaptcha4.geetest.com',  // 强制指
         }, function (captchaObj) {
             captchaObj.onSuccess(function () {
                 const validate = captchaObj.getValidate();
