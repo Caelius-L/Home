@@ -4,12 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="
-connect-src 'self' https://static.geetest.com https://captcha1.api.li1234.top https://gcaptcha4.geetest.com https://gcaptcha4.geevisit.com https://gcaptcha4.gsensebot.com;
-script-src 'self' 'unsafe-inline' https://static.geetest.com https://gcaptcha4.geetest.com https://gcaptcha4.geevisit.com https://gcaptcha4.gsensebot.com https://cdn.auth0.com https://static.cloudflareinsights.com;
-font-src 'self' https://li1234.com;
-style-src 'self' 'unsafe-inline';
-img-src 'self' data:;
-frame-src 'self' https://static.geetest.com https://gcaptcha4.geetest.com https://gcaptcha4.geevisit.com https://gcaptcha4.gsensebot.com;
+connect-src 'self' https://challenges.cloudflare.com;
+script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://cdn.auth0.com https://static.cloudflareinsights.com;
 ">
     <title>登录 - PyAcademy</title>
     
@@ -386,14 +382,6 @@ frame-src 'self' https://static.geetest.com https://gcaptcha4.geetest.com https:
         .choose-btn.btn-3:hover { background: rgba(0,0,0,0.03); border-color: rgba(0,0,0,0.18); }
         .choose-footer { text-align: center; margin-top: 28px; font-size: 13px; color: #aeaeb2; }
         @media (max-width: 480px) { .choose-card { padding: 36px 28px; margin: 16px; } .choose-title { font-size: 24px; } }
-        #captcha {
-    display:flex;
-    justify-content:center;
-    margin-bottom:20px;
-    min-height: 44px;
-    width: 100%;
-    overflow: visible;
-}
     </style>
     <script>
     window.loadSDK = function(src) {
@@ -423,8 +411,8 @@ frame-src 'self' https://static.geetest.com https://gcaptcha4.geetest.com https:
     <p class="login-subtitle">请先登录。</p>
     <p style="text-align:center">开始之前：证明你不是恶意自动程序</p>
     <p class="captcha-hint" style="text-align:center;color:#86868b;font-size:14px;margin-bottom:16px">我们怀疑你不是人类，请进行人机身份验证，以告诉我们你是真实访客，点击下方"我是真人"复选框进行认证。</p>
-    <p class="captcha-hint" style="text-align:center;color:#86868b;font-size:14px;margin-bottom:16px">本网站采用 CAPTCHA 来防范漫游器，你需要回答交互式问题才能继续，进行托管质询可能需要几秒钟，由 GeeTest 提供的性能和安全服务。</p>
-    <div id="captcha" style="display:flex;justify-content:center;margin-bottom:20px"></div>
+     <p class="captcha-hint" style="text-align:center;color:#86868b;font-size:14px;margin-bottom:16px">本网站采用 CAPTCHA 来防范漫游器，你需要回答交互式问题才能继续，进行托管质询可能需要几秒钟，由 Cloudflare Turnstile 提供的性能和安全服务。</p>
+    <div id="turnstile-container" style="margin-bottom:20px;min-height:60px;display:flex;justify-content:center"></div>
     <div class="auth-options">
         <button class="auth-btn auth0" id="loginBtn" type="button">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -549,13 +537,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const AUTH0_DOMAIN   = 'dev-ipau6rke7ayzc0kt.us.auth0.com';
     const AUTH0_CLIENT_ID = 'cza7SbgB0XHe9fZGt7rUvtmBeQD7vqIS';
     const REDIRECT_URI = window.location.origin + window.location.pathname;
+    const TURNSTILE_SITE_KEY = '0x4AAAAAADkmU7ehrNwg2V1d'; // ← 替换为你的 Turnstile site key
 
     let auth0Client = null;
-    // 不再定义局部 captchaVerified，直接用 window.captchaVerified
 
     const loginBtn = document.getElementById('loginBtn');
 
-    // 用全局的 showToastGlobal
     function showToast(msg) { window.showToastGlobal(msg); }
 
     try {
@@ -578,117 +565,84 @@ document.addEventListener('DOMContentLoaded', function() {
         console.warn('Auth0 初始化失败（不影响验证码）', e);
     }
 
-    function tryInitCaptcha() {
-        // 检查极验 SDK 是否已加载（全局 initGeetest4 由 gt4.js 注入）
-        if (typeof window.initGeetest4 === 'function') {
-            doInitGeetest();
-            return;
-        }
+    // ===== Cloudflare Turnstile =====
+    function loadTurnstileSDK() {
+        return new Promise(function(resolve, reject) {
+            if (document.querySelector('script[src="https://challenges.cloudflare.com/turnstile/v0/api.js"]')) { resolve(); return; }
+            var s = document.createElement('script');
+            s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+            s.async = true;
+            s.defer = true;
+            s.onload = resolve;
+            s.onerror = function() { reject(new Error('Failed to load Turnstile SDK')); };
+            document.head.appendChild(s);
+        });
+    }
 
-        // 加载极验 SDK
-        loginBtn.textContent = '加载验证码...';
-        loginBtn.disabled = true;
-        const gs = document.createElement('script');
-        gs.src = 'https://static.geetest.com/v4/gt4.js';
-        gs.async = true;
-        gs.onload = function() {
-            doInitGeetest();
-        };
-        gs.onerror = function() {
+    let turnstileToken = null;
+
+    function initTurnstile() {
+        loadTurnstileSDK().then(function() {
+            if (typeof turnstile !== 'undefined') {
+                turnstile.render('#turnstile-container', {
+                    sitekey: TURNSTILE_SITE_KEY,
+                    callback: function(token) {
+                        turnstileToken = token;
+                        window.captchaVerified = true;
+                        window.captchaValidateData = { token: token };
+                        loginBtn.disabled = false;
+                        loginBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>登录 / 注册';
+                        showToast('✅ 验证码已就绪');
+                    },
+                    'error-callback': function() {
+                        showToast('❌ 验证失败，请重试');
+                    }
+                });
+            }
+        }).catch(function(e) {
             showToast('❌ 验证码加载失败，请刷新重试');
             loginBtn.textContent = '登录 / 注册';
             loginBtn.disabled = false;
-        };
-        document.head.appendChild(gs);
-
-        function doInitGeetest() {
-            window.initGeetest4({
-                captcha_id: '187071c48969947dd74d595a6c757cc5',
-                product: 'bind',
-                language: 'zh-cn',
-                timeout: 10000,
-                offline:true
-            }, function (captchaObj) {
-                // 验证成功
-                captchaObj.onSuccess(function () {
-                    const validate = captchaObj.getValidate();
-                    if (!validate) {
-                        showToast('❌ 验证失败，请重试');
-                        return;
-                    }
-                    window.captchaValidateData = validate;
-                    window.captchaVerified = true;
-                    loginBtn.disabled = false;
-                    loginBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>登录 / 注册';
-                    showToast('✅ 验证码已就绪');
-                });
-
-                // 验证失败
-                captchaObj.onFail(function () {
-                    showToast('❌ 验证失败，请重试');
-                });
-
-                // 错误处理
-                captchaObj.onError(function (err) {
-                    showToast('❌ 验证码错误: ' + (err.msg || err.code));
-                });
-
-                // 关闭处理
-                captchaObj.onClose(function () {
-                    window.captchaVerified = false;
-                    window.captchaValidateData = null;
-                });
-
-                // 将验证码按钮附加到 #captcha 容器
-                captchaObj.appendTo('#captcha');
-
-                // 绑定到登录按钮，点击登录按钮时弹出验证码
-                loginBtn.disabled = false;
-                loginBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>登录 / 注册';
-                loginBtn.addEventListener('click', function () {
-                    captchaObj.showCaptcha();
-                });
-            });
-        }
+        });
     }
 
-    window.tryInitCaptcha = tryInitCaptcha;
+    window.tryInitCaptcha = initTurnstile;
 
-    // 如果登录卡片一开始就显示（比如用户已同意协议），立即加载
     if (document.getElementById('loginCard').style.display === 'block') {
-        tryInitCaptcha();
+        initTurnstile();
     }
 
     loginBtn.addEventListener('click', async function() {
-        if (!window.captchaVerified || !window.captchaValidateData) {
+        if (!window.captchaVerified || !turnstileToken) {
             showToast('⚠️ 请先完成人机验证');
             return;
         }
         try {
-            const verifyRes = await fetch('https://captcha1.li1234.top/api/verify-captcha', {
+            const verifyRes = await fetch('https://captcha.li1234.top/api/verify-captcha', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    token: window.captchaValidateData,
-                    type: 'geetest_v4'
+                    token: turnstileToken,
+                    type: 'cloudflare_turnstile'
                 })
             });
             const verifyData = await verifyRes.json();
             if (!verifyData.success) {
                 showToast('❌ 验证未通过，请重试');
+                turnstile.reset();
+                turnstileToken = null;
                 window.captchaVerified = false;
                 window.captchaValidateData = null;
                 loginBtn.disabled = true;
                 loginBtn.textContent = '请完成验证';
                 return;
             }
-            console.log('后端验证成功，风险评分:', verifyData.score);
+            console.log('后端验证成功');
         } catch (err) {
             console.error('后端验证请求失败', err);
             showToast('⚠️ 验证服务异常，请重试');
             return;
         }
-        // 后端验证成功后，继续 Auth0 登录
         if (!auth0Client) {
             showToast('⚠️ 登录服务未就绪，请稍后重试');
             return;
