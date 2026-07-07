@@ -423,7 +423,7 @@ frame-src 'self' https://static.geetest.com https://gcaptcha4.geetest.com https:
     <p class="login-subtitle">请先登录。</p>
     <p style="text-align:center">开始之前：证明你不是恶意自动程序</p>
     <p class="captcha-hint" style="text-align:center;color:#86868b;font-size:14px;margin-bottom:16px">我们怀疑你不是人类，请进行人机身份验证，以告诉我们你是真实访客，点击下方"我是真人"复选框进行认证。</p>
-    <p class="captcha-hint" style="text-align:center;color:#86868b;font-size:14px;margin-bottom:16px">本网站采用 reCAPTCHA 来防范漫游器，你需要回答交互式问题才能继续，进行托管质询可能需要几秒钟，由 Google 提供的性能和安全服务。</p>
+    <p class="captcha-hint" style="text-align:center;color:#86868b;font-size:14px;margin-bottom:16px">本网站采用 CAPTCHA 来防范漫游器，你需要回答交互式问题才能继续，进行托管质询可能需要几秒钟，由 GeeTest 提供的性能和安全服务。</p>
     <div id="captcha" style="display:flex;justify-content:center;margin-bottom:20px"></div>
     <div class="auth-options">
         <button class="auth-btn auth0" id="loginBtn" type="button">
@@ -665,7 +665,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         try {
-            const verifyRes = await fetch('https://captcha1.api.li1234.top/api/verify-captcha', {
+            const verifyRes = await fetch('https://captcha1.li1234.top/api/verify-captcha', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
