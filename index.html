@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="
-connect-src 'self' https://challenges.cloudflare.com;
-script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://cdn.auth0.com https://static.cloudflareinsights.com;
+connect-src 'self' https://gcaptcha4.geetest.com https://static.geetest.com https://captcha.li1234.top;
+script-src 'self' 'unsafe-inline' https://static.geetest.com https://cdn.logto.io https://static.cloudflareinsights.com;
 ">
     <title>登录 - PyAcademy</title>
     
@@ -384,17 +384,8 @@ script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://cdn.
         @media (max-width: 480px) { .choose-card { padding: 36px 28px; margin: 16px; } .choose-title { font-size: 24px; } }
     </style>
     <script>
-    window.loadSDK = function(src) {
-        return new Promise(function(resolve, reject) {
-            if (document.querySelector('script[data-sdk="' + src + '"]')) { resolve(); return; }
-            var s = document.createElement('script');
-            s.src = src;
-            s.dataset.sdk = src;
-            s.onload = resolve;
-            s.onerror = function() { reject(new Error('Failed to load ' + src)); };
-            document.head.appendChild(s);
-        });
-    };
+    // Geetest SDK will be loaded dynamically
+    window.initGeetest4 = null;
     </script>
 </head>
 <body>
@@ -411,8 +402,8 @@ script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://cdn.
     <p class="login-subtitle">请先登录。</p>
     <p style="text-align:center">开始之前：证明你不是恶意自动程序</p>
     <p class="captcha-hint" style="text-align:center;color:#86868b;font-size:14px;margin-bottom:16px">我们怀疑你不是人类，请进行人机身份验证，以告诉我们你是真实访客，点击下方"我是真人"复选框进行认证。</p>
-     <p class="captcha-hint" style="text-align:center;color:#86868b;font-size:14px;margin-bottom:16px">本网站采用 CAPTCHA 来防范漫游器，你需要回答安全问题才能继续，进行性能质询可能需要几秒钟，由 Cloudflare Turnstile 提供支持。</p>
-    <div id="turnstile-container" style="margin-bottom:20px;min-height:60px;display:flex;justify-content:center"></div>
+     <p class="captcha-hint" style="text-align:center;color:#86868b;font-size:14px;margin-bottom:16px">本网站采用 CAPTCHA 来防范漫游器，你需要回答交互式问题才能继续，进行托管质询可能需要几秒钟，由 Cloudflare Turnstile 提供的性能和安全服务。</p>
+    <div id="captcha-container" style="margin-bottom:20px;min-height:60px;display:flex;justify-content:center"></div>
     <div class="auth-options">
         <button class="auth-btn auth0" id="loginBtn" type="button">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -534,71 +525,145 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <script>
 (async function() {
-    const AUTH0_DOMAIN   = 'dev-ipau6rke7ayzc0kt.us.auth0.com';
-    const AUTH0_CLIENT_ID = 'cza7SbgB0XHe9fZGt7rUvtmBeQD7vqIS';
+    // ===== Logto Cloud OIDC (PKCE) =====
+    const LOGTO_APP_ID    = 'rw1vbx3byw9oqhvn57t5a';       // ← 替换为你的 Application ID
+    const LOGTO_APP_SECRET = 'YOUR_LOGTO_APPLICATION_SECRET';  // ← 替换为你的 Application Secret
+    const LOGTO_ENDPOINT  = 'https://c0m9n2.logto.app';           // ← 替换为你的租户域名（末尾无斜杠）
+
     const REDIRECT_URI = window.location.origin + window.location.pathname;
-    const TURNSTILE_SITE_KEY = '0x4AAAAAADkmU7ehrNwg2V1d'; // ← 替换为你的 Turnstile site key
+    const CODE_VERIFIER_KEY = 'logto_code_verifier';
+    const STATE_KEY = 'logto_state';
 
-    let auth0Client = null;
-
-    const loginBtn = document.getElementById('loginBtn');
-
-    function showToast(msg) { window.showToastGlobal(msg); }
-
-    try {
-        await window.loadSDK('https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.min.js');
-        if (typeof createAuth0Client !== 'undefined') {
-            auth0Client = await createAuth0Client({
-                domain: AUTH0_DOMAIN,
-                clientId: AUTH0_CLIENT_ID,
-                authorizationParams: { redirect_uri: REDIRECT_URI }
-            });
-            if (window.location.search.includes('code=') && window.location.search.includes('state=')) {
-                await auth0Client.handleRedirectCallback();
-                window.history.replaceState({}, document.title, REDIRECT_URI);
-                showToast('✅ 登录成功！');
-                document.getElementById('loginCard').style.display = 'none';
-                document.getElementById('chooseCard').style.display = 'block';
-            }
-        }
-    } catch (e) {
-        console.warn('Auth0 初始化失败（不影响验证码）', e);
+    function generateRandomString(length) {
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let result = '';
+        const array = new Uint32Array(length);
+        crypto.getRandomValues(array);
+        for (let i = 0; i < length; i++) result += chars[array[i] % chars.length];
+        return result;
     }
 
-    // ===== Cloudflare Turnstile =====
-    function loadTurnstileSDK() {
+    async function sha256(plain) {
+        const encoder = new TextEncoder();
+        const data = encoder.encode(plain);
+        const hash = await crypto.subtle.digest('SHA-256', data);
+        return btoa(String.fromCharCode(...new Uint8Array(hash)))
+            .replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+    }
+
+    // 检查是否是 Logto 回调
+    if (window.location.search.includes('code=') && window.location.search.includes('state=')) {
+        const params = new URLSearchParams(window.location.search);
+        const code  = params.get('code');
+        const state = params.get('state');
+
+        if (code && state) {
+            try {
+                const storedState = localStorage.getItem(STATE_KEY);
+                const storedVerifier = localStorage.getItem(CODE_VERIFIER_KEY);
+
+                if (storedState && storedState === state && storedVerifier) {
+                    // 先交换 token
+                    const tokenRes = await fetch(LOGTO_ENDPOINT + '/oauth/token', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            grant_type: 'authorization_code',
+                            code: code,
+                            redirect_uri: REDIRECT_URI,
+                            client_id: LOGTO_APP_ID,
+                            code_verifier: storedVerifier
+                        })
+                    });
+                    if (!tokenRes.ok) {
+                        throw new Error('Token exchange failed');
+                    }
+                    const tokens = await tokenRes.json();
+
+                    // 用 access_token 拿用户信息
+                    const userRes = await fetch(LOGTO_ENDPOINT + '/oidc/me', {
+                        headers: { 'Authorization': 'Bearer ' + tokens.access_token }
+                    });
+                    if (userRes.ok) {
+                        const userInfo = await userRes.json();
+                        console.log('Logto 用户信息:', userInfo);
+                    }
+
+                    localStorage.removeItem(STATE_KEY);
+                    localStorage.removeItem(CODE_VERIFIER_KEY);
+                    window.history.replaceState({}, document.title, REDIRECT_URI);
+                    showToast('✅ 登录成功！');
+                    document.getElementById('loginCard').style.display = 'none';
+                    document.getElementById('chooseCard').style.display = 'block';
+                } else {
+                    localStorage.removeItem(STATE_KEY);
+                    localStorage.removeItem(CODE_VERIFIER_KEY);
+                }
+            } catch (e) {
+                console.warn('Logto 回调处理失败', e);
+                localStorage.removeItem(STATE_KEY);
+                localStorage.removeItem(CODE_VERIFIER_KEY);
+            }
+        }
+    }
+
+    // ===== 极验 Geetest 4.0 =====
+    function loadGeetestSDK() {
         return new Promise(function(resolve, reject) {
-            if (document.querySelector('script[src="https://challenges.cloudflare.com/turnstile/v0/api.js"]')) { resolve(); return; }
+            if (window.initGeetest4) { resolve(); return; }
             var s = document.createElement('script');
-            s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+            s.src = 'https://static.geetest.com/v4/gt4.js';
             s.async = true;
-            s.defer = true;
-            s.onload = resolve;
-            s.onerror = function() { reject(new Error('Failed to load Turnstile SDK')); };
+            s.onload = function() { resolve(); };
+            s.onerror = function() { reject(new Error('Failed to load Geetest SDK')); };
             document.head.appendChild(s);
         });
     }
 
-    let turnstileToken = null;
+    let geetestResult = null;
+    const loginBtn = document.getElementById('loginBtn');
 
-    function initTurnstile() {
-        loadTurnstileSDK().then(function() {
-            if (typeof turnstile !== 'undefined') {
-                turnstile.render('#turnstile-container', {
-                    sitekey: TURNSTILE_SITE_KEY,
-                    callback: function(token) {
-                        turnstileToken = token;
-                        window.captchaVerified = true;
-                        window.captchaValidateData = { token: token };
-                        loginBtn.disabled = false;
-                        loginBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>登录 / 注册';
-                        showToast('✅ 验证码已就绪');
-                    },
-                    'error-callback': function() {
-                        showToast('❌ 验证失败，请重试');
-                    }
-                });
+    function initGeetest() {
+        loadGeetestSDK().then(function() {
+            if (typeof initGeetest4 !== 'function') {
+                showToast('❌ 验证码 SDK 加载失败');
+                loginBtn.textContent = '登录 / 注册';
+                loginBtn.disabled = false;
+                return;
             }
+
+            initGeetest4({
+                captchaId: '187071c48969947dd74d595a6c757cc5',
+                product: 'float',
+                language: 'zho',
+                protocol: 'https://'
+            }, function (captcha) {
+                captcha.appendTo('#captcha-container');
+
+                captcha.onSuccess(function () {
+                    var result = captcha.getValidate();
+                    if (!result) {
+                        showToast('❌ 验证失败，请重试');
+                        return;
+                    }
+                    geetestResult = result;
+                    window.captchaVerified = true;
+                    window.captchaValidateData = result;
+                    loginBtn.disabled = false;
+                    loginBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>登录 / 注册';
+                    showToast('✅ 验证码已就绪');
+                });
+
+                captcha.onFail(function () {
+                    showToast('❌ 验证失败，请重试');
+                });
+
+                captcha.onError(function (error) {
+                    showToast('❌ 验证码出错，请刷新重试');
+                    loginBtn.textContent = '登录 / 注册';
+                    loginBtn.disabled = false;
+                });
+            });
         }).catch(function(e) {
             showToast('❌ 验证码加载失败，请刷新重试');
             loginBtn.textContent = '登录 / 注册';
@@ -606,64 +671,76 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    window.tryInitCaptcha = initTurnstile;
+    window.tryInitCaptcha = initGeetest;
 
     if (document.getElementById('loginCard').style.display === 'block') {
-        initTurnstile();
+        initGeetest();
     }
 
     loginBtn.addEventListener('click', async function() {
-        if (!window.captchaVerified || !turnstileToken) {
+        if (!window.captchaVerified || !geetestResult) {
             showToast('⚠️ 请先完成人机验证');
             return;
         }
         try {
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 10000);
             const verifyRes = await fetch('https://captcha.li1234.top/api/verify-captcha', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    token: turnstileToken,
-                    type: 'cloudflare_turnstile'
-                })
+                    lot_number: geetestResult.lot_number,
+                    captcha_output: geetestResult.captcha_output,
+                    pass_token: geetestResult.pass_token,
+                    gen_time: geetestResult.gen_time,
+                    type: 'geetest'
+                }),
+                signal: controller.signal
             });
+            clearTimeout(timeoutId);
             const verifyData = await verifyRes.json();
             if (!verifyData.success) {
                 showToast('❌ 验证未通过，请重试');
-                turnstile.reset();
-                turnstileToken = null;
-                window.captchaVerified = false;
-                window.captchaValidateData = null;
-                loginBtn.disabled = true;
-                loginBtn.textContent = '请完成验证';
                 return;
             }
             console.log('后端验证成功');
         } catch (err) {
             console.error('后端验证请求失败', err);
-            showToast('⚠️ 验证服务异常，请重试');
+            if (err.name === 'AbortError') {
+                showToast('⚠️ 验证服务超时，请检查网络连接后重试');
+            } else {
+                showToast('⚠️ 验证服务连接失败，请稍后重试');
+            }
             return;
         }
-        if (!auth0Client) {
-            showToast('⚠️ 登录服务未就绪，请稍后重试');
-            return;
-        }
-        const isAuthenticated = await auth0Client.isAuthenticated();
-        if (isAuthenticated) {
-            showToast('您已登录');
-            document.getElementById('loginCard').style.display = 'none';
-            document.getElementById('chooseCard').style.display = 'block';
-            return;
-        }
+
         loginBtn.disabled = true;
         loginBtn.textContent = '正在跳转...';
-        try {
-            await auth0Client.loginWithRedirect({ appState: { returnTo: REDIRECT_URI } });
-        } catch (e) {
+
+        // 生成 PKCE 参数
+        const state = generateRandomString(32);
+        const codeVerifier = generateRandomString(128);
+        const codeChallengePromise = sha256(codeVerifier);
+
+        localStorage.setItem(STATE_KEY, state);
+        localStorage.setItem(CODE_VERIFIER_KEY, codeVerifier);
+
+        codeChallengePromise.then(function(codeChallenge) {
+            const authorizeUrl = LOGTO_ENDPOINT + '/oauth/authorize' +
+                '?response_type=code' +
+                '&client_id=' + encodeURIComponent(LOGTO_APP_ID) +
+                '&redirect_uri=' + encodeURIComponent(REDIRECT_URI) +
+                '&scope=openid profile' +
+                '&state=' + encodeURIComponent(state) +
+                '&code_challenge=' + encodeURIComponent(codeChallenge) +
+                '&code_challenge_method=S256';
+            window.location.href = authorizeUrl;
+        }).catch(function(e) {
             console.error(e);
             showToast('❌ 登录跳转失败，请重试');
             loginBtn.disabled = false;
             loginBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>登录 / 注册';
-        }
+        });
     });
 })();
 </script>
