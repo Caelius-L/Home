@@ -686,7 +686,7 @@ document.addEventListener('DOMContentLoaded', function() {
         try {
             const controller = new AbortController();
             const timeoutId = setTimeout(() => controller.abort(), 10000);
-            const verifyRes = await fetch('https://captcha.li1234.top/api/verify-captcha', {
+            const verifyRes = await fetch('https://captcha1.li1234.top/api/verify-captcha', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
