@@ -552,60 +552,21 @@ document.addEventListener('DOMContentLoaded', function() {
             .replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
     }
 
-    // 检查是否是 Logto 回调
-    if (window.location.search.includes('code=') && window.location.search.includes('state=')) {
-        const params = new URLSearchParams(window.location.search);
-        const code  = params.get('code');
-        const state = params.get('state');
-
-        if (code && state) {
-            try {
-                const storedState = localStorage.getItem(STATE_KEY);
-                const storedVerifier = localStorage.getItem(CODE_VERIFIER_KEY);
-
-                if (storedState && storedState === state && storedVerifier) {
-                    // 先交换 token
-                    const tokenRes = await fetch(LOGTO_ENDPOINT + '/oauth/token', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            grant_type: 'authorization_code',
-                            code: code,
-                            redirect_uri: REDIRECT_URI,
-                            client_id: LOGTO_APP_ID,
-                            code_verifier: storedVerifier
-                        })
-                    });
-                    if (!tokenRes.ok) {
-                        throw new Error('Token exchange failed');
-                    }
-                    const tokens = await tokenRes.json();
-
-                    // 用 access_token 拿用户信息
-                    const userRes = await fetch(LOGTO_ENDPOINT + '/oidc/me', {
-                        headers: { 'Authorization': 'Bearer ' + tokens.access_token }
-                    });
-                    if (userRes.ok) {
-                        const userInfo = await userRes.json();
-                        console.log('Logto 用户信息:', userInfo);
-                    }
-
-                    localStorage.removeItem(STATE_KEY);
-                    localStorage.removeItem(CODE_VERIFIER_KEY);
-                    window.history.replaceState({}, document.title, REDIRECT_URI);
-                    showToast('✅ 登录成功！');
-                    document.getElementById('loginCard').style.display = 'none';
-                    document.getElementById('chooseCard').style.display = 'block';
-                } else {
-                    localStorage.removeItem(STATE_KEY);
-                    localStorage.removeItem(CODE_VERIFIER_KEY);
-                }
-            } catch (e) {
-                console.warn('Logto 回调处理失败', e);
-                localStorage.removeItem(STATE_KEY);
-                localStorage.removeItem(CODE_VERIFIER_KEY);
+    // 检查是否已有会话（后端 Cookie 已设置）
+    try {
+        const sessionRes = await fetch(window.location.origin + window.location.pathname, {
+            method: 'GET',
+            credentials: 'include'
+        });
+        if (sessionRes.ok) {
+            const sessionData = await sessionRes.json();
+            if (sessionData.signed_in) {
+                document.getElementById('loginCard').style.display = 'none';
+                document.getElementById('chooseCard').style.display = 'block';
             }
         }
+    } catch(e) {
+        console.warn('会话检查失败', e);
     }
 
     // ===== 极验 Geetest 4.0 =====
@@ -718,32 +679,20 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         loginBtn.disabled = true;
-        loginBtn.textContent = '正在跳转...';
+        loginBtn.textContent = "正在跳转...";
 
-        // 生成 PKCE 参数
-        const state = generateRandomString(32);
-        const codeVerifier = generateRandomString(128);
-        const codeChallengePromise = sha256(codeVerifier);
-
-        localStorage.setItem(STATE_KEY, state);
-        localStorage.setItem(CODE_VERIFIER_KEY, codeVerifier);
-
-        codeChallengePromise.then(function(codeChallenge) {
-            const authorizeUrl = LOGTO_ENDPOINT + '/oauth/authorize' +
-                '?response_type=code' +
-                '&client_id=' + encodeURIComponent(LOGTO_APP_ID) +
-                '&redirect_uri=' + encodeURIComponent(REDIRECT_URI) +
-                '&scope=openid profile' +
-                '&state=' + encodeURIComponent(state) +
-                '&code_challenge=' + encodeURIComponent(codeChallenge) +
-                '&code_challenge_method=S256';
-            window.location.href = authorizeUrl;
-        }).catch(function(e) {
-            console.error(e);
-            showToast('❌ 登录跳转失败，请重试');
+        // 调用后端 /sign-in 发起 OIDC 登录
+        try {
+            const signInRes = await fetch("/sign-in", {
+                method: "GET",
+                credentials: "include"
+            });
+        } catch(err) {
+            console.error("登录请求失败", err);
+            showToast("登录请求失败，请稍后重试");
             loginBtn.disabled = false;
-            loginBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>登录 / 注册';
-        });
+            loginBtn.textContent = "登录 / 注册";
+        }
     });
 })();
 </script>
